@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Safety() {
   const navigate = useNavigate();
-  const [slideIndex, setSlideIndex] = useState(0);
 
   const protocols = [
     {
