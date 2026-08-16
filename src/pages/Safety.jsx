@@ -84,9 +84,9 @@ export default function Safety() {
       {/* Hero Section */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden bg-primary text-white text-left">
         <div className="absolute inset-0 z-0">
-          <img 
-            className="w-full h-full object-cover" 
-            alt="Safety inspection on industrial gas valve" 
+          <img
+            className="w-full h-full object-cover"
+            alt="Safety inspection on industrial gas valve"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXSv1GgOG1-RfM0_l9JqyMLyl6IuDCAuduVlQBl8yL8uiPdPgUN8he5TtHzzjtNd4FsKhttz-52MmZKUwQP_FuBHT0V8u3cREbtLFVCild5h2eW0Wch2JbbUKCqTm7O5DOfVZ5-GatkKevBNLJt-X676MY3ymyF0Mw95Hu0oUpURWIuBUA_c9tsaBfRaXUTj0LQGhDlu2c9nJ_u6bOT9A_O4Ec0ikI9QSqPR3Ibk7dG0TcgSSUox0BzPnmP2PJpOk8yjWX4qwUymg"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/50"></div>
@@ -103,13 +103,13 @@ export default function Safety() {
               Implementing the world's most rigorous safety protocols to ensure the integrity of your energy infrastructure and the protection of our communities.
             </p>
             <div className="flex gap-4">
-              <button 
+              <button
                 onClick={() => navigate('/contact')}
                 className="bg-secondary-container text-on-secondary px-8 py-4 rounded-lg font-label-md hover:shadow-lg transition-all cursor-pointer font-semibold"
               >
                 View Our Protocols
               </button>
-              <a 
+              <a
                 href="#"
                 className="border border-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-label-md hover:bg-white/10 transition-all flex items-center justify-center font-semibold"
               >
@@ -184,13 +184,13 @@ export default function Safety() {
             <p className="text-on-surface-variant max-w-xl text-base">Training is the backbone of our reliability. We invest thousands of hours annually in specialized safety drills and updates.</p>
           </div>
           <div className="flex gap-4">
-            <button 
+            <button
               onClick={prevSlide}
               className="w-12 h-12 rounded-full border border-outline-variant/80 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all cursor-pointer"
             >
               <span className="material-symbols-outlined">arrow_back</span>
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               className="w-12 h-12 rounded-full border border-outline-variant/80 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all cursor-pointer"
             >
@@ -203,10 +203,10 @@ export default function Safety() {
             // Highlight active slide conceptually or just display all beautifully
             return (
               <div key={i} className="relative rounded-2xl overflow-hidden aspect-[4/5] group shadow-md">
-                <img 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                  alt={slide.title} 
-                  src={slide.image} 
+                <img
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={slide.title}
+                  src={slide.image}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/95 to-transparent flex items-end p-8">
                   <div className="text-white">

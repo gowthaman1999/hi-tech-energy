@@ -1,159 +1,87 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { OFFICE_LOCATIONS } from '../data/nglsData';
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      {/* Top Banner (CTA) */}
-      <section className="py-24 bg-primary relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 opacity-10">
-          <div className="grid grid-cols-12 h-full">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="border-r border-white/20"></div>
-            ))}
+    <footer className="bg-primary text-white pt-16 pb-8 border-t border-white/10">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-16">
+        
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+          
+          {/* Brand Info */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-8 h-8 rounded-lg bg-secondary-container text-white flex items-center justify-center font-bold text-sm">H</span>
+              <span className="font-headline-md font-bold text-lg text-white">HI TECH ENERGY</span>
+            </div>
+            <p className="font-body-sm text-xs text-white/70 leading-relaxed pt-2">
+              Providing specialized LPG gas infrastructure, commercial reticulation systems, LOT pipelines, and medical oxygen pipeline solutions with a zero-compromise approach to safety.
+            </p>
+            <div className="pt-2 flex gap-2">
+              <span className="inline-block px-3 py-1 bg-white/10 rounded-md text-white/90 text-xs font-semibold">PESO Certified</span>
+              <span className="inline-block px-3 py-1 bg-white/10 rounded-md text-white/90 text-xs font-semibold">ISO 9001:2015</span>
+            </div>
           </div>
-        </div>
-        <div className="max-w-[1280px] mx-auto px-4 md:px-16 relative z-10 text-center">
-          <h2 className="font-headline-xl text-white mb-8 text-headline-xl leading-tight">
-            Partner with the LPG Experts
-          </h2>
-          <p className="font-body-lg text-white/70 mb-12 max-w-2xl mx-auto">
-            Ready to upgrade your gas infrastructure? Contact our engineering team for a comprehensive technical consultation today.
-          </p>
-          <Link 
-            to="/contact" 
-            className="inline-flex bg-secondary-container text-on-secondary px-12 py-5 rounded-xl font-headline-md hover:bg-secondary transition-all shadow-2xl items-center gap-3 mx-auto cursor-pointer"
-          >
-            <span className="material-symbols-outlined">call</span>
-            Get In Touch Now
-          </Link>
-        </div>
-      </section>
 
-      {/* Main Footer Links */}
-      <div className="max-w-[1280px] mx-auto py-20 px-4 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-5">
-          <div className="font-headline-lg text-headline-lg font-bold text-white mb-6">
-            HI TECH ENERGY
+          {/* Pipeline Services */}
+          <div>
+            <h4 className="font-headline-md text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-secondary-container inline-block pb-1">
+              Gas Pipeline Services
+            </h4>
+            <ul className="space-y-2 text-xs font-body-sm">
+              <li><Link to="/services/domestic-lpg-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Domestic LPG Pipeline</Link></li>
+              <li><Link to="/services/commercial-lpg-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Commercial LPG Pipeline</Link></li>
+              <li><Link to="/services/reticulated-lpg-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Reticulated LPG Pipeline</Link></li>
+              <li><Link to="/services/lot-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">LOT Gas Pipeline</Link></li>
+              <li><Link to="/services/bulk-lpg-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Bulk LPG Pipeline</Link></li>
+              <li><Link to="/services/oxygen-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Medical Oxygen Pipeline</Link></li>
+            </ul>
           </div>
-          <p className="font-body-md text-white/60 max-w-sm mb-8">
-            Lead specialists in high-performance LPG infrastructure, engineering solutions, and gas safety management across industrial and residential sectors.
-          </p>
-          <div className="flex gap-4">
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary-container transition-all"
-              aria-label="Website"
-            >
-              <span className="material-symbols-outlined text-sm">public</span>
-            </a>
-            <a 
-              href="mailto:support@hitechenergy.example.com" 
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary-container transition-all"
-              aria-label="Email"
-            >
-              <span className="material-symbols-outlined text-sm">mail</span>
-            </a>
-            <a 
-              href="#" 
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary-container transition-all"
-              aria-label="Location"
-            >
-              <span className="material-symbols-outlined text-sm">location_on</span>
-            </a>
-          </div>
-        </div>
 
-        <div className="md:col-span-2">
-          <h6 className="font-label-md text-white mb-6 uppercase tracking-widest text-sm font-semibold">
-            Solutions
-          </h6>
-          <ul className="space-y-4">
-            <li>
-              <Link to="/services" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Industrial LPG
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Commercial Systems
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Residential Networks
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Gas Detection
-              </Link>
-            </li>
-          </ul>
+          {/* Other Services */}
+          <div>
+            <h4 className="font-headline-md text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-secondary-container inline-block pb-1">
+              Other Services
+            </h4>
+            <ul className="space-y-2 text-xs font-body-sm">
+              <li><Link to="/services/gas-fuel-conversion" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Fuel Conversion</Link></li>
+              <li><Link to="/services/gas-purification-panel-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Purification Panels</Link></li>
+              <li><Link to="/services/leakage-detection-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Leakage Detection System</Link></li>
+              <li><Link to="/services/flow-meter-calculation-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Flow Meter Calculation</Link></li>
+              <li><Link to="/services/hsd-diesel-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">HSD / Diesel Pipeline</Link></li>
+              <li><Link to="/services/ammonia-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Ammonia Pipeline System</Link></li>
+            </ul>
+          </div>
+
+          {/* Office Locations */}
+          <div className="space-y-4">
+            <h4 className="font-headline-md text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-secondary-container inline-block pb-1">
+              Our Offices
+            </h4>
+            <div className="text-xs font-body-sm space-y-1 text-white/70">
+              <p className="font-bold text-white">{OFFICE_LOCATIONS.headOffice.title}</p>
+              <p className="leading-relaxed">{OFFICE_LOCATIONS.headOffice.address}</p>
+            </div>
+            <div className="text-xs font-body-sm space-y-1 text-white/70 pt-2">
+              <p className="font-bold text-white">{OFFICE_LOCATIONS.warehouse.title}</p>
+              <p className="leading-relaxed">{OFFICE_LOCATIONS.warehouse.address}</p>
+            </div>
+          </div>
+
         </div>
 
-        <div className="md:col-span-2">
-          <h6 className="font-label-md text-white mb-6 uppercase tracking-widest text-sm font-semibold">
-            Quick Links
-          </h6>
-          <ul className="space-y-4">
-            <li>
-              <Link to="/safety" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Safety Protocols
-              </Link>
-            </li>
-            <li>
-              <Link to="/safety" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Certifications
-              </Link>
-            </li>
-            <li>
-              <Link to="/projects" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Case Studies
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="font-body-sm text-white/85 hover:text-secondary-container transition-all text-sm">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
+        {/* Bottom Copyright */}
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-white/50 gap-4">
+          <p>© {new Date().getFullYear()} HI TECH ENERGY. All Rights Reserved.</p>
+          <div className="flex gap-6">
+            <Link to="/about" className="hover:text-white">About Us</Link>
+            <Link to="/testimonials" className="hover:text-white">Testimonials</Link>
+            <Link to="/contact" className="hover:text-white">Contact Us</Link>
+          </div>
         </div>
 
-        <div className="md:col-span-3">
-          <h6 className="font-label-md text-white mb-6 uppercase tracking-widest text-sm font-semibold">
-            Global HQ
-          </h6>
-          <p className="font-body-sm text-white/85 mb-4 text-sm leading-relaxed">
-            Engineering Plaza, Suite 400<br />
-            Industrial Park South<br />
-            London, UK
-          </p>
-          <div className="bg-white/5 p-4 rounded-xl border border-white/10">
-            <div className="font-label-sm text-secondary mb-1 text-xs">Emergency Support</div>
-            <div className="font-headline-md text-white text-xl font-bold">+44 20 7946 0123</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Legal Credits Bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-[1280px] mx-auto py-8 px-4 md:px-16 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="font-label-sm text-white/60 text-xs">
-            © 2026 HI TECH ENERGY. All Rights Reserved. Safety First.
-          </div>
-          <div className="flex gap-8">
-            <a href="#" className="font-label-sm text-white/60 hover:text-white transition-all text-xs">
-              Privacy Policy
-            </a>
-            <a href="#" className="font-label-sm text-white/60 hover:text-white transition-all text-xs">
-              Terms of Service
-            </a>
-            <a href="#" className="font-label-sm text-white/60 hover:text-white transition-all text-xs">
-              Cookie Policy
-            </a>
-          </div>
-        </div>
       </div>
     </footer>
   );
