@@ -47,21 +47,21 @@ export default function Industries() {
               <img 
                 className="w-full h-full object-cover" 
                 alt="Industrial manufacturing floor" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBEBgzEsHeCp-NxprzJJ2bqF0KeVPZNR-EUIiJ8I1MNMRYN3vfKDKjCV3dD9tVKZDA0mMGt6lG4O_G2h3W7VjMKfBamtv-oLZukhVuY40RUdE0TLVvwFuibpdEvsTfuFLVi_4ar9O0UlnuovXhjIwu0uRRbn5Y9T-w5ubl_JesttN-6LK57GXgS1NMzWpdfghjcP5Ki3k8VBF4ZP8zZ-7tulAn67PphFe87v0jLpMU1U65JqkhyWimJUr63Fswfxf_wSWTM4QRnmQ"
+                src="/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM.jpeg" 
               />
             </div>
             <div className="rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 aspect-square">
               <img 
                 className="w-full h-full object-cover" 
                 alt="Luxury high-rise apartment sunrise" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWOojmLPgUqe8QkNqWEaeA7HqErAz__ryttjdqZ7L4SRLCh5wNZejMTkrW6K77tEL3Wy9cysCOCL8Z65p-AyAhAdFzYBl5rDYM69jyx-AD1Dll6XswGD8LScV4ggFYeZC8kytJGwFexuIs2D7xBEPMH0s-u_x-UyGr-MijbEM_xUBDVtfyVFPy71x9rUzhUoVchx8zE5H7sbu1-362okxaRGq8vPd96spEohp0JdRtZV1zneUsdQ8_7YCrmohRpBhzb6sS2umCQv0"
+                src="/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__2_.jpeg" 
               />
             </div>
             <div className="rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 aspect-square">
               <img 
                 className="w-full h-full object-cover" 
-                alt="Upscale shopping mall interior" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2m3rDZsOLGF9f9cbJsHHenySF-5OUSOA87ZlXpToy1Eo-1v-LJPpjo2AvSyENfDk7JZY46KslNwW-o0n7-8HcqHyTxt8Q26V5FJi68nd0h9A3TIkNp_9rfPWfVlczvk1rwDt7tYTN7tvc3hJjtN_ABrXK6brN9ju71Lro1n73MUbci8ul0vFdh8R3IXB91zZ3o6vAI33ywgMPrt_tI2A-c8ItQsRrEriRhj-3qpAD7hUsATvbWgXqRc9i6hrdXQOpU_oVm8l7bXw"
+                alt="Commercial kitchen gas lines" 
+                src="/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__7_.jpeg" 
               />
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Industries() {
             <img 
               className="rounded-[32px] w-full shadow-md border border-outline-variant/50" 
               alt="Professional hotel kitchen" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsPMh7HT3jzyw8goM8E6wkqnJtVZhHqo7l3fxyfG4tL9Lk28Fd-zFXYma_zWWLbcxX37jdgH0OhOTQIG1kO5tXKbNhLcxLBNAsyesxKpoogtAINC4L5JguKqCWDorpvM3Ytyk26eEk5fXHfQ-GSJ7oy2twfD8efyzeSpJDLGqvtID4ER7WBALha9Ed366JD5CS6jTsjn2DVDAI74dx2HhE7Otu6FOhOlG_mVf8pO9qeO6g5IcqtzT-9R6NuzzlCJg9ImzRfV03kvU"
+              src="/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__6_.jpeg" 
             />
           </div>
           <div className="order-1 md:order-2">
@@ -87,7 +87,7 @@ export default function Industries() {
             </div>
             <h2 className="font-headline-lg text-3xl font-bold text-primary mb-6">Seamless Energy for Guest Excellence</h2>
             <p className="text-body-md text-on-surface-variant mb-8 leading-relaxed text-sm">
-              In hotels, malls, and restaurants, energy downtime isn't just an inconvenience—it's a reputational risk. We provide the invisible infrastructure that powers world-class guest experiences.
+              In hotels, malls, and restaurants, energy downtime isn't just an inconvenience-it's a reputational risk. We provide the invisible infrastructure that powers world-class guest experiences.
             </p>
             <div className="space-y-6 mb-10">
               <div className="p-6 bg-surface-container rounded-xl border-l-4 border-secondary text-sm">
@@ -133,7 +133,7 @@ export default function Industries() {
             <img 
               className="rounded-[32px] w-full shadow-md border border-outline-variant/50" 
               alt="Industrial gas manifold system" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuANNNYNR9xxJSMUourC3GlwvL5eOR5kgCMcSUR-CcdznjlsOt5qA10WK5U31N1QLss6mouQnwOS9efxj2YKz8wMg_zl4AbkfqYxhkOESXPw3KNNCauuHMC5FR-70dTw2oOu5fVLWEX0dQmdRNAHOqxNdMmRqNF0rHx41aygqwKI-ZoqrSHej6PDs9LRktwpAMHX1z5ZM7RjDvOqIijspVHmJPt_sEe3t9bAGA4wwtkvzSMFU2fd-vGx9OUkp0R8pb3Nj7H63n3HcfQ"
+              src="/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_07_PM.jpeg" 
             />
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function Industries() {
             <img 
               className="rounded-[32px] w-full shadow-md border border-outline-variant/50" 
               alt="Smart gas meter in villa" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuACyBeUycN5eZ45G5ImG67Hjz8dOiq3xZREc5-bPO-1NyuJowcQv2S1A9h2Jr3pVGsFVH_Jg-WfR2_vZLtyspQbuV23lxfhdVegew1t1oW-ZWxH29mELCbCvR5e-nAn2KF9wvoTEZRxf1rzMifBt2IybJ71pqDAv1qLNIfCKynqqzgcKcWBdGKxu--JlCf9WBc_56szwlM8RhE7RIuwJBfiUoUSJWcnhriZ1U0RSOxdLfaB3PT2Vcjjx0PZZa4k7PQTRxZXI4GzQmw"
+              src="/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__1_.jpeg" 
             />
           </div>
           <div className="order-1 md:order-2">

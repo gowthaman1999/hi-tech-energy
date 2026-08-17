@@ -12,7 +12,7 @@ export default function Insights() {
     {
       id: 1,
       topic: 'Infrastructure',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAYICJMDuq0fHTIyrEmHgdscbCHm_1ptj-i_CNDpixGcNmP_OFj_ww8CmEpQeFKTw9nX8yAOn_dB6lOVDAnUaDwggfEbkjtzNAmlutAjbLxhEMvZMiQNFigAC6nUBTc5F-H8QhD4QjPFLPabYJXB3VgYjLgDQi4TvgBHal3ovCxbju_GvpVIb2GEbLVnxF9Y-vdELh9EUcZ8DS1y1bz4x6wz53xYCAYxrSF8JNHKo7Lk4Cx_Na0bfsHw8hlJlke5R_ni8raCbssy80',
+      image: '/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg',
       tag: 'Featured',
       date: 'March 12, 2026',
       title: 'Advancing Pipeline Integrity with AI-Driven Predictive Maintenance',
@@ -24,7 +24,7 @@ export default function Insights() {
     {
       id: 2,
       topic: 'Safety Protocols',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCvWk1n6wAcVDAiA4wSnop4M4u-LFFSPuzyjw9ddMEBJdNscb75EdTJHgrGgikMWH6RsFTYBSKvMDI4HNsCv4xDEIfyADFtCFLscvdKDKdVqHvZ4VsfTnIS7J_UFaJ62Oo8ZqjsuQdKlRb6OaoKxn8zcBtNRHqvQJ6KODmjWU_Y0jwOdsMdyLcQnOb_NmaX8mFksMStdMlUulbiz7Evh-UEuigg-R1wMRvPfukXuBSpL5RXU11A-aFJptOS79CI-5gsNRntZaHP6uI',
+      image: '/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__3_.jpeg',
       tag: 'Safety First',
       date: 'Feb 10, 2026',
       title: '2026 Safety Protocol Update: Hydrogen Blending Safety Standards',
@@ -33,7 +33,7 @@ export default function Insights() {
     {
       id: 3,
       topic: 'Case Studies',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCulGFOm_ORCPIJlS0dZcarciMBoGOD3hKNzCV0clddldUVyaqUFNUXErL4g-f4YfAnXrU3ujeWDgMLwgKdxvGYQEXGJwxo5ZOGumVlXDWehLMjLxzvoYupf27K9LRl0QxQjf2IGnzbCldMqt3co93VPy7UryVJAQYfJ1zAiHE-KgGQzNJVz9iwosU1uqbFF7ltzaU6_kHw6opIXBeRHyVJLX9jpNNr1LwjIwHZlN8ls0hjOvpjB7fRbLCPcoFNljDYmcRGR564fy0',
+      image: '/images/gdrive/Comercial_line_cylinder_room_pipeline_WhatsApp_Image_2026-08-17_at_4_33_39_PM__3_.jpeg',
       tag: 'Project Spotlight',
       date: 'Jan 28, 2026',
       title: 'Expanding the Northern Corridor: A Case Study in Grid Resilience',
@@ -42,7 +42,7 @@ export default function Insights() {
     {
       id: 4,
       topic: 'Infrastructure',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAM2ZeF92V8IsRxHYksOMD-XjOzpa4ERcHctIRnf0vZSazb1FJviM5a2YW0N_ox3sfMqqKbq1DRIzweZD6OpFdNYGV7uXb9fY3LnVHO4tJFTx5lYhk7IZBtQ0VEu9drU5YXKLdQ10vuK3WcO1qRjUr16ZVzL-BR8m9zRxn8aMCKL3pgcztPEtOTqQcDHZXt7neSHBx59Kq4GfzGxLeGZl4eWD4b-qYFhtT8NM1XyFXroamfehU01OYARHAZMyMgRC6cjdWz9xazk9A',
+      image: '/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_07_PM.jpeg',
       tag: 'Industry News',
       date: 'Jan 15, 2026',
       title: 'The Digital Twin Revolution in Large-Scale Gas Storage',
@@ -51,7 +51,7 @@ export default function Insights() {
     {
       id: 5,
       topic: 'Decarbonization',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDDPV3Yfcc_2Et103bySPQk_GKyh3QlZKJH7F4NhPRZMWxWmeOrFDchjMVNq2J6Q9cOZcF6jFsu6vhr4U_5yU0sehqnVkLDLiJ3J3Ae7Wux4W73Dyu4n2sZo1STkFvwBk4zEMMhx7ssWXua9ZnPE7WPD70B-MhsEcTMGFbt4ypJY1FjjwiD5FtC-Azz537V_j6omEfLUwdV1Ms1t-MyrHUyEoUJn7P8OQWpo0PHxQxNMEiv7nRcFjHqREze2HufB3kb5Hu7B0FU8Qg',
+      image: '/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__3_.jpeg',
       tag: 'Sustainability',
       date: 'Dec 02, 2025',
       title: 'Bridging the Gap: The Role of Natural Gas in Hybrid Energy Parks',

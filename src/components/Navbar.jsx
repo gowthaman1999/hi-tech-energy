@@ -27,20 +27,20 @@ export default function Navbar() {
 
   const pipelineServicesLinks = [
     { path: '/services/domestic-lpg-pipeline', label: 'Domestic LPG Pipeline' },
-    { path: '/services/commercial-lpg-pipeline', label: 'Commercial LPG Pipeline' },
-    { path: '/services/reticulated-lpg-pipeline', label: 'Reticulated LPG Pipeline' },
-    { path: '/services/lot-pipeline', label: 'LOT LPG Pipeline' },
-    { path: '/services/bulk-lpg-pipeline', label: 'Bulk LPG Pipeline' },
-    { path: '/services/oxygen-pipeline', label: 'Oxygen Pipeline' }
+    { path: '/services/commercial-lpg-pipeline', label: 'Commercial VOT Pipeline' },
+    { path: '/services/reticulated-lpg-pipeline', label: 'LPG Reticulated System' },
+    { path: '/services/lot-pipeline', label: 'LOT Pipeline System' },
+    { path: '/services/industrial-solutions', label: 'Industrial Gas Solutions' },
+    { path: '/services/laboratory-gas-line-system', label: 'Chemistry Laboratory Gas Line' }
   ];
 
   const otherServicesLinks = [
-    { path: '/services/gas-fuel-conversion', label: 'Gas Fuel Conversion' },
-    { path: '/services/gas-purification-panel-system', label: 'Gas Purification Panel system' },
-    { path: '/services/leakage-detection-system', label: 'Leakage Detection System' },
-    { path: '/services/flow-meter-calculation-system', label: 'Flow Meter Calculation System' },
-    { path: '/services/hsd-diesel-pipeline', label: 'HSD / Diesel Pipeline' },
-    { path: '/services/ammonia-pipeline', label: 'Ammonia Pipeline' }
+    { path: '/services/commercial-lab-pipeline', label: 'Commercial Lab Pipeline' },
+    { path: '/services/gas-control-panel-system', label: 'Gas Control Panel System' },
+    { path: '/services/gas-line-filtration-system', label: 'Gas Line Filtration System' },
+    { path: '/services/leakage-detection-system', label: 'Gas Leak Detection & Auto Shut-off' },
+    { path: '/services/opportunities-expansion', label: 'Opportunities - Expansion' },
+    { path: '/services/future-outlook', label: 'Future Outlook & Upgrades' }
   ];
 
   return (
@@ -49,16 +49,19 @@ export default function Navbar() {
         isScrolled ? 'shadow-md bg-white/90 backdrop-blur-md' : 'bg-white/80 backdrop-blur-md'
       }`}
     >
-      <div className="w-full max-w-[1280px] mx-auto px-4 md:px-16 flex justify-between items-center">
+      <div className="w-full px-4 md:px-8 lg:px-12 flex justify-between items-center">
         
-        {/* Original Brand Logo */}
+        {/* Official Brand Logo */}
         <Link 
           to="/" 
-          className="font-headline-md text-xl md:text-2xl font-bold text-primary tracking-tight flex items-center gap-2"
+          className="flex items-center gap-2 py-1 group focus:outline-none"
           onClick={() => setIsOpen(false)}
         >
-          <span className="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm">H</span>
-          <span>HI TECH ENERGY</span>
+          <img 
+            src="/images/logo.png" 
+            alt="HI TECH ENERGY Logo" 
+            className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop Nav Items */}

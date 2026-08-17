@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { OFFICE_LOCATIONS } from '../data/nglsData';
+import { OFFICE_LOCATIONS, COMPANY_INFO } from '../data/hitechData';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,19 +17,19 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full bg-white text-on-surface">
+    <div className="w-full bg-white text-on-surface overflow-hidden">
       
-      {/* Header Banner - Flush with top navbar */}
+      {/* Header Banner */}
       <section className="bg-primary text-white pt-28 pb-16 px-4 md:px-16 text-center">
         <div className="max-w-[1280px] mx-auto">
-          <span className="inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold">
-            Contact Technical Team
+          <span className="reveal-slide-up inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
+            {COMPANY_INFO.slogan}
           </span>
-          <h1 className="font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4">
-            Get In Touch With Gas Pipeline Experts
+          <h1 className="reveal-slide-up font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4" data-delay="200ms">
+            Contact HI TECH ENERGY
           </h1>
-          <p className="font-body-lg text-sm md:text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Have questions about gas reticulation, LOT systems, or installation estimates? Fill out the form or reach out directly to our engineering offices.
+          <p className="reveal-slide-up font-body-lg text-sm md:text-base text-white/80 max-w-2xl mx-auto leading-relaxed" data-delay="300ms">
+            Get in touch for LPG Gas Pipeline Installation Service, site surveys, VOT/LOT manifold setups, and safety audits.
           </p>
         </div>
       </section>
@@ -39,29 +39,32 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
           {/* Office Contact Info */}
-          <div className="space-y-8">
+          <div className="reveal-slide-left space-y-8">
             <div>
-              <h2 className="font-headline-lg text-2xl font-bold text-primary mb-6">Our Office Locations</h2>
+              <h2 className="font-headline-lg text-2xl font-bold text-primary mb-6">Our Contact Details</h2>
               
               <div className="space-y-6">
                 
                 {/* Head Office Card */}
                 <div className="bg-surface-container-low p-6 rounded-2xl border-l-4 border-secondary-container shadow-md">
                   <h3 className="font-headline-md font-bold text-base text-primary mb-2">{OFFICE_LOCATIONS.headOffice.title}</h3>
-                  <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed mb-3">{OFFICE_LOCATIONS.headOffice.address}</p>
+                  <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed mb-2">{OFFICE_LOCATIONS.headOffice.address}</p>
+                  <p className="font-body-sm text-xs font-semibold text-secondary-container mb-3">📍 Location Plus Code: {OFFICE_LOCATIONS.headOffice.plusCode}</p>
                   <div className="font-body-sm text-xs font-bold text-secondary space-y-1">
-                    <p>📞 Phone: {OFFICE_LOCATIONS.headOffice.phone}</p>
-                    <p>✉ Email: {OFFICE_LOCATIONS.headOffice.email}</p>
+                    <p>📞 Phone: <a href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`} className="hover:underline">{OFFICE_LOCATIONS.headOffice.phone}</a></p>
+                    <p>✉ Email: <a href={`mailto:${OFFICE_LOCATIONS.headOffice.email}`} className="hover:underline">{OFFICE_LOCATIONS.headOffice.email}</a></p>
                   </div>
                 </div>
 
-                {/* Warehouse Card */}
+                {/* Service Commitment Card */}
                 <div className="bg-surface-container-low p-6 rounded-2xl border-l-4 border-primary shadow-md">
-                  <h3 className="font-headline-md font-bold text-base text-primary mb-2">{OFFICE_LOCATIONS.warehouse.title}</h3>
-                  <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed mb-3">{OFFICE_LOCATIONS.warehouse.address}</p>
+                  <h3 className="font-headline-md font-bold text-base text-primary mb-2">Safe. Smart. Economical.</h3>
+                  <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed mb-3">
+                    Every installation is carried out using premium-grade SS seamless pipelines, high-quality pressure regulators, safety shut-off valves, and industry-standard components.
+                  </p>
                   <div className="font-body-sm text-xs font-bold text-primary space-y-1">
-                    <p>📞 Phone: {OFFICE_LOCATIONS.warehouse.phone}</p>
-                    <p>✉ Email: {OFFICE_LOCATIONS.warehouse.email}</p>
+                    <p>⚡ Fast Turnaround & Comprehensive Testing</p>
+                    <p>🛡 Dual Shut-off Valves & Leak Alarm Integration</p>
                   </div>
                 </div>
 
@@ -70,23 +73,23 @@ export default function Contact() {
 
             {/* Safety Standards Box */}
             <div className="bg-primary text-white p-8 rounded-3xl shadow-xl space-y-3">
-              <h4 className="font-headline-md font-bold text-lg text-white">PESO Safety Standard Assured</h4>
+              <h4 className="font-headline-md font-bold text-lg text-white">Full Safety & Compliance Assured</h4>
               <p className="font-body-sm text-xs leading-relaxed text-white/80">
-                All pipeline installations undergo pneumatic pressure testing, leak detection checks, and standard PESO safety compliance approval before commissioning.
+                In the unlikely event of a gas leak, our external cylinder placements and automatic shut-off systems ensure gas disperses into the open atmosphere, keeping occupants safe.
               </p>
             </div>
 
           </div>
 
           {/* Inquiry Form */}
-          <div className="bg-white p-8 rounded-3xl border border-outline-variant/30 shadow-2xl">
-            <h3 className="font-headline-md text-xl font-bold text-primary mb-6">Request A Free Consultation</h3>
+          <div className="reveal-slide-right bg-white p-8 rounded-3xl border border-outline-variant/30 shadow-2xl">
+            <h3 className="font-headline-md text-xl font-bold text-primary mb-6">Request Technical Consultation</h3>
             
             {submitted ? (
               <div className="bg-green-50 text-green-800 p-6 rounded-2xl text-center space-y-2">
                 <div className="text-3xl">✓</div>
                 <h4 className="font-headline-md font-bold text-base">Inquiry Submitted Successfully!</h4>
-                <p className="font-body-sm text-xs">Thank you for reaching out. Our engineering technical team will contact you shortly.</p>
+                <p className="font-body-sm text-xs">Thank you for reaching out to HI TECH ENERGY. Our technical team will call you at {formData.phone} shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,7 +113,7 @@ export default function Contact() {
                       required 
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      placeholder="Enter phone number" 
+                      placeholder="+91 9363374157" 
                       className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                     />
                   </div>
@@ -121,41 +124,40 @@ export default function Contact() {
                       required 
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="Enter email address" 
+                      placeholder="hitechlpg35@gmail.com" 
                       className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Select Required Service</label>
+                  <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Select Required Pipeline Solution</label>
                   <select 
                     value={formData.service}
                     onChange={(e) => setFormData({...formData, service: e.target.value})}
                     className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                   >
                     <option>Domestic LPG Pipeline</option>
-                    <option>Commercial LPG Pipeline</option>
-                    <option>Reticulated LPG Pipeline</option>
-                    <option>LOT LPG Pipeline</option>
-                    <option>Bulk LPG Pipeline</option>
-                    <option>Oxygen Pipeline</option>
-                    <option>Gas Fuel Conversion</option>
-                    <option>Gas Purification Panel System</option>
-                    <option>Leakage Detection System</option>
-                    <option>Flow Meter Calculation System</option>
-                    <option>HSD / Diesel Pipeline</option>
-                    <option>Ammonia Pipeline</option>
+                    <option>Commercial LPG Gas Pipeline - VOT Line System</option>
+                    <option>LPG Reticulated System - Centralized Gas Pipeline</option>
+                    <option>LOT (Liquid Off-Take) Pipeline System</option>
+                    <option>Industrial Gas Solutions & Infrastructure</option>
+                    <option>Chemistry Laboratory Gas Line System</option>
+                    <option>Commercial Lab Pipeline System</option>
+                    <option>Gas Control Panel System</option>
+                    <option>Gas Line Filtration System</option>
+                    <option>Gas Leak Detection & Auto Shut-off</option>
+                    <option>Future Expansion & System Upgrades</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Message / Requirements</label>
+                  <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Project Details / Message</label>
                   <textarea 
                     rows="4" 
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    placeholder="Describe your site details or requirements" 
+                    placeholder="Describe your property, commercial kitchen, or industrial facility requirements..." 
                     className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                   ></textarea>
                 </div>
@@ -164,7 +166,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-secondary-container text-on-secondary py-3.5 rounded-xl font-headline-md text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all cursor-pointer shadow-md"
                 >
-                  Submit Inquiry
+                  Submit Consultation Request
                 </button>
               </form>
             )}

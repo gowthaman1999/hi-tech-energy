@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ALL_SERVICES_MAP, OFFICE_LOCATIONS } from '../data/nglsData';
+import { ALL_SERVICES_MAP, OFFICE_LOCATIONS } from '../data/hitechData';
+import { useParallax } from '../hooks/useParallax';
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
@@ -12,6 +13,8 @@ export default function ServiceDetail() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const serviceImgRef = useParallax(0.12, { initialScale: 1.08, maxOffset: 50, disabledOnMobile: true });
 
   const service = ALL_SERVICES_MAP[serviceId];
 
@@ -37,12 +40,12 @@ export default function ServiceDetail() {
   const otherServicesList = Object.values(ALL_SERVICES_MAP).filter(s => s.id !== service.id);
 
   return (
-    <div className="w-full bg-white text-on-surface">
+    <div className="w-full bg-white text-on-surface overflow-hidden">
       
-      {/* Hero Header - Flush with navbar */}
+      {/* Hero Header */}
       <section className="relative w-full bg-primary text-white pt-28 pb-16 px-4 md:px-16 overflow-hidden">
         <div className="max-w-[1280px] mx-auto relative z-10">
-          <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-4 uppercase tracking-wider">
+          <div className="reveal-slide-up flex items-center gap-2 text-xs font-bold text-white/60 mb-4 uppercase tracking-wider">
             <Link to="/" className="hover:text-white">Home</Link>
             <span>/</span>
             <Link to="/services" className="hover:text-white">Services</Link>
@@ -50,14 +53,14 @@ export default function ServiceDetail() {
             <span className="text-secondary-fixed-dim">{service.title}</span>
           </div>
 
-          <span className="inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold">
+          <span className="reveal-slide-up inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
             {service.category}
           </span>
           
-          <h1 className="font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="reveal-slide-up font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4" data-delay="200ms">
             {service.title}
           </h1>
-          <p className="font-body-lg text-sm md:text-base text-white/80 max-w-3xl leading-relaxed">
+          <p className="reveal-slide-up font-body-lg text-sm md:text-base text-white/80 max-w-3xl leading-relaxed" data-delay="300ms">
             {service.fullDesc}
           </p>
         </div>
@@ -70,9 +73,10 @@ export default function ServiceDetail() {
           {/* Main Left Content */}
           <div className="lg:col-span-2 space-y-12">
             
-            {/* Main Featured Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[380px]">
+            {/* Main Featured Image with Parallax Depth */}
+            <div className="reveal-slide-up relative rounded-3xl overflow-hidden shadow-2xl h-[380px]">
               <img 
+                ref={serviceImgRef}
                 src={service.image} 
                 alt={service.title} 
                 className="w-full h-full object-cover"
@@ -80,7 +84,7 @@ export default function ServiceDetail() {
             </div>
 
             {/* Overview */}
-            <div className="space-y-4">
+            <div className="reveal-slide-up space-y-4">
               <h2 className="font-headline-lg text-2xl font-bold text-primary">Overview & Key Features</h2>
               <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
                 {service.excerpt}
@@ -88,151 +92,109 @@ export default function ServiceDetail() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 {service.features.map((feat, idx) => (
-                  <div key={idx} className="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/20 flex items-start gap-3">
-                    <span className="material-symbols-outlined text-secondary text-base mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                    <span className="font-body-sm text-xs font-semibold text-primary">{feat}</span>
+                  <div key={idx} className="reveal-stagger-item flex items-start gap-3 bg-surface-container-low p-4 rounded-2xl border border-outline-variant/20 shadow-sm" data-delay={`${idx * 80}ms`}>
+                    <span className="material-symbols-outlined text-secondary-container mt-0.5 text-lg shrink-0">check_circle</span>
+                    <span className="font-body-sm text-xs text-on-surface-variant leading-relaxed">{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Technical Specifications Table */}
-            <div className="space-y-4 pt-4">
-              <h2 className="font-headline-lg text-2xl font-bold text-primary">Technical Specifications</h2>
-              <div className="bg-surface-container-low rounded-2xl border border-outline-variant/30 overflow-hidden">
-                <table className="w-full text-left text-xs font-body-sm">
-                  <tbody>
-                    {service.specs.map((spec, idx) => (
-                      <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-surface-container-low'}>
-                        <td className="px-6 py-4 font-bold text-primary w-1/3 border-b border-outline-variant/10">{spec.label}</td>
-                        <td className="px-6 py-4 text-on-surface-variant font-medium border-b border-outline-variant/10">{spec.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {/* Technical Specifications */}
+            <div className="reveal-slide-up space-y-6">
+              <h2 className="font-headline-lg text-2xl font-bold text-primary">Engineering Specifications</h2>
+              <div className="bg-surface-container-low rounded-3xl p-6 border border-outline-variant/30 space-y-4 shadow-sm">
+                {service.specs.map((spec, idx) => (
+                  <div key={idx} className="flex flex-col sm:flex-row justify-between py-3 border-b border-outline-variant/20 last:border-0 gap-2 text-xs">
+                    <span className="font-label-md font-bold text-primary uppercase">{spec.label}</span>
+                    <span className="font-body-sm text-on-surface-variant sm:text-right font-medium">{spec.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Sectors Served */}
-            <div className="space-y-4 pt-4">
-              <h2 className="font-headline-lg text-2xl font-bold text-primary">Sectors & Applications Served</h2>
-              <div className="flex flex-wrap gap-3">
+            <div className="reveal-slide-up space-y-4">
+              <h3 className="font-headline-md text-xl font-bold text-primary">Target Applications & Sectors</h3>
+              <div className="flex flex-wrap gap-2">
                 {service.sectorsServed.map((sector, idx) => (
-                  <span key={idx} className="px-4 py-2 bg-primary text-white rounded-xl font-label-md text-xs font-semibold">
+                  <span key={idx} className="bg-primary/5 text-primary px-4 py-2 rounded-xl text-xs font-bold border border-primary/10">
                     🏢 {sector}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Direct Inquiry Form Box */}
-            <div className="bg-surface-container-low p-8 rounded-3xl border border-outline-variant/30 shadow-xl space-y-6">
-              <h3 className="font-headline-lg text-xl font-bold text-primary">Request Free Site Survey & Estimate for {service.title}</h3>
-              
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-8">
+            
+            {/* Quick Contact Box */}
+            <div className="reveal-slide-right bg-primary text-white p-8 rounded-3xl shadow-xl space-y-6">
+              <h3 className="font-headline-md text-xl font-bold text-white">Need a Quote For This Pipeline?</h3>
+              <p className="font-body-sm text-xs text-white/80 leading-relaxed">
+                Connect with our senior gas pipeline engineer to schedule a site inspection or get technical advice.
+              </p>
+
               {submitted ? (
-                <div className="bg-green-50 text-green-800 p-6 rounded-2xl text-center space-y-2">
-                  <div className="text-3xl">✓</div>
-                  <h4 className="font-headline-md font-bold text-base">Inquiry Submitted Successfully!</h4>
-                  <p className="font-body-sm text-xs">Our engineering team will review your requirement for {service.title} and reach out within 2 hours.</p>
+                <div className="bg-green-50 text-green-800 p-4 rounded-xl text-center text-xs font-bold">
+                  ✓ Request received! We will call you shortly.
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Your Name</label>
-                      <input 
-                        type="text" 
-                        required 
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="Enter full name" 
-                        className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        required 
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        placeholder="Enter phone number" 
-                        className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Email Address</label>
-                    <input 
-                      type="email" 
-                      required 
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="Enter email address" 
-                      className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block font-label-md text-xs font-bold text-primary uppercase mb-1">Project Details / Location</label>
-                    <textarea 
-                      rows="3" 
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      placeholder={`Tell us about your ${service.title} requirements`}
-                      className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none bg-white"
-                    ></textarea>
-                  </div>
-
+                  <input 
+                    type="text" 
+                    required 
+                    placeholder="Your Name" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
+                  />
+                  <input 
+                    type="tel" 
+                    required 
+                    placeholder="Phone Number" 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
+                  />
+                  <textarea 
+                    rows="3" 
+                    placeholder="Project location / requirement..." 
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
+                  ></textarea>
                   <button 
-                    type="submit"
-                    className="w-full bg-secondary-container text-on-secondary py-3.5 rounded-xl font-headline-md text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all cursor-pointer shadow-md"
+                    type="submit" 
+                    className="w-full bg-secondary-container text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all cursor-pointer shadow-md"
                   >
-                    Submit Estimate Inquiry
+                    Request Callback
                   </button>
                 </form>
               )}
+
+              <div className="pt-4 border-t border-white/10 text-xs text-white/80 space-y-1">
+                <p>📞 Phone: <a href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`} className="hover:underline text-secondary-container font-bold">{OFFICE_LOCATIONS.headOffice.phone}</a></p>
+                <p>✉ Email: <a href={`mailto:${OFFICE_LOCATIONS.headOffice.email}`} className="hover:underline">{OFFICE_LOCATIONS.headOffice.email}</a></p>
+              </div>
             </div>
 
-          </div>
-
-          {/* Right Sidebar - Other Services Navigation */}
-          <div className="space-y-8">
-            
-            {/* Quick Links Sidebar Box */}
-            <div className="bg-white p-6 rounded-3xl border border-outline-variant/30 shadow-lg space-y-4">
-              <h3 className="font-headline-md font-bold text-base text-primary uppercase tracking-wider border-b border-secondary-container pb-2 inline-block">
-                All Gas Pipeline Services
-              </h3>
-              <div className="space-y-1.5">
-                {otherServicesList.map((srv) => (
-                  <Link
+            {/* Other Services List */}
+            <div className="reveal-slide-right bg-surface-container-low p-6 rounded-3xl border border-outline-variant/30 space-y-4 shadow-sm" data-delay="150ms">
+              <h4 className="font-headline-md text-base font-bold text-primary border-b border-outline-variant/20 pb-3">Other Pipeline Systems</h4>
+              <div className="space-y-2">
+                {otherServicesList.slice(0, 6).map((srv) => (
+                  <Link 
                     key={srv.id}
                     to={`/services/${srv.id}`}
-                    className="flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-low text-xs font-bold text-primary hover:text-secondary transition-colors border border-transparent hover:border-outline-variant/20"
+                    className="block p-3 rounded-xl hover:bg-white text-xs font-semibold text-on-surface-variant hover:text-primary transition-all border border-transparent hover:border-outline-variant/20"
                   >
-                    <span>{srv.title}</span>
-                    <span className="material-symbols-outlined text-sm">chevron_right</span>
+                    → {srv.title}
                   </Link>
                 ))}
               </div>
-            </div>
-
-            {/* Emergency Hotline Box */}
-            <div className="bg-primary text-white p-6 rounded-3xl shadow-xl space-y-3 text-center">
-              <div className="w-12 h-12 bg-secondary-container text-white rounded-full flex items-center justify-center mx-auto font-bold text-xl">
-                📞
-              </div>
-              <h4 className="font-headline-md font-bold text-base">Need Technical Consultation?</h4>
-              <p className="font-body-sm text-xs text-white/80">Speak directly with our gas engineering specialists in Coimbatore.</p>
-              <p className="font-headline-md font-bold text-sm text-secondary-fixed-dim">{OFFICE_LOCATIONS.headOffice.phone}</p>
-              <button 
-                onClick={() => navigate('/contact')}
-                className="w-full bg-white text-primary py-2.5 rounded-xl font-headline-md text-xs font-bold uppercase hover:bg-secondary-container hover:text-white transition-colors mt-2"
-              >
-                Contact Head Office
-              </button>
             </div>
 
           </div>

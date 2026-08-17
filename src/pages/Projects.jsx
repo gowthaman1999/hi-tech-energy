@@ -8,53 +8,53 @@ export default function Projects() {
       title: "LOT LPG Pipeline Installation - AJJ Bakes, Tuticorin",
       location: "Tuticorin, Tamil Nadu",
       category: "Commercial LOT LPG",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+      image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_10_PM__1_.jpeg",
       description: "Successfully designed and commissioned a multi-cylinder Liquid Off-Take (LOT) pipeline system for high-volume bakery ovens with zero pressure drops.",
-      highlights: ["Automatic vaporizer unit", "Underground gas leak alarm system", "PESO safety certified"]
+      highlights: ["Automatic vaporizer unit", "Underground gas leak alarm system", "Zero residual fuel waste"]
     },
     {
       id: 2,
       title: "Reticulated LPG Gas Pipeline - NOAHS ARK Apartment",
       location: "Saravanampatti, Coimbatore, Tamil Nadu",
       category: "Residential Reticulation",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
-      description: "Complete piped LPG supply for 4 apartment buildings. Provided continuous gas flow with digital sub-metering per household unit.",
+      image: "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM.jpeg",
+      description: "Complete piped LPG supply for apartment residences. Provided continuous gas flow with individual sub-metering per household unit.",
       highlights: ["Individual meter units", "Central cylinder manifold storage", "24/7 Safety pressure monitoring"]
     },
     {
       id: 3,
-      title: "Bulk LPG Storage & Industrial Pipeline - Heat Treatment Hub",
-      location: "Industrial Corridor, Coimbatore",
-      category: "Industrial Bulk LPG",
-      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
-      description: "Executed mounded LPG bullet vessel pipeline network powering industrial annealing furnaces with high thermal efficiency.",
-      highlights: ["Mounded vessel storage", "SCADA pressure monitoring skid", "Flameproof solenoid cutoff valves"]
+      title: "Industrial LPG Pipeline & Cylinder Room - Heat Treatment Plant",
+      location: "Industrial Hub, Coimbatore",
+      category: "Industrial Gas Infrastructure",
+      image: "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.jpeg",
+      description: "Executed safety-compliant industrial pipeline network powering machinery and furnaces with high thermal efficiency and auto shut-off.",
+      highlights: ["Safety cylinder room", "Integrated auto shut-off valves", "Continuous uninterrupted gas supply"]
     },
     {
       id: 4,
-      title: "Medical Oxygen Pipeline - Specialty Hospital Complex",
+      title: "Chemistry Laboratory Gas Line System - Research Facility",
       location: "Coimbatore, Tamil Nadu",
-      category: "Oxygen Pipeline",
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
-      description: "High-purity degreased copper oxygen supply network connecting ICU beds and surgical operating theaters.",
-      highlights: ["ISO 7396-1 Standard", "Primary/Secondary auto changeover", "Degreased copper piping"]
+      category: "Laboratory Gas Line",
+      image: "/images/gdrive/Chemistry_laboratory_gas_line_system.jpg",
+      description: "High-purity degreased piping network delivering precise, controlled, and safe gas distribution across all student and researcher workstations.",
+      highlights: ["Isolation valves & precision regulators", "Workstation emergency shut-off", "Highest safety & operational control"]
     }
   ];
 
   return (
-    <div className="w-full bg-white text-on-surface">
+    <div className="w-full bg-white text-on-surface overflow-hidden">
       
-      {/* Header Banner - Flush with top navbar */}
+      {/* Header Banner */}
       <section className="bg-primary text-white pt-28 pb-16 px-4 md:px-16 text-center">
         <div className="max-w-[1280px] mx-auto">
-          <span className="inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold">
+          <span className="reveal-slide-up inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
             Engineering Project Portfolio
           </span>
-          <h1 className="font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="reveal-slide-up font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4" data-delay="200ms">
             Our Success Stories
           </h1>
-          <p className="font-body-lg text-sm md:text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Explore key completed gas pipeline installations delivered for commercial bakeries, apartment complexes, industrial furnaces, and medical centers.
+          <p className="reveal-slide-up font-body-lg text-sm md:text-base text-white/80 max-w-2xl mx-auto leading-relaxed" data-delay="300ms">
+            Explore key completed gas pipeline installations delivered for commercial bakeries, apartment complexes, chemistry laboratories, and industrial plants.
           </p>
         </div>
       </section>
@@ -62,51 +62,58 @@ export default function Projects() {
       {/* Projects Grid */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-16 pt-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {successStories.map((item) => (
+          {successStories.map((item, idx) => (
             <div 
               key={item.id} 
-              className="bg-white border border-outline-variant/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between"
+              data-delay={`${idx * 150}ms`}
+              className="reveal-stagger-item bg-white border border-outline-variant/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                   />
-                  <span className="absolute top-4 left-4 bg-secondary-container text-white font-label-md text-xs font-bold px-3 py-1 rounded-lg uppercase tracking-wider shadow-md">
+                  <div className="absolute top-4 left-4 bg-primary/80 backdrop-blur-md px-3 py-1.5 rounded-lg text-white font-label-md text-xs font-semibold">
                     {item.category}
-                  </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg text-white/90 text-xs">
+                    📍 {item.location}
+                  </div>
                 </div>
-                <div className="p-8 space-y-4">
-                  <span className="font-label-md text-xs font-bold text-on-surface-variant uppercase">📍 {item.location}</span>
-                  <h3 className="font-headline-md text-xl font-bold text-primary leading-snug">
+
+                <div className="p-8">
+                  <h3 className="font-headline-md text-2xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                  <p className="font-body-md text-sm text-on-surface-variant leading-relaxed mb-6">
                     {item.description}
                   </p>
 
-                  <div className="space-y-1.5 pt-2">
-                    <h4 className="font-headline-md font-bold text-xs text-primary uppercase">Key Features:</h4>
-                    {item.highlights.map((h, idx) => (
-                      <div key={idx} className="flex items-center gap-2 font-body-sm text-xs text-on-surface">
-                        <span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                        <span>{h}</span>
-                      </div>
-                    ))}
+                  <div className="space-y-2 mb-6">
+                    <h4 className="font-label-md text-xs font-bold text-primary uppercase">Key Highlights:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {item.highlights.map((h, i) => (
+                        <span key={i} className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-medium text-on-surface-variant border border-outline-variant/20">
+                          ✓ {h}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-8 pt-0">
+              <div className="px-8 pb-8 pt-0">
                 <Link
                   to="/contact"
-                  className="inline-block w-full text-center bg-primary text-white py-3 rounded-xl font-headline-md text-xs font-bold uppercase hover:bg-secondary-container transition-colors shadow-md"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-secondary-container hover:text-secondary transition-colors"
                 >
-                  Consult Similar Project
+                  <span>Request Similar Installation</span>
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </div>
+
             </div>
           ))}
         </div>

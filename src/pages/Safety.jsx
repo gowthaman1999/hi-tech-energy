@@ -54,17 +54,17 @@ export default function Safety() {
 
   const slides = [
     {
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDimTBgDldtjobuRAoPDVbkpSYxO_i9ris6nZq018PXNE8pgwhyRYmt4uSEWuNQOnt8F3UISigdV6blUVAxaULoDil4lXTGFxOpYGXsdVjfp8mb4Eary4OFjTMkLVyH7Rtlbx_yBLff9aG_F0-bx6WGGRSUXrbqj_IatHDK_6Soh47ny5ZSFp96xtkVnucNQNvGT1rmdYChgiO1g0j61okBGmH3WJZ_Dhcx_OuSTu9afLqIrUejkrYGSJHcI8DgsZlC8n_hKj4Bdq0',
+      image: '/images/gdrive/Comercial_line_cylinder_room_pipeline_WhatsApp_Image_2026-08-17_at_4_33_39_PM.jpeg',
       tag: 'Quarterly Drills',
       title: 'Theoretical Standards'
     },
     {
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_tAYZHX2XzsOI8g8s7a6Jodpw9bunInNVWlk-lpSo-OFojklKwKDgRoOxvIoo6rrUPf3aiuzfihqItYFfbSP_vl73sY8-Z-jJZA_Z6LEp8ChI1Cf4RpRk0jBCqrAjyQDwpEzWVTQOwXOAROVBMR-5wYDsxgtWbMNFlIj8vXu9LQt1-ycjdekc-HCB3udcU-5riizMzAkRA3BOdpFc0oh4M75wZN_qKK3L1kXK5WyyFUFJi2z7xzbgwVwWbkT2aa1vC-HZUVlmf_Y',
+      image: '/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__1_.jpeg',
       tag: 'Field Training',
       title: 'Emergency Response Simulation'
     },
     {
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSiozE7J7Ee-V5qtnf001m69W3DHQkJ4CHMuIsaDGO_2MVhqIbUz6hJQVaaShX0T4NItXDHM1CwXzo-x1V1npxpRNRZE4lGhroNGWi4llbxJPIA16lYWeIwAIj-aGGlqxv1U-3gUrpworrqYqCt9K551ge7l8d7wMz72pB6UcCHU9ofH9lNcrrA3uqI59P1HEU2GVeWir-pjTrlLDgSjzaGNbaehzCQxj4pp6OQSoBLT_F2M7cLW_sHCsyz3eOWwhPtAnukHmEO-U',
+      image: '/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__2_.jpeg',
       tag: 'Certification',
       title: 'Internal Excellence Awards'
     }
@@ -86,7 +86,7 @@ export default function Safety() {
           <img
             className="w-full h-full object-cover"
             alt="Safety inspection on industrial gas valve"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXSv1GgOG1-RfM0_l9JqyMLyl6IuDCAuduVlQBl8yL8uiPdPgUN8he5TtHzzjtNd4FsKhttz-52MmZKUwQP_FuBHT0V8u3cREbtLFVCild5h2eW0Wch2JbbUKCqTm7O5DOfVZ5-GatkKevBNLJt-X676MY3ymyF0Mw95Hu0oUpURWIuBUA_c9tsaBfRaXUTj0LQGhDlu2c9nJ_u6bOT9A_O4Ec0ikI9QSqPR3Ibk7dG0TcgSSUox0BzPnmP2PJpOk8yjWX4qwUymg"
+            src="/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM.jpeg"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/50"></div>
         </div>
