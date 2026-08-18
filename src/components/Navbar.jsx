@@ -36,8 +36,9 @@ export default function Navbar() {
 
   const otherServicesLinks = [
     { path: '/services/commercial-lab-pipeline', label: 'Commercial Lab Pipeline' },
+    { path: '/services/lpg-control-panel-gas-leakage-detection-system', label: 'LPG Control Panel & Leak Detection' },
     { path: '/services/gas-control-panel-system', label: 'Gas Control Panel System' },
-    { path: '/services/gas-line-filtration-system', label: 'Gas Line Filtration System' },
+    { path: '/services/gas-header-system', label: 'Gas Header System' },
     { path: '/services/leakage-detection-system', label: 'Gas Leak Detection & Auto Shut-off' },
     { path: '/services/opportunities-expansion', label: 'Opportunities - Expansion' },
     { path: '/services/future-outlook', label: 'Future Outlook & Upgrades' }

@@ -24,7 +24,7 @@ export default function Home() {
 
   const stats = [
     { value: '100%', label: 'Safety Compliant', delay: '0ms' },
-    { value: '450+', label: 'Pipeline Installations', delay: '100ms' },
+    { value: '20k+', label: 'Pipeline Installations', delay: '100ms' },
     { value: 'VOT & LOT', label: 'Commercial Systems', delay: '200ms' },
     { value: '24/7', label: 'Technical Safety Support', delay: '300ms' }
   ];
@@ -49,6 +49,9 @@ export default function Home() {
             className="w-full h-full object-cover origin-center"
             alt="HI TECH ENERGY LPG pipeline network"
             src="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
 
@@ -148,6 +151,8 @@ export default function Home() {
                     <img 
                       src={srv.image} 
                       alt={srv.title} 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -213,6 +218,8 @@ export default function Home() {
                   ref={spotlightMediaRef}
                   src={FEATURED_PROJECT_SPOTLIGHT.image} 
                   alt="AJJ Bakes Tuticorin LOT Installation" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
                 />
               </div>
@@ -263,7 +270,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {OTHER_SERVICES.map((srv, idx) => (
+            {OTHER_SERVICES.filter(srv => srv.id !== 'gas-control-panel-system').map((srv, idx) => (
               <div 
                 key={idx}
                 data-delay={`${idx * 100}ms`}
@@ -274,6 +281,8 @@ export default function Home() {
                     <img 
                       src={srv.image} 
                       alt={srv.title} 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -364,6 +373,8 @@ export default function Home() {
                   ref={futureMediaRef}
                   src="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg" 
                   alt="Future Outlook Gas Pipeline Upgrades" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -478,6 +489,8 @@ export default function Home() {
                   ref={mapMediaRef}
                   src="/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__8_.jpeg" 
                   alt="HI TECH ENERGY Installation" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover opacity-90"
                 />
               </div>

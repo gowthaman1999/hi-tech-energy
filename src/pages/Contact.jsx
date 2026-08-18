@@ -124,7 +124,7 @@ export default function Contact() {
                       required 
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="hitechlpg35@gmail.com" 
+                      placeholder="info@hitechenergy.org" 
                       className="w-full px-4 py-3 border border-outline-variant/40 rounded-xl text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                     />
                   </div>
@@ -144,8 +144,9 @@ export default function Contact() {
                     <option>Industrial Gas Solutions & Infrastructure</option>
                     <option>Chemistry Laboratory Gas Line System</option>
                     <option>Commercial Lab Pipeline System</option>
+                    <option>LPG Control Panel and Gas Leakage Detection System</option>
                     <option>Gas Control Panel System</option>
-                    <option>Gas Line Filtration System</option>
+                    <option>Gas Header System</option>
                     <option>Gas Leak Detection & Auto Shut-off</option>
                     <option>Future Expansion & System Upgrades</option>
                   </select>

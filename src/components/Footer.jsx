@@ -55,8 +55,9 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs font-body-sm">
               <li><Link to="/services/commercial-lab-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Commercial Lab Pipeline</Link></li>
+              <li><Link to="/services/lpg-control-panel-gas-leakage-detection-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">LPG Control Panel & Leak Detection</Link></li>
               <li><Link to="/services/gas-control-panel-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Control Panel System</Link></li>
-              <li><Link to="/services/gas-line-filtration-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Line Filtration System</Link></li>
+              <li><Link to="/services/gas-header-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Header System</Link></li>
               <li><Link to="/services/leakage-detection-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Leak Detection & Auto Shut-off</Link></li>
               <li><Link to="/services/opportunities-expansion" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Opportunities & Scaling</Link></li>
               <li><Link to="/services/future-outlook" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Future Outlook & Upgrades</Link></li>

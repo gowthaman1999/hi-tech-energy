@@ -36,7 +36,7 @@ export default function Services() {
                 : 'bg-surface-container-low text-primary hover:bg-surface-container'
             }`}
           >
-            Gas Pipeline Services (6)
+            Gas Pipeline Services ({PRIMARY_SERVICES.length})
           </button>
           <button
             onClick={() => setActiveTab('other')}
@@ -46,7 +46,7 @@ export default function Services() {
                 : 'bg-surface-container-low text-primary hover:bg-surface-container'
             }`}
           >
-            Other Specialized Services (6)
+            Other Specialized Services ({OTHER_SERVICES.length})
           </button>
         </div>
 

@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { ALL_SERVICES_MAP, OFFICE_LOCATIONS } from '../data/hitechData';
 import { useParallax } from '../hooks/useParallax';
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -13,10 +12,31 @@ export default function ServiceDetail() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
-
-  const serviceImgRef = useParallax(0.12, { initialScale: 1.08, maxOffset: 50, disabledOnMobile: true });
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const service = ALL_SERVICES_MAP[serviceId];
+  const galleryImages = service?.gallery || (service?.image ? [service.image] : []);
+  const [activeImgIndex, setActiveImgIndex] = useState(0);
+
+  // Reset active image when service changes
+  useEffect(() => {
+    setActiveImgIndex(0);
+    setLightboxIndex(null);
+  }, [serviceId]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') setLightboxIndex((prev) => (prev + 1) % galleryImages.length);
+      if (e.key === 'ArrowLeft') setLightboxIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, galleryImages.length]);
+
+  const serviceImgRef = useParallax(0.12, { initialScale: 1.08, maxOffset: 50, disabledOnMobile: true });
 
   if (!service) {
     return (
@@ -37,7 +57,9 @@ export default function ServiceDetail() {
     setSubmitted(true);
   };
 
-  const otherServicesList = Object.values(ALL_SERVICES_MAP).filter(s => s.id !== service.id);
+  const otherServicesList = Object.values(ALL_SERVICES_MAP).filter(
+    (s, idx, arr) => s.id !== service.id && arr.findIndex(item => item.id === s.id) === idx
+  );
 
   return (
     <div className="w-full bg-white text-on-surface overflow-hidden">
@@ -73,14 +95,56 @@ export default function ServiceDetail() {
           {/* Main Left Content */}
           <div className="lg:col-span-2 space-y-12">
             
-            {/* Main Featured Image with Parallax Depth */}
-            <div className="reveal-slide-up relative rounded-3xl overflow-hidden shadow-2xl h-[380px]">
-              <img 
-                ref={serviceImgRef}
-                src={service.image} 
-                alt={service.title} 
-                className="w-full h-full object-cover"
-              />
+            {/* Interactive Image Showcase */}
+            <div className="reveal-slide-up space-y-4">
+              {/* Main Active Image with Parallax Depth & Click-to-Zoom */}
+              <div 
+                onClick={() => setLightboxIndex(activeImgIndex)}
+                className="relative rounded-3xl overflow-hidden shadow-2xl h-[380px] sm:h-[440px] cursor-pointer group bg-slate-900"
+              >
+                <img 
+                  ref={serviceImgRef}
+                  src={galleryImages[activeImgIndex] || service.image} 
+                  alt={`${service.title} - Main View`} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                
+                {/* Floating Overlay Badge & Fullscreen Icon */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity flex items-end justify-between p-6">
+                  <div className="text-white">
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-secondary-container rounded-md">
+                      On-Site Installation {activeImgIndex + 1} of {galleryImages.length}
+                    </span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-md text-white p-2.5 rounded-full hover:bg-secondary-container transition-colors">
+                    <span className="material-symbols-outlined text-lg">fullscreen</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Thumbnails Row (Multiple Photos Switcher) */}
+              {galleryImages.length > 1 && (
+                <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin">
+                  {galleryImages.map((imgUrl, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveImgIndex(idx)}
+                      aria-label={`View photo ${idx + 1}`}
+                      className={`relative flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${
+                        activeImgIndex === idx
+                          ? 'border-secondary-container ring-2 ring-secondary-container/40 scale-105 shadow-md'
+                          : 'border-outline-variant/30 opacity-70 hover:opacity-100 hover:border-primary'
+                      }`}
+                    >
+                      <img 
+                        src={imgUrl} 
+                        alt={`${service.title} thumbnail ${idx + 1}`} 
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Overview */}
@@ -99,6 +163,45 @@ export default function ServiceDetail() {
                 ))}
               </div>
             </div>
+
+            {/* Complete Project Photo Gallery Section */}
+            {galleryImages.length > 1 && (
+              <div className="reveal-slide-up space-y-6 pt-4">
+                <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+                  <div>
+                    <h2 className="font-headline-lg text-2xl font-bold text-primary">On-Site Installation Gallery</h2>
+                    <p className="font-body-sm text-xs text-on-surface-variant mt-1">
+                      High-resolution site execution photos for {service.title}
+                    </p>
+                  </div>
+                  <span className="text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
+                    {galleryImages.length} Photos
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {galleryImages.map((imgUrl, idx) => (
+                    <div
+                      key={idx}
+                      onClick={() => setLightboxIndex(idx)}
+                      className="group relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer border border-outline-variant/20"
+                    >
+                      <img 
+                        src={imgUrl} 
+                        alt={`${service.title} Installation ${idx + 1}`} 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="material-symbols-outlined text-white text-3xl">zoom_in</span>
+                      </div>
+                      <span className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                        Photo #{idx + 1}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Technical Specifications */}
             <div className="reveal-slide-up space-y-6">
@@ -201,6 +304,72 @@ export default function ServiceDetail() {
 
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxIndex !== null && (
+        <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="Photo Lightbox"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-8 backdrop-blur-md animate-fadeIn"
+          onClick={() => setLightboxIndex(null)}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setLightboxIndex(null)}
+            className="absolute top-6 right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-10"
+            aria-label="Close photo preview"
+          >
+            <span className="material-symbols-outlined text-2xl">close</span>
+          </button>
+
+          {/* Navigation - Prev */}
+          {galleryImages.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+              }}
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white bg-white/10 hover:bg-secondary-container p-3 rounded-full transition-all z-10"
+              aria-label="Previous photo"
+            >
+              <span className="material-symbols-outlined text-2xl">chevron_left</span>
+            </button>
+          )}
+
+          {/* Image Container */}
+          <div 
+            className="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={galleryImages[lightboxIndex]} 
+              alt={`${service.title} - Full Size ${lightboxIndex + 1}`} 
+              className="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10"
+            />
+            <div className="mt-4 text-center text-white space-y-1">
+              <p className="font-headline-md text-sm sm:text-base font-bold">{service.title}</p>
+              <p className="font-body-sm text-xs text-white/70">
+                Installation Photo {lightboxIndex + 1} of {galleryImages.length}
+              </p>
+            </div>
+          </div>
+
+          {/* Navigation - Next */}
+          {galleryImages.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((prev) => (prev + 1) % galleryImages.length);
+              }}
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white bg-white/10 hover:bg-secondary-container p-3 rounded-full transition-all z-10"
+              aria-label="Next photo"
+            >
+              <span className="material-symbols-outlined text-2xl">chevron_right</span>
+            </button>
+          )}
+        </div>
+      )}
 
     </div>
   );
