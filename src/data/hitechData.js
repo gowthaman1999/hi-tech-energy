@@ -6,7 +6,13 @@ export const COMPANY_INFO = {
   email: "info@hitechenergy.org",
   address: "No-1/64, Papanayakan Palayam, near Rangammal Kovil, Nanjundapuram Post, Coimbatore - 641108",
   plusCode: "3VGW+29H Nanjundapuram, Tamil Nadu",
-  portfolioPdfUrl: "/docs/hi_tech_energy_portfolio.pdf"
+  portfolioPdfUrl: "/docs/hi_tech_energy_portfolio.pdf",
+  socialLinks: {
+    instagram: "https://www.instagram.com/",
+    facebook: "https://www.facebook.com/",
+    linkedin: "https://www.linkedin.com/",
+    youtube: "https://www.youtube.com/"
+  }
 };
 
 export const HERO_SLIDES = [
