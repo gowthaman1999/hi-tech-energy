@@ -494,19 +494,48 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="reveal-slide-right lg:col-span-2 relative bg-surface-container-low p-8 rounded-3xl border border-outline-variant/30 text-center">
-              <div className="w-full h-[320px] overflow-hidden rounded-2xl relative">
+            <div className="reveal-slide-right lg:col-span-2 relative bg-white p-6 md:p-8 rounded-3xl border border-outline-variant/30 shadow-lg text-left overflow-hidden group">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+                <div>
+                  <span className="text-secondary font-bold text-xs uppercase tracking-wider">Service Coverage</span>
+                  <h3 className="font-headline-md text-2xl font-bold text-primary">Locations We Serve</h3>
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 text-xs font-bold rounded-full self-start sm:self-auto">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Pan South India & Industrial Corridors
+                </span>
+              </div>
+
+              {/* Map Graphic Presentation */}
+              <div className="w-full h-[280px] sm:h-[320px] md:h-[360px] overflow-hidden rounded-2xl relative bg-surface-container-low/40 flex items-center justify-center p-2 border border-outline-variant/20">
                 <img
                   ref={mapMediaRef}
-                  src="/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__8_.jpeg"
-                  alt="HI TECH ENERGY Installation"
+                  src="/images/location_we_serve_map.png"
+                  alt="Locations We Serve - HI TECH ENERGY"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover opacity-90"
+                  className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-103 transition-transform duration-700 ease-out"
                 />
               </div>
-              <div className="mt-4 font-body-sm text-xs font-bold text-on-surface-variant">
-                Serving Coimbatore, Tamil Nadu, All Major Commercial Hubs, Industrial Plants & Domestic Residencies.
+
+              {/* Key Service Locations Bar */}
+              <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-semibold text-primary">
+                <div className="bg-surface-container-low px-3 py-2 rounded-xl border border-outline-variant/20">
+                  <span className="text-secondary font-bold block text-[10px] uppercase">Tamil Nadu</span>
+                  <span className="text-[11px] text-on-surface-variant truncate">Coimbatore & Statewide</span>
+                </div>
+                <div className="bg-surface-container-low px-3 py-2 rounded-xl border border-outline-variant/20">
+                  <span className="text-secondary font-bold block text-[10px] uppercase">Karnataka</span>
+                  <span className="text-[11px] text-on-surface-variant truncate">Bengaluru & Hubs</span>
+                </div>
+                <div className="bg-surface-container-low px-3 py-2 rounded-xl border border-outline-variant/20">
+                  <span className="text-secondary font-bold block text-[10px] uppercase">Kerala</span>
+                  <span className="text-[11px] text-on-surface-variant truncate">Kochi & Districts</span>
+                </div>
+                <div className="bg-surface-container-low px-3 py-2 rounded-xl border border-outline-variant/20">
+                  <span className="text-secondary font-bold block text-[10px] uppercase">South Corridors</span>
+                  <span className="text-[11px] text-on-surface-variant truncate">All Major Plants</span>
+                </div>
               </div>
             </div>
 
