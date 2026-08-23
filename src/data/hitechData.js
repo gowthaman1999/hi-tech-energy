@@ -497,6 +497,39 @@ export const ALL_SERVICES_MAP = {
       { label: "Safety Level", value: "Fully Interlocked Emergency Control System" }
     ],
     sectorsServed: ["Industrial Facilities", "Commercial Kitchens", "Commercial Buildings", "Hospitals & Labs"]
+  },
+
+  "our-materials": {
+    id: "our-materials",
+    title: "Our Materials",
+    category: "Other Specialized Services",
+    tagline: "Premium Grade Certified Piping, Valves, Regulators & Fittings",
+    excerpt: "We use only certified, high-grade seamless steel pipes, precision gas regulators, high-pressure ball valves, gas filters, and forged fittings meeting international safety standards.",
+    fullDesc: "At HI TECH ENERGY, safety and long-term reliability start with uncompromising material quality. We exclusively supply and install certified industrial and laboratory grade materials: heavy-duty seamless carbon steel (Sch-40/80) and SS304/SS316 seamless pipes, high-precision dual-stage gas pressure regulators, forged high-pressure ball valves, flanged isolation valves, Vanaz gas line strainers & moisture filters, specialized multi-gas laboratory purification panels, and precision flashback arrestors. Every component undergoes stringent quality testing to withstand high pressures, prevent leaks, and ensure decades of trouble-free performance.",
+    image: "/images/gdrive/materials_lab_regulators_control_panels.png",
+    gallery: [
+      "/images/gdrive/materials_lab_regulators_control_panels.png",
+      "/images/gdrive/materials_lpg_pressure_regulators.png",
+      "/images/gdrive/materials_ball_valves_flanged_valves.png",
+      "/images/gdrive/materials_gas_strainers_filters.png",
+      "/images/gdrive/materials_seamless_pipes_fittings_flanges.png"
+    ],
+    features: [
+      "Certified Seamless Piping: Heavy-duty ASTM A106 Gr.B carbon steel and SS304/SS316 stainless steel seamless pipes",
+      "Precision Pressure Regulators: Dual-stage high, medium, and low pressure regulation for LPG and specialty gases",
+      "Heavy-Duty Gas Valves: Fire-safe forged carbon steel and stainless steel ball valves, flanged valves & needle valves",
+      "Filtration & Safety Arrestors: High-efficiency moisture separators, micron gas strainers, and precision flashback arrestors",
+      "Multi-Gas Laboratory Panels: Color-coded gas distribution manifolds and purification panels with dual pressure monitoring",
+      "Forged High-Pressure Fittings: Socket weld, threaded, and weld neck flanges built to withstand severe industrial operating stresses"
+    ],
+    specs: [
+      { label: "Piping Material", value: "ASTM A106 Gr.B / Seamless SS304 / SS316 Schedule 40/80" },
+      { label: "Valve Standards", value: "Fire-Safe Forged Steel / SS316 Ball & Needle Valves" },
+      { label: "Regulation", value: "Precision Dual-Stage High & Low Pressure Regulators" },
+      { label: "Filtration", value: "Vanaz Gas Line Strainers, Particulate & Moisture Traps" },
+      { label: "Flanges & Fittings", value: "Class 150/300 Forged Carbon Steel & Stainless Steel" }
+    ],
+    sectorsServed: ["Commercial Kitchens & Hotels", "Industrial Manufacturing Plants", "Chemistry & Analytical Laboratories", "Apartment Reticulated Systems", "Jewelry & Food Processing Units"]
   }
 };
 
@@ -514,6 +547,7 @@ export const PRIMARY_SERVICES = [
 ];
 
 export const OTHER_SERVICES = [
+  ALL_SERVICES_MAP["our-materials"],
   ALL_SERVICES_MAP["lot-primary-lines"],
   ALL_SERVICES_MAP["lpg-control-panel-gas-leakage-detection-system"],
   ALL_SERVICES_MAP["gas-control-panel-system"],

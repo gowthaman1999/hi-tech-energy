@@ -54,6 +54,7 @@ export default function Footer() {
               Specialized Systems
             </h4>
             <ul className="space-y-2 text-xs font-body-sm">
+              <li><Link to="/services/our-materials" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Our Materials & Equipment</Link></li>
               <li><Link to="/services/lot-primary-lines" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">LOT Primary Lines</Link></li>
               <li><Link to="/services/lpg-control-panel-gas-leakage-detection-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">LPG Control Panel & Leak Detection</Link></li>
               <li><Link to="/services/gas-control-panel-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Control Panel System</Link></li>

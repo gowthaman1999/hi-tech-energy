@@ -35,6 +35,7 @@ export default function Navbar() {
   ];
 
   const otherServicesLinks = [
+    { path: '/services/our-materials', label: 'Our Materials & Equipment' },
     { path: '/services/lot-primary-lines', label: 'LOT Primary Lines' },
     { path: '/services/lpg-control-panel-gas-leakage-detection-system', label: 'LPG Control Panel & Leak Detection' },
     { path: '/services/gas-control-panel-system', label: 'Gas Control Panel System' },
