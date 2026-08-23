@@ -143,7 +143,7 @@ export default function Contact() {
                     <option>LOT (Liquid Off-Take) Pipeline System</option>
                     <option>Industrial Gas Solutions & Infrastructure</option>
                     <option>Chemistry Laboratory Gas Line System</option>
-                    <option>Commercial Lab Pipeline System</option>
+                    <option>LOT Primary Lines</option>
                     <option>LPG Control Panel and Gas Leakage Detection System</option>
                     <option>Gas Control Panel System</option>
                     <option>Gas Header System</option>

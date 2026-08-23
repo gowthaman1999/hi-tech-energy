@@ -35,7 +35,7 @@ export default function Navbar() {
   ];
 
   const otherServicesLinks = [
-    { path: '/services/commercial-lab-pipeline', label: 'Commercial Lab Pipeline' },
+    { path: '/services/lot-primary-lines', label: 'LOT Primary Lines' },
     { path: '/services/lpg-control-panel-gas-leakage-detection-system', label: 'LPG Control Panel & Leak Detection' },
     { path: '/services/gas-control-panel-system', label: 'Gas Control Panel System' },
     { path: '/services/gas-header-system', label: 'Gas Header System' },
@@ -45,33 +45,31 @@ export default function Navbar() {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 glass-nav border-b border-gray-200/50 flex items-center ${
-        isScrolled ? 'shadow-md bg-white/90 backdrop-blur-md' : 'bg-white/80 backdrop-blur-md'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 glass-nav border-b border-gray-200/50 flex items-center ${isScrolled ? 'shadow-md bg-white/90 backdrop-blur-md' : 'bg-white/80 backdrop-blur-md'
+        }`}
     >
       <div className="w-full px-4 md:px-8 lg:px-12 flex justify-between items-center">
-        
+
         {/* Official Brand Logo */}
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="flex items-center gap-2 py-1 group focus:outline-none"
           onClick={() => setIsOpen(false)}
         >
-          <img 
-            src="/images/logo.png" 
-            alt="HI TECH ENERGY Logo" 
+          <img
+            src="/images/logo.png"
+            alt="HI TECH ENERGY Logo"
             className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 
         {/* Desktop Nav Items */}
         <div className="hidden lg:flex items-center gap-7">
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => 
-              `font-label-md text-sm font-semibold transition-all ${
-                isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `font-label-md text-sm font-semibold transition-all ${isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
               }`
             }
           >
@@ -79,7 +77,7 @@ export default function Navbar() {
           </NavLink>
 
           {/* Company Dropdown */}
-          <div 
+          <div
             className="relative group py-6"
             onMouseEnter={() => setActiveDropdown('company')}
             onMouseLeave={() => setActiveDropdown(null)}
@@ -90,9 +88,9 @@ export default function Navbar() {
             </button>
             <div className={`absolute top-full left-0 w-48 bg-white shadow-xl rounded-xl border border-gray-100 py-2 transition-all duration-200 ${activeDropdown === 'company' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
               {companyLinks.map(link => (
-                <Link 
-                  key={link.path} 
-                  to={link.path} 
+                <Link
+                  key={link.path}
+                  to={link.path}
                   className="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-orange-50 hover:text-secondary transition-colors"
                 >
                   {link.label}
@@ -102,7 +100,7 @@ export default function Navbar() {
           </div>
 
           {/* Gas Pipeline Services Dropdown */}
-          <div 
+          <div
             className="relative group py-6"
             onMouseEnter={() => setActiveDropdown('pipeline')}
             onMouseLeave={() => setActiveDropdown(null)}
@@ -113,9 +111,9 @@ export default function Navbar() {
             </button>
             <div className={`absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-gray-100 py-2 transition-all duration-200 ${activeDropdown === 'pipeline' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
               {pipelineServicesLinks.map(link => (
-                <Link 
-                  key={link.path} 
-                  to={link.path} 
+                <Link
+                  key={link.path}
+                  to={link.path}
                   className="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-orange-50 hover:text-secondary transition-colors"
                 >
                   {link.label}
@@ -125,7 +123,7 @@ export default function Navbar() {
           </div>
 
           {/* Other Services Dropdown */}
-          <div 
+          <div
             className="relative group py-6"
             onMouseEnter={() => setActiveDropdown('other')}
             onMouseLeave={() => setActiveDropdown(null)}
@@ -136,9 +134,9 @@ export default function Navbar() {
             </button>
             <div className={`absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-gray-100 py-2 transition-all duration-200 ${activeDropdown === 'other' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
               {otherServicesLinks.map(link => (
-                <Link 
-                  key={link.path} 
-                  to={link.path} 
+                <Link
+                  key={link.path}
+                  to={link.path}
                   className="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-orange-50 hover:text-secondary transition-colors"
                 >
                   {link.label}
@@ -147,22 +145,20 @@ export default function Navbar() {
             </div>
           </div>
 
-          <NavLink 
-            to="/projects" 
-            className={({ isActive }) => 
-              `font-label-md text-sm font-semibold transition-all ${
-                isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              `font-label-md text-sm font-semibold transition-all ${isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
               }`
             }
           >
             Success Stories
           </NavLink>
 
-          <NavLink 
-            to="/contact" 
-            className={({ isActive }) => 
-              `font-label-md text-sm font-semibold transition-all ${
-                isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `font-label-md text-sm font-semibold transition-all ${isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
               }`
             }
           >
@@ -172,7 +168,7 @@ export default function Navbar() {
 
         {/* Actions & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <button 
+          <button
             onClick={() => navigate('/contact')}
             className="hidden sm:inline-block bg-secondary-container text-on-secondary px-6 py-3 rounded-lg font-label-md text-xs font-bold hover:opacity-90 active:scale-95 transition-all shadow-md cursor-pointer"
           >
@@ -221,7 +217,7 @@ export default function Navbar() {
             <Link to="/projects" onClick={() => setIsOpen(false)} className="font-semibold text-sm text-primary py-1">Success Stories</Link>
             <Link to="/contact" onClick={() => setIsOpen(false)} className="font-semibold text-sm text-primary py-1">Contact Us</Link>
 
-            <button 
+            <button
               onClick={() => {
                 setIsOpen(false);
                 navigate('/contact');

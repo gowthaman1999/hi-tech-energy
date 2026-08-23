@@ -64,9 +64,9 @@ export default function Services() {
                     <img 
                       src={srv.image} 
                       alt={srv.title} 
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover service-card-img-zoom"
                     />
-                    <span className="absolute top-3 left-3 bg-secondary-container text-white font-label-md text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                    <span className="absolute top-3 left-3 bg-secondary-container text-white font-label-md text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider z-10">
                       {srv.category}
                     </span>
                   </div>
@@ -103,9 +103,9 @@ export default function Services() {
                     <img 
                       src={srv.image} 
                       alt={srv.title} 
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover service-card-img-zoom"
                     />
-                    <span className="absolute top-3 left-3 bg-primary text-white font-label-md text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                    <span className="absolute top-3 left-3 bg-primary text-white font-label-md text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider z-10">
                       {srv.category}
                     </span>
                   </div>

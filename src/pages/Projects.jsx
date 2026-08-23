@@ -5,12 +5,12 @@ export default function Projects() {
   const successStories = [
     {
       id: 1,
-      title: "LOT LPG Pipeline Installation - AJJ Bakes, Tuticorin",
-      location: "Tuticorin, Tamil Nadu",
-      category: "Commercial LOT LPG",
-      image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_10_PM__1_.jpeg",
-      description: "Successfully designed and commissioned a multi-cylinder Liquid Off-Take (LOT) pipeline system for high-volume bakery ovens with zero pressure drops.",
-      highlights: ["Automatic vaporizer unit", "Underground gas leak alarm system", "Zero residual fuel waste"]
+      title: "Domestic LPG Pipeline Installation - Daksha Properties, Coimbatore",
+      location: "Coimbatore, Tamil Nadu",
+      category: "Domestic LPG Pipeline",
+      image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
+      description: "Engineered and installed safe, high-grade domestic gas pipeline systems with external cylinder placement, dual shut-off safety valves, and consistent pressure flow for residential villas.",
+      highlights: ["External cylinder safety setup", "Dual emergency shut-off valves", "Continuous & reliable supply"]
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ export default function Projects() {
 
   return (
     <div className="w-full bg-white text-on-surface overflow-hidden">
-      
+
       {/* Header Banner */}
       <section className="bg-primary text-white pt-28 pb-16 px-4 md:px-16 text-center">
         <div className="max-w-[1280px] mx-auto">
@@ -63,16 +63,16 @@ export default function Projects() {
       <div className="max-w-[1280px] mx-auto px-4 md:px-16 pt-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {successStories.map((item, idx) => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               data-delay={`${idx * 150}ms`}
               className="reveal-stagger-item bg-white border border-outline-variant/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
+                  <img
+                    src={item.image}
+                    alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute top-4 left-4 bg-primary/80 backdrop-blur-md px-3 py-1.5 rounded-lg text-white font-label-md text-xs font-semibold">

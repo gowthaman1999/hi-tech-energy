@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { 
+import {
   COMPANY_INFO,
-  PRIMARY_SERVICES, 
-  OTHER_SERVICES, 
+  PRIMARY_SERVICES,
+  OTHER_SERVICES,
   OPPORTUNITIES_DATA,
   FUTURE_OUTLOOK_DATA,
   OFFICE_LOCATIONS,
-  FEATURED_PROJECT_SPOTLIGHT 
+  FEATURED_PROJECT_SPOTLIGHT
 } from '../data/hitechData';
 import { useParallax } from '../hooks/useParallax';
 import TestimonialsSlider from '../components/TestimonialsSlider';
+import AnimatedCounter from '../components/AnimatedCounter';
+import CustomersSlider from '../components/CustomersSlider';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -23,10 +25,10 @@ export default function Home() {
   const mapMediaRef = useParallax(0.1, { initialScale: 1.06, maxOffset: 50, disabledOnMobile: true });
 
   const stats = [
-    { value: '100%', label: 'Safety Compliant', delay: '0ms' },
-    { value: '20k+', label: 'Pipeline Installations', delay: '100ms' },
-    { value: 'VOT & LOT', label: 'Commercial Systems', delay: '200ms' },
-    { value: '24/7', label: 'Technical Safety Support', delay: '300ms' }
+    { end: 100, suffix: '%', label: 'Safety Compliant', delay: '0ms' },
+    { end: 20, suffix: 'k+', label: 'Pipeline Installations', delay: '100ms' },
+    { staticText: 'VOT & LOT', label: 'Commercial Systems', delay: '200ms' },
+    { end: 24, suffix: '/7', label: 'Technical Safety Support', delay: '300ms' }
   ];
 
   const steps = [
@@ -39,7 +41,7 @@ export default function Home() {
 
   return (
     <div className="w-full overflow-hidden">
-      
+
       {/* Hero Section with Parallax Depth */}
       <header className="relative w-full min-h-screen pt-24 pb-16 flex items-center overflow-hidden bg-primary text-white parallax-container">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -56,21 +58,21 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 px-4 md:px-16 max-w-4xl text-left">
-          <span className="reveal-slide-up inline-block px-4 py-1.5 bg-secondary-container/20 backdrop-blur-md border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-6 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
+          <span className="reveal-slide-left inline-block px-4 py-1.5 bg-secondary-container/20 backdrop-blur-md border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-6 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
             {COMPANY_INFO.slogan}
           </span>
-          <h1 className="reveal-slide-up font-headline-xl text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-bold" data-delay="200ms">
+          <h1 className="reveal-slide-left font-headline-xl text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-bold" data-delay="200ms">
             {COMPANY_INFO.name}
           </h1>
-          <p className="reveal-slide-up text-secondary-container font-headline-md text-xl md:text-2xl font-semibold mb-6" data-delay="300ms">
+          <p className="reveal-slide-left text-secondary-container font-headline-md text-xl md:text-2xl font-semibold mb-6" data-delay="300ms">
             {COMPANY_INFO.tagline}
           </p>
-          <p className="reveal-slide-up font-body-lg text-base md:text-lg mb-8 text-white/80 max-w-2xl leading-relaxed" data-delay="400ms">
+          <p className="reveal-slide-left font-body-lg text-base md:text-lg mb-8 text-white/80 max-w-2xl leading-relaxed" data-delay="400ms">
             Professional LPG Gas Pipeline Solutions for domestic homes, hotels, restaurants, commercial kitchens, catering units, chemistry laboratories, and industrial food service facilities.
           </p>
 
           {/* Quick Contact Badges */}
-          <div className="reveal-slide-up flex flex-wrap gap-4 mb-8 text-xs text-white/90" data-delay="500ms">
+          <div className="reveal-slide-left flex flex-wrap gap-4 mb-8 text-xs text-white/90" data-delay="500ms">
             <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/20">
               📞 {COMPANY_INFO.phone}
             </span>
@@ -82,7 +84,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="reveal-slide-up flex flex-col sm:flex-row gap-4" data-delay="600ms">
+          <div className="reveal-slide-left flex flex-col sm:flex-row gap-4" data-delay="600ms">
             <button
               onClick={() => navigate('/contact')}
               className="bg-secondary-container text-on-secondary px-8 py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg group cursor-pointer font-bold"
@@ -114,7 +116,15 @@ export default function Home() {
                 className="reveal-slide-up text-center"
                 data-delay={stat.delay}
               >
-                <div className="font-headline-xl text-3xl md:text-5xl text-secondary-container mb-2 font-bold">{stat.value}</div>
+                <div className="font-headline-xl text-3xl md:text-5xl text-secondary-container mb-2 font-bold min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center">
+                  <AnimatedCounter
+                    end={stat.end}
+                    suffix={stat.suffix}
+                    prefix={stat.prefix}
+                    staticText={stat.staticText}
+                    duration={2000}
+                  />
+                </div>
                 <div className="font-label-md uppercase tracking-widest text-white/60 text-xs font-semibold">{stat.label}</div>
               </div>
             ))}
@@ -138,7 +148,7 @@ export default function Home() {
               Explore All Solutions
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PRIMARY_SERVICES.map((srv, i) => (
               <div
@@ -148,12 +158,12 @@ export default function Home() {
               >
                 <div>
                   <div className="w-full h-48 rounded-2xl overflow-hidden mb-6 relative">
-                    <img 
-                      src={srv.image} 
-                      alt={srv.title} 
+                    <img
+                      src={srv.image}
+                      alt={srv.title}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover service-card-img-zoom"
                     />
                   </div>
                   <span className="inline-block px-2.5 py-1 bg-secondary-container/10 text-secondary-container font-label-md text-[11px] font-bold rounded-md uppercase tracking-wider mb-2">
@@ -181,7 +191,7 @@ export default function Home() {
       <section className="py-24 bg-primary text-white relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 md:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             <div className="reveal-slide-left space-y-6">
               <span className="px-3 py-1 bg-secondary-container text-white text-xs font-bold uppercase rounded-md tracking-wider">
                 Featured Success Story
@@ -209,15 +219,15 @@ export default function Home() {
             </div>
 
             {/* Video Spotlight Box with Parallax */}
-            <div 
+            <div
               className="reveal-slide-right relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 group cursor-pointer"
               onClick={() => setVideoModalOpen(true)}
             >
               <div className="w-full h-[360px] overflow-hidden relative">
-                <img 
+                <img
                   ref={spotlightMediaRef}
-                  src={FEATURED_PROJECT_SPOTLIGHT.image} 
-                  alt="AJJ Bakes Tuticorin LOT Installation" 
+                  src={FEATURED_PROJECT_SPOTLIGHT.image}
+                  alt="Daksha Properties Coimbatore Domestic Pipeline Installation"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
@@ -241,18 +251,18 @@ export default function Home() {
       {videoModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setVideoModalOpen(false)}>
           <div className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-            <button 
+            <button
               onClick={() => setVideoModalOpen(false)}
               className="absolute top-4 right-4 text-white text-2xl font-bold bg-black/60 w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-secondary-container"
             >
               ✕
             </button>
             <div className="aspect-video w-full">
-              <iframe 
-                src={FEATURED_PROJECT_SPOTLIGHT.videoUrl} 
-                title="AJJ Bakes Tuticorin Project Case Study" 
+              <iframe
+                src={FEATURED_PROJECT_SPOTLIGHT.videoUrl}
+                title="Daksha Properties Coimbatore Project Case Study"
                 className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
@@ -260,7 +270,10 @@ export default function Home() {
         </div>
       )}
 
-      {/* Specialized Commercial Lab & Control Systems */}
+      {/* Our Valuable Customers Slider Section */}
+      <CustomersSlider />
+
+      {/* Specialized Pipeline Systems & Control Systems */}
       <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 md:px-16">
           <div className="reveal-slide-up mb-16 text-center max-w-2xl mx-auto">
@@ -270,20 +283,20 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {OTHER_SERVICES.filter(srv => srv.id !== 'gas-control-panel-system').map((srv, idx) => (
-              <div 
+            {OTHER_SERVICES.filter(srv => srv.id !== 'gas-control-panel-system' && srv.id !== 'leakage-detection-system').map((srv, idx) => (
+              <div
                 key={idx}
                 data-delay={`${idx * 100}ms`}
                 className="reveal-stagger-item bg-surface-container-low rounded-3xl p-6 border border-outline-variant/30 hover:border-secondary-container transition-all hover:shadow-xl flex flex-col justify-between group"
               >
                 <div>
                   <div className="w-full h-44 rounded-2xl overflow-hidden mb-6 relative">
-                    <img 
-                      src={srv.image} 
-                      alt={srv.title} 
+                    <img
+                      src={srv.image}
+                      alt={srv.title}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover service-card-img-zoom"
                     />
                   </div>
                   <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary font-label-md text-[10px] font-bold rounded uppercase tracking-wider mb-2">
@@ -316,8 +329,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {OPPORTUNITIES_DATA.map((opp, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 data-delay={`${idx * 150}ms`}
                 className="reveal-slide-up bg-white p-8 rounded-3xl border border-outline-variant/30 shadow-lg hover:shadow-xl transition-all flex gap-6 items-start hover:-translate-y-1"
               >
@@ -338,7 +351,7 @@ export default function Home() {
       <section className="py-24 bg-primary text-white text-left relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 md:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             <div className="reveal-slide-left space-y-6">
               <span className="text-secondary-fixed-dim font-bold text-xs uppercase tracking-widest">System Upgrades</span>
               <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-white leading-tight">
@@ -354,8 +367,8 @@ export default function Home() {
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {FUTURE_OUTLOOK_DATA.upgradeItems.map((item, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       data-delay={`${idx * 60}ms`}
                       className="reveal-stagger-item flex items-center gap-2 bg-white/10 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-white/90 border border-white/5"
                     >
@@ -369,10 +382,10 @@ export default function Home() {
 
             <div className="reveal-slide-right relative rounded-3xl overflow-hidden shadow-2xl border border-white/20">
               <div className="w-full h-[440px] overflow-hidden relative">
-                <img 
+                <img
                   ref={futureMediaRef}
-                  src="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg" 
-                  alt="Future Outlook Gas Pipeline Upgrades" 
+                  src="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg"
+                  alt="Future Outlook Gas Pipeline Upgrades"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
@@ -391,7 +404,7 @@ export default function Home() {
       {/* Engineering Process - Fully Optimized Desktop & Mobile Layout */}
       <section className="py-24 bg-surface-container overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 md:px-16">
-          
+
           <div className="reveal-slide-up text-center mb-14 md:mb-20">
             <span className="text-secondary font-bold text-xs uppercase tracking-widest">Systematic Framework</span>
             <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3 mt-1">Our Engineering Process</h2>
@@ -403,14 +416,13 @@ export default function Home() {
           {/* Desktop/Tablet Horizontal Layout */}
           <div className="hidden md:grid md:grid-cols-5 gap-4 lg:gap-6 text-center relative">
             {steps.map((step, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 data-delay={`${idx * 120}ms`}
                 className="reveal-stagger-item relative z-10 flex flex-col items-center bg-white p-5 lg:p-6 rounded-3xl border border-outline-variant/20 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1.5"
               >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-md font-bold text-sm transition-transform hover:scale-110 duration-300 ${
-                  step.active ? 'bg-secondary-container text-white shadow-lg' : 'bg-primary text-white'
-                }`}>
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-md font-bold text-sm transition-transform hover:scale-110 duration-300 ${step.active ? 'bg-secondary-container text-white shadow-lg' : 'bg-primary text-white'
+                  }`}>
                   {step.num}
                 </div>
                 <h4 className="font-headline-md text-sm lg:text-base text-primary mb-2 font-bold">{step.title}</h4>
@@ -422,18 +434,17 @@ export default function Home() {
           {/* Mobile Vertical Stepper Layout (Ultra Clean on 375px - 414px) */}
           <div className="md:hidden space-y-4">
             {steps.map((step, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 data-delay={`${idx * 100}ms`}
                 className="reveal-slide-up bg-white p-5 rounded-2xl border border-outline-variant/20 shadow-sm flex items-start gap-4"
               >
                 {/* Stepper Node */}
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 shadow-md ${
-                  step.active ? 'bg-secondary-container text-white' : 'bg-primary text-white'
-                }`}>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 shadow-md ${step.active ? 'bg-secondary-container text-white' : 'bg-primary text-white'
+                  }`}>
                   {step.num}
                 </div>
-                
+
                 {/* Stepper Card */}
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1.5">
@@ -457,7 +468,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-            
+
             <div className="reveal-slide-left space-y-6 text-left">
               <span className="text-secondary font-bold text-xs uppercase tracking-widest">Reach Out To Us</span>
               <h2 className="font-headline-lg text-3xl font-bold text-primary">Head Office & Contact</h2>
@@ -485,10 +496,10 @@ export default function Home() {
 
             <div className="reveal-slide-right lg:col-span-2 relative bg-surface-container-low p-8 rounded-3xl border border-outline-variant/30 text-center">
               <div className="w-full h-[320px] overflow-hidden rounded-2xl relative">
-                <img 
+                <img
                   ref={mapMediaRef}
-                  src="/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__8_.jpeg" 
-                  alt="HI TECH ENERGY Installation" 
+                  src="/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__8_.jpeg"
+                  alt="HI TECH ENERGY Installation"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover opacity-90"

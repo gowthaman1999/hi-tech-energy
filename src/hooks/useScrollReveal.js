@@ -37,7 +37,7 @@ export function useScrollReveal() {
 
     const observeElements = () => {
       const elements = document.querySelectorAll(
-        '.reveal-on-scroll, .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-stagger-item'
+        '.reveal-on-scroll, .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-stagger-item, .reveal-zoom-in, .service-card-img-zoom'
       );
       
       elements.forEach((el) => {

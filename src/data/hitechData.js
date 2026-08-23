@@ -5,7 +5,8 @@ export const COMPANY_INFO = {
   phone: "+91 9363374157",
   email: "info@hitechenergy.org",
   address: "No-1/64, Papanayakan Palayam, near Rangammal Kovil, Nanjundapuram Post, Coimbatore - 641108",
-  plusCode: "3VGW+29H Nanjundapuram, Tamil Nadu"
+  plusCode: "3VGW+29H Nanjundapuram, Tamil Nadu",
+  portfolioPdfUrl: "/docs/hi_tech_energy_portfolio.pdf"
 };
 
 export const HERO_SLIDES = [
@@ -14,7 +15,7 @@ export const HERO_SLIDES = [
     tag: "Safe • Smart • Economical",
     title: "Domestic LPG Pipeline Service For Your Homes",
     subtitle: "Safer, More Convenient & Continuous Supply With Cylinder Outside",
-    image: "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM.jpeg",
+    image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
     ctaText: "Contact Us",
     ctaLink: "/contact"
   },
@@ -23,7 +24,7 @@ export const HERO_SLIDES = [
     tag: "Commercial Excellence",
     title: "Commercial LPG Gas Pipeline - VOT Line System",
     subtitle: "Bulk Manifold Installation For Hotels, Restaurants & Commercial Kitchens",
-    image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg",
+    image: "/images/gdrive/vot_line_commercial_pipeline_cover.jpg",
     ctaText: "Explore VOT System",
     ctaLink: "/services/commercial-lpg-pipeline"
   },
@@ -51,21 +52,21 @@ export const QUICK_FEATURE_BOXES = [
     id: "domestic",
     type: "feature",
     title: "Domestic LPG Pipeline",
-    image: "/images/gdrive/Domestic_line_WhatsApp_Image_2026-08-16_at_4_20_35_PM__6_.jpeg",
+    image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
     link: "/services/domestic-lpg-pipeline"
   },
   {
     id: "commercial",
     type: "feature",
     title: "Commercial VOT Pipeline",
-    image: "/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__7_.jpeg",
+    image: "/images/gdrive/vot_line_commercial_pipeline_cover.jpg",
     link: "/services/commercial-lpg-pipeline"
   },
   {
     id: "reticulated",
     type: "feature",
     title: "LPG Reticulated System",
-    image: "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM.jpeg",
+    image: "/images/gdrive/reticulated_lpg_pipeline_cover.jpg",
     link: "/services/reticulated-lpg-pipeline"
   },
   {
@@ -85,8 +86,9 @@ export const ALL_SERVICES_MAP = {
     tagline: "Safer and More Convenient Solution for Your Home",
     excerpt: "An LPG gas pipeline system is a safer and more convenient solution for your home. The LPG cylinder is installed outside the building, and gas is supplied to the kitchen through a secure pipeline.",
     fullDesc: "An LPG gas pipeline system is a safer and more convenient solution for your home. The LPG cylinder is installed outside the building, and gas is supplied to the kitchen through a secure pipeline. Separate shut-off valves are provided both outside (near the cylinder) and inside the kitchen for quick and easy control during emergencies or maintenance. In the unlikely event of a gas leak, the gas disperses into the open atmosphere outside, reducing the risk of gas accumulation inside the house. This provides enhanced safety, convenience, and peace of mind for your family.",
-    image: "/images/gdrive/Domestic_line_WhatsApp_Image_2026-08-16_at_4_20_35_PM__6_.jpeg",
+    image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
     gallery: [
+      "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
       "/images/gdrive/Domestic_line_WhatsApp_Image_2026-08-16_at_4_20_35_PM__6_.jpeg",
       "/images/gdrive/Domestic_line_WhatsApp_Image_2026-08-16_at_4_20_35_PM.jpeg",
       "/images/gdrive/Domestic_line_WhatsApp_Image_2026-08-16_at_4_20_35_PM__2_.jpeg",
@@ -118,8 +120,9 @@ export const ALL_SERVICES_MAP = {
     tagline: "Hi Tech Energy - Safe. Smart. Economical",
     excerpt: "Hi Tech Energy provides professional LPG Gas Pipeline Solutions for hotels, restaurants, commercial kitchens, catering units, and industrial food service facilities.",
     fullDesc: "Hi Tech Energy provides professional LPG Gas Pipeline Solutions for hotels, restaurants, commercial kitchens, catering units, and industrial food service facilities. Our VOT Line System is designed by connecting multiple LPG cylinders safely through a bulk manifold installed at the rear side of the building, delivering an independent gas point to each burner. This ensures a stable gas supply and consistent pressure for smooth and efficient cooking operations. The system enhances operational safety, minimizes gas wastage, improves fuel efficiency, and helps reduce overall LPG consumption. Since the cylinders are installed outside the kitchen, the cooking area remains cleaner, more spacious, and safer while making cylinder replacement quick and convenient. Every installation is carried out using premium-grade SS seamless pipelines, high-quality pressure regulators, safety shut-off valves, and industry-standard components, ensuring reliable performance and long-term durability.",
-    image: "/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__6_.jpeg",
+    image: "/images/gdrive/vot_line_commercial_pipeline_cover.jpg",
     gallery: [
+      "/images/gdrive/vot_line_commercial_pipeline_cover.jpg",
       "/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__6_.jpeg",
       "/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM.jpeg",
       "/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__2_.jpeg",
@@ -151,14 +154,13 @@ export const ALL_SERVICES_MAP = {
     tagline: "Centralized Gas Pipeline Installation for Modern Living",
     excerpt: "A Centralized LPG Gas Pipeline System supplies gas from a common cylinder bank to each apartment through individual gas meters.",
     fullDesc: "A Centralized LPG Gas Pipeline System supplies gas from a common cylinder bank to each apartment through individual gas meters. This allows residents to pay only for the LPG they actually consume, ensuring accurate usage monitoring and fair billing. The system offers greater convenience, reliable gas supply, and enhances the overall quality of living.",
-    image: "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__2_.jpeg",
+    image: "/images/gdrive/reticulated_lpg_pipeline_cover.jpg",
     gallery: [
+      "/images/gdrive/reticulated_lpg_pipeline_cover.jpg",
       "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__2_.jpeg",
       "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM.jpeg",
       "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__1_.jpeg",
-      "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__3_.jpeg",
-      "/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__10_.jpeg",
-      "/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__12_.jpeg"
+      "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__3_.jpeg"
     ],
     features: [
       "Supplies gas from common cylinder bank to every individual apartment",
@@ -187,9 +189,10 @@ export const ALL_SERVICES_MAP = {
     image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
     gallery: [
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
+      "/images/gdrive/lot_pipeline_safecon_minivap_vaporizer.jpg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM.jpeg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg",
-      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_10_PM__1_.jpeg",
+      "/images/gdrive/lot_primary_lines_vaporizer_tank.jpg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__2_.jpeg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_12_PM__1_.jpeg"
     ],
@@ -220,11 +223,11 @@ export const ALL_SERVICES_MAP = {
     image: "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.jpeg",
     gallery: [
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.jpeg",
+      "/images/gdrive/industrial_gas_solutions_regulator_manifold.jpg",
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_07_PM.jpeg",
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM.jpeg",
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__3_.jpeg",
-      "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM.jpeg",
-      "/images/gdrive/Industrial_line_header_system_brochure.jpg"
+      "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM.jpeg"
     ],
     features: [
       "Industrial Gas Distribution: Safety-compliant cylinder rooms with auto shut-off & leak alarms",
@@ -250,12 +253,16 @@ export const ALL_SERVICES_MAP = {
     tagline: "Precise, Controlled, and Uninterrupted Gas Supply",
     excerpt: "The Chemistry Laboratory Gas Line System is designed to deliver a precise, controlled, and uninterrupted gas supply for laboratory experiments, research, and analytical applications.",
     fullDesc: "The Chemistry Laboratory Gas Line System is designed to deliver a precise, controlled, and uninterrupted gas supply for laboratory experiments, research, and analytical applications. The installation incorporates centralized gas distribution, isolation valves, pressure regulation, and emergency shut-off provisions to ensure safe operation and accurate gas delivery at every workstation. Built with high-quality materials and engineered for long-term reliability, the system enhances laboratory efficiency while maintaining the highest standards of safety and operational control.",
-    image: "/images/gdrive/Chemistry_laboratory_gas_line_system.jpg",
+    image: "/images/gdrive/Chemistry_lab_hero_classroom.jpeg",
     gallery: [
-      "/images/gdrive/Chemistry_laboratory_gas_line_system.jpg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM__1_.jpeg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM__3_.jpeg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_20_PM.jpeg"
+      "/images/gdrive/Chemistry_lab_hero_classroom.jpeg",
+      "/images/gdrive/Chemistry_lab_panoramic_room.jpeg",
+      "/images/gdrive/Chemistry_lab_burners_flames_lit.jpeg",
+      "/images/gdrive/Chemistry_lab_workstations_red_pipeline.jpeg",
+      "/images/gdrive/Chemistry_lab_overhead_gas_network.jpeg",
+      "/images/gdrive/Chemistry_lab_regulator_manifold_gauges.jpeg",
+      "/images/gdrive/Chemistry_lab_burners_testing.jpeg",
+      "/images/gdrive/Chemistry_lab_workstation_sink_setup.jpeg"
     ],
     features: [
       "Centralized gas distribution delivering accurate gas supply at every workstation",
@@ -274,36 +281,38 @@ export const ALL_SERVICES_MAP = {
     sectorsServed: ["University Chemistry Labs", "Analytical Research Centers", "School Science Labs", "Pharma QA Labs"]
   },
 
-  "commercial-lab-pipeline": {
-    id: "commercial-lab-pipeline",
-    title: "Commercial Lab Pipeline System",
-    category: "Other Specialized Services",
-    tagline: "Complete Solutions for Industrial & Specialty Gases",
-    excerpt: "We provide complete pipeline solutions for all types of Industrial & Specialty Gases, featuring header systems, filtration, and gas control panels.",
-    fullDesc: "We provide complete pipeline solutions for all types of Industrial & Specialty Gases. Designed, installed, tested, and commissioned by our experienced technical experts in accordance with international safety standards, our pipeline systems ensure maximum safety, reliability, efficiency, and long-term performance for commercial and industrial applications.",
-    image: "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_20_PM.jpeg",
+  "lot-primary-lines": {
+    id: "lot-primary-lines",
+    title: "LOT Primary Lines",
+    category: "Specialized Gas Pipeline",
+    tagline: "High-Capacity Liquid Off-Take Primary Infrastructure",
+    excerpt: "LOT Primary Lines deliver high-pressure liquid-phase LPG conveyance directly from multi-cylinder manifold banks to vaporizers and primary regulation stations.",
+    fullDesc: "The LOT Primary Lines system is engineered to handle liquid-phase LPG conveyance from high-capacity cylinder banks and manifolds directly to liquid off-take vaporizers and central distribution hubs. Built with high-strength schedule-80 seamless piping, specialized liquid valves, hydrostatic relief valves, and emergency isolation points, LOT Primary Lines ensure zero pressure loss, maximum flow continuity, and highest safety compliance for heavy commercial kitchens, bakeries, and industrial thermal plants.",
+    image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM.jpeg",
     gallery: [
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_20_PM.jpeg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM.jpeg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM__1_.jpeg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM__2_.jpeg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM__3_.jpeg",
-      "/images/gdrive/Chemistry_laboratory_gas_line_system.jpg"
+      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM.jpeg",
+      "/images/gdrive/lot_pipeline_safecon_minivap_vaporizer.jpg",
+      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
+      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg",
+      "/images/gdrive/lot_primary_lines_vaporizer_tank.jpg",
+      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__2_.jpeg",
+      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_12_PM__1_.jpeg"
     ],
     features: [
-      "Industrial Line Header System: Balanced gas distribution & stable pressure from multiple cylinders",
-      "Gas Header System: Balanced gas distribution, manifold regulation & filtration for equipment",
-      "Gas Control Panel System: Precision regulators, gauges & isolation valves for safe distribution",
-      "Industrial Gas Distribution: Turnkey design, testing, commissioning & maintenance"
+      "High-pressure liquid-phase LPG line transmission from cylinder manifolds to vaporizer skids",
+      "Integrated hydrostatic relief valves and precision liquid off-take ball valves",
+      "Seamless heavy-duty schedule piping engineered for continuous high mass flow rates",
+      "Centralized emergency shut-off valves and leak containment safety interlocks",
+      "Zero vaporization pressure drop with 100% cylinder LPG liquid exhaustion"
     ],
     specs: [
-      { label: "Header System", value: "Multi-Cylinder Industrial Line Header with Balanced Flow" },
-      { label: "Filtration Level", value: "High-Efficiency Moisture, Dust & Hydrocarbon Mist Filtration" },
-      { label: "Control Panel", value: "Precision SS Gauges, Regulators & Isolation Valve Panel" },
-      { label: "Gases Handled", value: "LPG, Nitrogen, Argon, Oxygen, Specialty Lab Gases" },
-      { label: "Standard", value: "International Gas Pipeline & Pressure Vessel Standards" }
+      { label: "Primary Medium", value: "Liquid Phase LPG (Liquid Off-Take)" },
+      { label: "Piping Material", value: "Heavy Duty Seamless Carbon Steel / Sch-80 Seamless Pipes" },
+      { label: "Pressure Rating", value: "High-Pressure Rated with Hydrostatic Relief Protection" },
+      { label: "Safety Provisions", value: "Thermal Hydrostatic Relief Valves & Emergency Auto Shut-off" },
+      { label: "Application", value: "Commercial Kitchens, Bakeries, Furnaces & Industrial Facilities" }
     ],
-    sectorsServed: ["Industrial Testing Labs", "Calibration Facilities", "Specialty Manufacturing", "Chemical Processing"]
+    sectorsServed: ["Commercial Bakeries", "Industrial Kitchens & Resorts", "Food Processing Plants", "Heavy Heat Treatment Units"]
   },
 
   "gas-control-panel-system": {
@@ -343,12 +352,14 @@ export const ALL_SERVICES_MAP = {
     tagline: "Balanced Gas Distribution, Flow Regulation & Manifold Control",
     excerpt: "A high-grade gas header system engineered to balance pressure, regulate multi-line flow, and distribute LPG and industrial gases safely.",
     fullDesc: "Our Gas Header System is designed and engineered to provide balanced gas distribution, multi-cylinder manifold connectivity, and stable pressure regulation for commercial and industrial facilities. Equipped with precision regulators, isolation valves, pressure gauges, and integrated filtration, it protects downstream equipment, prevents pressure drops, and ensures continuous, safe operation.",
-    image: "/images/gdrive/Gas_header_system.jpg",
+    image: "/images/gdrive/gas_header_mesh_enclosure_front.jpg",
     gallery: [
-      "/images/gdrive/Gas_header_system.jpg",
-      "/images/gdrive/Industrial_line_header_system_brochure.jpg",
-      "/images/gdrive/Comercial_line_for_industries_WhatsApp_Image_2026-08-17_at_8_49_19_PM__3_.jpeg",
-      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__2_.jpeg"
+      "/images/gdrive/gas_header_mesh_enclosure_front.jpg",
+      "/images/gdrive/gas_header_easyvap_perspective.jpg",
+      "/images/gdrive/gas_header_pressure_reduction_station_brick.jpg",
+      "/images/gdrive/gas_header_regulator_panel_blue_enclosure.jpg",
+      "/images/gdrive/gas_header_system_bypass_vertical.jpg",
+      "/images/gdrive/Gas_header_system.jpg"
     ],
     features: [
       "Multi-cylinder manifold with balanced flow and uniform pressure distribution",
@@ -403,14 +414,13 @@ export const ALL_SERVICES_MAP = {
     tagline: "Integrated Safety Monitoring, Automatic Emergency Cut-off & Pressure Regulation",
     excerpt: "An integrated LPG Control Panel and Gas Leakage Detection System featuring high-sensitivity gas sensors, centralized audio-visual control alarms, precision pressure regulators, and automated emergency solenoid cut-off valves.",
     fullDesc: "Our LPG Control Panel and Gas Leakage Detection System delivers comprehensive monitoring and fail-safe automation for commercial kitchens, multi-cylinder manifold rooms, laboratories, and industrial plants. Built with precision pressure regulators, glycerine-filled pressure gauges, quarter-turn isolation valves, and fast-acting catalytic sensors, the system continuously monitors gas pressure and detects micro-leaks. Upon detecting gas anomalies or threshold leaks, the centralized control panel immediately sounds multi-zone audio-visual alarms and triggers the emergency solenoid valve within seconds, completely shutting off the gas supply at the source before any hazardous accumulation can occur.",
-    image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_10_PM__2_.jpeg",
+    image: "/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__1_.jpeg",
     gallery: [
-      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_10_PM__2_.jpeg",
       "/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__1_.jpeg",
-      "/images/gdrive/Gas_control_panel_system_brochure.jpg",
+      "/images/gdrive/iot_lpg_gas_leakage_system_diagram.jpg",
+      "/images/gdrive/smart_gas_transmitter_detector.jpg",
       "/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM.jpeg",
-      "/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__2_.jpeg",
-      "/images/gdrive/Gas_header_system.jpg"
+      "/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__2_.jpeg"
     ],
     features: [
       "Centralized Control Panel: Continuous line pressure monitoring, precision dual-stage regulation & emergency isolation",
@@ -437,13 +447,13 @@ export const ALL_SERVICES_MAP = {
     tagline: "Scalable, Centralized Gas Distribution & Reduced Downtime",
     excerpt: "Our pipeline systems are designed for easy future expansion, allowing additional equipment or gas outlets to be integrated without major modifications.",
     fullDesc: "Our pipeline systems are designed for easy future expansion, allowing additional equipment or gas outlets to be integrated without major modifications. With a centralized gas distribution system, gas is supplied safely, efficiently, and systematically from a single source to multiple workstations. A continuous and stable gas supply minimizes production interruptions and ensures smooth equipment operation. The well-engineered pipeline layout also enables quick inspection, simplified maintenance, and efficient servicing, ensuring long-term reliability and performance.",
-    image: "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_07_PM.jpeg",
+    image: "/images/gdrive/opportunities_pathway_cylinder_manifold_shed_perspective.jpg",
     gallery: [
-      "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_07_PM.jpeg",
-      "/images/gdrive/Comercial_line_cylinder_room_pipeline_WhatsApp_Image_2026-08-17_at_4_33_39_PM.jpeg",
-      "/images/gdrive/Comercial_line_cylinder_room_pipeline_WhatsApp_Image_2026-08-17_at_4_33_39_PM__1_.jpeg",
-      "/images/gdrive/Comercial_line_cylinder_room_pipeline_WhatsApp_Image_2026-08-17_at_4_33_39_PM__3_.jpeg",
-      "/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__8_.jpeg"
+      "/images/gdrive/opportunities_pathway_cylinder_manifold_shed_perspective.jpg",
+      "/images/gdrive/opportunities_pathway_cylinder_manifold_shed_front.jpg",
+      "/images/gdrive/opportunities_pathway_easyvap_vaporizer_skid.jpg",
+      "/images/gdrive/opportunities_pathway_dual_regulator_meter.jpg",
+      "/images/gdrive/opportunities_pathway_regulator_enclosure.jpg"
     ],
     features: [
       "Scalable & Centralized Gas Distribution: Easy integration of extra equipment without major modifications",
@@ -466,13 +476,13 @@ export const ALL_SERVICES_MAP = {
     tagline: "Future Expansion, Fire Alarms & Advanced Safety Integration",
     excerpt: "Our gas pipeline systems are designed with future expansion in mind, allowing easy integration of Fire Alarm Systems, Leak Detectors, Regulators, and LPG Vaporizers.",
     fullDesc: "Our gas pipeline systems are designed with future expansion in mind, allowing easy integration of Fire Alarm Systems, Gas Leak Detection Systems, Automatic Shut-off Valves, Pressure Regulators, Control Panels, LPG Vaporizers, additional pipeline extensions, and other process equipment without major modifications. This flexible design enhances safety, improves operational efficiency, reduces future installation costs, and ensures reliable long-term performance as your facility grows.",
-    image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg",
+    image: "/images/gdrive/future_outlook_dual_flowmeters_manifold.jpg",
     gallery: [
+      "/images/gdrive/future_outlook_dual_flowmeters_manifold.jpg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg",
-      "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_10_PM__3_.jpeg",
-      "/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__3_.jpeg",
-      "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__2_.jpeg",
-      "/images/gdrive/Gas_header_system.jpg"
+      "/images/gdrive/future_outlook_cylinder_shed_interior.jpg",
+      "/images/gdrive/future_outlook_overhead_manifold_lines.jpg",
+      "/images/gdrive/future_outlook_easyvap_perspective.jpg"
     ],
     features: [
       "Fire Alarm Systems & Gas Leak Detection Integration",
@@ -492,6 +502,7 @@ export const ALL_SERVICES_MAP = {
 
 // Backwards compatibility alias
 ALL_SERVICES_MAP["gas-line-filtration-system"] = ALL_SERVICES_MAP["gas-header-system"];
+ALL_SERVICES_MAP["commercial-lab-pipeline"] = ALL_SERVICES_MAP["lot-primary-lines"];
 
 export const PRIMARY_SERVICES = [
   ALL_SERVICES_MAP["domestic-lpg-pipeline"],
@@ -503,7 +514,7 @@ export const PRIMARY_SERVICES = [
 ];
 
 export const OTHER_SERVICES = [
-  ALL_SERVICES_MAP["commercial-lab-pipeline"],
+  ALL_SERVICES_MAP["lot-primary-lines"],
   ALL_SERVICES_MAP["lpg-control-panel-gas-leakage-detection-system"],
   ALL_SERVICES_MAP["gas-control-panel-system"],
   ALL_SERVICES_MAP["gas-header-system"],
@@ -597,8 +608,47 @@ export const OFFICE_LOCATIONS = {
 };
 
 export const FEATURED_PROJECT_SPOTLIGHT = {
-  title: "LOT LPG Pipelines Installation project completed for \"AJJ Bakes, Tuticorin, Tamil Nadu\"",
-  desc: "Safe. Smart. Economical. Enjoy the safest way to use fuel gas in your commercial buildings and industrial sectors.",
+  title: "Successfully executed LOT and VOT pipeline systems for reputed companies like Daksha properties and Prisison lab Pvt .ltd and more",
+  desc: "Safe. Smart. Economical. Providing modern residential properties, commercial kitchens, and precision laboratories with secure, convenient, and reliable piped gas infrastructure with safe and reliable performance for several years.",
   videoUrl: "https://www.youtube.com/embed/LNZiT3NbNPM",
-  image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_12_PM__1_.jpeg"
+  image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg"
 };
+
+export const VALUABLE_CUSTOMERS = [
+  {
+    id: 1,
+    name: "Precision Lab Pvt Ltd",
+    logo: "/images/clients/customer_plab.png",
+    category: "Scientific & Testing Laboratories",
+    highlight: "Custom Laboratory Gas Line & Flow Control Installation"
+  },
+  {
+    id: 2,
+    name: "Joyalukkas Jewellers",
+    logo: "/images/clients/customer_joyalukkas.png",
+    category: "World's Favourite Jeweller",
+    highlight: "Precision Manufacturing & Commercial Piped Gas Network"
+  },
+  {
+    id: 3,
+    name: "Taj Hotels & Resorts",
+    logo: "/images/clients/customer_taj.png",
+    category: "Luxury Hospitality & Dining",
+    highlight: "High-Capacity VOT & Bulk LPG Commercial Kitchen Installation"
+  },
+  {
+    id: 4,
+    name: "Sree Annapoorna",
+    logo: "/images/clients/customer_annapoorna.png",
+    category: "Iconic Restaurant Chain",
+    highlight: "Centralized Multi-Kitchen LPG Infrastructure & Reticulated Piping"
+  },
+  {
+    id: 5,
+    name: "Shree Anandhaas",
+    logo: "/images/clients/customer_anandhaas.png",
+    category: "Premium Sweets & Restaurants",
+    highlight: "Continuous High-Efficiency Food Processing LPG Manifold"
+  }
+];
+

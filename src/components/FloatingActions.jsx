@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { COMPANY_INFO } from '../data/hitechData';
 
 export default function FloatingActions() {
+  const [showPdfTooltip, setShowPdfTooltip] = useState(false);
   const [showCallTooltip, setShowCallTooltip] = useState(false);
   const [showWaTooltip, setShowWaTooltip] = useState(false);
 
@@ -11,10 +12,43 @@ export default function FloatingActions() {
     "Hello HI TECH ENERGY, I would like to inquire about your LPG gas pipeline installation services."
   )}`;
   const telUrl = `tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`;
+  const pdfUrl = COMPANY_INFO.portfolioPdfUrl || "https://drive.google.com/file/d/1LQmJAU3glHK7ywGDKnjIuKA1clhmW1B1/view?usp=sharing";
 
   return (
     <aside aria-label="Quick contact options" className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto select-none print:hidden">
       
+      {/* Brochure Floating Button (Above Call Icon) */}
+      <div className="relative flex items-center group">
+        {/* Tooltip */}
+        <div
+          className={`absolute right-full mr-3 whitespace-nowrap bg-[#831843] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-pink-500/30 transition-all duration-300 pointer-events-none ${
+            showPdfTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
+          }`}
+        >
+          <span className="flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-sm text-pink-300">menu_book</span>
+            <span>View Brochure</span>
+            <span className="bg-white/20 text-white text-[10px] px-1.5 py-0.5 rounded font-mono font-bold">PDF</span>
+          </span>
+          {/* Arrow */}
+          <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-[6px] border-l-[#831843]" />
+        </div>
+
+        <a
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open HI TECH ENERGY Company Brochure PDF"
+          onMouseEnter={() => setShowPdfTooltip(true)}
+          onMouseLeave={() => setShowPdfTooltip(false)}
+          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#e11d48] via-[#be123c] to-[#881337] text-white shadow-xl hover:shadow-[#e11d48]/40 hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-115 hover:-rotate-3 border-2 border-white/25 active:scale-95 group/brochure animate-mild-pulse hover:animate-none"
+        >
+          <span className="material-symbols-outlined text-2xl sm:text-3xl text-white drop-shadow transition-transform duration-300 group-hover/brochure:scale-110">
+            menu_book
+          </span>
+        </a>
+      </div>
+
       {/* Phone Call Floating Button */}
       <div className="relative flex items-center group">
         {/* Tooltip */}

@@ -6,17 +6,17 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white pt-16 pb-8 border-t border-white/10">
       <div className="max-w-[1280px] mx-auto px-4 md:px-16">
-        
+
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          
+
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="bg-white/95 px-3 py-1.5 rounded-xl inline-block shadow-sm">
-                <img 
-                  src="/images/logo.png" 
-                  alt="HI TECH ENERGY Logo" 
+                <img
+                  src="/images/logo.png"
+                  alt="HI TECH ENERGY Logo"
                   className="h-9 md:h-10 w-auto object-contain"
                 />
               </div>
@@ -54,7 +54,7 @@ export default function Footer() {
               Specialized Systems
             </h4>
             <ul className="space-y-2 text-xs font-body-sm">
-              <li><Link to="/services/commercial-lab-pipeline" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Commercial Lab Pipeline</Link></li>
+              <li><Link to="/services/lot-primary-lines" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">LOT Primary Lines</Link></li>
               <li><Link to="/services/lpg-control-panel-gas-leakage-detection-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">LPG Control Panel & Leak Detection</Link></li>
               <li><Link to="/services/gas-control-panel-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Control Panel System</Link></li>
               <li><Link to="/services/gas-header-system" className="text-white/70 hover:text-secondary-fixed-dim transition-colors">Gas Header System</Link></li>

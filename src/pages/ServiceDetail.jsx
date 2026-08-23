@@ -63,7 +63,7 @@ export default function ServiceDetail() {
 
   return (
     <div className="w-full bg-white text-on-surface overflow-hidden">
-      
+
       {/* Hero Header */}
       <section className="relative w-full bg-primary text-white pt-28 pb-16 px-4 md:px-16 overflow-hidden">
         <div className="max-w-[1280px] mx-auto relative z-10">
@@ -78,7 +78,7 @@ export default function ServiceDetail() {
           <span className="reveal-slide-up inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
             {service.category}
           </span>
-          
+
           <h1 className="reveal-slide-up font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4" data-delay="200ms">
             {service.title}
           </h1>
@@ -91,24 +91,24 @@ export default function ServiceDetail() {
       {/* Page Main Content */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-16 pt-16 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          
+
           {/* Main Left Content */}
           <div className="lg:col-span-2 space-y-12">
-            
+
             {/* Interactive Image Showcase */}
             <div className="reveal-slide-up space-y-4">
               {/* Main Active Image with Parallax Depth & Click-to-Zoom */}
-              <div 
+              <div
                 onClick={() => setLightboxIndex(activeImgIndex)}
                 className="relative rounded-3xl overflow-hidden shadow-2xl h-[380px] sm:h-[440px] cursor-pointer group bg-slate-900"
               >
-                <img 
+                <img
                   ref={serviceImgRef}
-                  src={galleryImages[activeImgIndex] || service.image} 
-                  alt={`${service.title} - Main View`} 
+                  src={galleryImages[activeImgIndex] || service.image}
+                  alt={`${service.title} - Main View`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                
+
                 {/* Floating Overlay Badge & Fullscreen Icon */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity flex items-end justify-between p-6">
                   <div className="text-white">
@@ -130,15 +130,14 @@ export default function ServiceDetail() {
                       key={idx}
                       onClick={() => setActiveImgIndex(idx)}
                       aria-label={`View photo ${idx + 1}`}
-                      className={`relative flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${
-                        activeImgIndex === idx
+                      className={`relative flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${activeImgIndex === idx
                           ? 'border-secondary-container ring-2 ring-secondary-container/40 scale-105 shadow-md'
                           : 'border-outline-variant/30 opacity-70 hover:opacity-100 hover:border-primary'
-                      }`}
+                        }`}
                     >
-                      <img 
-                        src={imgUrl} 
-                        alt={`${service.title} thumbnail ${idx + 1}`} 
+                      <img
+                        src={imgUrl}
+                        alt={`${service.title} thumbnail ${idx + 1}`}
                         className="w-full h-full object-cover"
                       />
                     </button>
@@ -153,7 +152,7 @@ export default function ServiceDetail() {
               <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
                 {service.excerpt}
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 {service.features.map((feat, idx) => (
                   <div key={idx} className="reveal-stagger-item flex items-start gap-3 bg-surface-container-low p-4 rounded-2xl border border-outline-variant/20 shadow-sm" data-delay={`${idx * 80}ms`}>
@@ -186,9 +185,9 @@ export default function ServiceDetail() {
                       onClick={() => setLightboxIndex(idx)}
                       className="group relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer border border-outline-variant/20"
                     >
-                      <img 
-                        src={imgUrl} 
-                        alt={`${service.title} Installation ${idx + 1}`} 
+                      <img
+                        src={imgUrl}
+                        alt={`${service.title} Installation ${idx + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -232,7 +231,7 @@ export default function ServiceDetail() {
 
           {/* Sidebar */}
           <div className="space-y-8">
-            
+
             {/* Quick Contact Box */}
             <div className="reveal-slide-right bg-primary text-white p-8 rounded-3xl shadow-xl space-y-6">
               <h3 className="font-headline-md text-xl font-bold text-white">Need a Quote For This Pipeline?</h3>
@@ -246,31 +245,31 @@ export default function ServiceDetail() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <input 
-                    type="text" 
-                    required 
-                    placeholder="Your Name" 
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your Name"
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                   />
-                  <input 
-                    type="tel" 
-                    required 
-                    placeholder="Phone Number" 
+                  <input
+                    type="tel"
+                    required
+                    placeholder="Phone Number"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                   />
-                  <textarea 
-                    rows="3" 
-                    placeholder="Project location / requirement..." 
+                  <textarea
+                    rows="3"
+                    placeholder="Project location / requirement..."
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:ring-2 focus:ring-secondary-container focus:outline-none"
                   ></textarea>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="w-full bg-secondary-container text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all cursor-pointer shadow-md"
                   >
                     Request Callback
@@ -289,7 +288,7 @@ export default function ServiceDetail() {
               <h4 className="font-headline-md text-base font-bold text-primary border-b border-outline-variant/20 pb-3">Other Pipeline Systems</h4>
               <div className="space-y-2">
                 {otherServicesList.slice(0, 6).map((srv) => (
-                  <Link 
+                  <Link
                     key={srv.id}
                     to={`/services/${srv.id}`}
                     className="block p-3 rounded-xl hover:bg-white text-xs font-semibold text-on-surface-variant hover:text-primary transition-all border border-transparent hover:border-outline-variant/20"
@@ -307,7 +306,7 @@ export default function ServiceDetail() {
 
       {/* Lightbox Modal */}
       {lightboxIndex !== null && (
-        <div 
+        <div
           role="dialog"
           aria-modal="true"
           aria-label="Photo Lightbox"
@@ -338,13 +337,13 @@ export default function ServiceDetail() {
           )}
 
           {/* Image Container */}
-          <div 
+          <div
             className="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={galleryImages[lightboxIndex]} 
-              alt={`${service.title} - Full Size ${lightboxIndex + 1}`} 
+            <img
+              src={galleryImages[lightboxIndex]}
+              alt={`${service.title} - Full Size ${lightboxIndex + 1}`}
               className="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10"
             />
             <div className="mt-4 text-center text-white space-y-1">
