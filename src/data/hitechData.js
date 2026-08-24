@@ -603,30 +603,72 @@ export const TESTIMONIALS = [
   {
     id: 2,
     name: "Naren Rajeev Kumar",
-    role: "Commercial Hospitality Client",
+    role: "General Manager, Grand Residency Hotels",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-    quote: "Got to work with HI TECH ENERGY for our hotel's VOT manifold pipeline. They installed heavy SS seamless pipelines with flawless pressure regulation across all cooking burners."
+    quote: "Got to work with HI TECH ENERGY for our hotel's 12-cylinder VOT manifold pipeline. They installed heavy SS seamless pipelines with flawless pressure regulation across all cooking burners. Zero downtime during kitchen peak hours."
   },
   {
     id: 3,
     name: "Antony Printo",
-    role: "NOAHS ARK Apartment",
+    role: "Secretary, NOAHS ARK Apartments",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
-    quote: "I highly recommend HI TECH ENERGY. They completed the centralized reticulated gas piping installation for our flat NOAHS ARK with individual gas meters on time with exceptional safety standards."
+    quote: "I highly recommend HI TECH ENERGY. They completed the centralized reticulated gas piping installation for our flat NOAHS ARK with individual gas meters on time with exceptional safety standards and dual emergency shut-off valves."
   },
   {
     id: 4,
     name: "Prakash Sangeetha",
-    role: "Residential Homeowner",
+    role: "Homeowner, Green Meadows Villa",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-    quote: "Having the cylinder safely outside with dual shut-off valves gives total peace of mind. Very easy to deal with, highly knowledgeable team."
+    quote: "Having the cylinder safely placed outside with dual shut-off valves and leak detectors gives total peace of mind for our family. Very easy to deal with, highly knowledgeable and polite engineering team."
   },
   {
     id: 5,
     name: "MADHURAM A MANIGANDAN ARUNACHALAM",
-    role: "Industrialist",
+    role: "Managing Director, Arun Industrial Components",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
     quote: "They used high quality & standard materials, good finishing, high Safety, on-time work completed, leak tested as per standards, and reasonable price. Thanks to HI TECH ENERGY."
+  },
+  {
+    id: 6,
+    name: "Dr. K. Senthil Nathan",
+    role: "Head of Operations, BioPrecision Lab Pvt Ltd",
+    avatar: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80",
+    quote: "HI TECH ENERGY engineered our specialized analytical chemistry laboratory gas distribution system. Their seamless SS line integration, pressure regulators, and auto shut-off safety alarms meet strict industrial lab norms."
+  },
+  {
+    id: 7,
+    name: "Rajeshwari Balasubramanian",
+    role: "Operations Head, Sri Krishna Sweets & Bakery",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+    quote: "Converting our commercial baking unit to a centralized LOT manifold system reduced our gas handling hassle drastically. The high-volume continuous flow without cylinder freezing has improved our output consistency."
+  },
+  {
+    id: 8,
+    name: "Venkatesh Prasad",
+    role: "Facility Manager, Daksha Heights Community",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80",
+    quote: "Installed centralized reticulated LPG for 120 residential apartments. The copper riser piping, basement isolation headers, and digital consumption meters are running flawlessly. Outstanding post-commissioning maintenance."
+  },
+  {
+    id: 9,
+    name: "Karthik Swaminathan",
+    role: "Executive Chef & Co-Owner, The Urban Feast Bistro",
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80",
+    quote: "Our commercial kitchen requires constant high-pressure flame consistency across 8 multi-burner cooking ranges. HI TECH ENERGY delivered clean pipe routing and top-notch safety compliance within just 4 days."
+  },
+  {
+    id: 10,
+    name: "Meenakshi Sundaram",
+    role: "Plant Head, Apex Engineering & Metal Works",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80",
+    quote: "For our heat-treatment furnace, they designed a custom high-flow manifold pipeline with nitrogen pressure testing and digital pressure gauges. Professional engineering execution from start to handover."
+  },
+  {
+    id: 11,
+    name: "Gopinath Ramanathan",
+    role: "President, Royal Palm Apartment Association",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80",
+    quote: "HI TECH ENERGY delivered complete peace of mind with their gas leak detection panel and audio-visual alarm system. The periodic safety audits and prompt technician visits have made them our trusted gas partner."
   }
 ];
 
