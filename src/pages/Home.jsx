@@ -44,7 +44,7 @@ export default function Home() {
     <div className="w-full overflow-hidden">
 
       {/* Hero Section with Parallax Depth */}
-      <header className="relative w-full min-h-screen pt-24 pb-16 flex items-center overflow-hidden bg-primary text-white parallax-container">
+      <header className="relative w-full min-h-[calc(100vh-5rem)] md:min-h-screen pt-8 pb-10 md:pt-24 md:pb-16 flex items-center overflow-hidden bg-primary text-white parallax-container">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-transparent z-10"></div>
           <img
@@ -59,56 +59,56 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 px-4 md:px-16 max-w-4xl text-left">
-          <span className="reveal-slide-left inline-block px-4 py-1.5 bg-secondary-container/20 backdrop-blur-md border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-6 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
+          <span className="reveal-slide-left inline-block px-3.5 py-1 md:px-4 md:py-1.5 bg-secondary-container/20 backdrop-blur-md border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-3 md:mb-6 uppercase tracking-widest text-[10px] md:text-xs font-semibold" data-delay="100ms">
             {COMPANY_INFO.slogan}
           </span>
-          <h1 className="reveal-slide-left font-headline-xl text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-bold" data-delay="200ms">
+          <h1 className="reveal-slide-left font-headline-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 md:mb-4 leading-tight font-bold" data-delay="200ms">
             {COMPANY_INFO.name}
           </h1>
-          <p className="reveal-slide-left text-secondary-container font-headline-md text-xl md:text-2xl font-semibold mb-6" data-delay="300ms">
+          <p className="reveal-slide-left text-secondary-container font-headline-md text-lg sm:text-xl md:text-2xl font-semibold mb-3 md:mb-6" data-delay="300ms">
             {COMPANY_INFO.tagline}
           </p>
-          <p className="reveal-slide-left font-body-lg text-base md:text-lg mb-8 text-white/80 max-w-2xl leading-relaxed" data-delay="400ms">
+          <p className="reveal-slide-left font-body-lg text-sm sm:text-base md:text-lg mb-5 md:mb-8 text-white/80 max-w-2xl leading-relaxed" data-delay="400ms">
             Professional LPG Gas Pipeline Solutions for domestic homes, hotels, restaurants, commercial kitchens, catering units, chemistry laboratories, and industrial food service facilities.
           </p>
 
           {/* Quick Contact Badges */}
-          <div className="reveal-slide-left flex flex-wrap gap-4 mb-8 text-xs text-white/90" data-delay="500ms">
-            <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/20">
+          <div className="reveal-slide-left flex flex-wrap gap-2 sm:gap-4 mb-6 md:mb-8 text-xs text-white/90" data-delay="500ms">
+            <span className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg border border-white/20">
               📞 {COMPANY_INFO.phone}
             </span>
-            <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/20">
+            <span className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg border border-white/20">
               ✉ {COMPANY_INFO.email}
             </span>
-            <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/20">
+            <span className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg border border-white/20">
               📍 Coimbatore - 641108
             </span>
           </div>
 
-          <div className="reveal-slide-left flex flex-col sm:flex-row gap-4" data-delay="600ms">
+          <div className="reveal-slide-left flex flex-col sm:flex-row gap-3 sm:gap-4" data-delay="600ms">
             <button
               onClick={() => navigate('/contact')}
-              className="bg-secondary-container text-on-secondary px-8 py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg group cursor-pointer font-bold"
+              className="bg-secondary-container text-on-secondary px-6 py-3 md:px-8 md:py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg group cursor-pointer font-bold text-sm md:text-base"
             >
               Get Consultation
-              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform text-lg md:text-xl">arrow_forward</span>
             </button>
             <button
               onClick={() => navigate('/services')}
-              className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 hover:bg-white/20 transition-all cursor-pointer font-bold"
+              className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-headline-md flex items-center justify-center gap-2 hover:bg-white/20 transition-all cursor-pointer font-bold text-sm md:text-base"
             >
               Explore Solutions
             </button>
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce hidden md:block">
+        <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce hidden md:block">
           <span className="material-symbols-outlined text-white/50 text-4xl">expand_more</span>
         </div>
       </header>
 
       {/* Animated Statistics */}
-      <section className="py-16 bg-primary text-white overflow-hidden border-t border-white/10">
+      <section className="py-10 md:py-16 bg-primary text-white overflow-hidden border-t border-white/10">
         <div className="max-w-[1280px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
