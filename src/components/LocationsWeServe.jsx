@@ -1,5 +1,6 @@
-import React from 'react';
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
+import React, { useState, useEffect, useMemo } from 'react';
+import * as d3Geo from 'd3-geo';
+import * as topojson from 'topojson-client';
 
 // Path to world topojson file in public directory
 const geoUrl = '/world-110m.json';
@@ -31,10 +32,38 @@ const SERVED_COUNTRY_NAMES = new Set([
   'Philippines', 'Malaysia', 'Brunei', 'Japan', 'Yemen', 'Saudi Arabia', 'Russia'
 ]);
 
-// India Coordinates: ~lat 20.5937, lng 78.9629 -> react-simple-maps expects [lng, lat]
+// India Coordinates: ~lat 20.5937, lng 78.9629 -> [lng, lat]
 const INDIA_COORDINATES = [78.9629, 20.5937];
 
 export default function LocationsWeServe({ className = "" }) {
+  const [geographies, setGeographies] = useState([]);
+
+  useEffect(() => {
+    fetch(geoUrl)
+      .then((res) => res.json())
+      .then((worldData) => {
+        if (worldData && worldData.objects && worldData.objects.countries) {
+          const featureCollection = topojson.feature(worldData, worldData.objects.countries);
+          setGeographies(featureCollection.features || []);
+        }
+      })
+      .catch((err) => console.error('Failed to load world map data', err));
+  }, []);
+
+  const { pathGenerator, indiaPos } = useMemo(() => {
+    // 800x440 coordinate space for crisp SVG rendering
+    const projection = d3Geo
+      .geoEqualEarth()
+      .scale(175)
+      .center([20, 12])
+      .translate([400, 220]);
+
+    const pathGen = d3Geo.geoPath().projection(projection);
+    const projectedIndia = projection(INDIA_COORDINATES) || [549, 170];
+
+    return { pathGenerator: pathGen, indiaPos: projectedIndia };
+  }, []);
+
   return (
     <div className={`w-full min-h-[480px] md:min-h-[500px] bg-white rounded-2xl p-6 md:p-8 border border-[#EAEAEA] text-left relative flex flex-col justify-between ${className}`}>
       
@@ -47,67 +76,48 @@ export default function LocationsWeServe({ className = "" }) {
 
       {/* Inner Map Box with light background and nested rounded corners */}
       <div className="relative w-full flex-1 min-h-[360px] sm:min-h-[400px] md:min-h-[420px] bg-[#F7F8FA] flex items-center justify-center rounded-xl overflow-hidden">
-        
-        {/* World Map Visualization */}
-        <ComposableMap
-          projection="geoEqualEarth"
-          projectionConfig={{
-            scale: 175,
-            center: [20, 12]
-          }}
-          className="w-full h-full relative z-10"
+        <svg
+          viewBox="0 0 800 440"
+          className="w-full h-full object-contain"
+          style={{ width: '100%', height: '100%' }}
         >
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const countryName = geo.properties?.name;
-                const isServed = SERVED_COUNTRY_NAMES.has(countryName);
-                const fillColor = isServed ? '#FD761A' : '#2B2B2B';
+          {/* Countries layer */}
+          <g>
+            {geographies.map((feature, idx) => {
+              const countryName = feature.properties?.name;
+              const isServed = SERVED_COUNTRY_NAMES.has(countryName);
+              const fillColor = isServed ? '#FD761A' : '#2B2B2B';
+              const d = pathGenerator(feature);
 
-                return (
-                  <Geography
-                    key={geo.rsmKey || geo.id}
-                    geography={geo}
-                    fill={fillColor}
-                    stroke="#E5E5E5"
-                    strokeWidth={0.75}
-                    style={{
-                      default: { outline: 'none' },
-                      hover: { fill: isServed ? '#e56611' : '#3a3a3a', outline: 'none' },
-                      pressed: { outline: 'none' }
-                    }}
-                  />
-                );
-              })
-            }
-          </Geographies>
+              if (!d) return null;
 
-          {/* Only ONE single marker: India Coordinates (Static Green Pointer) */}
-          <Marker coordinates={INDIA_COORDINATES}>
-            <g className="origin-center pointer-events-none">
+              return (
+                <path
+                  key={feature.id || idx}
+                  d={d}
+                  fill={fillColor}
+                  stroke="#E5E5E5"
+                  strokeWidth={0.75}
+                  className="transition-colors duration-200"
+                />
+              );
+            })}
+          </g>
+
+          {/* Static Green Pointer Marker on India */}
+          {indiaPos && (
+            <g transform={`translate(${indiaPos[0]}, ${indiaPos[1]})`} className="pointer-events-none">
               {/* Outer static soft green halo */}
-              <circle
-                r={10}
-                fill="#10B981"
-                opacity={0.25}
-              />
+              <circle r={10} fill="#10B981" opacity={0.25} />
 
               {/* Main solid green dot with white outline */}
-              <circle
-                r={5.5}
-                fill="#10B981"
-                stroke="#FFFFFF"
-                strokeWidth={1.5}
-              />
+              <circle r={5.5} fill="#10B981" stroke="#FFFFFF" strokeWidth={1.5} />
 
               {/* Center white dot */}
-              <circle
-                r={2}
-                fill="#FFFFFF"
-              />
+              <circle r={2} fill="#FFFFFF" />
             </g>
-          </Marker>
-        </ComposableMap>
+          )}
+        </svg>
       </div>
 
     </div>
