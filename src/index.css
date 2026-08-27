@@ -246,3 +246,10 @@ h6 {
     transition: none !important;
   }
 }
+
+/* Mobile responsive hero padding */
+@media (max-width: 639px) {
+  .relative.z-20.px-4.sm\:px-6.md\:px-16.max-w-4xl.text-left {
+    padding: 60px 10px;
+  }
+}
