@@ -84,19 +84,19 @@ export default function Insights() {
   });
 
   return (
-    <div>
+    <div className="w-full bg-white text-on-surface overflow-hidden">
       {/* Hero Section */}
-      <section className="relative bg-primary py-24 overflow-hidden text-left text-white">
+      <section className="relative bg-primary py-12 sm:py-16 md:py-24 overflow-hidden text-left text-white">
         <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-fixed-dim/30 via-transparent to-transparent"></div>
         </div>
-        <div className="max-w-[1280px] mx-auto px-4 md:px-16 relative z-10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 relative z-10">
           <div className="max-w-3xl">
-            <span className="text-secondary-fixed-dim font-semibold text-xs tracking-widest uppercase mb-4 block">Knowledge Hub</span>
-            <h1 className="font-headline-xl text-3xl md:text-5xl lg:text-6xl text-white mb-6 font-bold leading-tight">
-              Industrial Insights &amp; Energy Trends
+            <span className="text-secondary-fixed-dim font-semibold text-xs tracking-widest uppercase mb-2 sm:mb-4 block">Knowledge Hub</span>
+            <h1 className="font-headline-xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 sm:mb-6 font-bold leading-tight">
+              Industrial Insights & Energy Trends
             </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">
+            <p className="text-white/80 text-xs sm:text-base md:text-xl max-w-2xl leading-relaxed">
               Expert perspectives on the future of gas infrastructure, safety innovations, and the global energy transition.
             </p>
           </div>
@@ -104,16 +104,16 @@ export default function Insights() {
       </section>
 
       {/* Search & Topic Filters Bar (Sticky) */}
-      <div className="sticky top-20 z-40 bg-white border-b border-outline-variant/30 py-4 shadow-sm text-left">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-16 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0">
+      <div className="sticky top-20 z-30 bg-white border-b border-outline-variant/30 py-3 sm:py-4 shadow-sm text-left">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0">
             {topics.map((top) => (
               <button
                 key={top}
                 onClick={() => setSelectedTopic(top)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
                   selectedTopic === top 
-                    ? 'bg-primary-container text-on-primary-container' 
+                    ? 'bg-primary text-white shadow-sm' 
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'
                 }`}
               >
@@ -126,7 +126,7 @@ export default function Insights() {
             <input 
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm" 
+              className="w-full pl-9 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary-container focus:border-transparent text-xs sm:text-sm" 
               placeholder="Search insights..." 
               type="text" 
             />

@@ -65,17 +65,17 @@ export default function LocationsWeServe({ className = "" }) {
   }, []);
 
   return (
-    <div className={`w-full min-h-[480px] md:min-h-[500px] bg-white rounded-2xl p-6 md:p-8 border border-[#EAEAEA] text-left relative flex flex-col justify-between ${className}`}>
+    <div className={`w-full min-h-[340px] sm:min-h-[400px] md:min-h-[480px] bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-[#EAEAEA] text-left relative flex flex-col justify-between ${className}`}>
       
       {/* Top Heading */}
-      <div className="mb-5">
-        <h2 className="text-2xl md:text-[32px] font-bold text-primary leading-tight tracking-tight font-headline-lg whitespace-nowrap">
+      <div className="mb-4 sm:mb-5">
+        <h2 className="text-xl sm:text-2xl md:text-[30px] lg:text-[32px] font-bold text-primary leading-tight tracking-tight font-headline-lg">
           Location We Serve
         </h2>
       </div>
 
       {/* Inner Map Box with light background and nested rounded corners */}
-      <div className="relative w-full flex-1 min-h-[360px] sm:min-h-[400px] md:min-h-[420px] bg-[#F7F8FA] flex items-center justify-center rounded-xl overflow-hidden">
+      <div className="relative w-full flex-1 min-h-[250px] sm:min-h-[320px] md:min-h-[380px] bg-[#F7F8FA] flex items-center justify-center rounded-xl overflow-hidden p-1 sm:p-2">
         <svg
           viewBox="0 0 800 440"
           className="w-full h-full object-contain"

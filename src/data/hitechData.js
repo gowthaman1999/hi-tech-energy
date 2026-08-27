@@ -623,7 +623,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 5,
-    name: "MADHURAM A MANIGANDAN ARUNACHALAM",
+    name: "Manigandan Arunachalam",
     role: "Managing Director, Arun Industrial Components",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
     quote: "They used high quality & standard materials, good finishing, high Safety, on-time work completed, leak tested as per standards, and reasonable price. Thanks to HI TECH ENERGY."

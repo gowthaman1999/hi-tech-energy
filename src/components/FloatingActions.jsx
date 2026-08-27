@@ -15,13 +15,13 @@ export default function FloatingActions() {
   const pdfUrl = COMPANY_INFO.portfolioPdfUrl || "https://drive.google.com/file/d/1LQmJAU3glHK7ywGDKnjIuKA1clhmW1B1/view?usp=sharing";
 
   return (
-    <aside aria-label="Quick contact options" className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto select-none print:hidden">
+    <aside aria-label="Quick contact options" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-auto select-none print:hidden">
       
       {/* Brochure Floating Button (Above Call Icon) */}
       <div className="relative flex items-center group">
-        {/* Tooltip */}
+        {/* Tooltip (Desktop Only) */}
         <div
-          className={`absolute right-full mr-3 whitespace-nowrap bg-[#831843] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-pink-500/30 transition-all duration-300 pointer-events-none ${
+          className={`hidden md:flex absolute right-full mr-3 whitespace-nowrap bg-[#831843] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-pink-500/30 transition-all duration-300 pointer-events-none ${
             showPdfTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
           }`}
         >
@@ -36,14 +36,12 @@ export default function FloatingActions() {
 
         <a
           href={pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="Open HI TECH ENERGY Company Brochure PDF"
           onMouseEnter={() => setShowPdfTooltip(true)}
           onMouseLeave={() => setShowPdfTooltip(false)}
-          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#e11d48] via-[#be123c] to-[#881337] text-white shadow-xl hover:shadow-[#e11d48]/40 hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-115 hover:-rotate-3 border-2 border-white/25 active:scale-95 group/brochure animate-mild-pulse hover:animate-none"
+          className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#e11d48] via-[#be123c] to-[#881337] text-white shadow-lg sm:shadow-xl hover:shadow-[#e11d48]/40 hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white/25 group/brochure animate-mild-pulse hover:animate-none"
         >
-          <span className="material-symbols-outlined text-2xl sm:text-3xl text-white drop-shadow transition-transform duration-300 group-hover/brochure:scale-110">
+          <span className="material-symbols-outlined text-xl sm:text-2xl md:text-3xl text-white drop-shadow transition-transform duration-300 group-hover/brochure:scale-110">
             menu_book
           </span>
         </a>
@@ -51,9 +49,9 @@ export default function FloatingActions() {
 
       {/* Phone Call Floating Button */}
       <div className="relative flex items-center group">
-        {/* Tooltip */}
+        {/* Tooltip (Desktop Only) */}
         <div
-          className={`absolute right-full mr-3 whitespace-nowrap bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-white/10 transition-all duration-300 pointer-events-none ${
+          className={`hidden md:flex absolute right-full mr-3 whitespace-nowrap bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-white/10 transition-all duration-300 pointer-events-none ${
             showCallTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
           }`}
         >
@@ -70,9 +68,9 @@ export default function FloatingActions() {
           aria-label={`Call HI TECH ENERGY at ${COMPANY_INFO.phone}`}
           onMouseEnter={() => setShowCallTooltip(true)}
           onMouseLeave={() => setShowCallTooltip(false)}
-          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-primary-container via-primary to-[#001726] text-white shadow-xl hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-3 border-2 border-white/20 active:scale-95 group/btn"
+          className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-primary-container via-primary to-[#001726] text-white shadow-lg sm:shadow-xl hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white/20 group/btn"
         >
-          <span className="material-symbols-outlined text-2xl sm:text-3xl text-white">
+          <span className="material-symbols-outlined text-xl sm:text-2xl md:text-3xl text-white">
             phone_in_talk
           </span>
         </a>
@@ -80,9 +78,9 @@ export default function FloatingActions() {
 
       {/* WhatsApp Floating Button */}
       <div className="relative flex items-center group">
-        {/* Tooltip */}
+        {/* Tooltip (Desktop Only) */}
         <div
-          className={`absolute right-full mr-3 whitespace-nowrap bg-[#0b291b] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-emerald-500/20 transition-all duration-300 pointer-events-none ${
+          className={`hidden md:flex absolute right-full mr-3 whitespace-nowrap bg-[#0b291b] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl border border-emerald-500/20 transition-all duration-300 pointer-events-none ${
             showWaTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
           }`}
         >
@@ -101,11 +99,11 @@ export default function FloatingActions() {
           aria-label="Chat with HI TECH ENERGY on WhatsApp"
           onMouseEnter={() => setShowWaTooltip(true)}
           onMouseLeave={() => setShowWaTooltip(false)}
-          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#25D366] via-[#20BA5C] to-[#128C7E] text-white shadow-xl hover:shadow-[#25D366]/40 hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white/30 group/wa"
+          className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#25D366] via-[#20BA5C] to-[#128C7E] text-white shadow-lg sm:shadow-xl hover:shadow-[#25D366]/40 hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white/30 group/wa"
         >
           {/* Official WhatsApp SVG Icon */}
           <svg 
-            className="w-7 h-7 sm:w-8 sm:h-8 fill-current drop-shadow transition-transform duration-300 group-hover/wa:scale-110" 
+            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 fill-current drop-shadow transition-transform duration-300 group-hover/wa:scale-110" 
             viewBox="0 0 24 24"
           >
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.667-.699c.969.587 1.761.88 2.793.88 3.181 0 5.767-2.586 5.767-5.766.001-3.182-2.585-5.766-5.767-5.766zm6.39 5.766c-.001 3.524-2.868 6.391-6.39 6.391-1.122 0-2.18-.293-3.111-.84l-3.447.904.92-3.361c-.604-.972-.942-2.11-.941-3.094.001-3.524 2.868-6.39 6.39-6.39 3.524 0 6.39 2.868 6.39 6.391z" />

@@ -45,57 +45,57 @@ export default function Projects() {
     <div className="w-full bg-white text-on-surface overflow-hidden">
 
       {/* Header Banner */}
-      <section className="bg-primary text-white pt-28 pb-16 px-4 md:px-16 text-center">
+      <section className="bg-primary text-white pt-24 pb-12 sm:pt-28 sm:pb-16 px-4 sm:px-6 md:px-16 text-center">
         <div className="max-w-[1280px] mx-auto">
-          <span className="reveal-slide-up inline-block px-4 py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-4 uppercase tracking-widest text-xs font-semibold" data-delay="100ms">
+          <span className="reveal-slide-up inline-block px-3.5 py-1 sm:px-4 sm:py-1.5 bg-secondary-container/20 border border-secondary-container/30 rounded-full font-label-md text-secondary-fixed mb-3 sm:mb-4 uppercase tracking-widest text-[10px] sm:text-xs font-semibold" data-delay="100ms">
             Engineering Project Portfolio
           </span>
-          <h1 className="reveal-slide-up font-headline-xl text-3xl md:text-5xl font-bold text-white mb-4" data-delay="200ms">
+          <h1 className="reveal-slide-up font-headline-xl text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4" data-delay="200ms">
             Our Success Stories
           </h1>
-          <p className="reveal-slide-up font-body-lg text-sm md:text-base text-white/80 max-w-2xl mx-auto leading-relaxed" data-delay="300ms">
+          <p className="reveal-slide-up font-body-lg text-xs sm:text-sm md:text-base text-white/80 max-w-2xl mx-auto leading-relaxed" data-delay="300ms">
             Explore key completed gas pipeline installations delivered for commercial bakeries, apartment complexes, chemistry laboratories, and industrial plants.
           </p>
         </div>
       </section>
 
       {/* Projects Grid */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-16 pt-16 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 pt-10 pb-16 sm:pt-16 sm:pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
           {successStories.map((item, idx) => (
             <div
               key={item.id}
               data-delay={`${idx * 150}ms`}
-              className="reveal-stagger-item bg-white border border-outline-variant/30 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group hover:-translate-y-1.5"
+              className="reveal-stagger-item bg-white border border-outline-variant/30 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 sm:h-64 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 bg-primary/80 backdrop-blur-md px-3 py-1.5 rounded-lg text-white font-label-md text-xs font-semibold">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-primary/85 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg text-white font-label-md text-[10px] sm:text-xs font-semibold">
                     {item.category}
                   </div>
-                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg text-white/90 text-xs">
+                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-black/65 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1 rounded-lg text-white/90 text-[10px] sm:text-xs">
                     📍 {item.location}
                   </div>
                 </div>
 
-                <div className="p-8">
-                  <h3 className="font-headline-md text-2xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
+                <div className="p-5 sm:p-8">
+                  <h3 className="font-headline-md text-lg sm:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-secondary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="font-body-md text-sm text-on-surface-variant leading-relaxed mb-6">
+                  <p className="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-4 sm:mb-6">
                     {item.description}
                   </p>
 
-                  <div className="space-y-2 mb-6">
-                    <h4 className="font-label-md text-xs font-bold text-primary uppercase">Key Highlights:</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="space-y-2 mb-4 sm:mb-6">
+                    <h4 className="font-label-md text-[10px] sm:text-xs font-bold text-primary uppercase">Key Highlights:</h4>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {item.highlights.map((h, i) => (
-                        <span key={i} className="bg-surface-container-low px-3 py-1 rounded-full text-xs font-medium text-on-surface-variant border border-outline-variant/20">
+                        <span key={i} className="bg-surface-container-low px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-medium text-on-surface-variant border border-outline-variant/20">
                           ✓ {h}
                         </span>
                       ))}
@@ -104,10 +104,10 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="px-8 pb-8 pt-0">
+              <div className="px-5 sm:px-8 pb-5 sm:pb-8 pt-0">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-secondary-container hover:text-secondary transition-colors"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-bold text-secondary-container hover:text-secondary transition-colors"
                 >
                   <span>Request Similar Installation</span>
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
