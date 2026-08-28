@@ -692,7 +692,7 @@ export const OFFICE_LOCATIONS = {
 export const FEATURED_PROJECT_SPOTLIGHT = {
   title: "Successfully executed LOT and VOT pipeline systems for reputed companies like Daksha properties and Prisison lab Pvt .ltd and more",
   desc: "Safe. Smart. Economical. Providing modern residential properties, commercial kitchens, and precision laboratories with secure, convenient, and reliable piped gas infrastructure with safe and reliable performance for several years.",
-  videoUrl: "https://www.youtube.com/embed/LNZiT3NbNPM",
+  videoUrl: "/videos/featured_success_story.mp4",
   image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg"
 };
 

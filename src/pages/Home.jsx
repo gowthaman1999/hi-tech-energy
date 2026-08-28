@@ -17,11 +17,9 @@ import LocationsWeServe from '../components/LocationsWeServe';
 
 export default function Home() {
   const navigate = useNavigate();
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   // Parallax hook references for key background & showcase elements
   const heroBgRef = useParallax(0.22, { initialScale: 1.15, maxOffset: 120, disabledOnMobile: true });
-  const spotlightMediaRef = useParallax(0.12, { initialScale: 1.08, maxOffset: 60, disabledOnMobile: true });
   const futureMediaRef = useParallax(0.15, { initialScale: 1.08, maxOffset: 70, disabledOnMobile: true });
   const mapMediaRef = useParallax(0.1, { initialScale: 1.06, maxOffset: 50, disabledOnMobile: true });
 
@@ -219,58 +217,25 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Video Spotlight Box with Parallax */}
-            <div
-              className="reveal-slide-right relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 group cursor-pointer"
-              onClick={() => setVideoModalOpen(true)}
-            >
-              <div className="w-full h-56 sm:h-72 md:h-[360px] overflow-hidden relative">
-                <img
-                  ref={spotlightMediaRef}
-                  src={FEATURED_PROJECT_SPOTLIGHT.image}
-                  alt="Daksha Properties Coimbatore Domestic Pipeline Installation"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                />
-              </div>
-              <div className="absolute inset-0 bg-primary/40 flex items-center justify-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-secondary-container text-white rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-xl group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-2xl sm:text-3xl">play_arrow</span>
-                </div>
-              </div>
-              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-primary/80 backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-[10px] sm:text-xs font-bold text-white border border-white/10">
-                Watch Project Case Study Video
+            {/* Video Spotlight Box */}
+            <div className="reveal-slide-right relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black/60 backdrop-blur-sm group">
+              <div className="w-full h-64 sm:h-80 md:h-[380px] overflow-hidden relative flex items-center justify-center bg-black">
+                <video
+                  src={FEATURED_PROJECT_SPOTLIGHT.videoUrl}
+                  poster={FEATURED_PROJECT_SPOTLIGHT.image}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain rounded-3xl"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
 
           </div>
         </div>
       </section>
-
-      {/* Video Modal */}
-      {videoModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-3 sm:p-4 backdrop-blur-sm" onClick={() => setVideoModalOpen(false)}>
-          <div className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-            <button
-              onClick={() => setVideoModalOpen(false)}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white text-xl sm:text-2xl font-bold bg-black/60 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center z-10 hover:bg-secondary-container"
-              aria-label="Close video"
-            >
-              ✕
-            </button>
-            <div className="aspect-video w-full">
-              <iframe
-                src={FEATURED_PROJECT_SPOTLIGHT.videoUrl}
-                title="Daksha Properties Coimbatore Project Case Study"
-                className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Our Valuable Customers Slider Section */}
       <CustomersSlider />
