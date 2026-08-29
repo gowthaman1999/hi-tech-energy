@@ -21,11 +21,9 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Featured Testimonials Carousel */}
-      <div className="bg-primary pb-12 sm:pb-20 pt-2 sm:pt-4 px-4 sm:px-6 md:px-16">
-        <div className="max-w-[1280px] mx-auto">
-          <TestimonialsSlider />
-        </div>
+      {/* Featured Testimonials Continuous Marquee */}
+      <div className="bg-primary pb-12 sm:pb-20 pt-2 sm:pt-4 overflow-hidden">
+        <TestimonialsSlider />
       </div>
 
       {/* Testimonials Detail Grid */}

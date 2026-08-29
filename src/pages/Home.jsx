@@ -469,18 +469,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Client Testimonials Carousel / Slider */}
+      {/* Client Testimonials Marquee */}
       <section className="py-12 sm:py-16 md:py-24 bg-primary text-white overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
-          <div className="reveal-slide-up text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 mb-8 sm:mb-12">
+          <div className="reveal-slide-up text-center max-w-2xl mx-auto">
             <span className="text-secondary-fixed-dim font-bold text-xs uppercase tracking-widest">Client Testimonials</span>
             <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 sm:mt-2">Listen To Our Client's Feedback</h2>
             <p className="font-body-md text-xs sm:text-sm text-white/70 mt-1 sm:mt-2">Hear directly from homeowners, commercial hospitality partners, and industrial clients.</p>
           </div>
+        </div>
 
-          <div className="reveal-slide-up">
-            <TestimonialsSlider />
-          </div>
+        <div className="reveal-slide-up">
+          <TestimonialsSlider />
         </div>
       </section>
 
