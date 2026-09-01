@@ -8,7 +8,7 @@ export const COMPANY_INFO = {
   plusCode: "3VGW+29H Nanjundapuram, Tamil Nadu",
   portfolioPdfUrl: "/docs/hi_tech_energy_portfolio.pdf",
   socialLinks: {
-    instagram: "https://www.instagram.com/",
+    instagram: "https://www.instagram.com/hitechnrgy/",
     facebook: "https://www.facebook.com/",
     linkedin: "https://www.linkedin.com/",
     youtube: "https://www.youtube.com/"

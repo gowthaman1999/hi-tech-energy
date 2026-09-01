@@ -93,7 +93,7 @@ export default function Footer() {
                 <div className="flex items-center gap-2.5">
                   {/* Instagram */}
                   <a
-                    href={COMPANY_INFO.socialLinks?.instagram || "https://www.instagram.com/"}
+                    href={COMPANY_INFO.socialLinks?.instagram || "https://www.instagram.com/hitechnrgy/"}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="HI TECH ENERGY on Instagram"
