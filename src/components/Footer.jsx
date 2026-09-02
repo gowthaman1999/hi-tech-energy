@@ -132,10 +132,10 @@ export default function Footer() {
 
                   {/* YouTube */}
                   <a
-                    href={COMPANY_INFO.socialLinks?.youtube || "https://www.youtube.com/"}
+                    href={COMPANY_INFO.socialLinks?.youtube || "https://www.youtube.com/@Lpg_gas_line-108"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="HI TECH ENERGY on YouTube"
+                    aria-label="HI TECH ENERGY on YouTube (@Lpg_gas_line-108)"
                     className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#FF0000] border border-white/15 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-sm"
                   >
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

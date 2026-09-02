@@ -68,6 +68,28 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* Official YouTube Channel Card */}
+                <div className="bg-gradient-to-br from-red-50/70 to-surface-container-low p-5 sm:p-6 rounded-2xl border-l-4 border-[#FF0000] shadow-md">
+                  <h3 className="font-headline-md font-bold text-sm sm:text-base text-primary mb-2 flex items-center gap-2">
+                    <svg className="w-5 h-5 text-[#FF0000] fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    Watch Us on YouTube
+                  </h3>
+                  <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed mb-3">
+                    Watch our live pipeline installation projects, pressure testing, and cylinder manifold setups on our official YouTube channel: <span className="font-semibold text-primary">@Lpg_gas_line-108</span>.
+                  </p>
+                  <a
+                    href={COMPANY_INFO.socialLinks?.youtube || "https://www.youtube.com/@Lpg_gas_line-108"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#FF0000] hover:bg-[#cc0000] text-white rounded-xl text-xs font-bold shadow transition-all hover:scale-105 active:scale-95"
+                  >
+                    <span>Visit @Lpg_gas_line-108</span>
+                    <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                  </a>
+                </div>
+
               </div>
             </div>
 

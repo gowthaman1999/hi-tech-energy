@@ -11,7 +11,7 @@ export const COMPANY_INFO = {
     instagram: "https://www.instagram.com/hitechnrgy/",
     facebook: "https://www.facebook.com/",
     linkedin: "https://www.linkedin.com/",
-    youtube: "https://www.youtube.com/"
+    youtube: "https://www.youtube.com/@Lpg_gas_line-108"
   }
 };
 

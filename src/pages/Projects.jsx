@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { COMPANY_INFO } from '../data/hitechData';
 
 export default function Projects() {
   const successStories = [
@@ -116,6 +117,37 @@ export default function Projects() {
 
             </div>
           ))}
+        </div>
+        
+        {/* Watch Project Demos on YouTube Banner */}
+        <div className="mt-12 sm:mt-16 bg-gradient-to-r from-primary via-[#002d4a] to-primary text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+              <svg className="w-8 h-8 sm:w-9 sm:h-9 text-[#FF0000] fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </div>
+            <div>
+              <span className="inline-block px-2.5 py-0.5 bg-red-500/20 text-red-300 border border-red-500/30 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5">
+                Official YouTube Channel
+              </span>
+              <h3 className="font-headline-md text-lg sm:text-xl md:text-2xl font-bold text-white">
+                Watch Live Installations & Field Demos
+              </h3>
+              <p className="font-body-sm text-xs sm:text-sm text-white/75 mt-1 max-w-xl">
+                Subscribe to our YouTube channel <span className="text-secondary-fixed font-semibold">@Lpg_gas_line-108</span> for live site videos, pipe fitting demonstrations, pneumatic testing & project highlights.
+              </p>
+            </div>
+          </div>
+          <a
+            href={COMPANY_INFO.socialLinks?.youtube || "https://www.youtube.com/@Lpg_gas_line-108"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 bg-[#FF0000] hover:bg-[#cc0000] text-white rounded-xl text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 active:scale-95"
+          >
+            <span>Visit @Lpg_gas_line-108</span>
+            <span className="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
         </div>
       </div>
 
