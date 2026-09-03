@@ -86,7 +86,7 @@ export default function FloatingActions() {
     {
       id: 'linkedin',
       name: 'LinkedIn',
-      url: COMPANY_INFO.socialLinks?.linkedin || "https://www.linkedin.com/",
+      url: COMPANY_INFO.socialLinks?.linkedin || "https://www.linkedin.com/in/hi-tech-energy-a2b6272b1/",
       bgClass: 'bg-gradient-to-br from-[#0A66C2] via-[#0077B5] to-[#004182]',
       hoverShadow: 'hover:shadow-[#0A66C2]/50',
       icon: (

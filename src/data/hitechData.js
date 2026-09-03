@@ -10,7 +10,7 @@ export const COMPANY_INFO = {
   socialLinks: {
     instagram: "https://www.instagram.com/hitechnrgy/",
     facebook: "https://www.facebook.com/",
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/hi-tech-energy-a2b6272b1/",
     youtube: "https://www.youtube.com/@Lpg_gas_line-108"
   }
 };

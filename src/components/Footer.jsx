@@ -119,7 +119,7 @@ export default function Footer() {
 
                   {/* LinkedIn */}
                   <a
-                    href={COMPANY_INFO.socialLinks?.linkedin || "https://www.linkedin.com/"}
+                    href={COMPANY_INFO.socialLinks?.linkedin || "https://www.linkedin.com/in/hi-tech-energy-a2b6272b1/"}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="HI TECH ENERGY on LinkedIn"
