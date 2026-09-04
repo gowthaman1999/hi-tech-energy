@@ -9,7 +9,7 @@ export const COMPANY_INFO = {
   portfolioPdfUrl: "/docs/hi_tech_energy_portfolio.pdf",
   socialLinks: {
     instagram: "https://www.instagram.com/hitechnrgy/",
-    facebook: "https://www.facebook.com/",
+    facebook: "https://www.facebook.com/profile.php?id=61594149447586",
     linkedin: "https://www.linkedin.com/in/hi-tech-energy-a2b6272b1/",
     youtube: "https://www.youtube.com/@Lpg_gas_line-108"
   }

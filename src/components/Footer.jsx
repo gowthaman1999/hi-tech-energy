@@ -106,7 +106,7 @@ export default function Footer() {
 
                   {/* Facebook */}
                   <a
-                    href={COMPANY_INFO.socialLinks?.facebook || "https://www.facebook.com/"}
+                    href={COMPANY_INFO.socialLinks?.facebook || "https://www.facebook.com/profile.php?id=61594149447586"}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="HI TECH ENERGY on Facebook"

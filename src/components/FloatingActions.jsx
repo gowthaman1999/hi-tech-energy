@@ -85,7 +85,7 @@ export default function FloatingActions() {
     {
       id: 'facebook',
       name: 'Facebook',
-      url: COMPANY_INFO.socialLinks?.facebook || "https://www.facebook.com/",
+      url: COMPANY_INFO.socialLinks?.facebook || "https://www.facebook.com/profile.php?id=61594149447586",
       bgClass: 'bg-gradient-to-br from-[#1877F2] via-[#0B65C2] to-[#0A4B94]',
       hoverShadow: 'hover:shadow-[#1877F2]/50',
       icon: (
