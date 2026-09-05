@@ -294,8 +294,9 @@ export const ALL_SERVICES_MAP = {
     tagline: "High-Capacity Liquid Off-Take Primary Infrastructure",
     excerpt: "LOT Primary Lines deliver high-pressure liquid-phase LPG conveyance directly from multi-cylinder manifold banks to vaporizers and primary regulation stations.",
     fullDesc: "The LOT Primary Lines system is engineered to handle liquid-phase LPG conveyance from high-capacity cylinder banks and manifolds directly to liquid off-take vaporizers and central distribution hubs. Built with high-strength schedule-80 seamless piping, specialized liquid valves, hydrostatic relief valves, and emergency isolation points, LOT Primary Lines ensure zero pressure loss, maximum flow continuity, and highest safety compliance for heavy commercial kitchens, bakeries, and industrial thermal plants.",
-    image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
+    image: "/images/gdrive/lot_primary_lines_safecon_easyvap.jpg",
     gallery: [
+      "/images/gdrive/lot_primary_lines_safecon_easyvap.jpg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg",
       "/images/gdrive/lot_primary_lines_vaporizer_tank.jpg",
