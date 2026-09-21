@@ -89,9 +89,12 @@ export const ALL_SERVICES_MAP = {
     id: "domestic-lpg-pipeline",
     title: "Domestic LPG Pipeline",
     category: "Gas Pipeline Services",
-    tagline: "Safer and More Convenient Solution for Your Home",
-    excerpt: "An LPG gas pipeline system is a safer and more convenient solution for your home. The LPG cylinder is installed outside the building, and gas is supplied to the kitchen through a secure pipeline.",
-    fullDesc: "An LPG gas pipeline system is a safer and more convenient solution for your home. The LPG cylinder is installed outside the building, and gas is supplied to the kitchen through a secure pipeline. Separate shut-off valves are provided both outside (near the cylinder) and inside the kitchen for quick and easy control during emergencies or maintenance. In the unlikely event of a gas leak, the gas disperses into the open atmosphere outside, reducing the risk of gas accumulation inside the house. This provides enhanced safety, convenience, and peace of mind for your family.",
+    tagline: "Domestic LPG Pipeline Installation",
+    metaTitle: "Domestic LPG Gas Pipeline Service | Hi Tech Energy",
+    metaDescription: "Choose Hi Tech Energy for domestic LPG gas pipeline installation services. Get reliable pipeline solutions for safe and convenient LPG distribution.",
+    canonicalUrl: "https://www.hitechenergy.org/services/domestic-lpg-pipeline",
+    excerpt: "Our domestic LPG pipeline installation is planned based on the layout of the house, the location of the LPG cylinder, the kitchen and the appliances that need to be connected. The installation starts with planning the pipeline route and identifying suitable locations for the cylinder, valves and appliance connections. The required piping and components are then installed along the planned route. Once the work is completed, the LPG pipeline system is checked and tested before it is put into regular use. The exact installation requirements can vary depending on the property layout and site conditions.",
+    fullDesc: "A domestic LPG pipeline is a fixed piping system that carries LPG from a cylinder placed outside the home to the kitchen and connected cooking appliances. Instead of keeping the cylinder inside the cooking area, the cylinder can be placed at a suitable external location and the gas can be supplied through the pipeline. The system can include separate shut-off valves near the cylinder and inside the kitchen. These valves make it easier to stop the gas supply when maintenance is required or in an emergency. Keeping the cylinder outside also reduces the need to move it through the kitchen and provides more usable space in the cooking area. For an LPG gas pipeline for home, the pipeline route, cylinder location and appliance connections need to be planned according to the layout and requirements of the property.",
     image: "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
     gallery: [
       "/images/gdrive/domestic_lpg_pipeline_cover.jpg",
@@ -102,21 +105,81 @@ export const ALL_SERVICES_MAP = {
       "/images/gdrive/Domestic_line_WhatsApp_Image_2026-08-16_at_4_20_35_PM__8_.jpeg",
       "/images/gdrive/Domestic_line_Domestic_line.jpeg"
     ],
+    featuresTitle: "Key Benefits",
     features: [
-      "LPG cylinder safely installed outside the building",
-      "Separate shut-off valves provided both outside and inside the kitchen",
-      "Gas disperses into open atmosphere during leaks, eliminating indoor accumulation risk",
-      "Enhanced family safety, spacious cooking area & peace of mind",
-      "Zero hassle of lifting heavy gas cylinders inside the kitchen"
+      "LPG cylinder placed outside the building, away from the main cooking area",
+      "Fixed LPG pipeline supplies gas directly to the kitchen",
+      "Separate shut-off valves can be provided near the cylinder and inside the kitchen",
+      "Less need to move or handle the cylinder inside the cooking area",
+      "Better use of available kitchen space",
+      "Pipeline layout can be planned according to the home and appliance requirements"
     ],
+    safety: {
+      title: "Safety Features",
+      desc: "Safety is an important part of a domestic LPG pipeline system. The pipeline route, pipe material, valves and connection points should be selected and installed according to the requirements of the property and applicable safety practices.",
+      points: [
+        "Shut-off valves allow the gas supply to be isolated when required.",
+        "Proper connections and checking of the completed pipeline are also important before the system is used.",
+        "The external cylinder arrangement can help reduce the possibility of LPG accumulating inside the home, provided the system is properly designed, installed and maintained."
+      ]
+    },
+    process: {
+      title: "Domestic LPG Pipeline Installation Process",
+      desc: "A typical domestic LPG pipeline installation involves the following steps:",
+      steps: [
+        { num: "1", title: "Site Assessment", desc: "Site assessment to understand the house layout and LPG requirements." },
+        { num: "2", title: "Route Planning", desc: "Pipeline route planning from the cylinder location to the kitchen." },
+        { num: "3", title: "Component Selection", desc: "Selection of the required pipes, valves and other components." },
+        { num: "4", title: "Installation", desc: "Installation of the pipeline and connections to the required cooking appliances." },
+        { num: "5", title: "Inspection & Testing", desc: "Inspection and testing of the completed pipeline." },
+        { num: "6", title: "Final Checks", desc: "Final checks before the system is put into regular use." }
+      ],
+      note: "The actual installation process may differ depending on the type of property, pipeline route and site conditions."
+    },
     specs: [
-      { label: "Piping Material", value: "Premium SS Seamless / ASTM Standard Copper Pipe" },
-      { label: "Operating Pressure", value: "28 mbar - 37 mbar (Regulated Domestic Standard)" },
-      { label: "Safety Valves", value: "Dual Isolation Shut-off Valves (Outside & Inside Kitchen)" },
-      { label: "Leak Safety", value: "External Atmospheric Dispersion Design" },
-      { label: "Application", value: "Villas, Independent Houses, Townhouses, Gated Flats" }
+      { label: "Piping Material", value: "Premium SS seamless / ASTM standard copper pipe" },
+      { label: "Operating Pressure", value: "28 mbar to 37 mbar, based on the applicable domestic system requirements" },
+      { label: "Safety Valves", value: "Dual isolation shut-off valves, outside and inside the kitchen" },
+      { label: "Leak Safety", value: "External atmospheric dispersion design" },
+      { label: "Application", value: "Villas, independent houses, townhouses and gated flats" }
     ],
-    sectorsServed: ["Independent Houses", "Residential Villas", "Duplex Homes", "Apartment Residences"]
+    specsNote: "The pipe material, operating pressure and other components are selected based on the requirements of the LPG pipeline system and the property where the installation is carried out.",
+    sectorsServed: ["Independent Houses", "Residential Villas", "Duplex Homes", "Apartment Residences", "Townhouses"],
+    applicationsNote: "A domestic LPG gas pipeline can be considered for both new residential construction and suitable existing properties, depending on the building layout and installation requirements.",
+    faqs: [
+      {
+        question: "What is a domestic LPG pipeline?",
+        answer: "A domestic LPG pipeline is a fixed piping system that carries LPG from a cylinder placed outside the home to the kitchen and connected cooking appliances."
+      },
+      {
+        question: "Can an LPG cylinder be placed outside the home?",
+        answer: "An LPG cylinder can be placed at a suitable external location when the installation is planned and carried out according to the applicable requirements. The LPG can then be supplied to the kitchen through a fixed pipeline."
+      },
+      {
+        question: "Is an LPG gas pipeline suitable for a home?",
+        answer: "A domestic LPG pipeline can be planned for independent houses, villas, duplex homes, townhouses and suitable apartment residences. The installation depends on the property layout and LPG requirements."
+      },
+      {
+        question: "What type of pipe is used for a domestic LPG pipeline?",
+        answer: "The pipe material depends on the requirements of the system. The specified engineering options for our installations include SS seamless pipe and ASTM standard copper pipe."
+      },
+      {
+        question: "Are shut-off valves provided in an LPG pipeline?",
+        answer: "Yes. Isolation shut-off valves can be provided at suitable locations. The specified system includes dual isolation valves, with one positioned outside and another inside the kitchen."
+      },
+      {
+        question: "Does an LPG pipeline need to be tested?",
+        answer: "Yes. The completed LPG pipeline system should be inspected and tested according to the applicable installation and safety requirements before regular use."
+      },
+      {
+        question: "Can a domestic LPG pipeline be installed in an existing house?",
+        answer: "It may be possible depending on the house layout, cylinder location, kitchen position and available pipeline route. A site assessment can help determine the suitable installation approach."
+      }
+    ],
+    summarySection: {
+      title: "Domestic LPG Pipeline for Residential Homes",
+      desc: "A domestic LPG pipeline is planned around the requirements of each property. The cylinder location, kitchen layout, pipeline route, valve positions and appliance connections are considered during the installation. Whether it is an independent house, villa, duplex or suitable apartment residence, the pipeline system can be planned according to the available space and LPG supply requirements."
+    }
   },
 
   "commercial-lpg-pipeline": {
@@ -124,6 +187,9 @@ export const ALL_SERVICES_MAP = {
     title: "Commercial LPG Gas Pipeline - VOT Line System",
     category: "Gas Pipeline Services",
     tagline: "Hi Tech Energy - Safe. Smart. Economical",
+    metaTitle: "Commercial LPG Pipeline Services | Hi Tech Energy",
+    metaDescription: "Hi Tech Energy offers professional commercial LPG gas pipeline installation services for businesses, with reliable solutions for safe and efficient LPG gas supply.",
+    canonicalUrl: "https://www.hitechenergy.org/services/commercial-lpg-pipeline",
     excerpt: "Hi Tech Energy provides professional LPG Gas Pipeline Solutions for hotels, restaurants, commercial kitchens, catering units, and industrial food service facilities.",
     fullDesc: "Hi Tech Energy provides professional LPG Gas Pipeline Solutions for hotels, restaurants, commercial kitchens, catering units, and industrial food service facilities. Our VOT Line System is designed by connecting multiple LPG cylinders safely through a bulk manifold installed at the rear side of the building, delivering an independent gas point to each burner. This ensures a stable gas supply and consistent pressure for smooth and efficient cooking operations. The system enhances operational safety, minimizes gas wastage, improves fuel efficiency, and helps reduce overall LPG consumption. Since the cylinders are installed outside the kitchen, the cooking area remains cleaner, more spacious, and safer while making cylinder replacement quick and convenient. Every installation is carried out using premium-grade SS seamless pipelines, high-quality pressure regulators, safety shut-off valves, and industry-standard components, ensuring reliable performance and long-term durability.",
     image: "/images/gdrive/vot_line_commercial_pipeline_cover.jpg",
@@ -155,11 +221,14 @@ export const ALL_SERVICES_MAP = {
 
   "reticulated-lpg-pipeline": {
     id: "reticulated-lpg-pipeline",
-    title: "LPG Reticulated System - Centralized Gas Pipeline Installation",
+    title: "Centralised LPG Gas Pipeline System",
     category: "Gas Pipeline Services",
-    tagline: "Centralized Gas Pipeline Installation for Modern Living",
-    excerpt: "A Centralized LPG Gas Pipeline System supplies gas from a common cylinder bank to each apartment through individual gas meters.",
-    fullDesc: "A Centralized LPG Gas Pipeline System supplies gas from a common cylinder bank to each apartment through individual gas meters. This allows residents to pay only for the LPG they actually consume, ensuring accurate usage monitoring and fair billing. The system offers greater convenience, reliable gas supply, and enhances the overall quality of living.",
+    tagline: "PESO Safety Standards • Central Common Cylinder Bank",
+    metaTitle: "Centralised LPG Gas Pipeline System | Hi Tech Energy",
+    metaDescription: "Get reliable centralised LPG gas pipeline systems from Hi Tech Energy, designed for safe, efficient and continuous LPG supply for commercial and industrial applications.",
+    canonicalUrl: "https://www.hitechenergy.org/services/reticulated-lpg-pipeline",
+    excerpt: "A centralised LPG pipeline installation draws gas from a shared cylinder bank and sends it through a pipeline network to individual meters installed at each flat.",
+    fullDesc: "A centralised LPG gas pipeline system supplies gas from one common cylinder bank to every apartment through separate gas meters. This way, each household pays only for the LPG they actually use, and billing stays accurate and fair for everyone in the building. This type of centralised gas pipeline installation gives residents a steady, reliable gas supply and does away with the trouble of managing individual cylinders. Our installations follow PESO safety standards and are carried out by an ISO certified team based in Coimbatore, serving apartment projects across Tamil Nadu.",
     image: "/images/gdrive/reticulated_lpg_pipeline_cover.jpg",
     gallery: [
       "/images/gdrive/reticulated_lpg_pipeline_cover.jpg",
@@ -168,30 +237,66 @@ export const ALL_SERVICES_MAP = {
       "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__1_.jpeg",
       "/images/gdrive/Gas_line_for_Appartment_flats_WhatsApp_Image_2026-08-17_at_8_49_28_PM__3_.jpeg"
     ],
+    featuresTitle: "Overview & Key Features",
     features: [
-      "Supplies gas from common cylinder bank to every individual apartment",
-      "Individual gas meters ensure residents pay only for actual consumption",
-      "Accurate usage monitoring, fair billing and zero disputes",
-      "Eliminates cylinder movement in residential staircases and lifts",
-      "Continuous 24/7 reliable gas supply enhancing quality of living"
+      "Supplies gas from one common cylinder bank to every apartment",
+      "Individual gas meters let residents pay only for what they consume",
+      "Accurate usage tracking means fair billing and no disputes",
+      "No need to carry or move cylinders through stairs or lifts",
+      "Continuous gas supply, day and night, without interruptions"
     ],
+    howItWorks: {
+      title: "How Installation Works",
+      desc: "Every centralised gas pipeline installation starts with a site visit, where our engineer checks the building layout, number of flats, and where the cylinder bank and riser lines can be placed. Based on this, we plan the pipe routing, meter positions, and safety valve locations. Once approved, installation is usually completed in stages, floor by floor, so residents are not affected for long. Timelines depend on the size of the building, typically ranging from a few days for smaller blocks to a few weeks for larger complexes with more units."
+    },
     specs: [
-      { label: "Storage Setup", value: "Central Common Cylinder Bank / Manifold Skid" },
-      { label: "Metering Unit", value: "Individual Sub-Gas Meters per Household" },
-      { label: "Pipeline Network", value: "Riser & Distribution Seamless Steel / Copper Lines" },
-      { label: "Billing Method", value: "Actual Consumption Digital / Mechanical Metering" },
-      { label: "Safety Controls", value: "Multi-Stage Pressure Regulators & Individual Flat Isolation Valves" }
+      { label: "Storage Setup", value: "Central common cylinder bank / manifold skid" },
+      { label: "Metering Unit", value: "Individual sub-gas meters per household" },
+      { label: "Pipeline Network", value: "Riser and distribution lines in seamless steel or copper" },
+      { label: "Billing Method", value: "Based on actual consumption, tracked digitally or mechanically" },
+      { label: "Safety Controls", value: "Multi-stage pressure regulators with isolation valves at each flat" }
     ],
-    sectorsServed: ["Apartment Complexes", "Gated Communities", "Residential Townships", "Multi-Family Societies"]
+    costFactors: {
+      title: "Cost Factors",
+      desc: "There is no fixed price for a centralised LPG pipeline installation since it depends on the number of flats, the length of piping needed, the type of meters chosen, and site-specific factors like building height and layout. Most projects are quoted after our engineer visits the site and understands the exact requirement. As a rough guide, larger buildings with more flats bring the per-unit cost down since the cylinder bank and main pipeline are shared."
+    },
+    comparison: {
+      title: "Centralised System vs Individual Cylinders",
+      desc: "With individual LPG cylinders, each household manages their own booking, delivery, and storage, which gets harder to coordinate as a building grows. A centralised system removes this by supplying gas to the whole building from one point, with each flat billed only for what it uses. It also removes the safety risk of cylinders being moved through common areas like stairs and lifts."
+    },
+    sectorsServed: ["Apartment Complexes", "Gated Communities", "Residential Townships", "Multi-Family Societies"],
+    industrialNote: {
+      title: "Industrial LPG Pipeline Installation",
+      desc: "For factories, industrial kitchens, and manufacturing units, we also handle industrial LPG pipeline installation, where gas needs to reach multiple sections or machines within a facility. This is planned differently from residential systems, with pipe sizing and pressure calculated based on actual industrial load rather than household consumption. If you are looking specifically for industrial gas infrastructure, our Industrial Gas Solutions page covers this in more detail.",
+      link: "/services/industrial-solutions",
+      linkText: "View Industrial Gas Solutions"
+    },
+    faqs: [
+      {
+        question: "Is a centralised LPG system safe for apartments?",
+        answer: "Yes, when installed with proper pressure regulators, isolation valves at each flat, and PESO compliant materials, it is considered safer than individual cylinders stored inside homes."
+      },
+      {
+        question: "Can this system be added to an existing building?",
+        answer: "Yes, though it depends on available space for the cylinder bank and riser routing. A site visit is needed to confirm feasibility."
+      },
+      {
+        question: "Who maintains the pipeline after installation?",
+        answer: "We offer maintenance support after installation, covering routine checks on pressure regulators, valves, and meters."
+      }
+    ]
   },
 
   "lot-pipeline": {
     id: "lot-pipeline",
-    title: "LOT (Liquid Off-Take) Pipeline System",
+    title: "LOT Pipeline Service",
     category: "Gas Pipeline Services",
-    tagline: "Energy Security & Industrial Backbone for High Consumption",
-    excerpt: "The LOT (Liquid Off-Take) System is an advanced LPG pipeline solution designed for commercial and industrial applications with high gas consumption.",
-    fullDesc: "The LOT (Liquid Off-Take) System is an advanced LPG pipeline solution designed for commercial and industrial applications with high gas consumption. It combines the benefits of bulk LPG storage with the flexibility of a multi-cylinder installation. LPG is drawn from the cylinders in liquid form and converted into gas through a vaporizer before distribution. This process ensures complete utilization of LPG, minimizes residual loss, and provides a continuous, efficient gas supply. The LOT Cylinder Room is compact, space-saving, and requires minimal installation area. It is suitable for all types of applications, offering a safe, economical, and highly efficient LPG supply solution.",
+    tagline: "High-Volume Commercial & Industrial LPG Distribution",
+    metaTitle: "LOT Pipeline Service | Hi Tech Energy",
+    metaDescription: "Keep high-volume LPG operations running efficiently with LOT pipeline service from H Tech Energy, designed for dependable gas extraction and continuous supply.",
+    canonicalUrl: "https://www.hitechenergy.org/services/lot-pipeline",
+    excerpt: "An lpg lot system installation works by combining bulk storage with a bank of individual cylinders connected through a header. This gives the flexibility of switching cylinders without ever stopping the gas flow.",
+    fullDesc: "An LOT lpg cylinder setup is built for commercial and industrial spaces that go through large volumes of gas, like bakeries, industrial kitchens, and manufacturing units. It brings together the storage capacity of bulk LPG with the flexibility that comes from a multi-cylinder arrangement. Gas is pulled out of the cylinders in liquid form and passed through a vaporizer before it reaches the point of use, so almost all the LPG in the cylinder gets used, with very little left behind. Our LOT Pipeline Service ensures these installations follow PESO safety standards and are carried out by an ISO certified team, since this is a pressurised system that needs to be handled carefully.",
     image: "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
     gallery: [
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__2_.jpeg",
@@ -202,30 +307,61 @@ export const ALL_SERVICES_MAP = {
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__2_.jpeg",
       "/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_12_PM__1_.jpeg"
     ],
+    featuresTitle: "Overview & Key Features",
     features: [
-      "Energy Security: Combines bulk LPG storage benefits with multi-cylinder installation flexibility",
-      "Industrial Backbone: Draws liquid LPG converted through vaporizers for 100% fuel utilization",
-      "Zero Residual Loss: Eliminates heavy gas left over in cylinders during peak operation",
-      "LOT for Commercial Kitchens: Compact, space-saving cylinder room requiring minimal area",
-      "Header Systems: Precision header manifold engineered for uninterrupted high-volume supply"
+      "Combines bulk LPG storage with multi-cylinder flexibility, so supply never runs low",
+      "Draws liquid LPG and passes it through vaporizers to convert it fully into usable gas",
+      "Cuts down residual gas waste that is normally left behind in cylinders during heavy use",
+      "Cylinder room design is compact and needs very little installation space",
+      "Header system is built with precision to handle continuous high-volume gas demand"
     ],
+    comparison: {
+      title: "LOT vs Bulk Storage and Multi-Cylinder Setups",
+      desc: "A plain multi-cylinder setup just connects cylinders in a row, so gas gets used unevenly and some is often left behind when a cylinder is swapped out. Bulk LPG storage solves the volume problem but needs more space and higher upfront investment. An LOT system sits in between, it draws liquid LPG and passes it through a vaporizer, pulling out almost all the gas in each cylinder while still keeping the cylinder room compact."
+    },
+    servicing: {
+      title: "LOT Valve Gas Cylinder Service",
+      desc: "Once an LOT system is running, regular servicing keeps it safe and efficient. Our lot valve gas cylinder service covers checking valve pressure, inspecting the vaporizer unit for wear, and testing header lines for leaks or pressure drops. How often this is needed depends on usage load, but high-consumption sites like bakeries and manufacturing units typically need checks every few months. We also handle repairs and part replacements when a valve or vaporizer starts underperforming, so the system keeps running without unplanned downtime."
+    },
     specs: [
-      { label: "Off-Take Technology", value: "Liquid Off-Take (LOT) Valves with Liquid Withdrawal Skid" },
-      { label: "Vaporization", value: "Electric / Water Bath LPG Vaporizer Unit" },
-      { label: "Fuel Utilization", value: "100% Complete LPG Extraction (Zero Residual Waste)" },
-      { label: "Cylinder Room Layout", value: "Compact, Space-Saving Layout with Minimal Footprint" },
-      { label: "Header Manifold", value: "Heavy Seamless Steel Manifold with High-Pressure Safety Valves" }
+      { label: "Off-Take Technology", value: "LOT valves with liquid withdrawal skid" },
+      { label: "Vaporization", value: "Electric or water bath LPG vaporizer unit" },
+      { label: "Fuel Utilization", value: "Complete LPG extraction with near-zero residual waste" },
+      { label: "Cylinder Room Layout", value: "Compact layout with minimal footprint" },
+      { label: "Gas Header Manifold", value: "Heavy seamless steel manifold fitted with high-pressure safety valves" }
     ],
-    sectorsServed: ["High-Volume Bakeries", "Industrial Kitchens", "Commercial Catering Hubs", "Manufacturing Units"]
+    sectorsServed: [
+      "High-Volume Bakeries",
+      "Industrial Kitchens",
+      "Commercial Catering Hubs",
+      "Manufacturing Units"
+    ],
+    faqs: [
+      {
+        question: "What does LOT mean in an LPG system?",
+        answer: "LOT stands for Liquid Off-Take. It refers to drawing LPG out of cylinders in liquid form and converting it to gas through a vaporizer, instead of relying on natural gas off-take."
+      },
+      {
+        question: "How is LOT different from a regular multi-cylinder setup?",
+        answer: "A regular setup just connects cylinders together, so gas use is uneven and some is often left behind. LOT adds a vaporizer stage that pulls out almost all the gas in each cylinder before it's replaced."
+      },
+      {
+        question: "How often does lot valve gas cylinder service need to be done?",
+        answer: "This depends on how heavily the system is used, but sites with high gas consumption like bakeries or manufacturing units usually need valve and vaporizer checks every few months to avoid pressure issues."
+      }
+    ]
   },
 
   "industrial-solutions": {
     id: "industrial-solutions",
-    title: "Industrial Gas Solutions & Infrastructure",
+    title: "Industrial Gas Pipeline Service",
     category: "Gas Pipeline Services",
     tagline: "Safe. Smart. Reliable Gas Management for Industry",
-    excerpt: "Safety-compliant LPG Cylinder Rooms integrated with Auto Shut-off and Gas Leak Alarm Systems ensure safe cylinder storage and uninterrupted gas supply.",
-    fullDesc: "We provide safe and reliable LPG Gas Pipeline systems for industrial machinery and production equipment. Our pipeline ensures a continuous gas supply, minimizes fuel wastage, improves operational efficiency, and reduces running costs. Hi Tech Energy delivers dependable solutions that enhance productivity, safety, and long-term profitability. Our Industrial Gas Distribution Systems feature safety-compliant cylinder rooms with auto shut-off valves and automated leak detection alarms.",
+    metaTitle: "Industrial Gas Pipeline Service | Hi Tech Energy",
+    metaDescription: "Hi Tech Energy provides reliable Industrial Gas Pipeline Service with safe gas distribution, seamless pipelines, leak detection, and efficient gas supply.",
+    canonicalUrl: "https://www.hitechenergy.org/services/industrial-solutions",
+    excerpt: "Our Industrial Gas Pipeline Service ensures a continuous gas supply, minimises fuel wastage, improves operational efficiency, and reduces running costs.",
+    fullDesc: "We provide safe and reliable LPG Gas Pipeline systems for industrial machinery and production equipment. Our Industrial Gas Pipeline Service ensures a continuous gas supply, minimises fuel wastage, improves operational efficiency, and reduces running costs. Hi Tech Energy delivers dependable industrial gas solutions that enhance productivity, safety, and long-term profitability. Our Industrial Gas Distribution Systems feature safety-compliant cylinder rooms with auto shut-off valves and automated leak detection alarms.",
     image: "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.jpeg",
     gallery: [
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.jpeg",
@@ -235,30 +371,39 @@ export const ALL_SERVICES_MAP = {
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__3_.jpeg",
       "/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM.jpeg"
     ],
+    featuresTitle: "Key Benefits",
     features: [
-      "Industrial Gas Distribution: Safety-compliant cylinder rooms with auto shut-off & leak alarms",
-      "Industrial Gas Infrastructure: Continuous gas supply for industrial machinery & equipment",
-      "Minimizes fuel wastage, improves operational efficiency, and cuts running costs",
-      "Enhances production uptime, plant safety, and long-term profitability",
-      "Heavy-duty seamless pipelines built for severe industrial environments"
+      "Industrial Gas Distribution: Safety-compliant cylinder rooms with auto shut-off & gas leak alarms",
+      "Industrial Gas Pipeline Service: Reliable and continuous gas supply for industrial machinery and production equipment",
+      "Industrial Gas Infrastructure: Designed to support efficient gas distribution across industrial facilities",
+      "Minimises Fuel Wastage: Improves operational efficiency and helps reduce running costs",
+      "Enhances Production Uptime: Supports plant safety, productivity, and long-term profitability",
+      "Heavy-duty seamless pipelines: Built to perform reliably in severe industrial environments"
     ],
     specs: [
-      { label: "Application", value: "Industrial Machinery, Boilers, Furnaces & Production Lines" },
       { label: "Cylinder Room Safety", value: "Integrated Auto Shut-off & Gas Leak Alarm System" },
       { label: "Cost Optimization", value: "Continuous Supply Minimizing Fuel Wastage & Running Costs" },
       { label: "Reliability", value: "Engineered for 24/7 Heavy Industrial Duty" },
       { label: "Standard", value: "National & International Gas Infrastructure Safety Protocols" }
     ],
-    sectorsServed: ["Heavy Manufacturing", "Heat Treatment Facilities", "Metal & Ceramic Plants", "Textile & Chemical Units"]
+    sectorsServed: [
+      "Heavy Manufacturing",
+      "Heat Treatment Facilities",
+      "Metal & Ceramic Plants",
+      "Textile & Chemical Units"
+    ]
   },
 
   "laboratory-gas-line-system": {
     id: "laboratory-gas-line-system",
-    title: "Chemistry Laboratory Gas Line System",
+    title: "Laboratory Gas Pipeline Service",
     category: "Gas Pipeline Services",
-    tagline: "Precise, Controlled, and Uninterrupted Gas Supply",
-    excerpt: "The Chemistry Laboratory Gas Line System is designed to deliver a precise, controlled, and uninterrupted gas supply for laboratory experiments, research, and analytical applications.",
-    fullDesc: "The Chemistry Laboratory Gas Line System is designed to deliver a precise, controlled, and uninterrupted gas supply for laboratory experiments, research, and analytical applications. The installation incorporates centralized gas distribution, isolation valves, pressure regulation, and emergency shut-off provisions to ensure safe operation and accurate gas delivery at every workstation. Built with high-quality materials and engineered for long-term reliability, the system enhances laboratory efficiency while maintaining the highest standards of safety and operational control.",
+    tagline: "Safe, Controlled, and Reliable Gas Supply for Laboratories",
+    metaTitle: "Laboratory Gas Pipeline Service | Hi Tech Energy",
+    metaDescription: "Choose Hi Tech Energy for Laboratory Gas Pipeline Service and installation. Get reliable gas distribution, quality piping, safety valves, and controlled gas supply",
+    canonicalUrl: "https://www.hitechenergy.org/services/laboratory-gas-line-system",
+    excerpt: "The Chemistry Laboratory Gas Line System provides a controlled gas supply to different laboratory workstations. Our Laboratory Gas Pipeline Service is planned based on the laboratory layout, gas requirements, pressure levels, and safety needs.",
+    fullDesc: "The Chemistry Laboratory Gas Line System is designed to provide a safe, controlled, and reliable gas supply for laboratory experiments, research, testing, and analytical work. Our Laboratory Gas Pipeline Service supports multiple workstations with proper gas distribution, isolation valves, pressure control, and safety provisions. The system is built using quality materials and suitable laboratory gas piping to support long-term performance and safe laboratory operations.",
     image: "/images/gdrive/Chemistry_lab_hero_classroom.jpeg",
     gallery: [
       "/images/gdrive/Chemistry_lab_hero_classroom.jpeg",
@@ -270,21 +415,27 @@ export const ALL_SERVICES_MAP = {
       "/images/gdrive/Chemistry_lab_burners_testing.jpeg",
       "/images/gdrive/Chemistry_lab_workstation_sink_setup.jpeg"
     ],
+    featuresTitle: "Overview & Key Features",
     features: [
-      "Centralized gas distribution delivering accurate gas supply at every workstation",
-      "Isolation valves & precision pressure regulation for sensitive experiments",
-      "Emergency shut-off provisions ensuring immediate response and total control",
-      "Built with high-purity, corrosion-resistant materials engineered for longevity",
-      "Enhances laboratory efficiency while maintaining highest safety standards"
+      "Centralized gas distribution for reliable supply at each workstation",
+      "Proper isolation valves and pressure control for laboratory applications",
+      "Emergency shut-off provisions for quick response during critical situations",
+      "High-quality, corrosion-resistant materials selected for laboratory gas piping",
+      "Reliable Laboratory Gas Pipeline Service for safe and efficient laboratory operations"
     ],
     specs: [
       { label: "Target Application", value: "Chemistry Labs, Research Centers, Educational Workstations" },
       { label: "Pressure Regulation", value: "Multi-Stage Precision Low-Pressure Laboratory Regulators" },
-      { label: "Safety Controls", value: "Emergency Workstation Shut-off & Central Isolation Valves" },
+      { label: "Safety Controls", value: "Emergency Workstation Shut-Off & Central Isolation Valves" },
       { label: "Piping Material", value: "Degreased High-Purity Seamless Copper / SS Lines" },
       { label: "Safety Compliance", value: "Educational & Analytical Laboratory Gas Safety Standards" }
     ],
-    sectorsServed: ["University Chemistry Labs", "Analytical Research Centers", "School Science Labs", "Pharma QA Labs"]
+    sectorsServed: [
+      "University Chemistry Labs",
+      "Analytical Research Centers",
+      "School Science Labs",
+      "Pharma QA Labs"
+    ]
   },
 
   "lot-primary-lines": {

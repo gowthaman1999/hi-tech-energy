@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ALL_SERVICES_MAP, OFFICE_LOCATIONS } from '../data/hitechData';
 import { useParallax } from '../hooks/useParallax';
+import { useSEO } from '../hooks/useSEO';
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
@@ -13,15 +14,25 @@ export default function ServiceDetail() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   const service = ALL_SERVICES_MAP[serviceId];
   const galleryImages = service?.gallery || (service?.image ? [service.image] : []);
   const [activeImgIndex, setActiveImgIndex] = useState(0);
 
-  // Reset active image when service changes
+  // Dynamic SEO Meta updates
+  useSEO({
+    title: service?.metaTitle || (service ? `${service.title} | Hi Tech Energy` : ''),
+    description: service?.metaDescription || service?.excerpt || '',
+    canonicalUrl: service?.canonicalUrl || (service ? `https://www.hitechenergy.org/services/${service.id}` : ''),
+    ogImage: service?.image
+  });
+
+  // Reset active image and modal when service changes
   useEffect(() => {
     setActiveImgIndex(0);
     setLightboxIndex(null);
+    setOpenFaqIndex(0);
   }, [serviceId]);
 
   // Keyboard navigation for lightbox
@@ -65,7 +76,7 @@ export default function ServiceDetail() {
     <div className="w-full bg-white text-on-surface overflow-hidden">
 
       {/* Hero Header */}
-      <section className="relative w-full bg-primary text-white pt-24 pb-12 sm:pt-28 sm:pb-16 px-4 sm:px-6 md:px-16 overflow-hidden">
+      <header className="relative w-full bg-primary text-white pt-24 pb-12 sm:pt-28 sm:pb-16 px-4 sm:px-6 md:px-16 overflow-hidden">
         <div className="max-w-[1280px] mx-auto relative z-10">
           <div className="reveal-slide-up flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-white/60 mb-3 sm:mb-4 uppercase tracking-wider">
             <Link to="/" className="hover:text-white">Home</Link>
@@ -86,14 +97,14 @@ export default function ServiceDetail() {
             {service.fullDesc}
           </p>
         </div>
-      </section>
+      </header>
 
       {/* Page Main Content */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 pt-10 pb-16 sm:pt-16 sm:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
 
           {/* Main Left Content */}
-          <div className="lg:col-span-2 space-y-8 sm:space-y-12">
+          <div className="lg:col-span-2 space-y-8 sm:space-y-12 text-left">
 
             {/* Interactive Image Showcase */}
             <div className="reveal-slide-up space-y-3 sm:space-y-4">
@@ -131,8 +142,8 @@ export default function ServiceDetail() {
                       onClick={() => setActiveImgIndex(idx)}
                       aria-label={`View photo ${idx + 1}`}
                       className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${activeImgIndex === idx
-                          ? 'border-secondary-container ring-2 ring-secondary-container/40 scale-105 shadow-md'
-                          : 'border-outline-variant/30 opacity-70 hover:opacity-100 hover:border-primary'
+                        ? 'border-secondary-container ring-2 ring-secondary-container/40 scale-105 shadow-md'
+                        : 'border-outline-variant/30 opacity-70 hover:opacity-100 hover:border-primary'
                         }`}
                     >
                       <img
@@ -146,9 +157,11 @@ export default function ServiceDetail() {
               )}
             </div>
 
-            {/* Overview */}
+            {/* Overview & Key Benefits */}
             <div className="reveal-slide-up space-y-3 sm:space-y-4">
-              <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">Overview & Key Features</h2>
+              <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">
+                {service.featuresTitle || "Overview & Key Features"}
+              </h2>
               <p className="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
                 {service.excerpt}
               </p>
@@ -162,6 +175,57 @@ export default function ServiceDetail() {
                 ))}
               </div>
             </div>
+
+            {/* Safety Features Section */}
+            {service.safety && (
+              <div className="reveal-slide-up space-y-3 sm:space-y-4 bg-surface-container-low p-5 sm:p-7 rounded-3xl border border-outline-variant/30">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-2xl text-secondary-container">security</span>
+                  <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">{service.safety.title}</h2>
+                </div>
+                <p className="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  {service.safety.desc}
+                </p>
+                <div className="space-y-2.5 pt-2">
+                  {service.safety.points.map((pt, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-on-surface-variant">
+                      <span className="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">verified_user</span>
+                      <span className="leading-relaxed">{pt}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Installation Process Steps */}
+            {service.process && (
+              <div className="reveal-slide-up space-y-4 sm:space-y-6">
+                <div>
+                  <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">{service.process.title}</h2>
+                  <p className="font-body-md text-xs sm:text-sm text-on-surface-variant mt-1">{service.process.desc}</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {service.process.steps.map((st, idx) => (
+                    <div key={idx} className="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/20 flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-primary text-white font-bold text-xs flex items-center justify-center shrink-0">
+                        {st.num}
+                      </div>
+                      <div>
+                        <h3 className="font-headline-md text-xs sm:text-sm font-bold text-primary mb-1">{st.title}</h3>
+                        <p className="font-body-sm text-[11px] sm:text-xs text-on-surface-variant leading-relaxed">{st.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {service.process.note && (
+                  <p className="text-[11px] sm:text-xs text-on-surface-variant/80 italic">
+                    * {service.process.note}
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* Complete Project Photo Gallery Section */}
             {galleryImages.length > 1 && (
@@ -202,6 +266,32 @@ export default function ServiceDetail() {
               </div>
             )}
 
+            {/* System Comparison */}
+            {service.comparison && (
+              <div className="reveal-slide-up space-y-3 sm:space-y-4 bg-surface-container-low p-5 sm:p-7 rounded-3xl border border-outline-variant/30">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-2xl text-secondary-container">compare_arrows</span>
+                  <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">{service.comparison.title}</h2>
+                </div>
+                <p className="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  {service.comparison.desc}
+                </p>
+              </div>
+            )}
+
+            {/* Servicing & Maintenance */}
+            {service.servicing && (
+              <div className="reveal-slide-up space-y-3 sm:space-y-4 bg-surface-container-low p-5 sm:p-7 rounded-3xl border border-outline-variant/30">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-2xl text-secondary-container">build</span>
+                  <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">{service.servicing.title}</h2>
+                </div>
+                <p className="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  {service.servicing.desc}
+                </p>
+              </div>
+            )}
+
             {/* Technical Specifications */}
             <div className="reveal-slide-up space-y-4 sm:space-y-6">
               <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">Engineering Specifications</h2>
@@ -213,11 +303,16 @@ export default function ServiceDetail() {
                   </div>
                 ))}
               </div>
+              {service.specsNote && (
+                <p className="text-[11px] sm:text-xs text-on-surface-variant/80 italic">
+                  * {service.specsNote}
+                </p>
+              )}
             </div>
 
-            {/* Sectors Served */}
+            {/* Sectors Served / Applications */}
             <div className="reveal-slide-up space-y-3 sm:space-y-4">
-              <h3 className="font-headline-md text-lg sm:text-xl font-bold text-primary">Target Applications & Sectors</h3>
+              <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">Applications & Sectors</h2>
               <div className="flex flex-wrap gap-2">
                 {service.sectorsServed.map((sector, idx) => (
                   <span key={idx} className="bg-primary/5 text-primary px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-bold border border-primary/10">
@@ -225,12 +320,67 @@ export default function ServiceDetail() {
                   </span>
                 ))}
               </div>
+              {service.applicationsNote && (
+                <p className="text-xs text-on-surface-variant leading-relaxed pt-1">
+                  {service.applicationsNote}
+                </p>
+              )}
             </div>
+
+            {/* Frequently Asked Questions (Accordion) */}
+            {service.faqs && (
+              <div className="reveal-slide-up space-y-4 sm:space-y-6 pt-2 sm:pt-4">
+                <h2 className="font-headline-lg text-xl sm:text-2xl font-bold text-primary">Frequently Asked Questions</h2>
+                <div className="space-y-3">
+                  {service.faqs.map((faq, idx) => {
+                    const isOpen = openFaqIndex === idx;
+                    return (
+                      <div
+                        key={idx}
+                        className={`rounded-2xl border transition-all ${isOpen
+                            ? 'bg-surface-container-low border-secondary-container/50 shadow-sm'
+                            : 'bg-white border-outline-variant/20 hover:border-outline-variant/50'
+                          }`}
+                      >
+                        <button
+                          onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                          className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer"
+                        >
+                          <span className="font-headline-md text-xs sm:text-sm font-bold text-primary">
+                            {faq.question}
+                          </span>
+                          <span className="material-symbols-outlined text-secondary-container shrink-0 transition-transform duration-200">
+                            {isOpen ? 'remove_circle' : 'add_circle'}
+                          </span>
+                        </button>
+                        {isOpen && (
+                          <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs text-on-surface-variant leading-relaxed border-t border-outline-variant/10 mt-1">
+                            {faq.answer}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Summary / Residential Homes Section */}
+            {service.summarySection && (
+              <div className="reveal-slide-up bg-primary text-white p-6 sm:p-8 rounded-3xl shadow-lg space-y-2">
+                <h3 className="font-headline-md text-base sm:text-lg font-bold text-secondary-container">
+                  {service.summarySection.title}
+                </h3>
+                <p className="font-body-md text-xs sm:text-sm text-white/90 leading-relaxed">
+                  {service.summarySection.desc}
+                </p>
+              </div>
+            )}
 
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-6 sm:space-y-8 text-left">
 
             {/* Quick Contact Box */}
             <div className="reveal-slide-right bg-primary text-white p-5 sm:p-8 rounded-3xl shadow-xl space-y-4 sm:space-y-6">
@@ -285,7 +435,7 @@ export default function ServiceDetail() {
 
             {/* Other Services List */}
             <div className="reveal-slide-right bg-surface-container-low p-5 sm:p-6 rounded-3xl border border-outline-variant/30 space-y-3 sm:space-y-4 shadow-sm" data-delay="150ms">
-              <h4 className="font-headline-md text-sm sm:text-base font-bold text-primary border-b border-outline-variant/20 pb-3">Other Pipeline Systems</h4>
+              <h3 className="font-headline-md text-sm sm:text-base font-bold text-primary border-b border-outline-variant/20 pb-3">Other Pipeline Systems</h3>
               <div className="space-y-1.5 sm:space-y-2">
                 {otherServicesList.slice(0, 6).map((srv) => (
                   <Link
