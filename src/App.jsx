@@ -10,6 +10,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
 import Insights from './pages/Insights';
+import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import Testimonials from './pages/Testimonials';
 
@@ -31,6 +32,9 @@ export default function App() {
           <Route path="careers" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="insights" element={<Insights />} />
+          <Route path="blog" element={<Insights />} />
+          <Route path="blog/:slug" element={<BlogPost />} />
+          <Route path="blog/domestic-lpg-pipeline-vs-cylinder" element={<BlogPost />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

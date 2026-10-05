@@ -9,7 +9,8 @@ export function useSEO({
   description,
   canonicalUrl,
   ogType = 'website',
-  ogImage = '/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg'
+  ogImage = '/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg',
+  schema = null
 }) {
   useEffect(() => {
     // 1. Page Title
@@ -41,7 +42,8 @@ export function useSEO({
     setMetaTag('property', 'og:type', ogType);
     setMetaTag('property', 'og:site_name', 'Hi Tech Energy');
     if (ogImage) {
-      setMetaTag('property', 'og:image', ogImage);
+      const fullOgImage = ogImage.startsWith('http') ? ogImage : `https://www.hitechenergy.org${ogImage}`;
+      setMetaTag('property', 'og:image', fullOgImage);
     }
 
     // 4. Twitter Card Tags
@@ -49,7 +51,8 @@ export function useSEO({
     setMetaTag('name', 'twitter:title', title);
     setMetaTag('name', 'twitter:description', description);
     if (ogImage) {
-      setMetaTag('name', 'twitter:image', ogImage);
+      const fullOgImage = ogImage.startsWith('http') ? ogImage : `https://www.hitechenergy.org${ogImage}`;
+      setMetaTag('name', 'twitter:image', fullOgImage);
     }
 
     // 5. Canonical Link
@@ -62,5 +65,23 @@ export function useSEO({
       }
       linkCanonical.setAttribute('href', canonicalUrl);
     }
-  }, [title, description, canonicalUrl, ogType, ogImage]);
+
+    // 6. JSON-LD Structured Data Schema
+    let schemaEl = document.getElementById('seo-structured-data');
+    if (schema) {
+      if (!schemaEl) {
+        schemaEl = document.createElement('script');
+        schemaEl.id = 'seo-structured-data';
+        schemaEl.type = 'application/ld+json';
+        document.head.appendChild(schemaEl);
+      }
+      schemaEl.textContent = JSON.stringify(schema);
+    }
+
+    return () => {
+      if (schemaEl && schemaEl.parentNode) {
+        schemaEl.parentNode.removeChild(schemaEl);
+      }
+    };
+  }, [title, description, canonicalUrl, ogType, ogImage, schema]);
 }

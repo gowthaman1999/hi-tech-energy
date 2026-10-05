@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Insights() {
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [searchText, setSearchText] = useState('');
 
+  useSEO({
+    title: 'Industrial Insights & Energy Trends | Hi Tech Energy',
+    description: 'Expert perspectives on domestic and commercial LPG pipelines, safety protocols, IS 6044 standards, and energy infrastructure.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog'
+  });
+
   const topics = ['All', 'Safety Protocols', 'Infrastructure', 'Decarbonization', 'Case Studies'];
 
   const articles = [
+    {
+      id: 'domestic-lpg-pipeline-vs-cylinder',
+      topic: 'Safety Protocols',
+      image: '/images/blog/domestic-lpg-pipeline-vs-cylinder-hero.webp',
+      tag: 'Safety Guide',
+      date: 'March 28, 2026',
+      title: 'Domestic LPG Pipeline vs LPG Cylinder: Which Is Safer for Your Kitchen?',
+      description: 'Compare domestic LPG pipelines and cylinders, including safety, risks, and convenience, to understand the right option for your kitchen.',
+      author: 'Hi Tech Energy Team',
+      role: 'Pipeline Safety Specialists',
+      link: '/blog/domestic-lpg-pipeline-vs-cylinder',
+      featured: true
+    },
     {
       id: 1,
       topic: 'Infrastructure',
@@ -19,7 +39,7 @@ export default function Insights() {
       description: 'How next-generation machine learning models are identifying structural vulnerabilities before they manifest as critical failures in high-pressure networks.',
       author: 'James Drumm',
       role: 'Chief Technical Officer',
-      featured: true
+      featured: false
     },
     {
       id: 2,
@@ -155,11 +175,13 @@ export default function Insights() {
                   <article key={art.id} className="group relative overflow-hidden rounded-2xl bg-white border border-outline-variant/30 transition-all hover:shadow-xl">
                     <div className="grid grid-cols-1 md:grid-cols-2">
                       <div className="h-64 md:h-auto overflow-hidden">
-                        <img 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                          alt={art.title} 
-                          src={art.image} 
-                        />
+                        <Link to={art.link || '#'}>
+                          <img 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                            alt={art.title} 
+                            src={art.image} 
+                          />
+                        </Link>
                       </div>
                       <div className="p-8 md:p-12 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-6">
@@ -169,23 +191,39 @@ export default function Insights() {
                           <span className="text-outline text-xs">{art.date}</span>
                         </div>
                         <h2 className="font-headline-lg text-2xl font-bold text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">
-                          {art.title}
+                          {art.link ? (
+                            <Link to={art.link} className="hover:text-secondary">
+                              {art.title}
+                            </Link>
+                          ) : (
+                            art.title
+                          )}
                         </h2>
                         <p className="text-on-surface-variant text-sm leading-relaxed mb-8">{art.description}</p>
                         <div className="flex items-center justify-between mt-auto">
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant/30 flex items-center justify-center font-bold text-primary text-sm">
-                              JD
+                              {art.author === 'Hi Tech Energy Team' ? 'HT' : 'JD'}
                             </div>
                             <div className="text-xs">
                               <p className="font-semibold text-primary">{art.author}</p>
                               <p className="text-outline mt-0.5">{art.role}</p>
                             </div>
                           </div>
-                          <button className="flex items-center gap-2 text-secondary font-semibold text-sm group/btn cursor-pointer">
-                            Read More 
-                            <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                          </button>
+                          {art.link ? (
+                            <Link
+                              to={art.link}
+                              className="flex items-center gap-2 text-secondary font-semibold text-sm group/btn cursor-pointer"
+                            >
+                              Read More 
+                              <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </Link>
+                          ) : (
+                            <button className="flex items-center gap-2 text-secondary font-semibold text-sm group/btn cursor-pointer">
+                              Read More 
+                              <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -196,11 +234,21 @@ export default function Insights() {
               return (
                 <article key={art.id} className="bg-white rounded-xl border border-outline-variant/30 overflow-hidden hover:border-secondary/50 hover:shadow-md transition-all flex flex-col md:flex-row gap-6">
                   <div className="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
-                    <img 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                      alt={art.title} 
-                      src={art.image} 
-                    />
+                    {art.link ? (
+                      <Link to={art.link}>
+                        <img 
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                          alt={art.title} 
+                          src={art.image} 
+                        />
+                      </Link>
+                    ) : (
+                      <img 
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                        alt={art.title} 
+                        src={art.image} 
+                      />
+                    )}
                   </div>
                   <div className="p-6 md:w-2/3 flex flex-col justify-between">
                     <div>
@@ -208,12 +256,29 @@ export default function Insights() {
                         <span className="text-secondary font-semibold text-xs">{art.tag}</span>
                         <span className="text-outline text-xs">• {art.date}</span>
                       </div>
-                      <h3 className="font-headline-md text-lg font-bold text-primary mb-3">{art.title}</h3>
+                      <h3 className="font-headline-md text-lg font-bold text-primary mb-3">
+                        {art.link ? (
+                          <Link to={art.link} className="hover:text-secondary">
+                            {art.title}
+                          </Link>
+                        ) : (
+                          art.title
+                        )}
+                      </h3>
                       <p className="text-on-surface-variant text-sm leading-relaxed mb-6">{art.description}</p>
                     </div>
-                    <button className="text-primary font-semibold text-sm flex items-center gap-1 hover:text-secondary transition-colors cursor-pointer self-start">
-                      Read Article <span className="material-symbols-outlined text-base">open_in_new</span>
-                    </button>
+                    {art.link ? (
+                      <Link
+                        to={art.link}
+                        className="text-primary font-semibold text-sm flex items-center gap-1 hover:text-secondary transition-colors cursor-pointer self-start"
+                      >
+                        Read Article <span className="material-symbols-outlined text-base">open_in_new</span>
+                      </Link>
+                    ) : (
+                      <button className="text-primary font-semibold text-sm flex items-center gap-1 hover:text-secondary transition-colors cursor-pointer self-start">
+                        Read Article <span className="material-symbols-outlined text-base">open_in_new</span>
+                      </button>
+                    )}
                   </div>
                 </article>
               );

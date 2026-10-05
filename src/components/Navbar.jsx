@@ -195,6 +195,17 @@ export default function Navbar() {
           </NavLink>
 
           <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              `font-label-md text-sm font-semibold transition-all ${
+                isActive ? 'text-secondary font-bold border-b-2 border-secondary' : 'text-primary hover:text-secondary'
+              }`
+            }
+          >
+            Blog
+          </NavLink>
+
+          <NavLink
             to="/contact"
             className={({ isActive }) =>
               `font-label-md text-sm font-semibold transition-all ${
@@ -347,6 +358,14 @@ export default function Navbar() {
               className="font-semibold text-sm text-primary py-2 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
             >
               <span>Success Stories</span>
+              <span className="material-symbols-outlined text-sm text-gray-400">arrow_forward_ios</span>
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setIsOpen(false)}
+              className="font-semibold text-sm text-primary py-2 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
+            >
+              <span>Blog &amp; Knowledge Hub</span>
               <span className="material-symbols-outlined text-sm text-gray-400">arrow_forward_ios</span>
             </Link>
             <Link

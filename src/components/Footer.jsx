@@ -154,6 +154,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} HI TECH ENERGY - LPG Gas Pipeline Installation Service. All Rights Reserved.</p>
           <div className="flex gap-6">
             <Link to="/about" className="hover:text-white">About Us</Link>
+            <Link to="/blog" className="hover:text-white">Blog &amp; Insights</Link>
             <Link to="/testimonials" className="hover:text-white">Testimonials</Link>
             <Link to="/contact" className="hover:text-white">Contact Us</Link>
           </div>
