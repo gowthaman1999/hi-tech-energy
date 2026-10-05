@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
+import { BLOG_POSTS } from '../data/blogData';
 
 export default function Insights() {
   const navigate = useNavigate();
@@ -13,87 +14,49 @@ export default function Insights() {
     canonicalUrl: 'https://www.hitechenergy.org/blog'
   });
 
-  const topics = ['All', 'Safety Protocols', 'Infrastructure', 'Decarbonization', 'Case Studies'];
+  const topics = ['All', 'Safety Protocols'];
 
-  const articles = [
-    {
-      id: 'domestic-lpg-pipeline-vs-cylinder',
-      topic: 'Safety Protocols',
-      image: '/images/blog/domestic-lpg-pipeline-vs-cylinder-hero.webp',
-      tag: 'Safety Guide',
-      date: 'October 5, 2026',
+  const articles = BLOG_POSTS.map((post) => ({
+    id: post.slug,
+    topic: post.topic,
+    image: post.heroImage,
+    tag: post.tag,
+    date: post.date,
+    title: post.title,
+    description: post.excerpt,
+    author: post.author,
+    role: post.authorRole,
+    link: `/blog/${post.slug}`,
+    featured: true
+  }));
+
+  const popularPosts = [
+    { 
+      date: 'October 5, 2026', 
       title: 'Domestic LPG Pipeline vs LPG Cylinder: Which Is Safer for Your Kitchen?',
-      description: 'Compare domestic LPG pipelines and cylinders, including safety, risks, and convenience, to understand the right option for your kitchen.',
-      author: 'Hi Tech Energy Team',
-      role: 'Pipeline Safety Specialists',
-      link: '/blog/domestic-lpg-pipeline-vs-cylinder',
-      featured: true
+      link: '/blog/domestic-lpg-pipeline-vs-cylinder'
     },
     {
-      id: 1,
-      topic: 'Infrastructure',
-      image: '/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg',
-      tag: 'Featured',
-      date: 'March 12, 2026',
-      title: 'Advancing Pipeline Integrity with AI-Driven Predictive Maintenance',
-      description: 'How next-generation machine learning models are identifying structural vulnerabilities before they manifest as critical failures in high-pressure networks.',
-      author: 'James Drumm',
-      role: 'Chief Technical Officer',
-      featured: false
+      date: 'Core Service',
+      title: 'Domestic LPG Gas Pipeline Installation & Safety Standards',
+      link: '/services/domestic-lpg-pipeline'
     },
     {
-      id: 2,
-      topic: 'Safety Protocols',
-      image: '/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__3_.jpeg',
-      tag: 'Safety First',
-      date: 'Feb 10, 2026',
-      title: '2026 Safety Protocol Update: Hydrogen Blending Safety Standards',
-      description: 'An in-depth look at the revised protocols for hydrogen injection in existing natural gas networks.'
-    },
-    {
-      id: 3,
-      topic: 'Case Studies',
-      image: '/images/gdrive/Comercial_line_cylinder_room_pipeline_WhatsApp_Image_2026-08-17_at_4_33_39_PM__3_.jpeg',
-      tag: 'Project Spotlight',
-      date: 'Jan 28, 2026',
-      title: 'Expanding the Northern Corridor: A Case Study in Grid Resilience',
-      description: 'Details on the successful completion of the 200km infrastructure expansion with zero safety incidents.'
-    },
-    {
-      id: 4,
-      topic: 'Infrastructure',
-      image: '/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_07_PM.jpeg',
-      tag: 'Industry News',
-      date: 'Jan 15, 2026',
-      title: 'The Digital Twin Revolution in Large-Scale Gas Storage',
-      description: 'Why digital mapping is becoming the industry standard for real-time risk assessment and asset tracking.'
-    },
-    {
-      id: 5,
-      topic: 'Decarbonization',
-      image: '/images/gdrive/Fabricated_cylinder_room_for_domestic_purpose_WhatsApp_Image_2026-08-17_at_4_34_39_PM__3_.jpeg',
-      tag: 'Sustainability',
-      date: 'Dec 02, 2025',
-      title: 'Bridging the Gap: The Role of Natural Gas in Hybrid Energy Parks',
-      description: 'Exploring the symbiotic relationship between solar arrays and rapid-start gas turbines for grid stability.'
+      date: 'Safety Systems',
+      title: 'Kitchen Gas Leak Detection and Automatic Shut-off Valve System',
+      link: '/services/leakage-detection-system'
     }
   ];
 
-  const popularPosts = [
-    { date: 'Feb 28, 2026', title: 'The Economic Impact of European Gas Storage Mandates' },
-    { date: 'Jan 15, 2026', title: 'Mitigating Corrosion in Aged Subterranean Assets' },
-    { date: 'Nov 02, 2025', title: 'Emergency Response Training: A Data-Driven Approach' }
+  const topicLinks = [
+    { name: 'Domestic LPG Pipeline', path: '/services/domestic-lpg-pipeline' },
+    { name: 'Commercial VOT Pipeline', path: '/services/commercial-lpg-pipeline' },
+    { name: 'Gas Leak Detection Systems', path: '/services/leakage-detection-system' },
+    { name: 'PESO Safety Standards', path: '/safety' },
+    { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const topicCounts = {
-    'Technical Safety': 12,
-    'Legislative Updates': 8,
-    'Pipeline Innovation': 15,
-    'Sustainability': 21,
-    'Resource Management': 5
-  };
-
-  const keywords = ['LPG', 'NET ZERO', 'INFRASTRUCTURE', 'PRESSURE', 'REGULATION', 'HYBRID ENERGY'];
+  const keywords = ['DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PIPELINE VS CYLINDER', 'LEAK DETECTION', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
 
   // Filter logic
   const filteredArticles = articles.filter(art => {
@@ -301,29 +264,30 @@ export default function Insights() {
 
             {/* Topics Categories list */}
             <div className="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/30">
-              <h4 className="font-semibold text-primary uppercase tracking-widest text-xs mb-6">Topics &amp; Expertise</h4>
+              <h4 className="font-semibold text-primary uppercase tracking-widest text-xs mb-6">Pipeline Systems &amp; Services</h4>
               <nav className="flex flex-col gap-2">
-                {Object.entries(topicCounts).map(([name, count]) => (
-                  <button 
-                    key={name}
+                {topicLinks.map((item) => (
+                  <Link 
+                    key={item.name}
+                    to={item.path}
                     className="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container transition-colors group cursor-pointer w-full text-left"
                   >
-                    <span className="text-on-surface-variant group-hover:text-primary transition-colors text-sm">{name}</span>
-                    <span className="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-outline">{count}</span>
-                  </button>
+                    <span className="text-on-surface-variant group-hover:text-primary transition-colors text-sm font-medium">{item.name}</span>
+                    <span className="material-symbols-outlined text-sm text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">arrow_forward_ios</span>
+                  </Link>
                 ))}
               </nav>
             </div>
 
             {/* Popular Posts */}
             <div className="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/30">
-              <h4 className="font-semibold text-primary uppercase tracking-widest text-xs mb-6">Most Read</h4>
+              <h4 className="font-semibold text-primary uppercase tracking-widest text-xs mb-6">Featured &amp; Recommended</h4>
               <div className="space-y-6 text-sm">
                 {popularPosts.map((post, idx) => (
-                  <a key={idx} className="group block" href="#">
-                    <p className="text-xs text-outline mb-1">{post.date}</p>
+                  <Link key={idx} className="group block" to={post.link}>
+                    <p className="text-xs text-secondary font-semibold mb-1">{post.date}</p>
                     <h5 className="text-on-surface font-semibold group-hover:text-secondary transition-colors leading-snug">{post.title}</h5>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -361,12 +325,12 @@ export default function Insights() {
               >
                 Contact Engineering
               </button>
-              <a 
-                href="#"
-                className="border border-primary text-primary px-8 py-4 rounded-xl font-semibold text-sm hover:bg-primary/5 transition-all text-center"
+              <Link 
+                to="/contact"
+                className="border border-primary text-primary px-8 py-4 rounded-xl font-semibold text-sm hover:bg-primary/5 transition-all text-center inline-block"
               >
-                Download Capability Statement
-              </a>
+                Request Site Audit
+              </Link>
             </div>
           </div>
         </div>
