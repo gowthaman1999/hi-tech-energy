@@ -21,7 +21,7 @@ export default function Insights() {
       topic: 'Safety Protocols',
       image: '/images/blog/domestic-lpg-pipeline-vs-cylinder-hero.webp',
       tag: 'Safety Guide',
-      date: 'March 28, 2026',
+      date: 'October 5, 2026',
       title: 'Domestic LPG Pipeline vs LPG Cylinder: Which Is Safer for Your Kitchen?',
       description: 'Compare domestic LPG pipelines and cylinders, including safety, risks, and convenience, to understand the right option for your kitchen.',
       author: 'Hi Tech Energy Team',
