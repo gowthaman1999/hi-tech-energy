@@ -93,6 +93,108 @@ export const BLOG_POSTS = [
         answer: 'Perform three checks: 1) Flame colour must be pure blue (if yellow or orange, call a technician); 2) Soap water test on joints to verify zero bubbling; 3) Valve test by closing the isolation valve while a burner is lit to ensure the flame shuts off immediately.'
       }
     ]
+  },
+  {
+    id: 2,
+    slug: 'lot-vs-vot',
+    title: 'LOT vs VOT: Which Industrial LPG Manifold System Is Right for Your Facility?',
+    metaTitle: 'LOT vs VOT: Difference, Uses & Benefits | Hi Tech Energy',
+    metaDescription: 'Learn the key differences between LOT and VOT, their uses, benefits, and applications to choose the right LPG solution with Hi Tech Energy.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lot-vs-vot',
+    h1: 'LOT vs VOT: Which Industrial LPG Manifold System Is Right for Your Facility?',
+    date: 'October 6, 2026',
+    datePublished: '2026-10-06T20:00:00+05:30',
+    dateModified: '2026-10-06T20:00:00+05:30',
+    readTime: '7 min read',
+    topic: 'Industrial Solutions',
+    tag: 'Engineering Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'Industrial LPG Infrastructure Specialists',
+    heroImage: '/images/blog/lot-vs-vot-industrial-lpg-manifold-hero.webp',
+    heroImageAlt: 'Industrial LPG manifold system comparing LOT and VOT cylinder bank setups',
+    excerpt: 'Understand the critical differences between Vapour Off-Take (VOT) and Liquid Off-Take (LOT) manifold systems, their operating costs, safety factors, and sizing for commercial and industrial facilities.',
+    tableOfContents: [
+      { id: 'why-manifold', title: 'Why the manifold matters' },
+      { id: 'vot-lot-plain-terms', title: 'VOT and LOT in plain terms', level: 3 },
+      { id: 'how-vot-works', title: 'How VOT works and where it struggles' },
+      { id: 'weather-dependence', title: 'Why VOT depends on the weather', level: 3 },
+      { id: 'what-vot-does-well', title: 'What VOT does well', level: 3 },
+      { id: 'where-vot-fails', title: 'Where VOT goes wrong', level: 3 },
+      { id: 'how-lot-works', title: 'How LOT systems work' },
+      { id: 'steady-gas', title: 'Liquid out, steady gas in', level: 3 },
+      { id: 'day-to-day', title: 'What changes day to day', level: 3 },
+      { id: 'advanced-lot', title: 'Advanced LOT options', level: 3 },
+      { id: 'sizing-table', title: 'Sizing at a glance', level: 3 },
+      { id: 'comparison', title: 'LOT vs VOT compared' },
+      { id: 'side-by-side', title: 'Side by side comparison', level: 3 },
+      { id: 'cost-analysis', title: 'Setup cost vs running cost', level: 3 },
+      { id: 'which-system', title: 'Which system does your facility need?' },
+      { id: 'vot-criteria', title: 'VOT makes sense if', level: 3 },
+      { id: 'lot-criteria', title: 'LOT makes sense if', level: 3 },
+      { id: 'short-version', title: 'VOT or LOT: the short version' },
+      { id: 'faqs', title: 'Frequently asked questions' }
+    ],
+    sizingTable: [
+      { setup: '33 kg VOT', output: '~0.5 kg/hr', footprint: 'Large', stability: 'Drops under heavy load', bestFor: 'Small kitchens, canteens' },
+      { setup: '33 kg LOT', output: '~4 kg/hr', footprint: 'Compact', stability: 'Steady', bestFor: 'Hotels, hospitals, mid-size plants' },
+      { setup: 'SLOT Plus (HLV)', output: '~4 kg/hr', footprint: 'Compact', stability: 'Steady, auto changeover', bestFor: 'Sites that want lower power bills and less manual work' },
+      { setup: '450 kg Maxima LOT', output: 'Replaces 15 x 33 kg cylinders', footprint: 'Very compact', stability: 'Steady', bestFor: 'High-demand industrial sites' }
+    ],
+    comparisonTable: [
+      { feature: "What's drawn out", vot: 'Vapour from the top', lot: 'Liquid from the bottom' },
+      { feature: 'How gas forms', vot: 'Naturally, using air temperature', lot: 'External vaporiser' },
+      { feature: 'Output per 33 kg cylinder', vot: '~0.5 kg/hr', lot: '~4 kg/hr' },
+      { feature: 'Pressure', vot: 'Drops and freezes under load', lot: 'Steady and continuous' },
+      { feature: 'Leftover fuel', vot: 'Significant unburned liquid', lot: 'None, cylinders fully used' },
+      { feature: 'Space needed', vot: 'High (large banks)', lot: 'Low (up to 80% less)' },
+      { feature: 'Upfront cost', vot: 'Low', lot: 'Higher (vaporiser, pressure reducing skid)' },
+      { feature: 'Maintenance', vot: 'Minimal', lot: 'Periodic vaporiser checks' }
+    ],
+    sections: {
+      manifold: {
+        image: '/images/blog/lpg-manifold-system-cylinder-bank.webp',
+        imageAlt: 'Industrial LPG gas manifold system with high pressure pigtails and dual header valves',
+        imageCaption: 'High-pressure manifold header pipe with non-return valves and dual-bank isolation.'
+      },
+      vot: {
+        image: '/images/blog/commercial-vot-cylinder-bank-setup.webp',
+        imageAlt: 'Commercial Vapour Off-Take VOT multi-cylinder bank setup for hotel kitchens',
+        imageCaption: 'A large commercial VOT cylinder bank installation requiring extensive floor footprint.'
+      },
+      lot: {
+        image: '/images/blog/industrial-lot-vaporiser-skid-system.webp',
+        imageAlt: 'Industrial Liquid Off-Take LOT LPG vaporiser skid and pressure reducing station',
+        imageCaption: 'LOT external vaporiser skid engineered for continuous heavy vaporisation with zero freezing.'
+      },
+      prs: {
+        image: '/images/blog/lpg-pressure-reducing-skid-prs.webp',
+        imageAlt: 'High-pressure industrial LPG pressure reducing skid with gauges and safety relief valves',
+        imageCaption: 'Pressure Reducing Skid (PRS) regulating output pressure to precision furnace burner requirements.'
+      },
+      burners: {
+        image: '/images/blog/industrial-facility-lpg-pipeline-burners.webp',
+        imageAlt: 'Industrial manufacturing plant operating continuous high-temperature burners with steady LPG gas pressure',
+        imageCaption: 'Continuous industrial heating and furnace operations powered by an engineered LOT supply.'
+      }
+    },
+    faqs: [
+      {
+        question: 'Do LOT installations need statutory safety licences?',
+        answer: "Smaller LOT banks with total storage under 1,000 kg usually don't need statutory approvals, so installation can move quickly. Rules vary by site and state, so confirm with your installer before you start."
+      },
+      {
+        question: 'Can we convert our existing VOT setup to LOT?',
+        answer: 'Yes. You will need to add a vaporiser, a high-pressure manifold, and a Pressure Reducing Skid (PRS) so the system connects safely to your existing low-pressure lines. A good installer can often reuse a fair amount of your current pipework.'
+      },
+      {
+        question: 'How do Heaterless Vaporisers save on energy?',
+        answer: 'Electric vaporisers use heating elements, which add to your power bill. Heaterless Vaporisers use the heat already in ambient water to turn liquid LPG into gas, so vaporising costs nothing in electricity.'
+      },
+      {
+        question: 'Can LOT cylinders be used in a home kitchen?',
+        answer: "No. LOT cylinders need a vaporiser and a high-pressure setup, so they are built only for commercial and industrial use."
+      }
+    ]
   }
 ];
 

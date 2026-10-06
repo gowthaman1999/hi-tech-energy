@@ -14,9 +14,9 @@ export default function Insights() {
     canonicalUrl: 'https://www.hitechenergy.org/blog'
   });
 
-  const topics = ['All', 'Safety Protocols'];
+  const topics = ['All', 'Industrial Solutions', 'Safety Protocols'];
 
-  const articles = BLOG_POSTS.map((post) => ({
+  const articles = [...BLOG_POSTS].reverse().map((post, idx) => ({
     id: post.slug,
     topic: post.topic,
     image: post.heroImage,
@@ -27,10 +27,15 @@ export default function Insights() {
     author: post.author,
     role: post.authorRole,
     link: `/blog/${post.slug}`,
-    featured: true
+    featured: idx === 0
   }));
 
   const popularPosts = [
+    { 
+      date: 'October 6, 2026', 
+      title: 'LOT vs VOT: Which Industrial LPG Manifold System Is Right for Your Facility?',
+      link: '/blog/lot-vs-vot'
+    },
     { 
       date: 'October 5, 2026', 
       title: 'Domestic LPG Pipeline vs LPG Cylinder: Which Is Safer for Your Kitchen?',
@@ -38,25 +43,26 @@ export default function Insights() {
     },
     {
       date: 'Core Service',
-      title: 'Domestic LPG Gas Pipeline Installation & Safety Standards',
-      link: '/services/domestic-lpg-pipeline'
+      title: 'Industrial LOT Pipeline Installation & Vaporiser Systems',
+      link: '/services/lot-pipeline'
     },
     {
-      date: 'Safety Systems',
-      title: 'Kitchen Gas Leak Detection and Automatic Shut-off Valve System',
-      link: '/services/leakage-detection-system'
+      date: 'Core Service',
+      title: 'Commercial VOT LPG Pipeline Installation',
+      link: '/services/commercial-lpg-pipeline'
     }
   ];
 
   const topicLinks = [
-    { name: 'Domestic LPG Pipeline', path: '/services/domestic-lpg-pipeline' },
+    { name: 'Industrial LOT Pipeline System', path: '/services/lot-pipeline' },
     { name: 'Commercial VOT Pipeline', path: '/services/commercial-lpg-pipeline' },
+    { name: 'LOT Primary Piping & PRS', path: '/services/lot-primary-lines' },
+    { name: 'Domestic LPG Pipeline', path: '/services/domestic-lpg-pipeline' },
     { name: 'Gas Leak Detection Systems', path: '/services/leakage-detection-system' },
-    { name: 'PESO Safety Standards', path: '/safety' },
-    { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
+    { name: 'PESO Safety Standards', path: '/safety' }
   ];
 
-  const keywords = ['DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PIPELINE VS CYLINDER', 'LEAK DETECTION', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
+  const keywords = ['LOT VS VOT', 'INDUSTRIAL LPG', 'VAPORISER SKID', 'PRESSURE REDUCING STATION', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE'];
 
   // Filter logic
   const filteredArticles = articles.filter(art => {
