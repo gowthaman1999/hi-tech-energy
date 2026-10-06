@@ -131,6 +131,7 @@ export const BLOG_POSTS = [
       { id: 'which-system', title: 'Which system does your facility need?' },
       { id: 'vot-criteria', title: 'VOT makes sense if', level: 3 },
       { id: 'lot-criteria', title: 'LOT makes sense if', level: 3 },
+      { id: 'decision-flowchart', title: 'Decision flowchart', level: 3 },
       { id: 'short-version', title: 'VOT or LOT: the short version' },
       { id: 'faqs', title: 'Frequently asked questions' }
     ],
@@ -156,6 +157,11 @@ export const BLOG_POSTS = [
         imageAlt: 'Industrial LPG gas manifold system with high pressure pigtails and dual header valves',
         imageCaption: 'High-pressure manifold header pipe with non-return valves and dual-bank isolation.'
       },
+      cutaway: {
+        image: '/images/blog/vot-vs-lot-cylinder-cutaway-diagram.webp',
+        imageAlt: 'Technical side-by-side cutaway diagram comparing VOT vapour withdrawal and LOT liquid dip tube with external vaporiser skid',
+        imageCaption: 'Side-by-side cutaway: Left shows a VOT cylinder drawing vapour from the top valve; right shows an LOT cylinder drawing liquid through a dip tube from the bottom into an external vaporiser skid.'
+      },
       vot: {
         image: '/images/blog/commercial-vot-cylinder-bank-setup.webp',
         imageAlt: 'Commercial Vapour Off-Take VOT multi-cylinder bank setup for hotel kitchens',
@@ -175,6 +181,11 @@ export const BLOG_POSTS = [
         image: '/images/blog/industrial-facility-lpg-pipeline-burners.webp',
         imageAlt: 'Industrial manufacturing plant operating continuous high-temperature burners with steady LPG gas pressure',
         imageCaption: 'Continuous industrial heating and furnace operations powered by an engineered LOT supply.'
+      },
+      flowchart: {
+        image: '/images/blog/lot-vs-vot-decision-flowchart.webp',
+        imageAlt: 'Industrial LPG manifold system decision flowchart for VOT vs LOT selection',
+        imageCaption: 'Official Decision Flowchart: Determining whether your facility needs a VOT, standard LOT, SLOT Plus (HLV), or 450 kg Maxima LOT system.'
       }
     },
     faqs: [

@@ -125,6 +125,10 @@ A quick gut check: if anyone on your site has ever poured hot water on a cylinde
 
 Both systems are built for commercial and industrial sites. If you're setting up gas for homes or an apartment complex, the comparison to look at is [domestic LPG pipeline vs LPG cylinder](/blog/domestic-lpg-pipeline-vs-cylinder), which comes with its own setup and costs.
 
+### Decision flowchart
+
+![LOT vs VOT Decision Flowchart](/images/blog/lot-vs-vot-decision-flowchart.webp)
+
 ---
 
 ## VOT or LOT: the short version
