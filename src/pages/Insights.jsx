@@ -33,6 +33,11 @@ export default function Insights() {
   const popularPosts = [
     {
       date: 'October 8, 2026',
+      title: 'Why Does LPG Cylinder Freezing Happen? Science & Fixes',
+      link: '/blog/lpg-gas-freezing'
+    },
+    {
+      date: 'October 8, 2026',
       title: 'LOT vs VOT: Which Industrial LPG Manifold System Is Right for Your Facility?',
       link: '/blog/lot-vs-vot'
     },
@@ -45,11 +50,6 @@ export default function Insights() {
       date: 'Core Service',
       title: 'Industrial LOT Pipeline Installation & Vaporiser Skids',
       link: '/services/lot-pipeline'
-    },
-    {
-      date: 'Safety Systems',
-      title: 'Kitchen Gas Leak Detection and Automatic Shut-off Valve System',
-      link: '/services/leakage-detection-system'
     }
   ];
 

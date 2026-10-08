@@ -259,6 +259,121 @@ export const BLOG_POSTS = [
         answer: 'No. LOT cylinders discharge liquid LPG under high cylinder pressure and must connect directly to an external vaporiser skid and industrial pressure reduction train. They are strictly prohibited in domestic residential kitchens and are built exclusively for commercial kitchens, hospitality, and industrial manufacturing plants.'
       }
     ]
+  },
+  {
+    id: 3,
+    slug: 'lpg-gas-freezing',
+    title: 'Why Does LPG Cylinder Freezing Happen?',
+    metaTitle: 'LPG Cylinder Freezing: Causes, Risks & Prevention | Hi Tech Energy',
+    metaDescription: 'Why does LPG cylinder freezing happen? Learn the science behind ice formation, safety risks to avoid, and safe solutions from multi-cylinder manifolds to LOT systems.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lpg-gas-freezing',
+    h1: 'Why Does LPG Cylinder Freezing Happen?',
+    date: 'October 8, 2026',
+    datePublished: '2026-10-08T14:00:00+05:30',
+    dateModified: '2026-10-08T14:00:00+05:30',
+    readTime: '6 min read',
+    topic: 'Safety Protocols',
+    tag: 'Technical Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'LPG Pipeline Engineering & Thermal Safety Specialists',
+    heroImage: '/images/blog/lpg-cylinder-freezing-hero.webp',
+    heroImageAlt: 'LPG cylinder freezing with visible white frost line on cylinder body and manifold pipes',
+    excerpt: 'An LPG cylinder freezes because liquid LPG pulls heat from the cylinder walls as it vaporises into gas. Discover the thermodynamics of frost lines, 5 diagnostic root causes, dangerous myths to avoid, and safe engineering solutions.',
+    tableOfContents: [
+      { id: 'key-takeaways', title: 'Key Takeaways & Quick Summary' },
+      { id: 'frosty-dilemma', title: 'The Frosty Cylinder Dilemma' },
+      { id: 'thermodynamics', title: 'Thermodynamics: Phase Change & Latent Heat' },
+      { id: 'condensation-to-ice', title: 'From Condensation to Ice Crust (The Frost Line)', level: 3 },
+      { id: 'propane-vs-butane', title: 'Propane vs. Butane: Boiling & Freezing Points' },
+      { id: 'diagnostic-checklist', title: 'Diagnostic Checklist: 5 Reasons Your Tank Ices' },
+      { id: 'temperature-output', title: 'How Ambient Temperature Slashes Vaporisation Output', level: 3 },
+      { id: 'safe-solutions', title: 'How to Fix and Prevent LPG Freezing Safely' },
+      { id: 'immediate-workarounds', title: 'Immediate, Short-Term Safe Workarounds', level: 3 },
+      { id: 'engineering-fixes', title: 'Long-Term Engineering & Infrastructure Fixes', level: 3 },
+      { id: 'vot-vs-lot-comparison', title: 'VOT Manifold vs LOT System Comparison', level: 3 },
+      { id: 'danger-zone', title: 'Danger Zone: 4 Unsafe Practices You Must Avoid' },
+      { id: 'hot-water-settled', title: 'The Hot Water Question, Settled', level: 3 },
+      { id: 'commercial-sizing', title: 'Commercial & Industrial Sizing Framework' },
+      { id: 'worked-example', title: 'Worked Restaurant Example (4x 25 kW Burners)', level: 3 },
+      { id: 'conclusion', title: 'Conclusion & Next Steps' },
+      { id: 'faqs', title: 'Frequently Asked Questions' }
+    ],
+    propaneButaneTable: [
+      { property: 'Chemical Formula', propane: 'C3H8', butane: 'C4H10' },
+      { property: 'Boiling Point', propane: '-42°C (-43.6°F)', butane: 'about -0.5°C (31°F)' },
+      { property: 'Freezing Point', propane: 'about -188°C (-306°F)', butane: 'about -138°C (-216°F)' },
+      { property: 'Cold-Weather Vaporisation', propane: 'Keeps vaporising well below freezing', butane: 'Slows sharply near 0°C and halts below it' },
+      { property: 'Vapour Pressure at 20°C', propane: '~8.3 bar', butane: '~2.1 bar' },
+      { property: 'Cylinder Depletion Behaviour', propane: 'Boils off first in commercial blends', butane: 'Concentrates near empty (<20% fill), causing late-stage icing' }
+    ],
+    temperatureOutputTable: [
+      { temp: '16°C (61°F)', outputMJ: '113 MJ/hr', outputKg: '~2.26 kg/hr', impact: 'Nominal rated atmospheric vaporisation' },
+      { temp: '-1°C (30°F)', outputMJ: '84 MJ/hr', outputKg: '~1.68 kg/hr', impact: '~26% reduction in per-cylinder output' },
+      { temp: '-18°C (0°F)', outputMJ: '47 MJ/hr', outputKg: '~0.94 kg/hr', impact: '~58% reduction in usable thermal output' }
+    ],
+    votVsLotTable: [
+      {
+        feature: 'How gas is drawn',
+        vot: 'Vapour from the top of each cylinder',
+        lot: 'Liquid from the bottom, vaporised externally'
+      },
+      {
+        feature: 'Where vaporisation happens',
+        vot: 'Inside each cylinder through steel walls',
+        lot: 'In a dedicated external thermal vaporiser skid'
+      },
+      {
+        feature: 'Cylinder icing risk',
+        vot: 'Low only if manifold bank is sized correctly',
+        lot: 'Virtually zero at the cylinder (ambient independent)'
+      },
+      {
+        feature: 'Burner flame stability',
+        vot: 'Drops during peak rushes or cold winter mornings',
+        lot: 'Continuous, rock-solid flame temperature and pressure'
+      },
+      {
+        feature: 'Leftover fuel waste',
+        vot: 'Leaves 10%–20% unevaporated liquid in frozen tanks',
+        lot: 'Zero waste; 100% complete cylinder evacuation'
+      },
+      {
+        feature: 'Best for',
+        vot: 'Small restaurants, hotels, canteens (< 60 kg/hr)',
+        lot: 'High-demand kitchens, factories, furnaces, boilers'
+      },
+      {
+        feature: 'Extra equipment',
+        vot: 'Manifold headers, auto changeover regulator',
+        lot: 'Vaporiser skid, LOT cylinders, Pressure Reducing Skid (PRS)'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Is a sweating or frosted LPG cylinder dangerous?',
+        answer: 'Condensation and frost on their own will not make a cylinder explode. They do indicate that the cylinder is severely overloaded, which causes weak flames, uneven cooking, and tempted workers to try dangerous heating hacks. Over time, recurring moisture on the steel also accelerates external corrosion.'
+      },
+      {
+        question: 'Does LPG go bad or expire if it freezes?',
+        answer: 'No. The LPG inside does not degrade or spoil. Once the cylinder warms back up by absorbing environmental heat, normal vaporisation and gas flow resume completely.'
+      },
+      {
+        question: 'Why is my regulator freezing when the cylinder isn\'t iced?',
+        answer: 'Gas cools sharply as it expands through the small orifice inside the pressure regulator. This is known as Joule-Thomson cooling, which can freeze airborne moisture directly on the regulator body even when the cylinder appears normal. A two-stage or cold-rated regulator eliminates this issue.'
+      },
+      {
+        question: 'Can I use an electric heating pad on my gas cylinder?',
+        answer: 'Only use certified, flame-retardant, explosion-proof heating blankets specifically engineered for LPG cylinders with integrated thermostats. Household heating pads, hair dryers, or open electric coils are strictly prohibited because they are unrated ignition sources.'
+      },
+      {
+        question: 'How do I stop my LPG cylinder from freezing permanently?',
+        answer: 'Reduce the vaporisation load on each individual cylinder. For commercial kitchens, install a correctly sized multi-cylinder manifold with an automatic changeover. For heavy manufacturing loads (> 60 kg/hr), upgrade to a Liquid Off-Take (LOT) system with an external vaporiser.'
+      },
+      {
+        question: 'Is it safe to keep using a frosted cylinder?',
+        answer: 'Generally yes, provided there is no smell of gas, no physical damage, and the cylinder remains upright outdoors in a ventilated area. However, expect diminished burner heat until it warms. If you detect the odor of ethyl mercaptan or hear hissing, isolate the cylinder valve immediately and call your gas supplier.'
+      }
+    ]
   }
 ];
 

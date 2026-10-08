@@ -5,6 +5,7 @@ import { useSEO } from '../hooks/useSEO';
 import { OFFICE_LOCATIONS } from '../data/hitechData';
 import LotVsVotArticle from '../components/blog/LotVsVotArticle';
 import DomesticArticle from '../components/blog/DomesticArticle';
+import LpgFreezingArticle from '../components/blog/LpgFreezingArticle';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -16,15 +17,19 @@ export default function BlogPost() {
   const currentSlug = slug || pathSlug || 'domestic-lpg-pipeline-vs-cylinder';
   const post = getBlogPostBySlug(currentSlug);
 
-  const [activeSection, setActiveSection] = useState(
-    currentSlug === 'lot-vs-vot' ? 'why-manifold-matters' : 'glance'
-  );
+  const getDefaultSection = (s) => {
+    if (s === 'lpg-gas-freezing') return 'key-takeaways';
+    if (s === 'lot-vs-vot') return 'why-manifold-matters';
+    return 'glance';
+  };
+
+  const [activeSection, setActiveSection] = useState(getDefaultSection(currentSlug));
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Reset scroll and active section on slug change
   useEffect(() => {
-    setActiveSection(currentSlug === 'lot-vs-vot' ? 'why-manifold-matters' : 'glance');
+    setActiveSection(getDefaultSection(currentSlug));
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [currentSlug]);
 
@@ -175,6 +180,7 @@ export default function BlogPost() {
 
   const { tableOfContents } = post;
   const isLotVsVot = post.slug === 'lot-vs-vot';
+  const isLpgFreezing = post.slug === 'lpg-gas-freezing';
 
   return (
     <div className="w-full bg-[#fcfcfd] text-on-surface text-left">
@@ -294,9 +300,11 @@ export default function BlogPost() {
           />
           <figcaption className="py-2.5 px-4 bg-gray-50 text-[11px] sm:text-xs text-on-surface-variant text-center border-t border-gray-100 flex items-center justify-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-secondary-container">verified</span>
-            {isLotVsVot
-              ? 'Industrial LPG manifold system with LOT vaporiser skid and pressure reducing headers.'
-              : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
+            {isLpgFreezing
+              ? 'LPG cylinder freezing with visible white frost line indicating liquid level under heavy thermal draw.'
+              : isLotVsVot
+                ? 'Industrial LPG manifold system with LOT vaporiser skid and pressure reducing headers.'
+                : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
           </figcaption>
         </figure>
       </div>
@@ -334,22 +342,24 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-primary to-primary-container text-white p-6 rounded-2xl shadow-md space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-secondary-container">
                   <span className="material-symbols-outlined">
-                    {isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
+                    {isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
                   </span>
                 </div>
                 <h3 className="font-headline-md text-base font-bold text-white">
-                  {isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
+                  {isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
                 </h3>
                 <p className="text-white/80 text-xs leading-relaxed">
-                  {isLotVsVot
-                    ? 'Hi Tech Energy engineers PESO-certified LOT pipelines, vaporiser skids, and PRS units for factories, hotels, and furnaces.'
-                    : 'Hi Tech Energy installs certified domestic LPG pipelines with leak alarms and auto shut-off for apartments and villas.'}
+                  {isLpgFreezing
+                    ? 'Hi Tech Energy sizes and installs commercial multi-cylinder manifolds and LOT vaporisers to permanently end tank icing.'
+                    : isLotVsVot
+                      ? 'Hi Tech Energy engineers PESO-certified LOT pipelines, vaporiser skids, and PRS units for factories, hotels, and furnaces.'
+                      : 'Hi Tech Energy installs certified domestic LPG pipelines with leak alarms and auto shut-off for apartments and villas.'}
                 </p>
                 <Link
                   to="/contact"
                   className="block text-center w-full bg-secondary-container hover:brightness-110 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all shadow cursor-pointer"
                 >
-                  {isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
+                  {isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
                 </Link>
                 <a
                   href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`}
@@ -390,53 +400,13 @@ export default function BlogPost() {
             </div>
 
             {/* Render Specific Post Article Content */}
-            {isLotVsVot ? (
+            {isLpgFreezing ? (
+              <LpgFreezingArticle post={post} />
+            ) : isLotVsVot ? (
               <LotVsVotArticle post={post} />
             ) : (
               <DomesticArticle post={post} />
             )}
-
-            {/* High Converting Call-to-Action Block */}
-            <section className="bg-gradient-to-br from-primary via-primary-container to-primary text-white p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden text-center sm:text-left">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none" />
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="space-y-3 max-w-xl">
-                  <span className="bg-secondary-container text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider inline-block">
-                    {isLotVsVot ? 'Industrial Engineering Consultation' : 'Free Expert Consultation'}
-                  </span>
-                  <h3 className="font-headline-lg text-2xl sm:text-3xl font-bold text-white leading-tight">
-                    {isLotVsVot
-                      ? 'Request an Industrial LPG Audit & Vaporiser Sizing'
-                      : 'Get a Free Site Visit & Safety Audit'}
-                  </h3>
-                  <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-                    {isLotVsVot
-                      ? 'Ready to eliminate frozen cylinders and boost combustion efficiency by 8x? Our PESO-certified gas engineers evaluate your hourly thermal load and design tailored LOT / VOT manifold schematics.'
-                      : 'Ready to upgrade your home, villa community, or apartment complex to a certified domestic LPG pipeline system? Our PESO-certified engineers inspect your site and provide tailored safety schematics.'}
-                  </p>
-                  <p className="text-xs text-secondary-fixed-dim font-semibold">
-                    PESO Standard Compliant • ISO 9001 Certified • Rapid On-site Installation
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row md:flex-col gap-3 w-full sm:w-auto shrink-0">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center gap-2 bg-secondary-container hover:brightness-110 active:scale-95 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-lg cursor-pointer"
-                  >
-                    <span>{isLotVsVot ? 'Book Engineering Audit' : 'Request Free Site Visit'}</span>
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </Link>
-                  <a
-                    href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`}
-                    className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-5 rounded-xl text-xs transition-all border border-white/20"
-                  >
-                    <span className="material-symbols-outlined text-sm">phone</span>
-                    <span>Call: {OFFICE_LOCATIONS.headOffice.phone}</span>
-                  </a>
-                </div>
-              </div>
-            </section>
 
             {/* FAQs Accordion Block */}
             {post.faqs && (
@@ -471,10 +441,34 @@ export default function BlogPost() {
             {/* Internal Links & Related Services */}
             <section className="pt-8 border-t border-gray-100 space-y-4">
               <h3 className="font-headline-md text-lg font-bold text-primary">
-                {isLotVsVot ? 'Related Industrial Services & Resources' : 'Related Pipeline Services & Resources'}
+                Related Engineering Services &amp; Resources
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                {isLotVsVot ? (
+                {isLpgFreezing ? (
+                  <>
+                    <Link
+                      to="/services/commercial-lpg-pipeline"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Commercial VOT Pipeline</p>
+                      <p className="text-gray-500">Engineered multi-cylinder manifold systems that eliminate cylinder icing.</p>
+                    </Link>
+                    <Link
+                      to="/services/lot-pipeline"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LOT Pipeline Service</p>
+                      <p className="text-gray-500">External vaporiser skids delivering 8x vaporization with zero tank frost.</p>
+                    </Link>
+                    <Link
+                      to="/blog/lot-vs-vot"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LOT vs VOT Manifold System</p>
+                      <p className="text-gray-500">Compare industrial manifold architectures, output, footprint, and ROI.</p>
+                    </Link>
+                  </>
+                ) : isLotVsVot ? (
                   <>
                     <Link
                       to="/services/lot-pipeline"
@@ -491,11 +485,11 @@ export default function BlogPost() {
                       <p className="text-gray-500">Engineered vapour off-take manifold systems for moderate kitchens and canteens.</p>
                     </Link>
                     <Link
-                      to="/blog/domestic-lpg-pipeline-vs-cylinder"
+                      to="/blog/lpg-gas-freezing"
                       className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
                     >
-                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Domestic Pipeline vs Cylinder</p>
-                      <p className="text-gray-500">Discover key safety distinctions for residential kitchens and societies.</p>
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Why LPG Freezing Happens</p>
+                      <p className="text-gray-500">Learn the science of frost lines, latent heat, and manifold sizing.</p>
                     </Link>
                   </>
                 ) : (
