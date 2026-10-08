@@ -34,8 +34,6 @@ export default function App() {
           <Route path="insights" element={<Insights />} />
           <Route path="blog" element={<Insights />} />
           <Route path="blog/:slug" element={<BlogPost />} />
-          <Route path="blog/domestic-lpg-pipeline-vs-cylinder" element={<BlogPost />} />
-          <Route path="blog/lot-vs-vot" element={<BlogPost />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

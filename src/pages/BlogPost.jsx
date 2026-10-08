@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { getBlogPostBySlug } from '../data/blogData';
 import { useSEO } from '../hooks/useSEO';
 import { OFFICE_LOCATIONS } from '../data/hitechData';
-import DomesticPipelineContent from '../components/blog/DomesticPipelineContent';
-import LotVsVotContent from '../components/blog/LotVsVotContent';
+import LotVsVotArticle from '../components/blog/LotVsVotArticle';
+import DomesticArticle from '../components/blog/DomesticArticle';
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const currentSlug = slug || 'domestic-lpg-pipeline-vs-cylinder';
+  const location = useLocation();
+
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const pathSlug = pathParts[0] === 'blog' && pathParts[1] ? pathParts[1] : '';
+
+  const currentSlug = slug || pathSlug || 'domestic-lpg-pipeline-vs-cylinder';
   const post = getBlogPostBySlug(currentSlug);
 
   const [activeSection, setActiveSection] = useState(
-    post?.slug === 'lot-vs-vot' ? 'why-manifold' : 'glance'
+    currentSlug === 'lot-vs-vot' ? 'why-manifold-matters' : 'glance'
   );
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Reset scroll and active section on slug change
+  useEffect(() => {
+    setActiveSection(currentSlug === 'lot-vs-vot' ? 'why-manifold-matters' : 'glance');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [currentSlug]);
 
   // Scroll progress listener
   useEffect(() => {
@@ -32,7 +43,8 @@ export default function BlogPost() {
 
   // Active section observer for Table of Contents
   useEffect(() => {
-    const sectionIds = post?.tableOfContents?.map(item => item.id) || [];
+    if (!post) return;
+    const sectionIds = post.tableOfContents?.map((item) => item.id) || [];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -61,81 +73,81 @@ export default function BlogPost() {
   // Structured Data Schema (Article + FAQ + Breadcrumb)
   const structuredData = post
     ? {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'BlogPosting',
-            '@id': `${post.canonicalUrl}#article`,
-            'headline': post.title,
-            'name': post.metaTitle,
-            'description': post.metaDescription,
-            'image': `https://www.hitechenergy.org${post.heroImage}`,
-            'datePublished': post.datePublished,
-            'dateModified': post.dateModified,
-            'inLanguage': 'en-IN',
-            'mainEntityOfPage': {
-              '@type': 'WebPage',
-              '@id': post.canonicalUrl
-            },
-            'author': {
-              '@type': 'Organization',
-              'name': 'Hi Tech Energy',
-              'url': 'https://www.hitechenergy.org/'
-            },
-            'publisher': {
-              '@type': 'Organization',
-              'name': 'Hi Tech Energy',
-              'url': 'https://www.hitechenergy.org/',
-              'logo': {
-                '@type': 'ImageObject',
-                'url': 'https://www.hitechenergy.org/images/logo.png',
-                'width': 240,
-                'height': 60
-              }
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BlogPosting',
+          '@id': `${post.canonicalUrl}#article`,
+          'headline': post.title,
+          'name': post.metaTitle,
+          'description': post.metaDescription,
+          'image': `https://www.hitechenergy.org${post.heroImage}`,
+          'datePublished': post.datePublished,
+          'dateModified': post.dateModified,
+          'inLanguage': 'en-IN',
+          'mainEntityOfPage': {
+            '@type': 'WebPage',
+            '@id': post.canonicalUrl
+          },
+          'author': {
+            '@type': 'Organization',
+            'name': 'Hi Tech Energy',
+            'url': 'https://www.hitechenergy.org/'
+          },
+          'publisher': {
+            '@type': 'Organization',
+            'name': 'Hi Tech Energy',
+            'url': 'https://www.hitechenergy.org/',
+            'logo': {
+              '@type': 'ImageObject',
+              'url': 'https://www.hitechenergy.org/images/logo.png',
+              'width': 240,
+              'height': 60
             }
-          },
-          {
-            '@type': 'BreadcrumbList',
-            '@id': `${post.canonicalUrl}#breadcrumb`,
-            'itemListElement': [
-              {
-                '@type': 'ListItem',
-                'position': 1,
-                'name': 'Home',
-                'item': 'https://www.hitechenergy.org/'
-              },
-              {
-                '@type': 'ListItem',
-                'position': 2,
-                'name': 'Knowledge Hub & Blog',
-                'item': 'https://www.hitechenergy.org/blog'
-              },
-              {
-                '@type': 'ListItem',
-                'position': 3,
-                'name': post.metaTitle,
-                'item': post.canonicalUrl
-              }
-            ]
-          },
-          ...(post.faqs && post.faqs.length > 0
-            ? [
-                {
-                  '@type': 'FAQPage',
-                  '@id': `${post.canonicalUrl}#faq`,
-                  'mainEntity': post.faqs.map((faq) => ({
-                    '@type': 'Question',
-                    'name': faq.question,
-                    'acceptedAnswer': {
-                      '@type': 'Answer',
-                      'text': faq.answer
-                    }
-                  }))
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${post.canonicalUrl}#breadcrumb`,
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Home',
+              'item': 'https://www.hitechenergy.org/'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'Insights & Blog',
+              'item': 'https://www.hitechenergy.org/blog'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': post.metaTitle,
+              'item': post.canonicalUrl
+            }
+          ]
+        },
+        ...(post.faqs && post.faqs.length > 0
+          ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${post.canonicalUrl}#faq`,
+              'mainEntity': post.faqs.map((faq) => ({
+                '@type': 'Question',
+                'name': faq.question,
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': faq.answer
                 }
-              ]
-            : [])
-        ]
-      }
+              }))
+            }
+          ]
+          : [])
+      ]
+    }
     : null;
 
   useSEO({
@@ -167,7 +179,7 @@ export default function BlogPost() {
   return (
     <div className="w-full bg-[#fcfcfd] text-on-surface text-left">
       {/* Scroll Progress Bar */}
-      <div 
+      <div
         className="fixed top-0 left-0 h-1 bg-secondary-container z-[60] transition-all duration-150 ease-out"
         style={{ width: `${scrollProgress}%` }}
         aria-hidden="true"
@@ -194,7 +206,7 @@ export default function BlogPost() {
             </Link>
             <span className="text-white/40">/</span>
             <span className="text-white font-medium truncate max-w-xs sm:max-w-md">
-              {post.title}
+              {post.metaTitle}
             </span>
           </nav>
 
@@ -282,7 +294,9 @@ export default function BlogPost() {
           />
           <figcaption className="py-2.5 px-4 bg-gray-50 text-[11px] sm:text-xs text-on-surface-variant text-center border-t border-gray-100 flex items-center justify-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-secondary-container">verified</span>
-            {post.heroImageAlt}
+            {isLotVsVot
+              ? 'Industrial LPG manifold system with LOT vaporiser skid and pressure reducing headers.'
+              : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
           </figcaption>
         </figure>
       </div>
@@ -304,13 +318,11 @@ export default function BlogPost() {
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className={`block py-1.5 transition-colors rounded-md px-2 ${
-                        item.level === 3 ? 'pl-5 text-gray-500 hover:text-primary' : 'font-semibold text-gray-800'
-                      } ${
-                        activeSection === item.id
+                      className={`block py-1.5 transition-colors rounded-md px-2 ${item.level === 3 ? 'pl-5 text-gray-500 hover:text-primary' : 'font-semibold text-gray-800'
+                        } ${activeSection === item.id
                           ? 'bg-orange-50 text-secondary-container font-bold border-l-2 border-secondary-container'
                           : 'hover:bg-gray-50'
-                      }`}
+                        }`}
                     >
                       {item.title}
                     </a>
@@ -326,18 +338,18 @@ export default function BlogPost() {
                   </span>
                 </div>
                 <h3 className="font-headline-md text-base font-bold text-white">
-                  {isLotVsVot ? 'Sizing Your LOT Manifold?' : 'Upgrade to Piped Gas'}
+                  {isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
                 </h3>
                 <p className="text-white/80 text-xs leading-relaxed">
                   {isLotVsVot
-                    ? 'Hi Tech Energy designs and installs certified LOT/VOT manifold headers and vaporisers tailored to your hourly kg/hr demand.'
+                    ? 'Hi Tech Energy engineers PESO-certified LOT pipelines, vaporiser skids, and PRS units for factories, hotels, and furnaces.'
                     : 'Hi Tech Energy installs certified domestic LPG pipelines with leak alarms and auto shut-off for apartments and villas.'}
                 </p>
                 <Link
                   to="/contact"
                   className="block text-center w-full bg-secondary-container hover:brightness-110 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all shadow cursor-pointer"
                 >
-                  {isLotVsVot ? 'Request Technical Audit' : 'Book Free Site Visit'}
+                  {isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
                 </Link>
                 <a
                   href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`}
@@ -367,9 +379,8 @@ export default function BlogPost() {
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className={`block py-1 px-2 rounded ${
-                        item.level === 3 ? 'pl-4 text-gray-500' : 'font-medium text-gray-800'
-                      } hover:bg-orange-50 hover:text-secondary-container`}
+                      className={`block py-1 px-2 rounded ${item.level === 3 ? 'pl-4 text-gray-500' : 'font-medium text-gray-800'
+                        } hover:bg-orange-50 hover:text-secondary-container`}
                     >
                       {item.title}
                     </a>
@@ -378,11 +389,11 @@ export default function BlogPost() {
               </details>
             </div>
 
-            {/* Render Post Body Content based on slug */}
+            {/* Render Specific Post Article Content */}
             {isLotVsVot ? (
-              <LotVsVotContent post={post} />
+              <LotVsVotArticle post={post} />
             ) : (
-              <DomesticPipelineContent post={post} />
+              <DomesticArticle post={post} />
             )}
 
             {/* High Converting Call-to-Action Block */}
@@ -394,17 +405,17 @@ export default function BlogPost() {
                     {isLotVsVot ? 'Industrial Engineering Consultation' : 'Free Expert Consultation'}
                   </span>
                   <h3 className="font-headline-lg text-2xl sm:text-3xl font-bold text-white leading-tight">
-                    {isLotVsVot 
-                      ? 'Plan Your Commercial or Industrial LPG Manifold'
+                    {isLotVsVot
+                      ? 'Request an Industrial LPG Audit & Vaporiser Sizing'
                       : 'Get a Free Site Visit & Safety Audit'}
                   </h3>
                   <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                     {isLotVsVot
-                      ? 'Eliminate frozen cylinders, unstable flame pressures, and unburned fuel losses. Our PESO-certified engineers evaluate your hourly load, vaporiser capacity, and safety schematics.'
+                      ? 'Ready to eliminate frozen cylinders and boost combustion efficiency by 8x? Our PESO-certified gas engineers evaluate your hourly thermal load and design tailored LOT / VOT manifold schematics.'
                       : 'Ready to upgrade your home, villa community, or apartment complex to a certified domestic LPG pipeline system? Our PESO-certified engineers inspect your site and provide tailored safety schematics.'}
                   </p>
                   <p className="text-xs text-secondary-fixed-dim font-semibold">
-                    PESO Standard Compliant • ISO 9001 Certified • Precision Pressure Control
+                    PESO Standard Compliant • ISO 9001 Certified • Rapid On-site Installation
                   </p>
                 </div>
 
@@ -413,7 +424,7 @@ export default function BlogPost() {
                     to="/contact"
                     className="inline-flex items-center justify-center gap-2 bg-secondary-container hover:brightness-110 active:scale-95 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-lg cursor-pointer"
                   >
-                    <span>{isLotVsVot ? 'Request Industrial Audit' : 'Request Free Site Visit'}</span>
+                    <span>{isLotVsVot ? 'Book Engineering Audit' : 'Request Free Site Visit'}</span>
                     <span className="material-symbols-outlined text-base">arrow_forward</span>
                   </Link>
                   <a
@@ -429,7 +440,7 @@ export default function BlogPost() {
 
             {/* FAQs Accordion Block */}
             {post.faqs && (
-              <section id="faqs" className="space-y-4 pt-6 border-t border-gray-100 scroll-mt-28">
+              <section id="faqs" className="scroll-mt-28 space-y-4 pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-secondary-container">help</span>
                   <h3 className="font-headline-md text-xl font-bold text-primary">
@@ -438,8 +449,8 @@ export default function BlogPost() {
                 </div>
                 <div className="space-y-3">
                   {post.faqs.map((faq, idx) => (
-                    <details 
-                      key={idx} 
+                    <details
+                      key={idx}
                       className="group bg-white p-4 sm:p-5 rounded-xl border border-gray-200 shadow-sm transition-all"
                     >
                       <summary className="font-semibold text-sm sm:text-base text-primary cursor-pointer flex justify-between items-center gap-2">
@@ -460,7 +471,7 @@ export default function BlogPost() {
             {/* Internal Links & Related Services */}
             <section className="pt-8 border-t border-gray-100 space-y-4">
               <h3 className="font-headline-md text-lg font-bold text-primary">
-                Related Pipeline Services &amp; Resources
+                {isLotVsVot ? 'Related Industrial Services & Resources' : 'Related Pipeline Services & Resources'}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                 {isLotVsVot ? (
@@ -469,22 +480,22 @@ export default function BlogPost() {
                       to="/services/lot-pipeline"
                       className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
                     >
-                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Industrial LOT Pipeline System</p>
-                      <p className="text-gray-500">High-capacity liquid withdrawal with electric and thermodynamic vaporisers.</p>
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LOT Pipeline System</p>
+                      <p className="text-gray-500">High efficiency industrial liquid off-take with certified vaporiser skids.</p>
                     </Link>
                     <Link
                       to="/services/commercial-lpg-pipeline"
                       className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
                     >
-                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Commercial VOT Line System</p>
-                      <p className="text-gray-500">Compact vaporisation manifolds for restaurants, canteens, and catering.</p>
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Commercial VOT Pipeline</p>
+                      <p className="text-gray-500">Engineered vapour off-take manifold systems for moderate kitchens and canteens.</p>
                     </Link>
                     <Link
-                      to="/services/lot-primary-lines"
+                      to="/blog/domestic-lpg-pipeline-vs-cylinder"
                       className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
                     >
-                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LOT Primary Lines &amp; PRS</p>
-                      <p className="text-gray-500">Dual-stage pressure reduction skids and industrial safety monitoring.</p>
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Domestic Pipeline vs Cylinder</p>
+                      <p className="text-gray-500">Discover key safety distinctions for residential kitchens and societies.</p>
                     </Link>
                   </>
                 ) : (
@@ -497,11 +508,11 @@ export default function BlogPost() {
                       <p className="text-gray-500">Comprehensive residential piping with pressure reduction stations.</p>
                     </Link>
                     <Link
-                      to="/services/leakage-detection-system"
+                      to="/blog/lot-vs-vot"
                       className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
                     >
-                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Leak Detection &amp; Auto Shut-off</p>
-                      <p className="text-gray-500">Sensors, alarms, and motorized solenoid safety valves.</p>
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LOT vs VOT Manifold System</p>
+                      <p className="text-gray-500">Industrial &amp; commercial manifold comparison, sizing, and ROI analysis.</p>
                     </Link>
                     <Link
                       to="/safety"

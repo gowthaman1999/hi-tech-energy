@@ -14,9 +14,9 @@ export default function Insights() {
     canonicalUrl: 'https://www.hitechenergy.org/blog'
   });
 
-  const topics = ['All', 'Industrial Solutions', 'Safety Protocols'];
+  const topics = ['All', 'Industrial Infrastructure', 'Safety Protocols'];
 
-  const articles = [...BLOG_POSTS].reverse().map((post, idx) => ({
+  const articles = BLOG_POSTS.map((post) => ({
     id: post.slug,
     topic: post.topic,
     image: post.heroImage,
@@ -27,48 +27,48 @@ export default function Insights() {
     author: post.author,
     role: post.authorRole,
     link: `/blog/${post.slug}`,
-    featured: idx === 0
+    featured: true
   }));
 
   const popularPosts = [
-    { 
-      date: 'October 6, 2026', 
+    {
+      date: 'October 8, 2026',
       title: 'LOT vs VOT: Which Industrial LPG Manifold System Is Right for Your Facility?',
       link: '/blog/lot-vs-vot'
     },
-    { 
-      date: 'October 5, 2026', 
+    {
+      date: 'October 5, 2026',
       title: 'Domestic LPG Pipeline vs LPG Cylinder: Which Is Safer for Your Kitchen?',
       link: '/blog/domestic-lpg-pipeline-vs-cylinder'
     },
     {
       date: 'Core Service',
-      title: 'Industrial LOT Pipeline Installation & Vaporiser Systems',
+      title: 'Industrial LOT Pipeline Installation & Vaporiser Skids',
       link: '/services/lot-pipeline'
     },
     {
-      date: 'Core Service',
-      title: 'Commercial VOT LPG Pipeline Installation',
-      link: '/services/commercial-lpg-pipeline'
+      date: 'Safety Systems',
+      title: 'Kitchen Gas Leak Detection and Automatic Shut-off Valve System',
+      link: '/services/leakage-detection-system'
     }
   ];
 
   const topicLinks = [
-    { name: 'Industrial LOT Pipeline System', path: '/services/lot-pipeline' },
+    { name: 'LOT Industrial Pipeline', path: '/services/lot-pipeline' },
     { name: 'Commercial VOT Pipeline', path: '/services/commercial-lpg-pipeline' },
-    { name: 'LOT Primary Piping & PRS', path: '/services/lot-primary-lines' },
     { name: 'Domestic LPG Pipeline', path: '/services/domestic-lpg-pipeline' },
     { name: 'Gas Leak Detection Systems', path: '/services/leakage-detection-system' },
-    { name: 'PESO Safety Standards', path: '/safety' }
+    { name: 'PESO Safety Standards', path: '/safety' },
+    { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const keywords = ['LOT VS VOT', 'INDUSTRIAL LPG', 'VAPORISER SKID', 'PRESSURE REDUCING STATION', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE'];
+  const keywords = ['LOT VS VOT', 'LPG MANIFOLD', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
 
   // Filter logic
   const filteredArticles = articles.filter(art => {
     const matchesTopic = selectedTopic === 'All' || art.topic === selectedTopic;
-    const matchesSearch = art.title.toLowerCase().includes(searchText.toLowerCase()) || 
-                          art.description.toLowerCase().includes(searchText.toLowerCase());
+    const matchesSearch = art.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      art.description.toLowerCase().includes(searchText.toLowerCase());
     return matchesTopic && matchesSearch;
   });
 
@@ -100,11 +100,10 @@ export default function Insights() {
               <button
                 key={top}
                 onClick={() => setSelectedTopic(top)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
-                  selectedTopic === top 
-                    ? 'bg-primary text-white shadow-sm' 
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${selectedTopic === top
+                    ? 'bg-primary text-white shadow-sm'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'
-                }`}
+                  }`}
               >
                 {top}
               </button>
@@ -112,12 +111,12 @@ export default function Insights() {
           </div>
           <div className="relative w-full md:w-64">
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
-            <input 
+            <input
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary-container focus:border-transparent text-xs sm:text-sm" 
-              placeholder="Search insights..." 
-              type="text" 
+              className="w-full pl-9 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary-container focus:border-transparent text-xs sm:text-sm"
+              placeholder="Search insights..."
+              type="text"
             />
           </div>
         </div>
@@ -128,7 +127,7 @@ export default function Insights() {
         <div className="max-w-[1280px] mx-auto px-4 md:px-16 grid grid-cols-12 gap-8">
           {/* Article grid col */}
           <div className="col-span-12 lg:col-span-8 space-y-16">
-            
+
             {/* If no articles match filters */}
             {filteredArticles.length === 0 && (
               <div className="bg-surface-container p-12 rounded-2xl text-center">
@@ -145,10 +144,10 @@ export default function Insights() {
                     <div className="grid grid-cols-1 md:grid-cols-2">
                       <div className="h-64 md:h-auto overflow-hidden">
                         <Link to={art.link || '#'}>
-                          <img 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                            alt={art.title} 
-                            src={art.image} 
+                          <img
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt={art.title}
+                            src={art.image}
                           />
                         </Link>
                       </div>
@@ -184,12 +183,12 @@ export default function Insights() {
                               to={art.link}
                               className="flex items-center gap-2 text-secondary font-semibold text-sm group/btn cursor-pointer"
                             >
-                              Read More 
+                              Read More
                               <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                             </Link>
                           ) : (
                             <button className="flex items-center gap-2 text-secondary font-semibold text-sm group/btn cursor-pointer">
-                              Read More 
+                              Read More
                               <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                             </button>
                           )}
@@ -205,17 +204,17 @@ export default function Insights() {
                   <div className="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
                     {art.link ? (
                       <Link to={art.link}>
-                        <img 
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                          alt={art.title} 
-                          src={art.image} 
+                        <img
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          alt={art.title}
+                          src={art.image}
                         />
                       </Link>
                     ) : (
-                      <img 
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                        alt={art.title} 
-                        src={art.image} 
+                      <img
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        alt={art.title}
+                        src={art.image}
                       />
                     )}
                   </div>
@@ -273,7 +272,7 @@ export default function Insights() {
               <h4 className="font-semibold text-primary uppercase tracking-widest text-xs mb-6">Pipeline Systems &amp; Services</h4>
               <nav className="flex flex-col gap-2">
                 {topicLinks.map((item) => (
-                  <Link 
+                  <Link
                     key={item.name}
                     to={item.path}
                     className="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container transition-colors group cursor-pointer w-full text-left"
@@ -303,8 +302,8 @@ export default function Insights() {
               <h4 className="font-semibold text-primary uppercase tracking-widest text-xs mb-4">Keywords</h4>
               <div className="flex flex-wrap gap-2">
                 {keywords.map((kw) => (
-                  <span 
-                    key={kw} 
+                  <span
+                    key={kw}
                     className="px-3 py-1 rounded-md bg-surface-container-highest text-on-surface-variant text-[11px] font-semibold cursor-pointer hover:bg-outline-variant hover:text-primary transition-colors"
                   >
                     {kw}
@@ -325,13 +324,13 @@ export default function Insights() {
               <p className="text-on-surface-variant text-sm leading-relaxed">Our engineering consultants are ready to discuss your project requirements and safety compliance needs.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-              <button 
+              <button
                 onClick={() => navigate('/contact')}
                 className="bg-primary text-white px-8 py-4 rounded-xl font-semibold text-sm hover:bg-primary-container transition-all cursor-pointer shadow-md text-center"
               >
                 Contact Engineering
               </button>
-              <Link 
+              <Link
                 to="/contact"
                 className="border border-primary text-primary px-8 py-4 rounded-xl font-semibold text-sm hover:bg-primary/5 transition-all text-center inline-block"
               >

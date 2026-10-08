@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function DomesticPipelineContent({ post }) {
+export default function DomesticArticle({ post }) {
   const { sections, comparisonTable } = post;
 
   return (
-    <>
-      {/* Introduction Paragraphs - Exact wording preserved */}
+    <div className="space-y-12 text-left">
+      {/* Introduction Paragraphs */}
       <div className="prose prose-slate max-w-none text-gray-700 leading-relaxed space-y-4 text-base sm:text-lg">
         <p>
           In most Indian homes, the LPG cylinder sits under the kitchen counter. We book it, wait for it, and change it when the gas runs out. Sometimes it runs out in the middle of cooking. Sometimes nobody is at home when the delivery comes.
@@ -42,8 +42,8 @@ export default function DomesticPipelineContent({ post }) {
             </thead>
             <tbody className="divide-y divide-gray-100">
               {comparisonTable.map((row, idx) => (
-                <tr 
-                  key={row.feature} 
+                <tr
+                  key={row.feature}
                   className={idx % 2 === 0 ? 'bg-white hover:bg-orange-50/40 transition-colors' : 'bg-gray-50/70 hover:bg-orange-50/40 transition-colors'}
                 >
                   <td className="py-3 px-4 font-medium text-gray-800">{row.feature}</td>
@@ -425,6 +425,6 @@ export default function DomesticPipelineContent({ post }) {
           <strong>In short:</strong> The main safety benefit is that the cylinder is no longer inside your kitchen. Add a leak detector with automatic shut-off, and your kitchen becomes much safer.
         </div>
       </section>
-    </>
+    </div>
   );
 }
