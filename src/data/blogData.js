@@ -374,9 +374,151 @@ export const BLOG_POSTS = [
         answer: 'Generally yes, provided there is no smell of gas, no physical damage, and the cylinder remains upright outdoors in a ventilated area. However, expect diminished burner heat until it warms. If you detect the odor of ethyl mercaptan or hear hissing, isolate the cylinder valve immediately and call your gas supplier.'
       }
     ]
+  },
+  {
+    id: 4,
+    slug: 'lpg-pipe-sizing',
+    title: 'Gas Pipe Sizing for LPG and Natural Gas: Sizing Guidelines & Practical Reference',
+    metaTitle: 'LPG Pipe Sizing Guide | Hi Tech Energy',
+    metaDescription: 'Learn how to choose the right LPG pipe size for safe and efficient gas flow. Explore LPG pipe sizing guidelines with Hi Tech Energy.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lpg-pipe-sizing',
+    h1: 'Gas Pipe Sizing for LPG and Natural Gas',
+    date: 'October 14, 2026',
+    datePublished: '2026-10-14T10:00:00+05:30',
+    dateModified: '2026-10-14T10:00:00+05:30',
+    readTime: '9 min read',
+    topic: 'Industrial Infrastructure',
+    tag: 'Technical Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'LPG Pipeline Engineering & Flow Sizing Specialists',
+    heroImage: '/images/blog/lpg-pipe-sizing/lpg-pipe-sizing-guide-hero.webp',
+    heroImageAlt: 'Commercial and domestic LPG pipe sizing guide installation showing copper and GI pipe headers with pressure regulators',
+    excerpt: 'Learn how to choose the right LPG and natural gas pipe size for safe, efficient flow. Explore longest-length vs. branch-length workflows, equivalent fitting losses, operating pressures, and tightness testing.',
+    tableOfContents: [
+      { id: 'quick-summary', title: 'Quick Summary' },
+      { id: 'why-small-sizing-errors', title: 'Why Small Sizing Errors Cause Big Field Failures', level: 3 },
+      { id: 'natural-gas-vs-lpg', title: 'Natural Gas vs. LPG: Why One Table Won’t Do Both' },
+      { id: 'domestic-vs-cylinder', title: 'Domestic LPG Pipeline vs LPG Cylinder: What Changes for Sizing' },
+      { id: 'operating-pressures', title: 'Operating Pressures and Allowable Pressure Drops' },
+      { id: 'two-stage-pressures', title: 'How Two-Stage LPG and Natural Gas Pressures Work', level: 3 },
+      { id: 'lot-vs-vot-supply', title: 'LOT vs VOT: How the Supply Source Affects Your System', level: 3 },
+      { id: 'natural-gas-pressures', title: 'Natural Gas Supply Pressures', level: 3 },
+      { id: 'allowable-pressure-drop', title: 'Choosing the Correct Allowable Pressure Drop' },
+      { id: 'sizing-workflows', title: 'Pipe Sizing Workflows: Longest Length vs. Branch Length', level: 3 },
+      { id: 'longest-length-method', title: 'The Longest Length Method', level: 3 },
+      { id: 'branch-length-method', title: 'The Branch Length Method', level: 3 },
+      { id: 'fitting-resistance', title: 'Fitting Resistance and Friction Losses' },
+      { id: 'five-foot-rule-vs-tables', title: 'The 5-Foot Rule vs. Real Equivalent Length Tables', level: 3 },
+      { id: 'csst-fitting-corrections', title: 'CSST Fitting Corrections', level: 3 },
+      { id: 'material-selection', title: 'Material Selection and Underground Pipe Assembly' },
+      { id: 'aboveground-systems', title: 'Aboveground Systems: Schedule 40 Steel, Copper and CSST', level: 3 },
+      { id: 'underground-mdpe', title: 'Underground Medium-Density Polyethene (MDPE)', level: 3 },
+      { id: 'testing-purging-retrofitting', title: 'Testing, Purging and Retrofitting Existing Gas Lines' },
+      { id: 'pressure-testing', title: 'Pressure Testing and Tightness Criteria', level: 3 },
+      { id: 'purging-lock-up', title: 'Safe Purging and Regulator Lock-Up Checks', level: 3 },
+      { id: 'capacity-audits', title: 'Capacity Audits: Adding High-BTU Equipment to Old Lines', level: 3 },
+      { id: 'tightness-flowchart', title: 'Tightness Testing Flowchart & Safety Rules', level: 3 },
+      { id: 'conclusion', title: 'Conclusion & On-Site Engineering Checklist' }
+    ],
+    propertiesTable: [
+      { property: 'Specific gravity (air = 1.0)', naturalGas: '~0.60 (lighter than air)', lpg: '~1.50 to 1.52 (heavier than air)' },
+      { property: 'Heating value', naturalGas: '~1,000 BTU/ft³', lpg: '~2,500 BTU/ft³' },
+      { property: 'Liquid to vapour expansion', naturalGas: 'Not applicable (delivered as gas)', lpg: '~250 times' },
+      { property: 'Typical appliance supply pressure', naturalGas: '3.5" to 7" w.c.', lpg: '11" w.c. (~300 mm w.c.)' },
+      { property: 'Where leaks collect', naturalGas: 'Ceilings and high points', lpg: 'Floors, pits and drains' }
+    ],
+    operatingPressuresTable: [
+      { systemType: 'Residential NG, low pressure', supplyPressure: '7" w.c.', allowableDrop: '0.5" w.c.', notes: 'Most common US residential setup' },
+      { systemType: 'Residential LPG, after 2nd stage', supplyPressure: '11" w.c. (~300 mm w.c.)', allowableDrop: '0.5" w.c.', notes: 'Use LPG tables only' },
+      { systemType: 'LPG intermediate (1st to 2nd stage)', supplyPressure: '10 psig (max 20 psig)', allowableDrop: 'Often 1 to 2 psi', notes: 'Size with intermediate-pressure tables' },
+      { systemType: 'Elevated pressure NG (2 psi system)', supplyPressure: '2 psi', allowableDrop: '1.0 psi', notes: 'Needs a line regulator before appliances' },
+      { systemType: 'UK/EU domestic NG', supplyPressure: '~21 mbar at meter', allowableDrop: '~1 mbar meter to appliance', notes: 'Check BS 6891 tables' },
+      { systemType: 'Underground PE service lines', supplyPressure: 'Varies by utility or LPG supplier', allowableDrop: 'Per design table', notes: 'PE tables differ from steel' }
+    ],
+    applianceLoadTable: [
+      { appliance: 'Furnace', input: '100,000 BTU/hr', distance: '18 ft' },
+      { appliance: 'Range', input: '65,000 BTU/hr', distance: '30 ft' },
+      { appliance: 'Tankless water heater', input: '199,000 BTU/hr', distance: '40 ft (furthest)' },
+      { appliance: 'Total', input: '364,000 BTU/hr (~364 CFH)', distance: '40 ft furthest run' }
+    ],
+    longestLengthTable: [
+      { section: 'Meter to first tee', loadCarried: '364 CFH', sizePicked: '1-1/4" (1" only carries 320)' },
+      { section: 'First tee to second tee', loadCarried: '264 CFH', sizePicked: '1"' },
+      { section: 'Second tee to tankless', loadCarried: '199 CFH', sizePicked: '1" (3/4" only carries 170)' },
+      { section: 'Branch to range', loadCarried: '65 CFH', sizePicked: '1/2"' },
+      { section: 'Branch to furnace', loadCarried: '100 CFH', sizePicked: '3/4" (1/2" only carries 81)' }
+    ],
+    branchLengthTable: [
+      { section: 'Meter to first tee', longestResult: '1-1/4"', branchResult: '1-1/4"' },
+      { section: 'First tee to second tee', longestResult: '1"', branchResult: '1"' },
+      { section: 'Second tee to tankless', longestResult: '1"', branchResult: '1"' },
+      { section: 'Branch to range', longestResult: '1/2"', branchResult: '1/2"' },
+      { section: 'Branch to furnace', longestResult: '3/4"', branchResult: '1/2"' }
+    ],
+    equivalentLengthTable: [
+      { nominalSize: '1/2"', elbow45: '0.8', elbow90: '1.6', teeBranch: '3.1', gateValve: '0.4', flatRule: '5.0' },
+      { nominalSize: '3/4"', elbow45: '1.1', elbow90: '2.1', teeBranch: '4.1', gateValve: '0.4', flatRule: '5.0' },
+      { nominalSize: '1"', elbow45: '1.4', elbow90: '2.6', teeBranch: '5.2', gateValve: '0.6', flatRule: '5.0' },
+      { nominalSize: '1-1/4"', elbow45: '1.8', elbow90: '3.5', teeBranch: '6.9', gateValve: '0.7', flatRule: '5.0' },
+      { nominalSize: '1-1/2"', elbow45: '2.1', elbow90: '4.0', teeBranch: '8.0', gateValve: '0.9', flatRule: '5.0' },
+      { nominalSize: '2"', elbow45: '2.7', elbow90: '5.2', teeBranch: '10.3', gateValve: '1.1', flatRule: '5.0' },
+      { nominalSize: '3"', elbow45: '4.0', elbow90: '7.7', teeBranch: '15.3', gateValve: '1.6', flatRule: '5.0' },
+      { nominalSize: '4"', elbow45: '5.3', elbow90: '10.1', teeBranch: '20.2', gateValve: '2.2', flatRule: '5.0' }
+    ],
+    testPressureTable: [
+      { section: 'Cylinder manifold / high-pressure section', testPressure: '1.5 × working pressure (e.g. 150 psig)' },
+      { section: 'Intermediate pressure lines (1st to 2nd stage)', testPressure: '2.5 × working pressure' },
+      { section: 'Low-pressure domestic lines', testPressure: '5 × operating pressure, often around 5 psig' }
+    ],
+    sections: {
+      properties: {
+        image: '/images/blog/lpg-pipe-sizing/fuel-properties-lpg-vs-natural-gas.webp',
+        imageAlt: 'Commercial kitchen gas line comparing natural gas and LPG fuel characteristics and pipe sizes',
+        imageCaption: 'Commercial burner installation: LPG carries 2.5x the energy density of natural gas, allowing smaller nominal line sizing.'
+      },
+      twoStage: {
+        image: '/images/blog/lpg-pipe-sizing/two-stage-lpg-pressure-regulator-station.webp',
+        imageAlt: 'Two-stage LPG pressure regulator and intermediate manifold station with pressure gauges',
+        imageCaption: 'Two-stage regulation: First-stage regulator lowers tank pressure to 10 psig, while second-stage regulator drops line pressure to 11" w.c.'
+      },
+      workflows: {
+        image: '/images/blog/lpg-pipe-sizing/longest-length-branch-gas-pipe-layout.webp',
+        imageAlt: 'Commercial gas piping layout with header and drop branch runs to appliances',
+        imageCaption: 'Longest length vs. branch length: Header runs supply multi-appliance commercial equipment with minimal pressure loss.'
+      },
+      materials: {
+        image: '/images/blog/lpg-pipe-sizing/copper-steel-csst-gas-pipe-materials.webp',
+        imageAlt: 'Gas pipeline materials including Schedule 40 black steel, copper tubing, flexible CSST, and yellow MDPE',
+        imageCaption: 'Gas piping materials: Schedule 40 black steel, copper, flexible CSST with brass fittings, and yellow underground MDPE.'
+      },
+      testing: {
+        image: '/images/blog/lpg-pipe-sizing/gas-pipe-pressure-testing-manometer.webp',
+        imageAlt: 'Gas pipeline pneumatic pressure tightness testing with digital manometer gauge and leak detection solution',
+        imageCaption: 'Pneumatic tightness testing: Using a sensitive manometer and leak detection solution to verify zero pressure loss before purging.'
+      }
+    },
+    faqs: [
+      {
+        question: 'Can I size an LPG gas pipe using a natural gas sizing chart?',
+        answer: 'No. LPG (propane) carries approximately 2,500 BTU per cubic foot, whereas natural gas carries roughly 1,000 BTU per cubic foot. Sizing an LPG system with a natural gas table will result in an oversized line, while using an LPG table on natural gas will severely undersize the pipe and starve appliances.'
+      },
+      {
+        question: 'What is the difference between longest length and branch length pipe sizing?',
+        answer: 'The longest length method sizes every section of the piping network using the measured distance from the meter/regulator to the furthest appliance. The branch length method sizes the main trunk by the furthest appliance distance, but sizes each individual branch based on its specific distance from the meter, preventing unnecessary pipe over-sizing on short branches.'
+      },
+      {
+        question: 'Why is the flat 5-foot rule for pipe fittings inaccurate?',
+        answer: 'A flat 5 feet per fitting overstates resistance on small pipe (a 1/2" elbow has an equivalent length of only ~1.5 ft), causing oversizing. On large headers (such as a 4" tee with an equivalent length of ~20 ft), the 5-foot rule understates losses by 400%, leading to dangerously undersized mains.'
+      },
+      {
+        question: 'What should the pressure drop be for low-pressure domestic LPG systems?',
+        answer: 'Standard low-pressure domestic and commercial LPG systems downstream of the second-stage regulator operate at 11" water column (~300 mm w.c. / 28 mbar) with a maximum allowable pressure drop of 0.5" water column.'
+      }
+    ]
   }
 ];
 
 export function getBlogPostBySlug(slug) {
   return BLOG_POSTS.find((post) => post.slug === slug);
 }
+

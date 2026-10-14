@@ -6,6 +6,7 @@ import { OFFICE_LOCATIONS } from '../data/hitechData';
 import LotVsVotArticle from '../components/blog/LotVsVotArticle';
 import DomesticArticle from '../components/blog/DomesticArticle';
 import LpgFreezingArticle from '../components/blog/LpgFreezingArticle';
+import LpgPipeSizingArticle from '../components/blog/LpgPipeSizingArticle';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -18,6 +19,7 @@ export default function BlogPost() {
   const post = getBlogPostBySlug(currentSlug);
 
   const getDefaultSection = (s) => {
+    if (s === 'lpg-pipe-sizing') return 'quick-summary';
     if (s === 'lpg-gas-freezing') return 'key-takeaways';
     if (s === 'lot-vs-vot') return 'why-manifold-matters';
     return 'glance';
@@ -179,6 +181,7 @@ export default function BlogPost() {
   }
 
   const { tableOfContents } = post;
+  const isLpgPipeSizing = post.slug === 'lpg-pipe-sizing';
   const isLotVsVot = post.slug === 'lot-vs-vot';
   const isLpgFreezing = post.slug === 'lpg-gas-freezing';
 
@@ -300,11 +303,13 @@ export default function BlogPost() {
           />
           <figcaption className="py-2.5 px-4 bg-gray-50 text-[11px] sm:text-xs text-on-surface-variant text-center border-t border-gray-100 flex items-center justify-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-secondary-container">verified</span>
-            {isLpgFreezing
-              ? 'LPG cylinder freezing with visible white frost line indicating liquid level under heavy thermal draw.'
-              : isLotVsVot
-                ? 'Industrial LPG manifold system with LOT vaporiser skid and pressure reducing headers.'
-                : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
+            {isLpgPipeSizing
+              ? 'Commercial and domestic gas pipeline system featuring engineered black iron, copper manifolds, and dual pressure regulators.'
+              : isLpgFreezing
+                ? 'LPG cylinder freezing with visible white frost line indicating liquid level under heavy thermal draw.'
+                : isLotVsVot
+                  ? 'Industrial LPG manifold system with LOT vaporiser skid and pressure reducing headers.'
+                  : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
           </figcaption>
         </figure>
       </div>
@@ -342,24 +347,26 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-primary to-primary-container text-white p-6 rounded-2xl shadow-md space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-secondary-container">
                   <span className="material-symbols-outlined">
-                    {isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
+                    {isLpgPipeSizing ? 'straighten' : isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
                   </span>
                 </div>
                 <h3 className="font-headline-md text-base font-bold text-white">
-                  {isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
+                  {isLpgPipeSizing ? 'Need Pipe Sizing Help?' : isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
                 </h3>
                 <p className="text-white/80 text-xs leading-relaxed">
-                  {isLpgFreezing
-                    ? 'Hi Tech Energy sizes and installs commercial multi-cylinder manifolds and LOT vaporisers to permanently end tank icing.'
-                    : isLotVsVot
-                      ? 'Hi Tech Energy engineers PESO-certified LOT pipelines, vaporiser skids, and PRS units for factories, hotels, and furnaces.'
-                      : 'Hi Tech Energy installs certified domestic LPG pipelines with leak alarms and auto shut-off for apartments and villas.'}
+                  {isLpgPipeSizing
+                    ? 'Hi Tech Energy calculates and installs certified commercial manifolds, branch pipe headers, and industrial gas networks compliant with IS 6044.'
+                    : isLpgFreezing
+                      ? 'Hi Tech Energy sizes and installs commercial multi-cylinder manifolds and LOT vaporisers to permanently end tank icing.'
+                      : isLotVsVot
+                        ? 'Hi Tech Energy engineers PESO-certified LOT pipelines, vaporiser skids, and PRS units for factories, hotels, and furnaces.'
+                        : 'Hi Tech Energy installs certified domestic LPG pipelines with leak alarms and auto shut-off for apartments and villas.'}
                 </p>
                 <Link
                   to="/contact"
                   className="block text-center w-full bg-secondary-container hover:brightness-110 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all shadow cursor-pointer"
                 >
-                  {isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
+                  {isLpgPipeSizing ? 'Request Sizing Consultation' : isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
                 </Link>
                 <a
                   href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`}
@@ -400,7 +407,9 @@ export default function BlogPost() {
             </div>
 
             {/* Render Specific Post Article Content */}
-            {isLpgFreezing ? (
+            {isLpgPipeSizing ? (
+              <LpgPipeSizingArticle post={post} />
+            ) : isLpgFreezing ? (
               <LpgFreezingArticle post={post} />
             ) : isLotVsVot ? (
               <LotVsVotArticle post={post} />
@@ -444,7 +453,52 @@ export default function BlogPost() {
                 Related Engineering Services &amp; Resources
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                {isLpgFreezing ? (
+                {isLpgPipeSizing ? (
+                  <>
+                    <Link
+                      to="/services/commercial-lpg-pipeline"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Commercial LPG Pipeline</p>
+                      <p className="text-gray-500">Engineered multi-cylinder manifold systems, headers, and kitchen gas piping.</p>
+                    </Link>
+                    <Link
+                      to="/services/lot-pipeline"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LOT Pipeline System</p>
+                      <p className="text-gray-500">Liquid off-take vaporiser skids delivering 8x output with steady pressure.</p>
+                    </Link>
+                    <Link
+                      to="/services/domestic-lpg-pipeline"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Domestic LPG Pipeline</p>
+                      <p className="text-gray-500">Residential copper and GI pipeline installations with automated leak isolation.</p>
+                    </Link>
+                    <Link
+                      to="/blog/lpg-gas-freezing"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Why LPG Freezing Happens</p>
+                      <p className="text-gray-500">Learn how vaporisation cooling creates frost lines and sizing bottlenecks.</p>
+                    </Link>
+                    <Link
+                      to="/safety"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Safety Standards &amp; PESO Norms</p>
+                      <p className="text-gray-500">Discover IS 6044 regulations, pressure testing benchmarks, and setbacks.</p>
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Request Engineering Audit</p>
+                      <p className="text-gray-500">Connect with Hi Tech Energy specialists for custom pipe flow calculations.</p>
+                    </Link>
+                  </>
+                ) : isLpgFreezing ? (
                   <>
                     <Link
                       to="/services/commercial-lpg-pipeline"

@@ -32,6 +32,11 @@ export default function Insights() {
 
   const popularPosts = [
     {
+      date: 'October 14, 2026',
+      title: 'LPG Pipe Sizing Guide: Sizing Workflows, Equivalent Lengths & Pressures',
+      link: '/blog/lpg-pipe-sizing'
+    },
+    {
       date: 'October 8, 2026',
       title: 'Why Does LPG Cylinder Freezing Happen? Science & Fixes',
       link: '/blog/lpg-gas-freezing'
@@ -45,11 +50,6 @@ export default function Insights() {
       date: 'October 5, 2026',
       title: 'Domestic LPG Pipeline vs LPG Cylinder: Which Is Safer for Your Kitchen?',
       link: '/blog/domestic-lpg-pipeline-vs-cylinder'
-    },
-    {
-      date: 'Core Service',
-      title: 'Industrial LOT Pipeline Installation & Vaporiser Skids',
-      link: '/services/lot-pipeline'
     }
   ];
 
@@ -62,7 +62,7 @@ export default function Insights() {
     { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const keywords = ['LOT VS VOT', 'LPG MANIFOLD', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
+  const keywords = ['LPG PIPE SIZING', 'LOT VS VOT', 'LPG MANIFOLD', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
 
   // Filter logic
   const filteredArticles = articles.filter(art => {
