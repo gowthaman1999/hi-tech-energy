@@ -515,6 +515,131 @@ export const BLOG_POSTS = [
         answer: 'Standard low-pressure domestic and commercial LPG systems downstream of the second-stage regulator operate at 11" water column (~300 mm w.c. / 28 mbar) with a maximum allowable pressure drop of 0.5" water column.'
       }
     ]
+  },
+  {
+    id: 5,
+    slug: 'lpg-manifold-vs-gas-header',
+    title: 'LPG Manifold vs Gas Header: Key Differences',
+    metaTitle: 'LPG Manifold vs Gas Header: Key Differences',
+    metaDescription: 'Compare LPG manifold vs gas header, including their key differences, applications, benefits, and how to choose the right gas distribution system.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lpg-manifold-vs-gas-header',
+    h1: "LPG manifold vs gas header : what's the difference and which one does your setup need?",
+    date: 'October 16, 2026',
+    datePublished: '2026-10-16T12:00:00+05:30',
+    dateModified: '2026-10-16T12:00:00+05:30',
+    readTime: '7 min read',
+    topic: 'Industrial Infrastructure',
+    tag: 'Engineering Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'LPG Pipeline & Gas Distribution Specialists',
+    heroImage: '/images/blog/lpg-manifold-vs-gas-header/lpg-manifold-vs-gas-header-hero.webp',
+    heroImageAlt: 'Industrial and commercial LPG cylinder bank manifold connected to overhead gas header pipeline',
+    excerpt: 'Compare LPG manifold vs gas header, including their key differences, applications, benefits, and how to choose the right gas distribution system.',
+    tableOfContents: [
+      { id: 'fails-at-worst-time', title: 'Why Your Gas Supply Fails at the Worst Time' },
+      { id: 'single-cylinders-problem', title: 'Running a Business Off Single Cylinders', level: 3 },
+      { id: 'supply-vs-distribution', title: 'Supply Side vs Distribution Side', level: 3 },
+      { id: 'how-each-works', title: 'How Each System Works' },
+      { id: 'how-manifold-works', title: 'How an LPG Manifold Works', level: 3 },
+      { id: 'how-header-works', title: 'How a Gas Header System Works', level: 3 },
+      { id: 'header-layouts', title: 'Single-Line, Multi-Outlet & Loop Headers', level: 3 },
+      { id: 'comparing-systems', title: 'Comparing Purpose, Capacity, Safety & Maintenance' },
+      { id: 'supply-capacity-flame', title: 'Supply Capacity and Flame Stability', level: 3 },
+      { id: 'materials-build-quality', title: 'Materials and Build Quality', level: 3 },
+      { id: 'safety-features', title: 'Safety Protocols & Isolation', level: 3 },
+      { id: 'maintenance-checks', title: 'Maintenance Best Practices', level: 3 },
+      { id: 'manifold-types', title: 'Manifold Types: Manual vs Auto Changeover' },
+      { id: 'manual-changeover', title: 'Manual Changeover Manifolds', level: 3 },
+      { id: 'auto-changeover', title: 'Auto Changeover Manifolds', level: 3 },
+      { id: 'when-to-use-lot', title: "When a Manifold Isn't Enough: LOT Systems", level: 3 },
+      { id: 'matching-system', title: 'Matching the System to Your Setup' },
+      { id: 'pressure-leak-protection', title: 'Pressure Control, Leak Detection & Protection' },
+      { id: 'two-stage-pressure', title: 'Getting Pressure Right at Every Stage', level: 3 },
+      { id: 'leak-detection-shutoff', title: 'Gas Leak Detection and Auto Shut-Off', level: 3 },
+      { id: 'protecting-pipes', title: 'Protecting Pipes and Fittings', level: 3 },
+      { id: 'common-mistakes', title: 'Common Mistakes We See on Site' },
+      { id: 'proper-installation', title: 'What a Proper Installation Involves' },
+      { id: 'installation-phase-1', title: 'Phase 1: Site Survey & Load Calculation', level: 3 },
+      { id: 'installation-phase-2', title: 'Phase 2: Manifold & Header Installation', level: 3 },
+      { id: 'installation-phase-3', title: 'Phase 3: Testing, Commissioning & Handover', level: 3 },
+      { id: 'conclusion', title: 'Conclusion: Getting Supply & Distribution Right' }
+    ],
+    comparisonTable: [
+      {
+        factor: 'Position in system',
+        manifold: 'Supply side, at the cylinder bank',
+        header: 'Distribution side, after the regulator'
+      },
+      {
+        factor: 'Main job',
+        manifold: 'Combine cylinders for steady supply',
+        header: 'Split gas to multiple usage points'
+      },
+      {
+        factor: 'Pressure it handles',
+        manifold: 'Higher, close to cylinder pressure',
+        header: 'Lower, regulated pipeline pressure'
+      },
+      {
+        factor: 'Location',
+        manifold: 'Outside the building, in a ventilated cylinder bank area',
+        header: 'Runs into the building toward appliances'
+      },
+      {
+        factor: 'What it solves',
+        manifold: 'Running out of gas, low vaporisation, frequent cylinder changes',
+        header: 'Hose clutter, uneven flame, no way to isolate one appliance'
+      },
+      {
+        factor: 'Main components',
+        manifold: 'Pigtails, NRVs, changeover valve, first-stage regulator',
+        header: 'Main pipe, branch valves, second-stage regulators'
+      }
+    ],
+    sections: {
+      manifoldBank: {
+        image: '/images/blog/lpg-manifold-vs-gas-header/lpg-cylinder-manifold-bank.webp',
+        imageAlt: 'Multi-cylinder commercial LPG manifold bank with braided pigtails and non-return valves',
+        imageCaption: 'Cylinder manifold bank: High-pressure braided pigtails and non-return valves connect multiple 33 kg cylinders to share vaporisation load.'
+      },
+      kitchenHeader: {
+        image: '/images/blog/lpg-manifold-vs-gas-header/commercial-kitchen-gas-header-distribution.webp',
+        imageAlt: 'Commercial kitchen gas header pipeline with individual branch isolation ball valves',
+        imageCaption: 'Gas header distribution: Overhead Schedule 40 steel main pipe with drop branches and ball valves supplying commercial burners.'
+      },
+      autoChangeover: {
+        image: '/images/blog/lpg-manifold-vs-gas-header/auto-changeover-manifold-regulator.webp',
+        imageAlt: 'Automatic changeover LPG manifold regulator station with service and reserve indicators',
+        imageCaption: 'Two-stage auto changeover manifold: Automatically transfers draw to the reserve bank when service cylinders deplete without flame interruptions.'
+      },
+      safetyDetection: {
+        image: '/images/blog/lpg-manifold-vs-gas-header/gas-leak-detector-solenoid-header.webp',
+        imageAlt: 'Industrial gas leak detector and emergency slam-shut solenoid shutoff valve on gas header',
+        imageCaption: 'Active gas safety: Low-level gas leak detector linked directly to an emergency solenoid valve for immediate automatic shut-off.'
+      }
+    },
+    faqs: [
+      {
+        question: 'Is an LPG manifold the same as a gas header?',
+        answer: 'No. A manifold connects several cylinders and combines their gas into one supply. A header takes that supply and distributes it to appliances or areas through branch lines. Many commercial systems use both.'
+      },
+      {
+        question: 'Why do my LPG cylinders get frost on them?',
+        answer: 'Frost forms when you draw gas faster than the cylinder can vaporise it. The liquid cools as it turns into vapour, and the outside of the cylinder gets cold enough for moisture to freeze on it. Usually the manifold needs more cylinders, or your consumption is high enough to consider an LOT system.'
+      },
+      {
+        question: 'Do I need an auto changeover manifold?',
+        answer: "If running out of gas would stop your business, as in a restaurant, hotel, or hospital, then yes, it's strongly recommended. It switches to the reserve cylinders automatically, so supply continues while staff replace the empty ones."
+      },
+      {
+        question: 'Why is the flame weaker on burners far from the gas supply?',
+        answer: 'That usually points to the distribution side. The header or branch pipe may be too small for the length of the run or the number of appliances on it. A larger header, a loop layout, or individual branch regulators can balance the pressure.'
+      },
+      {
+        question: 'How often should an LPG pipeline system be inspected?',
+        answer: 'A qualified technician should inspect commercial and industrial systems regularly, checking pigtails, regulators, valves, and leak detectors and replacing them according to their service life. Staff should also watch every day for a gas smell, damaged hoses, or any change in how the flames behave, and report it straight away.'
+      }
+    ]
   }
 ];
 

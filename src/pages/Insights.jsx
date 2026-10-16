@@ -32,6 +32,11 @@ export default function Insights() {
 
   const popularPosts = [
     {
+      date: 'October 16, 2026',
+      title: 'LPG Manifold vs Gas Header: Key Differences, Applications & Sizing',
+      link: '/blog/lpg-manifold-vs-gas-header'
+    },
+    {
       date: 'October 14, 2026',
       title: 'LPG Pipe Sizing Guide: Sizing Workflows, Equivalent Lengths & Pressures',
       link: '/blog/lpg-pipe-sizing'
@@ -62,7 +67,7 @@ export default function Insights() {
     { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const keywords = ['LPG PIPE SIZING', 'LOT VS VOT', 'LPG MANIFOLD', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
+  const keywords = ['LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
 
   // Filter logic
   const filteredArticles = articles.filter(art => {
