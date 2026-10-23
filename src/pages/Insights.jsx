@@ -32,6 +32,11 @@ export default function Insights() {
 
   const popularPosts = [
     {
+      date: 'October 23, 2026',
+      title: 'LPG Leak Detection: Warning Signs, Sensors, Solenoid Valves & Safety',
+      link: '/blog/lpg-leak-detection'
+    },
+    {
       date: 'October 16, 2026',
       title: 'LPG Manifold vs Gas Header: Key Differences, Applications & Sizing',
       link: '/blog/lpg-manifold-vs-gas-header'
@@ -67,7 +72,7 @@ export default function Insights() {
     { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const keywords = ['LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
+  const keywords = ['LPG LEAK DETECTION', 'GAS DETECTORS', 'SOLENOID VALVES', 'LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
 
   // Filter logic
   const filteredArticles = articles.filter(art => {

@@ -8,6 +8,7 @@ import DomesticArticle from '../components/blog/DomesticArticle';
 import LpgFreezingArticle from '../components/blog/LpgFreezingArticle';
 import LpgPipeSizingArticle from '../components/blog/LpgPipeSizingArticle';
 import LpgManifoldVsGasHeaderArticle from '../components/blog/LpgManifoldVsGasHeaderArticle';
+import LpgLeakDetectionArticle from '../components/blog/LpgLeakDetectionArticle';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -20,6 +21,7 @@ export default function BlogPost() {
   const post = getBlogPostBySlug(currentSlug);
 
   const getDefaultSection = (s) => {
+    if (s === 'lpg-leak-detection') return 'quick-takeaways';
     if (s === 'lpg-manifold-vs-gas-header') return 'fails-at-worst-time';
     if (s === 'lpg-pipe-sizing') return 'quick-summary';
     if (s === 'lpg-gas-freezing') return 'key-takeaways';
@@ -183,6 +185,7 @@ export default function BlogPost() {
   }
 
   const { tableOfContents } = post;
+  const isLpgLeakDetection = post.slug === 'lpg-leak-detection';
   const isLpgManifoldVsHeader = post.slug === 'lpg-manifold-vs-gas-header';
   const isLpgPipeSizing = post.slug === 'lpg-pipe-sizing';
   const isLotVsVot = post.slug === 'lot-vs-vot';
@@ -306,13 +309,17 @@ export default function BlogPost() {
           />
           <figcaption className="py-2.5 px-4 bg-gray-50 text-[11px] sm:text-xs text-on-surface-variant text-center border-t border-gray-100 flex items-center justify-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-secondary-container">verified</span>
-            {isLpgPipeSizing
+            {isLpgLeakDetection
+              ? 'Commercial kitchen LPG leak detection system with active gas detector panel and emergency shut-off solenoid valve.'
+              : isLpgPipeSizing
               ? 'Commercial and domestic gas pipeline system featuring engineered black iron, copper manifolds, and dual pressure regulators.'
               : isLpgFreezing
                 ? 'LPG cylinder freezing with visible white frost line indicating liquid level under heavy thermal draw.'
                 : isLotVsVot
                   ? 'Industrial LPG manifold system with LOT vaporiser skid and pressure reducing headers.'
-                  : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
+                  : isLpgManifoldVsHeader
+                    ? 'Industrial and commercial LPG cylinder bank manifold connected to overhead gas header pipeline.'
+                    : 'Modern domestic kitchen equipped with safe wall-mounted LPG pipeline and isolation ball valve.'}
           </figcaption>
         </figure>
       </div>
@@ -350,14 +357,16 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-primary to-primary-container text-white p-6 rounded-2xl shadow-md space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-secondary-container">
                   <span className="material-symbols-outlined">
-                    {isLpgManifoldVsHeader ? 'hub' : isLpgPipeSizing ? 'straighten' : isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
+                    {isLpgLeakDetection ? 'detector_status' : isLpgManifoldVsHeader ? 'hub' : isLpgPipeSizing ? 'straighten' : isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
                   </span>
                 </div>
                 <h3 className="font-headline-md text-base font-bold text-white">
-                  {isLpgManifoldVsHeader ? 'Need Manifold or Header Sizing?' : isLpgPipeSizing ? 'Need Pipe Sizing Help?' : isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
+                  {isLpgLeakDetection ? 'Need Gas Leak Detection?' : isLpgManifoldVsHeader ? 'Need Manifold or Header Sizing?' : isLpgPipeSizing ? 'Need Pipe Sizing Help?' : isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
                 </h3>
                 <p className="text-white/80 text-xs leading-relaxed">
-                  {isLpgManifoldVsHeader
+                  {isLpgLeakDetection
+                    ? 'Hi Tech Energy designs and installs PESO-compliant LPG gas leak detectors, automatic slam-shut solenoid valves, and central alarm panels for commercial and industrial facilities.'
+                    : isLpgManifoldVsHeader
                     ? 'Hi Tech Energy designs and installs certified LPG cylinder manifolds, auto-changeover regulators, and gas distribution headers compliant with IS 6044.'
                     : isLpgPipeSizing
                       ? 'Hi Tech Energy calculates and installs certified commercial manifolds, branch pipe headers, and industrial gas networks compliant with IS 6044.'
@@ -371,7 +380,7 @@ export default function BlogPost() {
                   to="/contact"
                   className="block text-center w-full bg-secondary-container hover:brightness-110 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all shadow cursor-pointer"
                 >
-                  {isLpgManifoldVsHeader ? 'Request Manifold Sizing' : isLpgPipeSizing ? 'Request Sizing Consultation' : isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
+                  {isLpgLeakDetection ? 'Request Safety Audit' : isLpgManifoldVsHeader ? 'Request Manifold Sizing' : isLpgPipeSizing ? 'Request Sizing Consultation' : isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
                 </Link>
                 <a
                   href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`}
@@ -412,7 +421,9 @@ export default function BlogPost() {
             </div>
 
             {/* Render Specific Post Article Content */}
-            {isLpgManifoldVsHeader ? (
+            {isLpgLeakDetection ? (
+              <LpgLeakDetectionArticle post={post} />
+            ) : isLpgManifoldVsHeader ? (
               <LpgManifoldVsGasHeaderArticle post={post} />
             ) : isLpgPipeSizing ? (
               <LpgPipeSizingArticle post={post} />
@@ -460,7 +471,52 @@ export default function BlogPost() {
                 Related Engineering Services &amp; Resources
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                {isLpgPipeSizing ? (
+                {isLpgLeakDetection ? (
+                  <>
+                    <Link
+                      to="/services/leakage-detection-system"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Gas Leak Detection Systems</p>
+                      <p className="text-gray-500">Commercial &amp; industrial sensor networks with automated slam-shut solenoid valves.</p>
+                    </Link>
+                    <Link
+                      to="/services/commercial-lpg-pipeline"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Commercial LPG Pipeline</p>
+                      <p className="text-gray-500">Multi-cylinder manifold systems, distribution headers, and kitchen gas piping.</p>
+                    </Link>
+                    <Link
+                      to="/blog/lpg-manifold-vs-gas-header"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LPG Manifold vs Gas Header</p>
+                      <p className="text-gray-500">Understand supply-side manifolds vs indoor distribution headers and branch isolation.</p>
+                    </Link>
+                    <Link
+                      to="/blog/domestic-lpg-pipeline-vs-cylinder"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Pipeline vs Cylinder Safety</p>
+                      <p className="text-gray-500">Why centralized outdoor gas banks eliminate high-pressure indoor cylinder hazards.</p>
+                    </Link>
+                    <Link
+                      to="/safety"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Safety Standards &amp; PESO Norms</p>
+                      <p className="text-gray-500">Explore IS 6044 regulations, cylinder setback clearances, and compliance.</p>
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Request Safety Audit</p>
+                      <p className="text-gray-500">Schedule on-site testing and sensor calibration with certified engineers.</p>
+                    </Link>
+                  </>
+                ) : isLpgPipeSizing ? (
                   <>
                     <Link
                       to="/services/commercial-lpg-pipeline"

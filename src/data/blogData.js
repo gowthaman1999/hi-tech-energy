@@ -640,6 +640,99 @@ export const BLOG_POSTS = [
         answer: 'A qualified technician should inspect commercial and industrial systems regularly, checking pigtails, regulators, valves, and leak detectors and replacing them according to their service life. Staff should also watch every day for a gas smell, damaged hoses, or any change in how the flames behave, and report it straight away.'
       }
     ]
+  },
+  {
+    id: 6,
+    slug: 'lpg-leak-detection',
+    title: 'LPG Leak Detection: Everything You Need to Know',
+    metaTitle: 'LPG Leak Detection: Everything You Need to Know',
+    metaDescription: 'Learn how LPG leak detection works, common causes of gas leaks, available detection methods, and safety practices for residential and commercial gas systems.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lpg-leak-detection',
+    h1: 'LPG Leak Detection: How It Works, Warning Signs, and What to Do',
+    date: 'October 23, 2026',
+    datePublished: '2026-10-23T12:00:00+05:30',
+    dateModified: '2026-10-23T12:00:00+05:30',
+    readTime: '8 min read',
+    topic: 'Safety Protocols',
+    tag: 'Safety Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'LPG Pipeline & Gas Safety Engineering Specialists',
+    heroImage: '/images/blog/lpg-leak-detection/lpg-leak-detection-hero.webp',
+    heroImageAlt: 'Commercial kitchen LPG leak detection system with wall-mount gas detector and emergency shut-off solenoid valve',
+    excerpt: 'Learn how LPG leak detection works, common causes of gas leaks, available detection methods, and safety practices for residential and commercial gas systems.',
+    tableOfContents: [
+      { id: 'quick-takeaways', title: 'Quick Takeaways' },
+      { id: 'what-is-lpg-leak-detection', title: 'What Is LPG Leak Detection and Why Does It Matter?' },
+      { id: 'why-lpg-behaves-differently', title: 'Why LPG Behaves Differently from Other Gases', level: 3 },
+      { id: 'why-your-lpg-smells', title: 'Why Your LPG Smells', level: 3 },
+      { id: 'home-cylinders-vs-industrial-systems', title: 'Home Cylinders vs Industrial Systems', level: 3 },
+      { id: 'physical-sensory-signs', title: 'Physical and Sensory Signs of an LPG Leak', level: 3 },
+      { id: 'how-lpg-sensors-work', title: 'How Do LPG Sensors Work?' },
+      { id: 'semiconductor-sensors-mq2-mq6', title: 'Semiconductor (Metal Oxide) Sensors: MQ-2 and MQ-6', level: 3 },
+      { id: 'electrochemical-infrared-sensors', title: 'Electrochemical and Infrared (IR) Sensors', level: 3 },
+      { id: 'ultrasonic-acoustic-detection', title: 'Ultrasonic Acoustic Detection', level: 3 },
+      { id: 'which-sensor-fits-which-job', title: 'Which Sensor Fits Which Job?', level: 3 },
+      { id: 'automated-lpg-monitoring-system', title: 'How an Automated LPG Monitoring and Shut-Off System Works' },
+      { id: 'hardware-components', title: 'The Hardware Components', level: 3 },
+      { id: 'what-happens-when-gas-detected', title: 'What Happens When Gas Is Detected', level: 3 },
+      { id: 'diy-vs-certified-systems', title: 'DIY Builds vs Certified Systems', level: 3 },
+      { id: 'false-alarms-troubleshooting', title: 'Why Gas Detectors Give False Alarms (and How to Fix It)' },
+      { id: 'common-causes-false-alarms', title: 'Common Causes of False Alarms', level: 3 },
+      { id: 'ten-steps-troubleshoot', title: 'Ten Steps to Troubleshoot a False Alarm', level: 3 },
+      { id: 'safety-rules-storage-pipelines', title: 'Safety Rules for LPG Storage and Pipelines' },
+      { id: 'storing-commercial-cylinders', title: 'Storing Commercial LPG Cylinders', level: 3 },
+      { id: 'converting-lpg-to-png', title: 'Converting from LPG to PNG' },
+      { id: 'emergency-procedure-gas-smell', title: 'What to Do If You Smell Gas or a Pipeline Is Damaged', level: 3 },
+      { id: 'conclusion', title: 'Conclusion' }
+    ],
+    sections: {
+      bubbleTest: {
+        image: '/images/blog/lpg-leak-detection/lpg-leak-detection-soap-bubble-test.webp',
+        imageAlt: 'Technician applying soapy water solution to detect bubbles at an LPG gas pipe joint',
+        imageCaption: 'Soap bubble leak check: Testing threaded joints and regulator connections with soapy water to identify escaping gas bubbles.'
+      },
+      gasSensor: {
+        image: '/images/blog/lpg-leak-detection/lpg-gas-detector-sensor-wall-mount.webp',
+        imageAlt: 'Wall-mounted LPG gas detector sensor installed 20 cm above the floor with digital PPM display',
+        imageCaption: 'Low-level gas sensor placement: Fixed 15–30 cm above floor level where heavier-than-air LPG vapour accumulates.'
+      },
+      solenoidValve: {
+        image: '/images/blog/lpg-leak-detection/automated-lpg-shutoff-solenoid-valve.webp',
+        imageAlt: 'Emergency automatic slam-shut gas solenoid valve on commercial LPG pipeline',
+        imageCaption: 'Active gas shut-off: Flameproof emergency solenoid valve wired to automatically isolate gas flow upon sensor trigger.'
+      },
+      storageCage: {
+        image: '/images/blog/lpg-leak-detection/peso-compliant-lpg-cylinder-storage-cage.webp',
+        imageAlt: 'PESO compliant outdoor ventilated lockable steel cage storing commercial LPG cylinders upright',
+        imageCaption: 'Compliant outdoor cylinder storage: Well-ventilated lockable steel mesh cage keeping cylinders upright and away from drains.'
+      }
+    },
+    faqs: [
+      {
+        question: 'Can LPG leaks be detected without chemical sensors?',
+        answer: 'Yes. Ultrasonic detectors pick up pressurised LPG leaks by sound, without the gas having to touch a sensor. Some designs using 40 kHz ultrasonic waves have detected leaks in about 10 milliseconds, and they keep working when wind blows the gas away from the detector.'
+      },
+      {
+        question: "Why does my LPG detector go off when there's no leak?",
+        answer: "Usually it's another gas or vapour the sensor also reacts to (alcohol sanitisers, cooking fumes, sprays, hydrogen from charging batteries), condensation from humidity, a detector that was zeroed in contaminated air, or an ageing sensor. The ten-step checklist above will help you find the cause."
+      },
+      {
+        question: "What's the difference between a bump test and calibration?",
+        answer: "A bump test is a quick pass or fail check. You expose the detector briefly to a test gas to confirm the sensor responds and the alarm goes off. Calibration adjusts the detector's readings against a known gas concentration so the numbers it shows are accurate."
+      },
+      {
+        question: 'Is an Arduino LPG detector safe for home use?',
+        answer: "It can work as an extra early warning, but it shouldn't be your only protection. If you build one, use optoisolated relays, a sealed enclosure so nothing can spark in the gas zone, and battery backup so it keeps working during power cuts. For commercial premises, use a certified system installed by a PESO-approved team."
+      },
+      {
+        question: 'Where should an LPG detector be installed?',
+        answer: 'Low on the wall, about 15 to 30 cm above the floor, because LPG sinks. Put it near the cylinder or manifold and the cooking area, but not directly above the burner, where cooking fumes will hit it constantly.'
+      },
+      {
+        question: 'How often should gas detectors be tested?',
+        answer: "Follow the manufacturer's schedule. Many commercial sites bump test monthly, or before each shift in high-risk areas, and calibrate at least once or twice a year. Replace sensors at the end of their rated life."
+      }
+    ]
   }
 ];
 
