@@ -47,7 +47,10 @@ export default function CustomersSlider({ duration = 32 }) {
                     <img
                       src={customer.logo}
                       alt={`${customer.name} logo`}
+                      width="180"
+                      height="64"
                       loading="lazy"
+                      decoding="async"
                       className="max-h-14 sm:max-h-16 max-w-[85%] object-contain filter drop-shadow-sm group-hover:scale-108 transition-transform duration-300 ease-out"
                     />
                   </div>

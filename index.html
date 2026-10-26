@@ -20,17 +20,60 @@
     <meta name="twitter:title" content="LPG Gas Pipeline Installation Services | Hi Tech Energy" />
     <meta name="twitter:description" content="Looking for LPG gas pipeline installation? Hi Tech Energy offers reliable and professional LPG pipeline installation solutions for commercial and industrial requirements." />
     <meta name="twitter:image" content="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-79QVF4FE9G"></script>
+    <!-- Preconnect to Font Origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Critical LCP Hero Image with Responsive Srcset -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero/hero-mobile.webp"
+      imagesrcset="/images/hero/hero-mobile.webp 768w, /images/hero/hero-tablet.webp 1200w, /images/hero/hero-desktop.webp 1600w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <!-- Google tag (gtag.js) - Initialized immediately, script loaded non-blocking on idle -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-79QVF4FE9G');
+
+      function loadGtag() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-79QVF4FE9G';
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtag, { timeout: 2500 });
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadGtag, 1000); });
+      }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <!-- Non-blocking Web Fonts with Instant System Fallback -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" />
+    </noscript>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=swap" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

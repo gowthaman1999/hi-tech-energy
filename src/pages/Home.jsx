@@ -10,7 +10,37 @@ import { useSEO } from '../hooks/useSEO';
 import TestimonialsSlider from '../components/TestimonialsSlider';
 import AnimatedCounter from '../components/AnimatedCounter';
 import CustomersSlider from '../components/CustomersSlider';
-import LocationsWeServe from '../components/LocationsWeServe';
+
+const LocationsWeServe = React.lazy(() => import('../components/LocationsWeServe'));
+
+function ViewportLazyLocations() {
+  const [isVisible, setIsVisible] = React.useState(false);
+  const containerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '400px' });
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="min-h-[320px]">
+      {isVisible ? (
+        <React.Suspense fallback={<div className="h-80 w-full animate-pulse bg-surface-container-low rounded-3xl" />}>
+          <LocationsWeServe />
+        </React.Suspense>
+      ) : (
+        <div className="h-80 w-full animate-pulse bg-surface-container-low rounded-3xl" />
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const navigate = useNavigate();
@@ -39,42 +69,42 @@ export default function Home() {
       title: 'Domestic LPG Pipeline',
       category: 'Residential Solutions',
       desc: 'We provide LPG pipeline installation for homes and residential properties that require a fixed LPG gas supply. The pipeline route is planned around the kitchen layout and gas usage points, with attention to accessibility, connections, and safe installation.',
-      image: '/images/gdrive/domestic_lpg_pipeline_cover.jpg',
+      image: '/images/optimized/domestic_lpg_pipeline_cover.webp',
       link: '/services/domestic-lpg-pipeline'
     },
     {
       title: 'Commercial LPG Gas Pipeline',
       category: 'Commercial Hospitality',
       desc: 'Our gas pipeline installation service is suitable for hotels, restaurants, commercial kitchens, and other businesses that depend on LPG for their daily operations. We plan the pipeline to connect multiple cooking and equipment points from the LPG supply system.',
-      image: '/images/gdrive/vot_line_commercial_pipeline_cover.jpg',
+      image: '/images/optimized/vot_line_commercial_pipeline_cover.webp',
       link: '/services/commercial-lpg-pipeline'
     },
     {
       title: 'Industrial LPG Pipeline',
       category: 'Industrial Infrastructure',
       desc: 'We provide LPG gas pipeline installation for industrial facilities where LPG is used for heating, production processes, equipment, and other applications. The pipeline layout is planned according to the facility, equipment locations, and required gas connections.',
-      image: '/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.jpeg',
+      image: '/images/optimized/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.webp',
       link: '/services/industrial-solutions'
     },
     {
       title: 'LPG Pipeline for Hotels & Restaurants',
       category: 'Commercial Kitchens',
       desc: 'Hotels and restaurants often have several cooking areas and gas-operated equipment. Our LPG pipeline installation service helps connect these points to a common LPG supply system through a planned pipeline network. We assess the kitchen layout and equipment locations before finalising the pipeline route and connection points.',
-      image: '/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__6_.jpeg',
+      image: '/images/optimized/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__6_.webp',
       link: '/services/commercial-lpg-pipeline'
     },
     {
       title: 'LPG Pipeline for Institutions',
       category: 'Institutions & Labs',
       desc: 'We provide gas pipeline installation for institutions such as hospitals, schools, colleges, hostels, and other facilities with LPG requirements. The pipeline system is planned according to the building layout, kitchen or equipment locations, and number of gas usage points.',
-      image: '/images/gdrive/Chemistry_lab_hero_classroom.jpeg',
+      image: '/images/optimized/Chemistry_lab_hero_classroom.webp',
       link: '/services/laboratory-gas-line-system'
     },
     {
       title: 'Centralized LPG Gas Pipeline',
       category: 'Reticulated & Centralized',
       desc: 'Our centralized LPG pipeline installation solutions are suitable for properties that need LPG supply at multiple usage points. Instead of managing individual connections for each point, a centralised system can distribute LPG through a planned pipeline network. The design depends on factors such as the property layout, LPG requirement, number of connection points, and equipment being used.',
-      image: '/images/gdrive/reticulated_lpg_pipeline_cover.jpg',
+      image: '/images/optimized/reticulated_lpg_pipeline_cover.webp',
       link: '/services/reticulated-lpg-pipeline'
     }
   ];
@@ -85,42 +115,42 @@ export default function Home() {
       title: 'Gas Manifold',
       category: 'Manifold Skid Systems',
       desc: 'A gas manifold connects the LPG source to the pipeline network and helps distribute the gas to the required supply lines. The manifold arrangement is selected based on the project requirements and number of connections.',
-      image: '/images/gdrive/gas_header_mesh_enclosure_front.jpg',
+      image: '/images/optimized/gas_header_mesh_enclosure_front.webp',
       link: '/services/gas-header-system'
     },
     {
       title: 'LPG Pipeline System',
       category: 'Primary Piping Networks',
       desc: 'Our LPG pipeline installation solutions are planned for different building types and applications. The pipeline layout takes into account the LPG source, equipment locations, usage points, routing requirements, and other project-specific factors.',
-      image: '/images/gdrive/lot_primary_lines_safecon_easyvap.jpg',
+      image: '/images/optimized/lot_primary_lines_safecon_easyvap.webp',
       link: '/services/lot-primary-lines'
     },
     {
       title: 'Gas Pressure Regulation System',
       category: 'Pressure Control',
       desc: 'A pressure regulation system helps control LPG pressure before the gas reaches the required usage points. We provide pressure regulation systems as part of the gas pipeline installation based on the requirements of the LPG system and connected equipment.',
-      image: '/images/gdrive/materials_lpg_pressure_regulators.png',
+      image: '/images/optimized/materials_lpg_pressure_regulators.webp',
       link: '/services/gas-control-panel-system'
     },
     {
       title: 'Gas Detection & Safety System',
       category: 'Safety Automation',
       desc: 'Gas detection and safety systems can be included with the LPG gas pipeline installation based on the requirements of the project. These systems can help identify gas leakage and provide an additional safety measure for areas where LPG is used.',
-      image: '/images/gdrive/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__1_.jpeg',
+      image: '/images/optimized/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__1_.webp',
       link: '/services/lpg-control-panel-gas-leakage-detection-system'
     },
     {
       title: 'Kitchen Gas Pipeline',
       category: 'Commercial Kitchen Distribution',
       desc: 'We provide LPG pipeline installation for commercial kitchens with multiple cooking equipment and gas usage points. The pipeline is routed based on the kitchen layout and equipment locations to provide connections where LPG is required.',
-      image: '/images/gdrive/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__2_.jpeg',
+      image: '/images/optimized/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__2_.webp',
       link: '/services/commercial-lpg-pipeline'
     },
     {
       title: 'Industrial Gas Pipeline',
       category: 'Industrial Systems',
       desc: 'Our gas pipeline installation service is also suitable for industrial facilities that use LPG for heating, production, process applications, and other equipment. The pipeline arrangement is designed according to the facility layout and LPG requirements.',
-      image: '/images/gdrive/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM.jpeg',
+      image: '/images/optimized/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM.webp',
       link: '/services/industrial-solutions'
     }
   ];
@@ -187,15 +217,24 @@ export default function Home() {
       <header className="relative w-full min-h-[calc(20vh-5rem)] md:min-h-screen py-8 sm:py-12 md:pt-28 md:pb-20 flex items-center overflow-hidden bg-primary text-white parallax-container">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 md:via-primary/75 to-transparent z-10"></div>
-          <img
-            ref={heroBgRef}
-            className="w-full h-full object-cover origin-center"
-            alt="LPG Gas Pipeline Installation Service - HI TECH ENERGY"
-            src="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <picture className="w-full h-full">
+            <source
+              type="image/webp"
+              srcSet="/images/hero/hero-mobile.webp 768w, /images/hero/hero-tablet.webp 1200w, /images/hero/hero-desktop.webp 1600w"
+              sizes="100vw"
+            />
+            <img
+              ref={heroBgRef}
+              className="w-full h-full object-cover origin-center"
+              alt="LPG Gas Pipeline Installation Service - HI TECH ENERGY"
+              src="/images/hero/hero-desktop.webp"
+              width="1600"
+              height="1200"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
 
         <div className="relative z-20 px-4 sm:px-6 md:px-16 max-w-4xl text-left">
@@ -304,6 +343,8 @@ export default function Home() {
                     <img
                       src={srv.image}
                       alt={srv.title}
+                      width="400"
+                      height="192"
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover service-card-img-zoom"
@@ -371,10 +412,10 @@ export default function Home() {
               <div className="w-full h-64 sm:h-80 md:h-[380px] overflow-hidden relative flex items-center justify-center bg-black">
                 <video
                   src={FEATURED_PROJECT_SPOTLIGHT.videoUrl}
-                  poster={FEATURED_PROJECT_SPOTLIGHT.image}
+                  poster="/images/optimized/domestic_lpg_pipeline_cover.webp"
                   controls
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   className="w-full h-full object-contain rounded-3xl"
                 >
                   Your browser does not support the video tag.
@@ -426,6 +467,8 @@ export default function Home() {
                     <img
                       src={srv.image}
                       alt={srv.title}
+                      width="400"
+                      height="176"
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover service-card-img-zoom"
@@ -538,8 +581,10 @@ export default function Home() {
               <div className="w-full h-64 sm:h-80 md:h-[440px] overflow-hidden relative">
                 <img
                   ref={whyChooseMediaRef}
-                  src="/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_11_PM__1_.jpeg"
+                  src="/images/optimized/why_choose_hi_tech_pipeline.webp"
                   alt="Why Choose Hi Tech Energy LPG Pipeline"
+                  width="800"
+                  height="440"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
@@ -651,7 +696,7 @@ export default function Home() {
             </div>
 
             <div className="reveal-slide-right lg:col-span-2">
-              <LocationsWeServe />
+              <ViewportLazyLocations />
             </div>
 
           </div>

@@ -733,10 +733,88 @@ export const BLOG_POSTS = [
         answer: "Follow the manufacturer's schedule. Many commercial sites bump test monthly, or before each shift in high-risk areas, and calibrate at least once or twice a year. Replace sensors at the end of their rated life."
       }
     ]
+  },
+  {
+    id: 7,
+    slug: 'gas-pipeline-maintenance-guide',
+    title: 'Gas Pipeline Maintenance Guide: Methods, Tools & Standards',
+    metaTitle: 'Gas Pipeline Maintenance Guide: Methods, Tools & Standards',
+    metaDescription: 'A complete guide to gas pipeline maintenance covering corrosion threats, smart PIG inspection, leak detection systems, hot tapping, and ASME B31.8S integrity.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/gas-pipeline-maintenance-guide',
+    h1: 'Gas Pipeline Maintenance Guide',
+    date: 'October 26, 2026',
+    datePublished: '2026-10-26T12:00:00+05:30',
+    dateModified: '2026-10-26T12:00:00+05:30',
+    readTime: '10 min read',
+    topic: 'Industrial Infrastructure',
+    tag: 'Maintenance Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'Gas Pipeline & Infrastructure Integrity Specialists',
+    heroImage: '/images/blog/gas-pipeline-maintenance/gas-pipeline-maintenance-hero.webp',
+    heroImageAlt: 'Gas pipeline maintenance engineering crew conducting non-destructive inspection at an industrial valve station',
+    excerpt: 'A complete guide to gas pipeline maintenance covering corrosion threats, smart PIG inspection, leak detection systems, hot tapping, and ASME B31.8S integrity.',
+    tableOfContents: [
+      { id: 'summary-takeaways', title: 'Summary takeaways' },
+      { id: 'primary-corrosion-threats', title: 'Primary Corrosion Threats in Natural Gas Pipelines' },
+      { id: 'external-internal-corrosion-mechanisms', title: 'External and Internal Corrosion Mechanisms', level: 3 },
+      { id: 'cathodic-protection-stray-current', title: 'Cathodic Protection (CP) and Stray Current Interference', level: 3 },
+      { id: 'inspect-gas-pipelines-without-halting-service', title: 'Inspecting Gas Pipelines Without Halting Service' },
+      { id: 'inline-inspection-ili-smart-pigs', title: 'In-Line Inspection (ILI) with Smart PIGs', level: 3 },
+      { id: 'continuous-leak-detection-systems-compared', title: 'Continuous Leak Detection Systems (LDS) Compared', level: 3 },
+      { id: 'repaired-without-disruptions-methane-venting', title: 'Pipeline Repairs Without Disruptions or Methane Venting' },
+      { id: 'hot-tapping-stopple-plugging', title: 'Hot Tapping and Stopple Plugging', level: 3 },
+      { id: 'gas-recovery-composite-wraps', title: 'Gas Recovery and Composite Reinforcement Wraps', level: 3 },
+      { id: 'regulatory-frameworks-pipeline-integrity', title: 'Regulatory Frameworks Governing Gas Pipeline Integrity' },
+      { id: 'asme-b318s-integrity-lifecycle', title: 'The ASME B31.8S Integrity Lifecycle', level: 3 },
+      { id: 'safe-working-pressure-qra', title: 'Safe Working Pressure and Quantitative Risk Assessment (QRA)', level: 3 },
+      { id: 'wrapping-up', title: 'Wrapping Up' },
+      { id: 'faqs', title: 'Frequently Asked Questions' }
+    ],
+    sections: {
+      cathodicProtection: {
+        image: '/images/blog/gas-pipeline-maintenance/cathodic-protection-pipeline-monitoring.webp',
+        imageAlt: 'Cathodic protection test station post monitoring buried steel natural gas pipeline against soil corrosion',
+        imageCaption: 'Cathodic protection monitoring: Field technician measuring pipe-to-soil potential at a test post with a digital multimeter.'
+      },
+      smartPig: {
+        image: '/images/blog/gas-pipeline-maintenance/smart-pig-pipeline-inspection-gauge.webp',
+        imageAlt: 'Smart PIG in-line inspection gauge equipped with magnetic flux leakage sensors at a pipeline launcher station',
+        imageCaption: 'In-line inspection (ILI): High-resolution Magnetic Flux Leakage (MFL) smart PIG being loaded into a barrel launcher.'
+      },
+      leakMonitoring: {
+        image: '/images/blog/gas-pipeline-maintenance/pipeline-leak-detection-monitoring-scada.webp',
+        imageAlt: 'Automated gas pipeline leak detection system dashboard monitoring real-time pressure waves and flow rates',
+        imageCaption: 'Continuous monitoring: Real-time pipeline SCADA room analyzing negative pressure wave acoustics and statistical flow rates.'
+      },
+      compositeRepair: {
+        image: '/images/blog/gas-pipeline-maintenance/pipeline-composite-wrap-repair.webp',
+        imageAlt: 'Technicians installing carbon fiber composite reinforcement wrap repair on a high-pressure gas pipeline without shutdown',
+        imageCaption: 'Trenchless non-intrusive repair: Technicians applying structural carbon-fiber composite wrap over external metal loss.'
+      }
+    },
+    faqs: [
+      {
+        question: 'What is the difference between MFL and UT smart PIGs?',
+        answer: 'MFL tools use strong magnets to detect where metal is missing from the pipe wall, which makes them good at finding corrosion and wall thinning. UT tools send ultrasonic pulses through the wall to measure exact thickness, and they can also detect laminations inside the steel.'
+      },
+      {
+        question: 'How does cathodic protection stop corrosion on buried steel gas pipes?',
+        answer: "Cathodic protection applies a steady direct current to the pipe so the steel becomes the cathode in an electrochemical cell. Because the cathode doesn't give up electrons, the steel stops oxidizing. The current comes either from sacrificial anodes or from a rectifier-powered impressed current system."
+      },
+      {
+        question: 'What is the main advantage of statistical SPRT over RTTM leak detection?',
+        answer: 'Statistical SPRT systems filter out the normal pressure and flow swings that happen when operators change flow rates or start compressors. They stay sensitive to real leaks without the frequent false alarms that hydraulic RTTM models tend to raise during those changes.'
+      },
+      {
+        question: 'Why is hot tapping preferred over traditional depressurization for pipe tie-ins?',
+        answer: "Hot tapping lets you connect a new branch to a pipeline while it stays under pressure. Customers keep their supply, no methane is vented, and you don't lose the gas inventory that a blowdown would release. The US EPA puts the typical payback at around five months."
+      }
+    ]
   }
 ];
 
 export function getBlogPostBySlug(slug) {
   return BLOG_POSTS.find((post) => post.slug === slug);
 }
+
 

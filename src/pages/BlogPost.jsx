@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { getBlogPostBySlug } from '../data/blogData';
 import { useSEO } from '../hooks/useSEO';
 import { OFFICE_LOCATIONS } from '../data/hitechData';
-import LotVsVotArticle from '../components/blog/LotVsVotArticle';
-import DomesticArticle from '../components/blog/DomesticArticle';
-import LpgFreezingArticle from '../components/blog/LpgFreezingArticle';
-import LpgPipeSizingArticle from '../components/blog/LpgPipeSizingArticle';
-import LpgManifoldVsGasHeaderArticle from '../components/blog/LpgManifoldVsGasHeaderArticle';
-import LpgLeakDetectionArticle from '../components/blog/LpgLeakDetectionArticle';
+
+const LotVsVotArticle = lazy(() => import('../components/blog/LotVsVotArticle'));
+const DomesticArticle = lazy(() => import('../components/blog/DomesticArticle'));
+const LpgFreezingArticle = lazy(() => import('../components/blog/LpgFreezingArticle'));
+const LpgPipeSizingArticle = lazy(() => import('../components/blog/LpgPipeSizingArticle'));
+const LpgManifoldVsGasHeaderArticle = lazy(() => import('../components/blog/LpgManifoldVsGasHeaderArticle'));
+const LpgLeakDetectionArticle = lazy(() => import('../components/blog/LpgLeakDetectionArticle'));
+const GasPipelineMaintenanceArticle = lazy(() => import('../components/blog/GasPipelineMaintenanceArticle'));
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -21,6 +23,7 @@ export default function BlogPost() {
   const post = getBlogPostBySlug(currentSlug);
 
   const getDefaultSection = (s) => {
+    if (s === 'gas-pipeline-maintenance-guide') return 'summary-takeaways';
     if (s === 'lpg-leak-detection') return 'quick-takeaways';
     if (s === 'lpg-manifold-vs-gas-header') return 'fails-at-worst-time';
     if (s === 'lpg-pipe-sizing') return 'quick-summary';
@@ -185,6 +188,7 @@ export default function BlogPost() {
   }
 
   const { tableOfContents } = post;
+  const isGasPipelineMaintenance = post.slug === 'gas-pipeline-maintenance-guide';
   const isLpgLeakDetection = post.slug === 'lpg-leak-detection';
   const isLpgManifoldVsHeader = post.slug === 'lpg-manifold-vs-gas-header';
   const isLpgPipeSizing = post.slug === 'lpg-pipe-sizing';
@@ -309,7 +313,9 @@ export default function BlogPost() {
           />
           <figcaption className="py-2.5 px-4 bg-gray-50 text-[11px] sm:text-xs text-on-surface-variant text-center border-t border-gray-100 flex items-center justify-center gap-1.5">
             <span className="material-symbols-outlined text-sm text-secondary-container">verified</span>
-            {isLpgLeakDetection
+            {isGasPipelineMaintenance
+              ? 'Gas pipeline maintenance engineering crew conducting non-destructive inspection at an industrial valve station.'
+              : isLpgLeakDetection
               ? 'Commercial kitchen LPG leak detection system with active gas detector panel and emergency shut-off solenoid valve.'
               : isLpgPipeSizing
               ? 'Commercial and domestic gas pipeline system featuring engineered black iron, copper manifolds, and dual pressure regulators.'
@@ -357,14 +363,16 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-primary to-primary-container text-white p-6 rounded-2xl shadow-md space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-secondary-container">
                   <span className="material-symbols-outlined">
-                    {isLpgLeakDetection ? 'detector_status' : isLpgManifoldVsHeader ? 'hub' : isLpgPipeSizing ? 'straighten' : isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
+                    {isGasPipelineMaintenance ? 'engineering' : isLpgLeakDetection ? 'detector_status' : isLpgManifoldVsHeader ? 'hub' : isLpgPipeSizing ? 'straighten' : isLpgFreezing ? 'severe_cold' : isLotVsVot ? 'precision_manufacturing' : 'home_repair_service'}
                   </span>
                 </div>
                 <h3 className="font-headline-md text-base font-bold text-white">
-                  {isLpgLeakDetection ? 'Need Gas Leak Detection?' : isLpgManifoldVsHeader ? 'Need Manifold or Header Sizing?' : isLpgPipeSizing ? 'Need Pipe Sizing Help?' : isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
+                  {isGasPipelineMaintenance ? 'Need Pipeline Maintenance?' : isLpgLeakDetection ? 'Need Gas Leak Detection?' : isLpgManifoldVsHeader ? 'Need Manifold or Header Sizing?' : isLpgPipeSizing ? 'Need Pipe Sizing Help?' : isLpgFreezing ? 'Freezing Cylinder Help?' : isLotVsVot ? 'Sizing an LOT System?' : 'Upgrade to Piped Gas'}
                 </h3>
                 <p className="text-white/80 text-xs leading-relaxed">
-                  {isLpgLeakDetection
+                  {isGasPipelineMaintenance
+                    ? 'Hi Tech Energy provides ASME B31.8S compliant pipeline integrity assessments, non-intrusive leak detection, hot tapping tie-ins, and composite wrap repairs for industrial facilities.'
+                    : isLpgLeakDetection
                     ? 'Hi Tech Energy designs and installs PESO-compliant LPG gas leak detectors, automatic slam-shut solenoid valves, and central alarm panels for commercial and industrial facilities.'
                     : isLpgManifoldVsHeader
                     ? 'Hi Tech Energy designs and installs certified LPG cylinder manifolds, auto-changeover regulators, and gas distribution headers compliant with IS 6044.'
@@ -380,7 +388,7 @@ export default function BlogPost() {
                   to="/contact"
                   className="block text-center w-full bg-secondary-container hover:brightness-110 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all shadow cursor-pointer"
                 >
-                  {isLpgLeakDetection ? 'Request Safety Audit' : isLpgManifoldVsHeader ? 'Request Manifold Sizing' : isLpgPipeSizing ? 'Request Sizing Consultation' : isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
+                  {isGasPipelineMaintenance ? 'Request Integrity Consultation' : isLpgLeakDetection ? 'Request Safety Audit' : isLpgManifoldVsHeader ? 'Request Manifold Sizing' : isLpgPipeSizing ? 'Request Sizing Consultation' : isLpgFreezing ? 'Request Manifold Audit' : isLotVsVot ? 'Request Vaporiser Sizing' : 'Book Free Site Visit'}
                 </Link>
                 <a
                   href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`}
@@ -421,19 +429,23 @@ export default function BlogPost() {
             </div>
 
             {/* Render Specific Post Article Content */}
-            {isLpgLeakDetection ? (
-              <LpgLeakDetectionArticle post={post} />
-            ) : isLpgManifoldVsHeader ? (
-              <LpgManifoldVsGasHeaderArticle post={post} />
-            ) : isLpgPipeSizing ? (
-              <LpgPipeSizingArticle post={post} />
-            ) : isLpgFreezing ? (
-              <LpgFreezingArticle post={post} />
-            ) : isLotVsVot ? (
-              <LotVsVotArticle post={post} />
-            ) : (
-              <DomesticArticle post={post} />
-            )}
+            <Suspense fallback={<div className="w-full py-16 flex items-center justify-center"><div className="w-8 h-8 border-3 border-secondary-container border-t-transparent rounded-full animate-spin" /></div>}>
+              {isGasPipelineMaintenance ? (
+                <GasPipelineMaintenanceArticle post={post} />
+              ) : isLpgLeakDetection ? (
+                <LpgLeakDetectionArticle post={post} />
+              ) : isLpgManifoldVsHeader ? (
+                <LpgManifoldVsGasHeaderArticle post={post} />
+              ) : isLpgPipeSizing ? (
+                <LpgPipeSizingArticle post={post} />
+              ) : isLpgFreezing ? (
+                <LpgFreezingArticle post={post} />
+              ) : isLotVsVot ? (
+                <LotVsVotArticle post={post} />
+              ) : (
+                <DomesticArticle post={post} />
+              )}
+            </Suspense>
 
             {/* FAQs Accordion Block */}
             {post.faqs && (
@@ -471,7 +483,52 @@ export default function BlogPost() {
                 Related Engineering Services &amp; Resources
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                {isLpgLeakDetection ? (
+                {isGasPipelineMaintenance ? (
+                  <>
+                    <Link
+                      to="/services/industrial-solutions"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Industrial Gas Solutions</p>
+                      <p className="text-gray-500">Heavy-duty gas headers, pressure reduction skids, and industrial distribution networks.</p>
+                    </Link>
+                    <Link
+                      to="/services/leakage-detection-system"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Gas Leak Detection Systems</p>
+                      <p className="text-gray-500">Continuous monitoring sensor arrays, central control panels, and automated shut-off.</p>
+                    </Link>
+                    <Link
+                      to="/blog/lpg-leak-detection"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LPG Leak Detection Guide</p>
+                      <p className="text-gray-500">Sensor technologies, acoustic impedance detection, and false alarm troubleshooting.</p>
+                    </Link>
+                    <Link
+                      to="/blog/lpg-pipe-sizing"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">LPG Pipe Sizing Guide</p>
+                      <p className="text-gray-500">Flow calculations, equivalent lengths, and pressure drop management across lines.</p>
+                    </Link>
+                    <Link
+                      to="/safety"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Safety Standards &amp; PESO Norms</p>
+                      <p className="text-gray-500">Comprehensive safety guidelines, hydrostatic testing benchmarks, and compliance.</p>
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="p-4 rounded-xl border border-gray-200 bg-white hover:border-secondary-container hover:shadow-md transition-all group block"
+                    >
+                      <p className="font-bold text-primary group-hover:text-secondary mb-1">Schedule Pipeline Audit</p>
+                      <p className="text-gray-500">Consult with certified gas engineers for integrity verification and maintenance.</p>
+                    </Link>
+                  </>
+                ) : isLpgLeakDetection ? (
                   <>
                     <Link
                       to="/services/leakage-detection-system"

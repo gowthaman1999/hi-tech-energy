@@ -850,35 +850,35 @@ export const VALUABLE_CUSTOMERS = [
   {
     id: 1,
     name: "Precision Lab Pvt Ltd",
-    logo: "/images/clients/customer_plab.png",
+    logo: "/images/optimized/customer_plab.webp",
     category: "Scientific & Testing Laboratories",
     highlight: "Custom Laboratory Gas Line & Flow Control Installation"
   },
   {
     id: 2,
     name: "Joyalukkas Jewellers",
-    logo: "/images/clients/customer_joyalukkas.png",
+    logo: "/images/optimized/customer_joyalukkas.webp",
     category: "World's Favourite Jeweller",
     highlight: "Precision Manufacturing & Commercial Piped Gas Network"
   },
   {
     id: 3,
     name: "Taj Hotels & Resorts",
-    logo: "/images/clients/customer_taj.png",
+    logo: "/images/optimized/customer_taj.webp",
     category: "Luxury Hospitality & Dining",
     highlight: "High-Capacity VOT & Bulk LPG Commercial Kitchen Installation"
   },
   {
     id: 4,
     name: "Sree Annapoorna",
-    logo: "/images/clients/customer_annapoorna.png",
+    logo: "/images/optimized/customer_annapoorna.webp",
     category: "Iconic Restaurant Chain",
     highlight: "Centralized Multi-Kitchen LPG Infrastructure & Reticulated Piping"
   },
   {
     id: 5,
     name: "Shree Anandhaas",
-    logo: "/images/clients/customer_anandhaas.png",
+    logo: "/images/optimized/customer_anandhaas.webp",
     category: "Premium Sweets & Restaurants",
     highlight: "Continuous High-Efficiency Food Processing LPG Manifold"
   }

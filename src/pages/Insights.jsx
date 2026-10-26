@@ -32,6 +32,11 @@ export default function Insights() {
 
   const popularPosts = [
     {
+      date: 'October 26, 2026',
+      title: 'Gas Pipeline Maintenance Guide: Corrosion, Smart PIGs & Repairs',
+      link: '/blog/gas-pipeline-maintenance-guide'
+    },
+    {
       date: 'October 23, 2026',
       title: 'LPG Leak Detection: Warning Signs, Sensors, Solenoid Valves & Safety',
       link: '/blog/lpg-leak-detection'
@@ -72,7 +77,8 @@ export default function Insights() {
     { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const keywords = ['LPG LEAK DETECTION', 'GAS DETECTORS', 'SOLENOID VALVES', 'LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'VAPORISER SKID', 'DOMESTIC LPG', 'SAFETY PROTOCOLS', 'PESO COMPLIANCE', 'AUTOMATIC SHUT-OFF'];
+  const keywords = ['GAS PIPELINE MAINTENANCE', 'SMART PIGGING', 'CATHODIC PROTECTION', 'LPG LEAK DETECTION', 'HOT TAPPING', 'GAS DETECTORS', 'SOLENOID VALVES', 'LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'ASME B31.8S'];
+
 
   // Filter logic
   const filteredArticles = articles.filter(art => {

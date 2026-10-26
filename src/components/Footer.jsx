@@ -17,6 +17,10 @@ export default function Footer() {
                 <img
                   src="/images/logo.png"
                   alt="HI TECH ENERGY Logo"
+                  width="157"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
                   className="h-9 md:h-10 w-auto object-contain"
                 />
               </div>

@@ -85,6 +85,8 @@ export default function Navbar() {
           <img
             src="/images/logo.png"
             alt="HI TECH ENERGY Logo"
+            width="189"
+            height="48"
             className="h-9 sm:h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
