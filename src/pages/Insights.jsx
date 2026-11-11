@@ -32,6 +32,16 @@ export default function Insights() {
 
   const popularPosts = [
     {
+      date: 'November 11, 2026',
+      title: 'LPG Pipeline Fittings: A Practical Guide from Trench to Commissioning',
+      link: '/blog/lpg-pipeline-fitting'
+    },
+    {
+      date: 'November 4, 2026',
+      title: 'LPG Manifold for Restaurants: Sizing, Regulators & Safety Guide',
+      link: '/blog/lpg-manifold-for-restaurants'
+    },
+    {
       date: 'October 26, 2026',
       title: 'Gas Pipeline Maintenance Guide: Corrosion, Smart PIGs & Repairs',
       link: '/blog/gas-pipeline-maintenance-guide'
@@ -77,7 +87,7 @@ export default function Insights() {
     { name: 'Reticulated LPG Systems', path: '/services/reticulated-lpg-pipeline' }
   ];
 
-  const keywords = ['GAS PIPELINE MAINTENANCE', 'SMART PIGGING', 'CATHODIC PROTECTION', 'LPG LEAK DETECTION', 'HOT TAPPING', 'GAS DETECTORS', 'SOLENOID VALVES', 'LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'ASME B31.8S'];
+  const keywords = ['LPG PIPELINE FITTINGS', 'LPG MANIFOLD RESTAURANTS', 'GAS PIPELINE MAINTENANCE', 'SMART PIGGING', 'CATHODIC PROTECTION', 'LPG LEAK DETECTION', 'HOT TAPPING', 'GAS DETECTORS', 'SOLENOID VALVES', 'LPG MANIFOLD', 'GAS HEADER', 'LPG PIPE SIZING', 'LOT VS VOT', 'ASME B31.8S'];
 
 
   // Filter logic

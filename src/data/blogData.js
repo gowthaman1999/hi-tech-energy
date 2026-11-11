@@ -810,6 +810,179 @@ export const BLOG_POSTS = [
         answer: "Hot tapping lets you connect a new branch to a pipeline while it stays under pressure. Customers keep their supply, no methane is vented, and you don't lose the gas inventory that a blowdown would release. The US EPA puts the typical payback at around five months."
       }
     ]
+  },
+  {
+    id: 8,
+    slug: 'lpg-manifold-for-restaurants',
+    title: 'LPG Manifold for Restaurant: How to Stop Running Out of Gas in the Middle of Service',
+    metaTitle: 'What Is an LPG Manifold for Restaurants?',
+    metaDescription: 'Learn what an LPG manifold for restaurants is, how it works, its key components, and how it supports a continuous gas supply for commercial kitchens.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lpg-manifold-for-restaurants',
+    h1: 'LPG Manifold for Restaurant: How to Stop Running Out of Gas in the Middle of Service',
+    date: 'November 4, 2026',
+    datePublished: '2026-11-04T12:00:00+05:30',
+    dateModified: '2026-11-04T12:00:00+05:30',
+    readTime: '9 min read',
+    topic: 'Industrial Infrastructure',
+    tag: 'Commercial Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'Commercial Kitchen LPG & Pipeline Engineering Specialists',
+    heroImage: '/images/blog/lpg-manifold-for-restaurants/lpg-manifold-for-restaurants-hero.webp',
+    heroImageAlt: 'LPG manifold for restaurants connecting commercial gas cylinder banks with auto changeover regulator',
+    excerpt: 'Learn what an LPG manifold for restaurants is, how it works, how to size it for your kitchen, and how it stops mid-service gas depletion with automatic changeover and two-stage pressure regulation.',
+    tableOfContents: [
+      { id: 'key-takeaways', title: 'Key Takeaways' },
+      { id: 'hidden-cost-depletion', title: 'The Hidden Cost of Mid-Service Gas Depletion', level: 3 },
+      { id: 'what-is-manifold', title: 'What is a Restaurant LPG Manifold System?' },
+      { id: 'core-architecture', title: 'Core System Architecture & How It Works' },
+      { id: 'active-reserve-banks', title: 'Active vs. Reserve Cylinder Banks & Auto-Changeover Regulators', level: 3 },
+      { id: 'two-stage-regulation', title: 'Two-Stage Pressure Regulation (High to Medium to Working Pressure)', level: 3 },
+      { id: 'pigtails-headers-valves', title: 'High-Pressure Pigtails, Manifold Headers & Safety Valves', level: 3 },
+      { id: 'right-sizing-manifold', title: 'Right-Sizing Your Restaurant LPG Manifold' },
+      { id: 'step-1-hourly-consumption', title: 'Step 1: Calculate Total Peak Hourly Gas Consumption', level: 3 },
+      { id: 'step-2-diversity-factor', title: 'Step 2: Apply the Diversity Factor (0.7)', level: 3 },
+      { id: 'step-3-evaporation-capacity', title: 'Step 3: Factor in Cylinder Evaporation Capacity (Preventing Freeze)', level: 3 },
+      { id: 'selection-matrix', title: 'Manifold Selection Matrix by Restaurant Type' },
+      { id: 'safety-compliance', title: 'Safety Infrastructure, Storage & Statutory Compliance' },
+      { id: 'outdoor-storage-clearance', title: 'Outdoor Storage & Heavy-Vapour Clearance Rules', level: 3 },
+      { id: 'interlocks-ventilation', title: 'Gas Safety Interlocks & Forced Ventilation', level: 3 },
+      { id: 'safety-shutoffs-detection', title: 'Automatic Safety Shut-Offs & Leak Detection', level: 3 },
+      { id: 'piping-colour-coding', title: 'Piping Colour Coding, Flexible Hoses & Equipment Restraints', level: 3 },
+      { id: 'best-practices-troubleshooting', title: 'Operational Best Practices, Inspections & Troubleshooting' },
+      { id: 'cylinder-replacement-leak-checks', title: 'Safe Cylinder Replacement & Soap-Bubble Leak Checks', level: 3 },
+      { id: 'daily-shutdown-sequence', title: 'Daily Kitchen Shift Shutdown Sequence', level: 3 },
+      { id: 'emergency-troubleshooting', title: 'Mid-Service Emergency Troubleshooting Guide', level: 3 },
+      { id: 'conclusion', title: 'Conclusion' },
+      { id: 'faqs', title: 'Frequently Asked Questions' }
+    ],
+    sections: {
+      changeoverRegulator: {
+        image: '/images/blog/lpg-manifold-for-restaurants/auto-changeover-regulator-lpg-manifold.webp',
+        imageAlt: 'Automatic changeover regulator and pressure control valves on an LPG manifold for restaurants',
+        imageCaption: 'Automatic changeover regulator with visual indicator and two-stage pressure control delivering continuous fuel flow.'
+      },
+      kitchenCookingLine: {
+        image: '/images/blog/lpg-manifold-for-restaurants/commercial-kitchen-lpg-cooking-line.webp',
+        imageAlt: 'Commercial kitchen cooking line and burner equipment connected to an LPG manifold for restaurants',
+        imageCaption: 'Commercial restaurant kitchen cooking line operating reliably under peak load with steady gas pressure.'
+      },
+      outdoorStorage: {
+        image: '/images/blog/lpg-manifold-for-restaurants/outdoor-lpg-cylinder-manifold-storage.webp',
+        imageAlt: 'Well-ventilated outdoor cylinder storage cage for an LPG manifold for restaurants',
+        imageCaption: 'Well-ventilated outdoor cylinder bank cage with concrete base and mandatory safety clearance from openings.'
+      },
+      leakInspection: {
+        image: '/images/blog/lpg-manifold-for-restaurants/lpg-manifold-leak-test-inspection.webp',
+        imageAlt: 'Certified gas technician conducting soap bubble leak test on an LPG manifold for restaurants',
+        imageCaption: 'Certified technician conducting soap-bubble leak verification and regulator pressure calibration on a commercial cylinder bank.'
+      }
+    },
+    faqs: [
+      {
+        question: 'How long do flexible pigtails and braided hoses last in a commercial kitchen?',
+        answer: 'Rubber pigtails and hoses should be checked every month and replaced every 2 years, even if they look fine. Rubber hardens and cracks from the inside. Stainless steel braided pigtails can last up to 5 years, but your local rules (PESO, NFPA, or your fire authority) have the final say, so follow whichever is stricter.'
+      },
+      {
+        question: 'Can LPG cylinders be stored inside a restaurant or basement?',
+        answer: "No. Because LPG vapour is heavier than air, a leak in a basement or closed indoor room collects at floor level and can't escape. That's why it's prohibited almost everywhere. Manifold cylinder banks need to be outdoors, at ground level, in a well-ventilated enclosure."
+      },
+      {
+        question: "What's the difference between Vapour Off-Take (VOT) and Liquid Off-Take (LOT) manifolds?",
+        answer: "A VOT system draws gas vapour from the top of the cylinders and depends on the cylinders boiling LPG naturally using heat from the surrounding air. It works well for small and mid-sized restaurants using up to about 10 to 15 kg/hr. An LOT system draws liquid LPG from the bottom of special cylinders and sends it through a vaporiser, which uses electric or hot water heat to turn it into gas. Because it doesn't rely on the cylinders to do the boiling, there's no freezing problem. It's the usual choice for large hotels, central kitchens and cloud kitchens using 15 to 100+ kg/hr."
+      },
+      {
+        question: 'When should a restaurant switch from a cylinder manifold to a bulk LPG tank?',
+        answer: "Once you're using more than about 1,500 to 2,000 kg of LPG a month, or your continuous demand goes above roughly 25 kg/hr, juggling dozens of cylinders starts to cost you in labour, space and delivery hassle. At that point, a bulk tank outdoors with scheduled tanker refills usually works out cheaper per kg and much easier to manage."
+      },
+      {
+        question: 'How often should a restaurant LPG manifold be serviced?',
+        answer: 'Do a quick visual check and soap-bubble test after every cylinder change. Have a certified gas engineer inspect the full system, including regulators, pressure settings, safety valves, interlocks and leak detectors, at least once a year. Busy kitchens running long hours benefit from a check every six months.'
+      },
+      {
+        question: 'Can I add more appliances to my existing manifold later?',
+        answer: 'Sometimes. If your current setup has spare capacity, adding a burner or two is usually fine. But every new appliance adds to your peak demand. Redo the sizing calculation first. If the new total is close to what your active bank can vaporise, plan to move up a size rather than risk freezing and pressure drops during service.'
+      }
+    ]
+  },
+  {
+    id: 9,
+    slug: 'lpg-pipeline-fitting',
+    title: 'LPG Pipeline Fittings Checklist: A Practical Guide from Trench to Commissioning',
+    metaTitle: 'LPG Pipeline Fittings: Everything You Need to Know',
+    metaDescription: 'Know about LPG pipeline fittings, their key components, types, uses and important factors to consider for reliable gas pipeline installations.',
+    canonicalUrl: 'https://www.hitechenergy.org/blog/lpg-pipeline-fitting',
+    h1: 'LPG Pipeline Fittings Checklist: A Practical Guide from Trench to Commissioning',
+    date: 'November 11, 2026',
+    datePublished: '2026-11-11T14:00:00+05:30',
+    dateModified: '2026-11-11T14:00:00+05:30',
+    readTime: '8 min read',
+    topic: 'Industrial Infrastructure',
+    tag: 'Technical Guide',
+    author: 'Hi Tech Energy Technical Team',
+    authorRole: 'LPG Pipeline & Safety Engineering Specialists',
+    heroImage: '/images/blog/lpg-pipeline-fitting/lpg-pipeline-fittings-hero.webp',
+    heroImageAlt: 'Industrial LPG pipeline fittings, forged carbon steel tees, elbows, and brass isolation valves on assembly workbench',
+    excerpt: 'A step-by-step audit checklist for LPG pipeline fittings, pipe joints, staged torquing, and pre-commissioning tightness testing from trench to sign-off.',
+    tableOfContents: [
+      { id: 'quick-summary', title: 'Quick summary' },
+      { id: 'compliance-scope', title: 'Introduction and compliance scope' },
+      { id: 'what-checklist-covers', title: 'What this checklist covers', level: 3 },
+      { id: 'trench-readiness', title: 'Pre-installation and trench readiness checklist' },
+      { id: 'fitting-assembly-jointing', title: 'Fitting assembly and jointing checklist' },
+      { id: 'safety-purging-exclusion', title: 'Safety, purging and exclusion zone checklist' },
+      { id: 'pressure-tightness-testing', title: 'Pre-commissioning pressure and tightness testing checklist' },
+      { id: 'emergency-handling-maintenance', title: 'Emergency handling and maintenance' },
+      { id: 'conclusion', title: 'Conclusion' },
+      { id: 'faqs', title: 'Frequently asked questions' }
+    ],
+    sections: {
+      trenchBedding: {
+        image: '/images/blog/lpg-pipeline-fitting/underground-lpg-pipeline-trench-sand-bedding.webp',
+        imageAlt: 'Underground LPG pipeline fittings and gas pipe laid on 200mm clean sand bedding with yellow warning marker tape',
+        imageCaption: 'Underground trench preparation: Minimum 600 mm burial depth with 200 mm clean sand bedding surrounding the gas pipe.'
+      },
+      torqueCoupling: {
+        image: '/images/blog/lpg-pipeline-fitting/lpg-pipeline-fittings-staged-torque-assembly.webp',
+        imageAlt: 'Technician assembling LPG pipeline fittings and mechanical couplings with calibrated torque wrench',
+        imageCaption: 'Precision assembly: Staged torqueing sequence on high-pressure LPG mechanical couplings to ensure permanent seal integrity.'
+      },
+      pressureTesting: {
+        image: '/images/blog/lpg-pipeline-fitting/lpg-pipeline-fittings-pressure-testing-gauge.webp',
+        imageAlt: 'Calibrated analog pressure test gauge on gas manifold verifying tightness of LPG pipeline fittings',
+        imageCaption: 'Pre-commissioning testing: Calibrated dual pressure gauges and nitrogen manifold verifying pipeline strength and joint tightness.'
+      },
+      isolationValves: {
+        image: '/images/blog/lpg-pipeline-fitting/lpg-pipeline-fittings-isolation-valves.webp',
+        imageAlt: 'Emergency shut-off ball valves and safety LPG pipeline fittings on gas distribution header',
+        imageCaption: 'Safety infrastructure: High-pressure gas isolation valves and safety fittings protecting downstream appliances.'
+      }
+    },
+    faqs: [
+      {
+        question: 'Can thread tape be used on conical fittings?',
+        answer: 'No. Conical fittings seal through direct metal-to-metal contact. Tape or sealant stops them seating properly, which leads to leaks. Use thread tape only on NPT tapered threads.'
+      },
+      {
+        question: 'Why is nitrogen needed when re-testing pipes that have carried fuel?',
+        answer: 'Leftover fuel vapour mixed with air inside the pipe can form an explosive mixture. Nitrogen is inert, so it pushes the vapour out without adding oxygen.'
+      },
+      {
+        question: 'What documents do I need for warranty validation?',
+        answer: 'Usually signed installation checklists, conductivity logs and 60-minute tightness test records showing pressure over time. Check your manufacturer’s warranty terms for anything extra.'
+      },
+      {
+        question: 'How deep should an underground LPG pipe be buried?',
+        answer: 'At least 600 mm from the top of the pipe to finished ground level, with 200 mm of sand below and around it.'
+      },
+      {
+        question: 'Why can’t I use bricks or wood to support the pipe in the trench?',
+        answer: 'They create hard pressure points. Over time, ground movement and vibration press the pipe against them, which can damage the pipe wall and stress nearby fittings.'
+      },
+      {
+        question: 'My pressure dropped during the tightness test. Does that mean there’s a leak?',
+        answer: 'Not always. Check your temperature log first. If the temperature fell, pressure will fall with it. Use P1/T1 = P2/T2 to see whether the drop matches. If it doesn’t, or if you see bubbles at any joint, you have a leak.'
+      }
+    ]
   }
 ];
 
