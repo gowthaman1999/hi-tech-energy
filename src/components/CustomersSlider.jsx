@@ -1,31 +1,35 @@
 import React from 'react';
 import { VALUABLE_CUSTOMERS } from '../data/hitechData';
 
-export default function CustomersSlider({ duration = 32 }) {
+export default function CustomersSlider({ duration = 32, showHeader = true }) {
   // Duplicate the 5-item customer list to create a rich base row
   const customerList = [...VALUABLE_CUSTOMERS, ...VALUABLE_CUSTOMERS];
+  const Wrapper = showHeader ? 'section' : 'div';
+  const wrapperClass = showHeader
+    ? 'py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white via-surface-container-low/60 to-white overflow-hidden border-y border-outline-variant/20 relative select-none'
+    : 'py-4 sm:py-6 overflow-hidden relative select-none';
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white via-surface-container-low/60 to-white overflow-hidden border-y border-outline-variant/20 relative select-none">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
-        
-        {/* Section Header */}
-        <div className="reveal-slide-up flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5 sm:gap-6">
-          <div className="max-w-2xl text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container/10 border border-secondary-container/20 rounded-full text-secondary-container font-label-md text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2.5 sm:mb-3">
-              <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-              Trusted Industrial & Commercial Partnerships
+    <Wrapper className={wrapperClass}>
+      {showHeader && (
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
+          {/* Section Header */}
+          <div className="reveal-slide-up flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5 sm:gap-6">
+            <div className="max-w-2xl text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container/10 border border-secondary-container/20 rounded-full text-secondary-container font-label-md text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2.5 sm:mb-3">
+                <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+                Trusted Industrial & Commercial Partnerships
+              </div>
+              <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 sm:mb-3">
+                Our Valuable Customers
+              </h2>
+              <p className="font-body-md text-on-surface-variant text-xs sm:text-sm md:text-base leading-relaxed">
+                Proudly engineering safe, compliant, and uninterrupted gas pipeline infrastructure for industry-leading hospitality chains, luxury jewelers, institutions, and precision laboratories.
+              </p>
             </div>
-            <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 sm:mb-3">
-              Our Valuable Customers
-            </h2>
-            <p className="font-body-md text-on-surface-variant text-xs sm:text-sm md:text-base leading-relaxed">
-              Proudly engineering safe, compliant, and uninterrupted gas pipeline infrastructure for industry-leading hospitality chains, luxury jewelers, institutions, and precision laboratories.
-            </p>
           </div>
         </div>
-
-      </div>
+      )}
 
       {/* Infinite Horizontal Marquee Track (Left to Right, Pause on Hover) */}
       <div 
@@ -114,6 +118,6 @@ export default function CustomersSlider({ duration = 32 }) {
           </div>
         </div>
       </div>
-    </section>
+    </Wrapper>
   );
 }

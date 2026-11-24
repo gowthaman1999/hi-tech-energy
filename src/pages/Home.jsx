@@ -8,10 +8,66 @@ import {
 import { useParallax } from '../hooks/useParallax';
 import { useSEO } from '../hooks/useSEO';
 import TestimonialsSlider from '../components/TestimonialsSlider';
-import AnimatedCounter from '../components/AnimatedCounter';
 import CustomersSlider from '../components/CustomersSlider';
 
 const LocationsWeServe = React.lazy(() => import('../components/LocationsWeServe'));
+
+const HOME_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://www.hitechenergy.org/#localbusiness',
+      name: 'Hi Tech Energy',
+      url: 'https://www.hitechenergy.org/',
+      description:
+        'Looking for LPG gas pipeline installation in Coimbatore? Hi Tech Energy offers reliable and professional LPG pipeline installation service in Coimbatore for commercial and industrial requirements.',
+      telephone: COMPANY_INFO.phone,
+      email: COMPANY_INFO.email,
+      image:
+        'https://www.hitechenergy.org/images/gdrive/LOT_system_pipeline_WhatsApp_Image_2026-08-17_at_8_45_09_PM__1_.jpeg',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress:
+          'No-1/64, Papanayakan Palayam, near Rangammal Kovil, Nanjundapuram Post',
+        addressLocality: 'Coimbatore',
+        addressRegion: 'Tamil Nadu',
+        postalCode: '641108',
+        addressCountry: 'IN'
+      },
+      areaServed: {
+        '@type': 'City',
+        name: 'Coimbatore'
+      },
+      sameAs: Object.values(COMPANY_INFO.socialLinks)
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://www.hitechenergy.org/#service',
+      name: 'LPG Gas Pipeline Installation Service in Coimbatore',
+      serviceType: 'LPG Gas Pipeline Installation',
+      provider: {
+        '@id': 'https://www.hitechenergy.org/#localbusiness'
+      },
+      areaServed: {
+        '@type': 'City',
+        name: 'Coimbatore'
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Gas Pipeline Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Domestic LPG Pipeline' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial LPG Gas Pipeline' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Industrial LPG Pipeline' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LPG Pipeline for Hotels & Restaurants' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LPG Pipeline for Institutions' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Centralized LPG Gas Pipeline' } }
+        ]
+      }
+    }
+  ]
+};
 
 function ViewportLazyLocations() {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -46,167 +102,171 @@ export default function Home() {
   const navigate = useNavigate();
 
   useSEO({
-    title: 'LPG Gas Pipeline Installation Services | Hi Tech Energy',
-    description: 'Looking for LPG gas pipeline installation? Hi Tech Energy offers reliable and professional LPG pipeline installation solutions for commercial and industrial requirements.',
-    canonicalUrl: 'https://www.hitechenergy.org/'
+    title: 'LPG Gas Pipeline Installation Service in Coimbatore',
+    description: 'Looking for LPG gas pipeline installation in Coimbatore? Hi Tech Energy offers reliable and professional LPG pipeline installation service in Coimbatore for commercial and industrial requirements.',
+    canonicalUrl: 'https://www.hitechenergy.org/',
+    schema: HOME_SCHEMA
   });
 
   // Parallax hook references for key background & showcase elements
   const heroBgRef = useParallax(0.22, { initialScale: 1.15, maxOffset: 120, disabledOnMobile: true });
   const whyChooseMediaRef = useParallax(0.15, { initialScale: 1.08, maxOffset: 70, disabledOnMobile: true });
 
-  // Variation 2 Stats
-  const stats = [
-    { end: 25, suffix: '%', label: 'COST SAVINGS', delay: '0ms' },
-    { end: 5, suffix: 'K+', label: 'PIPELINE INSTALLATIONS', delay: '100ms' },
-    { staticText: 'VOT & LOT', label: 'PIPELINE SYSTEMS', delay: '200ms' },
-    { end: 6, suffix: '/7', label: 'DAYS SUPPORT', delay: '300ms' }
-  ];
-
-  // Core Gas Pipeline Services (Variation 2)
+  // Core Gas Pipeline Services
   const coreServices = [
     {
       title: 'Domestic LPG Pipeline',
       category: 'Residential Solutions',
-      desc: 'We provide LPG pipeline installation for homes and residential properties that require a fixed LPG gas supply. The pipeline route is planned around the kitchen layout and gas usage points, with attention to accessibility, connections, and safe installation.',
+      desc: 'We install domestic LPG pipeline systems for homes, apartments, and residential buildings where a fixed gas connection is required. The pipeline route is planned around the kitchen layout and gas usage points to keep the installation practical and easy to use.',
+      alt: 'Domestic LPG pipeline installation in Coimbatore for homes and apartments',
       image: '/images/optimized/domestic_lpg_pipeline_cover.webp',
       link: '/services/domestic-lpg-pipeline'
     },
     {
       title: 'Commercial LPG Gas Pipeline',
       category: 'Commercial Hospitality',
-      desc: 'Our gas pipeline installation service is suitable for hotels, restaurants, commercial kitchens, and other businesses that depend on LPG for their daily operations. We plan the pipeline to connect multiple cooking and equipment points from the LPG supply system.',
+      desc: 'Hotels, restaurants, bakeries, canteens, and commercial kitchens often have multiple cooking appliances and regular LPG requirements. Our commercial LPG gas pipeline installation service is planned around the kitchen layout, equipment locations, and required gas connection points.',
+      alt: 'Commercial LPG gas pipeline installation in Coimbatore for kitchens and bakeries',
       image: '/images/optimized/vot_line_commercial_pipeline_cover.webp',
       link: '/services/commercial-lpg-pipeline'
     },
     {
       title: 'Industrial LPG Pipeline',
       category: 'Industrial Infrastructure',
-      desc: 'We provide LPG gas pipeline installation for industrial facilities where LPG is used for heating, production processes, equipment, and other applications. The pipeline layout is planned according to the facility, equipment locations, and required gas connections.',
+      desc: 'Industrial units may use LPG for heating, production, processing, and other applications. We provide industrial LPG pipeline installation based on the gas requirement, equipment location, pipeline route, and overall plant layout.',
+      alt: 'Industrial LPG pipeline installation in Coimbatore for manufacturing facilities',
       image: '/images/optimized/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM__1_.webp',
       link: '/services/industrial-solutions'
     },
     {
       title: 'LPG Pipeline for Hotels & Restaurants',
       category: 'Commercial Kitchens',
-      desc: 'Hotels and restaurants often have several cooking areas and gas-operated equipment. Our LPG pipeline installation service helps connect these points to a common LPG supply system through a planned pipeline network. We assess the kitchen layout and equipment locations before finalising the pipeline route and connection points.',
+      desc: 'Hotels and restaurants may have several cooking points and gas-operated appliances within the same kitchen or across different areas. Our LPG pipeline installation for hotels and restaurants connects the required usage points through a planned gas supply network.',
+      alt: 'LPG pipeline installation for hotels and restaurants in Coimbatore',
       image: '/images/optimized/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__6_.webp',
       link: '/services/commercial-lpg-pipeline'
     },
     {
       title: 'LPG Pipeline for Institutions',
       category: 'Institutions & Labs',
-      desc: 'We provide gas pipeline installation for institutions such as hospitals, schools, colleges, hostels, and other facilities with LPG requirements. The pipeline system is planned according to the building layout, kitchen or equipment locations, and number of gas usage points.',
+      desc: 'Schools, colleges, hospitals, hostels, and other institutions may require LPG for kitchens and common facilities. We provide LPG pipeline installation for institutions with pipeline routing planned around the building layout, equipment locations, and required gas usage points.',
+      alt: 'LPG pipeline installation for institutions, schools, and hospitals in Coimbatore',
       image: '/images/optimized/Chemistry_lab_hero_classroom.webp',
       link: '/services/laboratory-gas-line-system'
     },
     {
       title: 'Centralized LPG Gas Pipeline',
       category: 'Reticulated & Centralized',
-      desc: 'Our centralized LPG pipeline installation solutions are suitable for properties that need LPG supply at multiple usage points. Instead of managing individual connections for each point, a centralised system can distribute LPG through a planned pipeline network. The design depends on factors such as the property layout, LPG requirement, number of connection points, and equipment being used.',
+      desc: 'For buildings with several gas usage points, a centralized LPG gas pipeline installation can provide LPG from a common supply system to multiple connection points. We plan the pipeline layout based on the property size, LPG requirement, equipment locations, and number of connections.',
+      alt: 'Centralized LPG gas pipeline installation in Coimbatore for multi-unit buildings',
       image: '/images/optimized/reticulated_lpg_pipeline_cover.webp',
       link: '/services/reticulated-lpg-pipeline'
     }
   ];
 
-  // Specialized Pipeline Systems & Equipment (Variation 2)
+  // Specialized Pipeline Systems & Equipment
   const specializedSystems = [
     {
-      title: 'Gas Manifold',
+      title: 'Gas Manifold Systems',
       category: 'Manifold Skid Systems',
-      desc: 'A gas manifold connects the LPG source to the pipeline network and helps distribute the gas to the required supply lines. The manifold arrangement is selected based on the project requirements and number of connections.',
+      desc: 'A gas manifold helps connect multiple LPG cylinders or supply points to the pipeline system and distribute gas to the required lines. We install manifold arrangements based on the required gas capacity, number of usage points, and project configuration.',
+      alt: 'LPG gas manifold systems installation in Coimbatore',
       image: '/images/optimized/gas_header_mesh_enclosure_front.webp',
       link: '/services/gas-header-system'
     },
     {
-      title: 'LPG Pipeline System',
-      category: 'Primary Piping Networks',
-      desc: 'Our LPG pipeline installation solutions are planned for different building types and applications. The pipeline layout takes into account the LPG source, equipment locations, usage points, routing requirements, and other project-specific factors.',
+      title: 'LPG Storage & Supply Systems',
+      category: 'Storage & Supply',
+      desc: 'We provide pipeline solutions that can be connected with suitable LPG storage and supply arrangements for commercial and industrial applications. The pipeline configuration is planned around the LPG supply arrangement and requirements of the facility.',
+      alt: 'LPG storage and supply pipeline systems for commercial and industrial facilities',
       image: '/images/optimized/lot_primary_lines_safecon_easyvap.webp',
-      link: '/services/lot-primary-lines'
+      link: '/services/lot-pipeline'
     },
     {
-      title: 'Gas Pressure Regulation System',
+      title: 'Gas Pressure Regulation Systems',
       category: 'Pressure Control',
-      desc: 'A pressure regulation system helps control LPG pressure before the gas reaches the required usage points. We provide pressure regulation systems as part of the gas pipeline installation based on the requirements of the LPG system and connected equipment.',
+      desc: 'Proper pressure control is important for maintaining the required gas supply to connected equipment. We install suitable regulators and related components as part of the LPG pipeline system based on the project requirements.',
+      alt: 'LPG gas pressure regulation systems and control panels',
       image: '/images/optimized/materials_lpg_pressure_regulators.webp',
       link: '/services/gas-control-panel-system'
     },
     {
-      title: 'Gas Detection & Safety System',
+      title: 'Gas Detection & Safety Systems',
       category: 'Safety Automation',
-      desc: 'Gas detection and safety systems can be included with the LPG gas pipeline installation based on the requirements of the project. These systems can help identify gas leakage and provide an additional safety measure for areas where LPG is used.',
+      desc: 'Gas detection equipment can help identify LPG leaks at an early stage. We provide suitable gas detection and alarm solutions for areas where LPG is stored, supplied, or used, based on the safety requirements of the project.',
+      alt: 'LPG gas leak detection and safety alarm systems',
       image: '/images/optimized/Leek_detection_systems_WhatsApp_Image_2026-08-17_at_8_48_28_PM__1_.webp',
       link: '/services/lpg-control-panel-gas-leakage-detection-system'
     },
     {
-      title: 'Kitchen Gas Pipeline',
+      title: 'Kitchen Gas Pipeline Systems',
       category: 'Commercial Kitchen Distribution',
-      desc: 'We provide LPG pipeline installation for commercial kitchens with multiple cooking equipment and gas usage points. The pipeline is routed based on the kitchen layout and equipment locations to provide connections where LPG is required.',
+      desc: 'Commercial kitchens may have several cooking appliances operating at the same time. We plan and install kitchen gas pipeline systems to supply LPG to different equipment points while keeping the pipeline routing organised around the kitchen layout.',
+      alt: 'Commercial kitchen LPG gas pipeline systems in Coimbatore',
       image: '/images/optimized/Commercial_line_kitchen_WhatsApp_Image_2026-08-17_at_4_32_37_PM__2_.webp',
       link: '/services/commercial-lpg-pipeline'
     },
     {
-      title: 'Industrial Gas Pipeline',
+      title: 'Industrial Gas Pipeline Systems',
       category: 'Industrial Systems',
-      desc: 'Our gas pipeline installation service is also suitable for industrial facilities that use LPG for heating, production, process applications, and other equipment. The pipeline arrangement is designed according to the facility layout and LPG requirements.',
+      desc: 'We provide industrial gas pipeline installation for facilities where LPG is used for heating, processing, production, or other industrial applications. The pipeline arrangement is designed according to the facility layout and LPG requirements.',
+      alt: 'Industrial LPG gas pipeline systems for manufacturing plants',
       image: '/images/optimized/Industrial_purpose_hydrant_gas_pipeline_WhatsApp_Image_2026-08-17_at_8_45_08_PM.webp',
       link: '/services/industrial-solutions'
     }
   ];
 
-  // Benefits of Centralized LPG Gas Pipeline (Variation 2)
+  // Benefits of a Centralised LPG Gas Pipeline
   const centralizedBenefits = [
     {
-      title: 'Suitable for Multiple Gas Distribution Points',
-      desc: 'A centralised LPG pipeline installation can supply gas to multiple kitchens, appliances, equipment, and usage areas through a planned pipeline network. This can be useful where several gas connection points need to be supplied from a common LPG source.',
+      title: 'Suitable for Multiple Gas Usage Points',
+      desc: 'Centralised pipelines can supply LPG to several kitchens, appliances, equipment points, or work areas from a common gas supply system. This makes them suitable for properties where multiple gas connections need to be managed through one planned network.',
       icon: 'hub'
     },
     {
-      title: 'Reduced Cylinder Handling & Easy Maintenance',
-      desc: 'With a centralised gas pipeline installation, businesses can manage LPG through a common supply system rather than handling separate connections at every usage point. A properly planned system can also make access to the pipeline network and connected equipment easier for inspection and maintenance.',
+      title: 'Easier Gas Supply Management',
+      desc: 'With a properly planned pipeline, businesses can reduce the need to handle individual cylinder connections at each usage point. Routine inspection, maintenance, and access to the pipeline network can also be managed in a more organised way.',
       icon: 'build'
     }
   ];
 
-  // Why Choose Hi Tech Energy checklist items (Variation 2)
+  // Why Choose Hi Tech Energy checklist items
   const whyChooseItems = [
-    'Experienced installation team',
+    'Safety-focused installation',
     'Quality pipeline materials',
-    'Pipeline routing based on the site layout',
-    'LPG pipeline installation',
-    'Pressure testing',
-    'Gas pipeline commissioning',
-    'Project support'
+    'Experienced installation team',
+    'Pipeline routing based on site conditions',
+    'Pressure testing before commissioning',
+    'Support after installation'
   ];
 
-  // Engineering Process Steps (Variation 2)
+  // Engineering Process Steps
   const steps = [
     {
       num: '1',
       title: '01. Site Assessment',
-      desc: 'We inspect the site to identify the LPG source, kitchens, equipment locations, gas usage points, available pipeline routes, and other project requirements. This helps us understand the installation conditions before the pipeline layout is prepared.'
+      desc: 'We inspect the site, identify the LPG source and gas usage points, check the equipment locations, and assess the available space for pipeline routing. The information collected at this stage helps determine the requirements for the pipeline design.'
     },
     {
       num: '2',
       title: '02. Design',
-      desc: 'The gas pipeline installation layout is prepared based on the building structure, LPG requirements, equipment locations, number of connection points, and pipeline routing requirements.'
+      desc: 'Our team prepares the pipeline layout based on the site conditions, equipment locations, LPG requirement, number of connection points, and planned usage. The route is selected according to the requirements of the individual project.'
     },
     {
       num: '3',
       title: '03. Installation',
-      desc: 'Our team carries out the LPG gas pipeline installation according to the approved pipeline layout and project requirements. The pipeline and related components are installed based on the planned route and connection points.',
+      desc: 'The LPG pipeline and related components are installed according to the planned layout. Our team completes the pipeline routing and connections based on the equipment locations and required gas usage points.',
       active: true
     },
     {
       num: '4',
       title: '04. Pressure Testing',
-      desc: 'After installation, the pipeline is tested to check the pipeline connections and overall system condition. Pressure testing helps identify issues that need to be addressed before the system is commissioned.'
+      desc: 'Once the installation is completed, the pipeline is tested to check for leaks, pressure issues, connection problems, and other installation-related concerns. Any identified issues are addressed before commissioning.'
     },
     {
       num: '5',
       title: '05. Commissioning',
-      desc: 'Once the LPG pipeline installation is completed and the required checks and testing have been carried out, the system is commissioned for use. The final commissioning process is completed according to the requirements of the project.'
+      desc: 'After pressure testing and the necessary checks are completed, the LPG pipeline system is commissioned and made ready for use. The commissioning process is carried out according to the requirements of the project.'
     }
   ];
 
@@ -226,7 +286,7 @@ export default function Home() {
             <img
               ref={heroBgRef}
               className="w-full h-full object-cover origin-center"
-              alt="LPG Gas Pipeline Installation Service - HI TECH ENERGY"
+              alt="LPG gas pipeline installation service in Coimbatore by Hi Tech Energy"
               src="/images/hero/hero-desktop.webp"
               width="1600"
               height="1200"
@@ -242,23 +302,29 @@ export default function Home() {
             {COMPANY_INFO.slogan}
           </span>
           <h1 className="reveal-slide-left font-headline-xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 md:mb-5 leading-tight font-bold" data-delay="200ms">
-            LPG Gas Pipeline Installation Service
+            LPG Gas Pipeline Installation Service in Coimbatore
           </h1>
           <p className="reveal-slide-left text-secondary-container font-headline-md text-sm sm:text-base md:text-lg font-medium mb-3 sm:mb-4 leading-relaxed max-w-3xl" data-delay="300ms">
-            Hi Tech Energy provides LPG gas pipeline installation services for homes, commercial buildings, hotels, restaurants, industries, institutions, and other facilities. We handle the complete pipeline installation process based on the building layout, LPG usage, equipment locations, and number of gas connection points.
+            We provide LPG gas pipeline installation services in Coimbatore for homes, commercial spaces, hotels, restaurants, industries, institutions, and other facilities. Our team handles the complete work from pipeline planning and installation to pressure testing and final commissioning.
           </p>
           <p className="reveal-slide-left font-body-lg text-xs sm:text-sm md:text-base mb-5 sm:mb-6 md:mb-8 text-white/85 max-w-2xl leading-relaxed" data-delay="400ms">
-            Our team takes care of site assessment, pipeline planning, installation, pressure testing, and commissioning. The pipeline layout is prepared according to the requirements of each project to provide a practical and properly planned LPG gas supply system.
+            Whether you need a new LPG gas pipeline installation or want to improve an existing gas supply system, we assess the site, understand the gas usage and equipment locations, and plan the pipeline around the actual requirements of the property.
           </p>
 
           {/* Quick Contact Badges */}
           <div className="reveal-slide-left flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-10 text-[11px] sm:text-xs text-white/90" data-delay="500ms">
-            <span className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/20">
+            <a
+              href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
+              className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/20 hover:bg-white/20 transition-colors"
+            >
               📞 {COMPANY_INFO.phone}
-            </span>
-            <span className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/20">
+            </a>
+            <a
+              href={`mailto:${COMPANY_INFO.email}`}
+              className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/20 hover:bg-white/20 transition-colors"
+            >
               ✉ {COMPANY_INFO.email}
-            </span>
+            </a>
             <span className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/20">
               📍 Coimbatore - 641108
             </span>
@@ -286,33 +352,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Animated Statistics (Variation 2) */}
-      <section className="py-8 sm:py-12 md:py-16 bg-primary text-white overflow-hidden border-t border-white/10">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {stats.map((stat, i) => (
-              <div
-                key={i}
-                className="reveal-slide-up text-center p-3 sm:p-4 rounded-xl bg-white/5 border border-white/5"
-                data-delay={stat.delay}
-              >
-                <div className="font-headline-xl text-2xl sm:text-3xl md:text-5xl text-secondary-container mb-1 sm:mb-2 font-bold min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center">
-                  <AnimatedCounter
-                    end={stat.end}
-                    suffix={stat.suffix}
-                    prefix={stat.prefix}
-                    staticText={stat.staticText}
-                    duration={2000}
-                  />
-                </div>
-                <div className="font-label-md uppercase tracking-widest text-white/70 text-[10px] sm:text-xs font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Gas Pipeline Services (Variation 2) */}
+      {/* Core Gas Pipeline Services */}
       <section className="py-12 sm:py-16 md:py-24 bg-white" id="services">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 text-left">
           <div className="reveal-slide-up flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6">
@@ -320,7 +360,7 @@ export default function Home() {
               <span className="text-secondary font-bold text-xs uppercase tracking-widest">Professional Installations</span>
               <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 mt-1">Our Gas Pipeline Services</h2>
               <p className="font-body-md text-on-surface-variant text-xs sm:text-sm md:text-base">
-                Our Gas Pipeline Installation Services cover residential, commercial, institutional, and industrial LPG requirements. We plan the pipeline according to the building layout, LPG source, equipment locations, gas usage, and number of connection points.
+                We handle different types of LPG pipeline work based on the size, layout, and use of the property. From residential buildings and commercial kitchens to larger industrial facilities, we plan and install the required pipeline system based on the gas usage and connection points.
               </p>
             </div>
             <Link
@@ -342,7 +382,7 @@ export default function Home() {
                   <div className="w-full h-44 sm:h-48 rounded-2xl overflow-hidden mb-5 sm:mb-6 relative">
                     <img
                       src={srv.image}
-                      alt={srv.title}
+                      alt={srv.alt}
                       width="400"
                       height="192"
                       loading="lazy"
@@ -370,7 +410,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Successfully Executed LOT and VOT Pipeline Systems (Variation 2) */}
+      {/* Successfully Executed LOT and VOT Pipeline Systems */}
       <section className="py-12 sm:py-16 md:py-24 bg-primary text-white relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -383,20 +423,20 @@ export default function Home() {
                 Successfully Executed LOT and VOT Pipeline Systems
               </h2>
               <p className="font-body-md text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
-                Hi Tech Energy has successfully executed LOT and VOT pipeline systems for reputed companies, including Daksha Properties, Pristson Lab Pvt Ltd, and others.
+                We have worked on LOT and VOT pipeline systems for different commercial and industrial projects. Our work includes pipeline installation, equipment connections, testing, and commissioning based on the requirements of each project.
               </p>
               <p className="font-body-md text-white/80 text-xs sm:text-sm leading-relaxed">
-                Our team has handled LPG gas pipeline installation projects for commercial and industrial requirements. Each installation is planned according to the site conditions, LPG usage, equipment locations, and required gas connections.
+                LOT and VOT systems are used for LPG distribution requirements where the pipeline arrangement needs to support the specific gas supply and usage setup. The system configuration depends on the project, site conditions, LPG requirement, and number of connected usage points.
               </p>
               <p className="font-body-md text-white/80 text-xs sm:text-sm leading-relaxed">
-                Where LOT or VOT systems are required, the pipeline arrangement and related equipment are planned according to the requirements of the project.
+                Our project experience includes work for reputed companies and property developments across different locations. Where applicable, project details such as the client, location, system type, and scope of work can be reviewed through our project portfolio.
               </p>
               <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
                 <button
                   onClick={() => navigate('/projects')}
                   className="bg-secondary-container text-on-secondary px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-headline-md font-bold text-xs sm:text-sm hover:opacity-90 transition-all cursor-pointer shadow-lg active:scale-95"
                 >
-                  View Projects
+                  View Our Projects
                 </button>
                 <button
                   onClick={() => navigate('/contact')}
@@ -427,31 +467,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Valuable Customers Section (Variation 2) */}
+      {/* Our Valuable Customers Section */}
       <section className="py-12 sm:py-16 bg-surface-container-low border-b border-outline-variant/20">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 text-center mb-8 sm:mb-12">
           <div className="reveal-slide-up max-w-3xl mx-auto">
             <span className="text-secondary font-bold text-xs uppercase tracking-widest">Industry Trust</span>
             <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mt-1 mb-3">Our Valuable Customers</h2>
             <p className="font-body-md text-on-surface-variant text-xs sm:text-sm md:text-base leading-relaxed mb-2">
-              We have provided gas pipeline installation services for customers across different industries and business sectors. Our customer base includes commercial establishments, industrial companies, property developers, hotels, restaurants, institutions, and other businesses that require LPG pipeline installation.
+              Our LPG pipeline work has supported customers from different industries and business segments. We work with property developers, commercial establishments, industrial units, hotels, restaurants, institutions, and other organisations that need dependable gas pipeline systems.
             </p>
             <p className="font-body-md text-on-surface-variant text-xs sm:text-sm leading-relaxed text-secondary font-medium">
-              Our completed projects include different types of LPG pipeline requirements, from commercial kitchen applications to larger industrial and institutional installations.
+              Our projects vary in size and application, so the pipeline design and installation approach is based on the actual site conditions and agreed project scope.
             </p>
           </div>
         </div>
-        <CustomersSlider />
+        <CustomersSlider showHeader={false} />
       </section>
 
-      {/* Specialised Pipeline Systems & Equipment (Variation 2) */}
+      {/* Specialised Pipeline Systems & Equipment */}
       <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
           <div className="reveal-slide-up mb-8 sm:mb-12 md:mb-16 text-center max-w-3xl mx-auto">
             <span className="text-secondary font-bold text-xs uppercase tracking-widest">Engineering Systems</span>
             <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 sm:mb-4 mt-1">Specialised Pipeline Systems & Equipment</h2>
             <p className="font-body-md text-on-surface-variant text-xs sm:text-sm md:text-base">
-              Along with LPG gas pipeline installation, we provide pipeline systems and related equipment required for LPG gas distribution. The equipment used for a project depends on the LPG source, gas requirement, number of usage points, and overall pipeline configuration.
+              Along with pipeline installation, we provide the equipment and supporting systems needed for a complete LPG gas supply setup. The components used for each project depend on the LPG source, gas requirement, number of usage points, equipment, and overall pipeline configuration.
             </p>
           </div>
 
@@ -466,7 +506,7 @@ export default function Home() {
                   <div className="w-full h-40 sm:h-44 rounded-2xl overflow-hidden mb-5 sm:mb-6 relative">
                     <img
                       src={srv.image}
-                      alt={srv.title}
+                      alt={srv.alt}
                       width="400"
                       height="176"
                       loading="lazy"
@@ -492,7 +532,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefits of a Centralised LPG Gas Pipeline (Variation 2) */}
+      {/* Benefits of a Centralised LPG Gas Pipeline */}
       <section className="py-12 sm:py-16 md:py-24 bg-surface-container-low border-y border-outline-variant/30 text-left relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
           <div className="reveal-slide-up text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
@@ -501,7 +541,7 @@ export default function Home() {
               Benefits of a Centralised LPG Gas Pipeline
             </h2>
             <p className="font-body-md text-on-surface-variant text-xs sm:text-sm md:text-base">
-              A centralised LPG gas pipeline provides a practical way to supply LPG to multiple usage points from a common gas supply system. It can be useful for commercial kitchens, institutions, hotels, restaurants, and other properties with several LPG usage points.
+              A centralised LPG system can be a practical option for buildings and businesses with multiple gas usage points. Instead of managing separate cylinder connections at every point, LPG can be supplied through a planned pipeline network from a common supply system.
             </p>
           </div>
 
@@ -525,7 +565,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Hi Tech Energy? (Variation 2) */}
+      {/* Why Choose Hi Tech Energy? */}
       <section className="py-12 sm:py-16 md:py-24 bg-primary text-white text-left relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -536,13 +576,10 @@ export default function Home() {
                 Why Choose Hi Tech Energy?
               </h2>
               <p className="font-body-md text-xs sm:text-sm text-white/90 leading-relaxed">
-                For any LPG gas pipeline installation service, proper planning, installation, testing, and commissioning are important. At Hi Tech Energy, we first understand the site and LPG requirements before carrying out the pipeline work.
+                Choosing the right team for LPG pipeline installation is important because the system needs to provide a safe and dependable gas supply for regular use. At Hi Tech Energy, we focus on the actual site requirements instead of applying the same pipeline layout to every project.
               </p>
 
               <div className="pt-2">
-                <h3 className="font-headline-md text-xs font-bold text-secondary-container uppercase tracking-wider mb-3 sm:mb-4">
-                  Our installation work includes:
-                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {whyChooseItems.map((item, idx) => (
                     <div
@@ -558,21 +595,21 @@ export default function Home() {
               </div>
 
               <p className="font-body-md text-xs sm:text-sm text-white/80 leading-relaxed pt-1">
-                We handle the gas pipeline installation process from site assessment and planning through installation, pressure testing, and commissioning. The scope of work is planned according to the requirements of each project.
+                We assess the site, understand the LPG requirement and equipment locations, plan the pipeline route, and complete the installation with testing before commissioning. This approach helps us deliver a pipeline system suited to the requirements of each project.
               </p>
 
               <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
                 <button
-                  onClick={() => navigate('/about')}
+                  onClick={() => navigate('/contact')}
                   className="bg-secondary-container text-on-secondary px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-headline-md font-bold text-xs sm:text-sm hover:opacity-90 transition-all cursor-pointer shadow-lg active:scale-95"
                 >
-                  Know More About Us
+                  Speak With Our Team
                 </button>
                 <button
-                  onClick={() => navigate('/contact')}
+                  onClick={() => navigate('/services')}
                   className="border border-white/30 text-white px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-headline-md font-bold text-xs sm:text-sm hover:bg-white/10 transition-all cursor-pointer active:scale-95"
                 >
-                  Contact Us
+                  View Our Services
                 </button>
               </div>
             </div>
@@ -582,7 +619,7 @@ export default function Home() {
                 <img
                   ref={whyChooseMediaRef}
                   src="/images/optimized/why_choose_hi_tech_pipeline.webp"
-                  alt="Why Choose Hi Tech Energy LPG Pipeline"
+                  alt="Hi Tech Energy LPG gas pipeline installation specialists in Coimbatore"
                   width="800"
                   height="440"
                   loading="lazy"
@@ -602,7 +639,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Engineering Process - Fully Optimized Desktop & Mobile Layout (Variation 2) */}
+      {/* Engineering Process - Fully Optimized Desktop & Mobile Layout */}
       <section className="py-12 sm:py-16 md:py-24 bg-surface-container overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16">
 
@@ -610,7 +647,7 @@ export default function Home() {
             <span className="text-secondary font-bold text-xs uppercase tracking-widest">Systematic Framework</span>
             <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 sm:mb-3 mt-1">Our Engineering Process</h2>
             <p className="font-body-md text-on-surface-variant max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed">
-              Our LPG pipeline installation process starts with understanding the project requirements and site conditions. We assess the LPG source, equipment locations, gas usage points, and available pipeline route before preparing the installation plan.
+              Every project starts with understanding the site and the customer&apos;s requirements. We then plan the pipeline and complete the installation step by step, from the initial site assessment through testing and commissioning.
             </p>
           </div>
 
@@ -681,7 +718,7 @@ export default function Home() {
                   <p className="font-body-sm text-xs text-on-surface-variant leading-relaxed mb-2">{OFFICE_LOCATIONS.headOffice.address}</p>
                   <p className="font-body-sm text-xs font-semibold text-secondary-container mb-2">📌 {OFFICE_LOCATIONS.headOffice.plusCode}</p>
                   <div className="font-body-sm text-xs font-bold text-secondary space-y-1">
-                    <p>📞 Phone: <a href={`tel:${OFFICE_LOCATIONS.headOffice.phone}`} className="hover:underline">{OFFICE_LOCATIONS.headOffice.phone}</a></p>
+                    <p>📞 Phone: <a href={`tel:${OFFICE_LOCATIONS.headOffice.phone.replace(/\s+/g, '')}`} className="hover:underline">{OFFICE_LOCATIONS.headOffice.phone}</a></p>
                     <p>✉ Email: <a href={`mailto:${OFFICE_LOCATIONS.headOffice.email}`} className="hover:underline">{OFFICE_LOCATIONS.headOffice.email}</a></p>
                   </div>
                 </div>
